@@ -393,10 +393,22 @@ void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& 
     m_pObjSearchDialog->ClearObjects();
     wxString safe_value = search_string;
     safe_value.Replace(_T("'"), _T("''"));
-    wxSQLite3ResultSet set = SelectFromDB( m_db, wxString::Format( wxT("SELECT f.featurename, o.objname, o.lat, o.lon FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) WHERE featurename LIKE '%%%s%%' AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str() ) );
-    while (set.NextRow())
+    wxSQLite3ResultSet set = SelectFromDB( m_db, wxString::Format( wxT("SELECT COUNT(*) FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) WHERE featurename LIKE '%%%s%%' AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str() ) );
+    int objects_found = set.GetInt(0);
+    set.Finalize();
+    int show = wxID_YES;
+    if ( objects_found > 1000 )
     {
-        m_pObjSearchDialog->AddObject( set.GetAsString(0),  set.GetAsString(1), set.GetDouble(2), set.GetDouble(3) );
+        show = wxMessageBox( wxString::Format( _("Your search resulted in %i objects found. This is a lot, do you really want to show all of them?"), objects_found ), _("Too many objects found"), wxYES_NO | wxCENTER );
+    }
+    if ( show == wxID_YES )
+    {
+        set = SelectFromDB( m_db, wxString::Format( wxT("SELECT f.featurename, o.objname, o.lat, o.lon FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) WHERE featurename LIKE '%%%s%%' AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str() ) );
+        while (set.NextRow())
+        {
+            m_pObjSearchDialog->AddObject( set.GetAsString(0),  set.GetAsString(1), set.GetDouble(2), set.GetDouble(3) );
+        }
+        set.Finalize();
     }
 }
 
@@ -421,6 +433,11 @@ void ObjSearchDialogImpl::AddFeature(wxString feature)
 
 void ObjSearchDialogImpl::OnSearch( wxCommandEvent& event )
 {
+    if ( m_textCtrlSearchTerm->GetValue().Len() == 0 )
+    {
+        wxMessageBox( _("You did not eneter any search term, do so.") );
+        return;
+    }
     wxString feature_filter = wxEmptyString;
     if ( m_choiceFeature->GetSelection() > 0 )
         feature_filter = m_choiceFeature->GetStringSelection();
