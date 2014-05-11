@@ -343,8 +343,11 @@ wxLongLong objsearch_pi::StoreNewChart(wxString chart)
 {
     if ( !m_bDBUsable )
         return -1;
+    wxFileName chartname(chart);
+    wxString chrt = chartname.GetName();
+    
     m_chartLoading = chart;
-    QueryDB( m_db, wxString::Format(_T("INSERT INTO chart(chartname) VALUES ('%s')"), chart.c_str()) );
+    QueryDB( m_db, wxString::Format(_T("INSERT INTO chart(chartname) VALUES ('%s')"), chrt.c_str()) );
     return m_db->GetLastRowId();
 }
 
@@ -372,10 +375,13 @@ int objsearch_pi::GetChartId(wxString chart)
 {
     if ( !m_bDBUsable )
         return -1;
-    if(m_chartsInDb.find(chart) == m_chartsInDb.end())
+    wxFileName chartname(chart);
+    wxString chrt = chartname.GetName();
+    
+    if(m_chartsInDb.find(chrt) == m_chartsInDb.end())
         return 0;
     else
-        return m_chartsInDb[chart];
+        return m_chartsInDb[chrt];
 }
 
 int objsearch_pi::GetFeatureId(wxString feature)
