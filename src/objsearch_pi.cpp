@@ -327,7 +327,9 @@ void objsearch_pi::SendVectorChartObjectInfo(wxString &chart, wxString &feature,
     if ( chart_id == 0 )
     {
         chart_id = StoreNewChart( chart ).ToLong();
-        m_chartsInDb[chart] = chart_id;
+        wxFileName chartname(chart);
+        wxString chrt = chartname.GetName();
+        m_chartsInDb[chrt] = chart_id;
     }
     if ( feature_id == 0 )
     {
