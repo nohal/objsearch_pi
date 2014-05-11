@@ -82,6 +82,7 @@ SET(SRC_OBJSEARCH
             wxsqlite3-3.0.6/src/wxsqlite3.cpp
             sqlite-amalgamation-3080403/sqlite3.c
 )
+INCLUDE_DIRECTORIES(wxsqlite3-3.0.6/include sqlite-amalgamation-3080403)
 ADD_LIBRARY(${PACKAGE_NAME} SHARED ${SRC_OBJSEARCH})
 
 IF(WIN32)
