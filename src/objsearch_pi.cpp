@@ -441,7 +441,7 @@ void ObjSearchDialogImpl::OnSearch( wxCommandEvent& event )
 {
     if ( m_textCtrlSearchTerm->GetValue().Len() == 0 )
     {
-        wxMessageBox( _("You did not eneter any search term, do so.") );
+        wxMessageBox( _("You did not enter any search term, do so.") );
         return;
     }
     wxString feature_filter = wxEmptyString;
