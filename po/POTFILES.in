@@ -1,0 +1,6 @@
+src/icons.cpp
+src/icons.h
+src/ObjSearchDialog.cpp
+src/ObjSearchDialog.h
+src/objsearch_pi.cpp
+src/objsearch_pi.h
