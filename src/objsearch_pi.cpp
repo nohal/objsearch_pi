@@ -199,8 +199,11 @@ int objsearch_pi::Init ( void )
     m_pObjSearchDialog = new ObjSearchDialogImpl( this, m_parent_window );
     
     m_chartLoading = wxEmptyString;
+    
+    m_boatlat = NAN;
+    m_boatlon = NAN;
 
-    return ( WANTS_CURSOR_LATLON       |
+    return ( WANTS_ONPAINT_VIEWPORT    |
              WANTS_TOOLBAR_CALLBACK    |
              INSTALLS_TOOLBAR_TOOL     |
              WANTS_CONFIG              |
@@ -279,9 +282,10 @@ void objsearch_pi::OnToolbarToolCallback ( int id )
     m_pObjSearchDialog->Show();
 }
 
-void objsearch_pi::SetCursorLatLon ( double lat, double lon )
+void objsearch_pi::SetCurrentViewPort(PlugIn_ViewPort &vp)
 {
-//TODO: We will perhaps implement some kind of variable substitution in a later version
+    m_vplat = vp.clat;
+    m_vplon = vp.clon;
 }
 
 bool objsearch_pi::LoadConfig ( void )
@@ -315,7 +319,8 @@ void objsearch_pi::SetColorScheme ( PI_ColorScheme cs )
 
 void objsearch_pi::SetPositionFix( PlugIn_Position_Fix &pfix )
 {
-    //TODO: Set position to calculate additional info like distance...
+    m_boatlat = pfix.Lat;
+    m_boatlon = pfix.Lon;
 }
 
 void objsearch_pi::SendVectorChartObjectInfo(wxString &chart, wxString &feature, wxString &objname, double lat, double lon)
@@ -412,10 +417,24 @@ void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& 
     if ( show == wxYES )
     {
         set = SelectFromDB( m_db, wxString::Format( wxT("SELECT f.featurename, o.objname, o.lat, o.lon FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) WHERE featurename LIKE '%%%s%%' AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str() ) );
+        double lat, lon;
+        double dist, brg;
+        if ( m_boatlat == NAN || m_boatlon == NAN)
+        {
+            lat = m_vplat;
+            lon = m_vplon;
+        }
+        else
+        {
+            lat = m_boatlat;
+            lon = m_boatlon;
+        }
         while (set.NextRow())
         {
-            m_pObjSearchDialog->AddObject( set.GetAsString(0),  set.GetAsString(1), set.GetDouble(2), set.GetDouble(3) );
+            DistanceBearingMercator_Plugin( lat, lat, set.GetDouble(2), set.GetDouble(3), &brg, &dist );
+            m_pObjSearchDialog->AddObject( set.GetAsString(0),  set.GetAsString(1), set.GetDouble(2), set.GetDouble(3), dist );
         }
+        m_pObjSearchDialog->SortResults();
         set.Finalize();
     }
 }
@@ -478,10 +497,17 @@ void ObjSearchDialogImpl::ClearObjects()
     col3.SetText( _("Lon") );
     col3.SetWidth(80);
     m_listCtrlResults->InsertColumn(3, col3);
+    
+    wxListItem col4;
+    col4.SetId(4);
+    col4.SetText( wxString::Format( _("Dist (%s)"), getUsrDistanceUnit_Plugin(-1).c_str() ) );
+    col4.SetWidth(80);
+    m_listCtrlResults->InsertColumn(4, col4);
+    
     m_btnShowOnChart->Enable(false);
 }
 
-void ObjSearchDialogImpl::AddObject(const wxString& feature, const wxString& objectname, double lat, double lon)
+void ObjSearchDialogImpl::AddObject(const wxString& feature, const wxString& objectname, double lat, double lon, double dist)
 {  
     wxListItem item;
     int n = m_listCtrlResults->GetItemCount();
@@ -494,7 +520,8 @@ void ObjSearchDialogImpl::AddObject(const wxString& feature, const wxString& obj
     m_listCtrlResults->SetItem(n, 1, objectname);
     m_listCtrlResults->SetItem(n, 2, wxString::Format(_T("%.4f"),lat));
     m_listCtrlResults->SetItem(n, 3, wxString::Format(_T("%.4f"),lon));
-
+    m_listCtrlResults->SetItem(n, 4,  wxString::Format(_T("%.1f"),toUsrDistance_Plugin(dist, -1)));
+    m_listCtrlResults->SetItemData(n, (int) (dist * 10) );
 }
 
 void ObjSearchDialogImpl::OnItemSelected( wxListEvent& event )
@@ -529,4 +556,19 @@ void ObjSearchDialogImpl::OnShowOnChart( wxCommandEvent& event )
     row_info.m_text.ToDouble(&lon);
     event.Skip();
     JumpToPosition(lat, lon, 0.01);
+}
+
+int wxCALLBACK ObjectDistanceCompareFunction(wxIntPtr item1, wxIntPtr item2, wxIntPtr WXUNUSED(sortData))
+{
+    if (item1 < item2)
+        return -1;
+  	if (item1 > item2)
+        return 1;
+
+ 	return 0;
+}
+
+void ObjSearchDialogImpl::SortResults()
+{
+    m_listCtrlResults->SortItems(ObjectDistanceCompareFunction, 0);
 }

@@ -64,7 +64,9 @@ public:
     void AddFeature(wxString feature);
     
     void ClearObjects();
-    void AddObject(const wxString& feature, const wxString& objectname, double lat, double lon);
+    void AddObject(const wxString& feature, const wxString& objectname, double lat, double lon, double dist);
+    
+    void SortResults();
     
     objsearch_pi *p_plugin;
     
@@ -95,7 +97,7 @@ public:
     wxString GetLongDescription();
 
 //    The override PlugIn Methods
-    void SetCursorLatLon ( double lat, double lon );
+    void SetCurrentViewPort(PlugIn_ViewPort &vp);
     int GetToolbarToolCount ( void );
     void OnToolbarToolCallback ( int id );
     void SetPositionFix( PlugIn_Position_Fix &pfix );
@@ -137,6 +139,12 @@ private:
     
     int QueryDB(wxSQLite3Database* db, const wxString& sql);
     wxSQLite3ResultSet SelectFromDB(wxSQLite3Database* db, const wxString& sql);
+    
+    double m_boatlat;
+    double m_boatlon;
+    
+    double m_vplat;
+    double m_vplon;
 
 };
 
