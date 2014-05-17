@@ -34,7 +34,10 @@
 #endif //precompiled headers
 
 #include <map>
+#include <queue>
 #include <wx/fileconf.h>
+//#include <wx/thread.h>
+//#include <wx/event.h>
 
 #define     PLUGIN_VERSION_MAJOR    0
 #define     PLUGIN_VERSION_MINOR    1
@@ -54,6 +57,17 @@
 #define OBJSEARCH_TOOL_POSITION    -1          // Request default positioning of toolbar tool
 
 class objsearch_pi;
+
+class DbThread : public wxThread
+{
+public:
+    DbThread(objsearch_pi * handler) : wxThread() { Create(); m_pHandler = handler; }
+    ~DbThread();
+    void *Entry();
+protected:
+    objsearch_pi *m_pHandler;
+};
+
 
 class ObjSearchDialogImpl : public ObjSearchDialog
 {
@@ -108,6 +122,11 @@ public:
     
     void FindObjects( const wxString& feature_filter, const wxString& search_string );
 
+protected:
+    int QueryDB(const wxString& sql) { return QueryDB(m_db, sql); }
+    wxString GetQuery();
+    bool HasQueries();
+
 private:
     bool LoadConfig ( void );
     bool SaveConfig ( void );
@@ -146,6 +165,11 @@ private:
     double m_vplat;
     double m_vplon;
 
+    DbThread *m_pThread;
+    wxCriticalSection m_pThreadCS; // protects the m_pThread pointer
+    friend class DbThread; // allow it to access our m_pThread
+
+    std::queue<wxString> query_queue;
 };
 
 #endif

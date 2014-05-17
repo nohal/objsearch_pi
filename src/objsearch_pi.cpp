@@ -172,6 +172,26 @@ objsearch_pi::objsearch_pi ( void *ppimgr )
 
 objsearch_pi::~objsearch_pi ( void )
 {
+    {
+        wxCriticalSectionLocker enter(m_pThreadCS);
+        if (m_pThread) // does the thread still exist?
+        {
+            if (m_pThread->Delete() != wxTHREAD_NO_ERROR )
+                wxLogError(_T("Can't delete the DB thread!"));
+        }
+    } // exit from the critical section to give the thread
+        // the possibility to enter its destructor
+        // (which is guarded with m_pThreadCS critical section!)
+    while (1)
+    {
+        { // was the ~MyThread() function executed?
+            wxCriticalSectionLocker enter(m_pThreadCS);
+            if (!m_pThread)
+                break;
+        }
+        // wait for thread completion
+        wxThread::This()->Sleep(1);
+    }
     clearDB(m_db);
     delete _img_objsearch_pi;
     delete _img_objsearch;
@@ -202,6 +222,15 @@ int objsearch_pi::Init ( void )
     
     m_boatlat = NAN;
     m_boatlon = NAN;
+
+    m_pThread = new DbThread(this);
+    wxThreadError err = m_pThread->Run();
+
+    if ( err != wxTHREAD_NO_ERROR )
+    {
+        delete m_pThread;
+        m_pThread = NULL;
+    }
 
     return ( WANTS_ONPAINT_VIEWPORT    |
              WANTS_TOOLBAR_CALLBACK    |
@@ -374,7 +403,8 @@ void objsearch_pi::StoreNewObject(long chart_id, long feature_id, wxString objna
     {
         wxString safe_value = objname;
         safe_value.Replace(_T("'"), _T("''"));
-        QueryDB( m_db, wxString::Format(_T("INSERT INTO object(chart_id, feature_id, objname, lat, lon) VALUES (%i, %i, '%s', %f, %f)"), chart_id, feature_id, safe_value.c_str(), lat, lon) );
+        wxString sql = wxString::Format(_T("INSERT INTO object(chart_id, feature_id, objname, lat, lon) VALUES (%i, %i, '%s', %f, %f)"), chart_id, feature_id, safe_value.c_str(), lat, lon);
+        query_queue.push(sql);
     }
 }
 
@@ -571,4 +601,45 @@ int wxCALLBACK ObjectDistanceCompareFunction(wxIntPtr item1, wxIntPtr item2, wxI
 void ObjSearchDialogImpl::SortResults()
 {
     m_listCtrlResults->SortItems(ObjectDistanceCompareFunction, 0);
+}
+
+void *DbThread::Entry()
+{
+    while (!TestDestroy())
+    {
+        while (m_pHandler->HasQueries())
+        {
+            //wxString sql(query_queue.front().c_str(), wxConvUTF8);
+            m_pHandler->QueryDB(m_pHandler->GetQuery());
+            //query_queue.pop();
+        }
+        Sleep(500);
+        //wxQueueEvent(m_pHandler, new wxThreadEvent(wxEVT_COMMAND_DBTHREAD_UPDATE));
+    }
+    // signal the event handler that this thread is going to be destroyed
+    // NOTE: here we assume that using the m_pHandler pointer is safe,
+    // (in this case this is assured by the MyFrame destructor)
+    //    wxQueueEvent(m_pHandler, new wxThreadEvent(wxEVT_COMMAND_DBTHREAD_COMPLETED));
+    //return (wxThread::ExitCode)0; // success
+
+    return 0;
+}
+
+
+DbThread::~DbThread()
+{
+    wxCriticalSectionLocker enter(m_pHandler->m_pThreadCS);
+    m_pHandler->m_pThread = NULL;
+}
+
+wxString objsearch_pi::GetQuery()
+{
+    wxString query = query_queue.front();
+    query_queue.pop();
+    return query;
+}
+
+bool objsearch_pi::HasQueries()
+{
+    return !query_queue.empty();
 }
