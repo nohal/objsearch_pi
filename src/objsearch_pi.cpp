@@ -36,6 +36,12 @@
 
 #include "objsearch_pi.h"
 
+// Define NAN, which is unavailable on Windows
+#ifdef _MSC_VER
+#define INFINITY (DBL_MAX+DBL_MAX)
+#define NAN (INFINITY-INFINITY)
+#endif
+
 
 // the class factories, used to create and destroy instances of the PlugIn
 
