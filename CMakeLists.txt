@@ -79,6 +79,8 @@ SET(SRC_OBJSEARCH
             src/icons.cpp
             src/ObjSearchDialog.h
             src/ObjSearchDialog.cpp
+            src/clcpopup.h
+            src/clcpopup.cpp
             wxsqlite3-3.0.6/src/wxsqlite3.cpp
             sqlite-amalgamation-3080403/sqlite3.c
 )

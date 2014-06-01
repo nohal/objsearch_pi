@@ -85,6 +85,7 @@ public:
     objsearch_pi *p_plugin;
     
 protected:
+    CheckListComboPopup* m_clcPopup;
     void OnSearch( wxCommandEvent& event );
     void OnItemSelected( wxListEvent& event );
     void OnClose( wxCommandEvent& event );

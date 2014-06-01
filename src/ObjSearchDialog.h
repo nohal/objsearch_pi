@@ -11,12 +11,14 @@
 #include <wx/artprov.h>
 #include <wx/xrc/xmlres.h>
 #include <wx/intl.h>
-#include <wx/string.h>
-#include <wx/choice.h>
+#include <wx/checklst.h>
+#include <wx/combo.h>
+#include "clcpopup.h"
 #include <wx/gdicmn.h>
 #include <wx/font.h>
 #include <wx/colour.h>
 #include <wx/settings.h>
+#include <wx/string.h>
 #include <wx/textctrl.h>
 #include <wx/button.h>
 #include <wx/sizer.h>
@@ -34,7 +36,7 @@ class ObjSearchDialog : public wxDialog
 	private:
 	
 	protected:
-		wxChoice* m_choiceFeature;
+		wxGenericComboCtrl *m_choiceFeature;
 		wxTextCtrl* m_textCtrlSearchTerm;
 		wxButton* m_buttonSearch;
 		wxListCtrl* m_listCtrlResults;
@@ -42,7 +44,6 @@ class ObjSearchDialog : public wxDialog
 		wxButton* m_btnClose;
 		
 		// Virtual event handlers, overide them in your derived class
-		virtual void OnFeatureSelected( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnSearch( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnItemSelected( wxListEvent& event ) { event.Skip(); }
 		virtual void OnShowOnChart( wxCommandEvent& event ) { event.Skip(); }
@@ -53,7 +54,7 @@ class ObjSearchDialog : public wxDialog
 		
 		ObjSearchDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Chart Object Search"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 649,560 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~ObjSearchDialog();
-			
+	
 };
 
 #endif //__OBJSEARCHDIALOG_H__

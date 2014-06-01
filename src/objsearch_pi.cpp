@@ -442,7 +442,7 @@ void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& 
     m_pObjSearchDialog->ClearObjects();
     wxString safe_value = search_string;
     safe_value.Replace(_T("'"), _T("''"));
-    wxSQLite3ResultSet set = SelectFromDB( m_db, wxString::Format( wxT("SELECT COUNT(*) FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) WHERE featurename LIKE '%%%s%%' AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str() ) );
+    wxSQLite3ResultSet set = SelectFromDB( m_db, wxString::Format( wxT("SELECT COUNT(*) FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) WHERE instr('%s', featurename) > 0 AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str() ) );
     int objects_found = set.GetInt(0);
     set.Finalize();
     int show = wxYES;
@@ -452,7 +452,7 @@ void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& 
     }
     if ( show == wxYES )
     {
-        set = SelectFromDB( m_db, wxString::Format( wxT("SELECT f.featurename, o.objname, o.lat, o.lon FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) WHERE featurename LIKE '%%%s%%' AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str() ) );
+        set = SelectFromDB( m_db, wxString::Format( wxT("SELECT f.featurename, o.objname, o.lat, o.lon FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) WHERE instr('%s', featurename) > 0 AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str() ) );
         double lat, lon;
         double dist, brg;
         if ( m_boatlat == NAN || m_boatlon == NAN)
@@ -480,18 +480,30 @@ ObjSearchDialogImpl::ObjSearchDialogImpl( objsearch_pi* plugin, wxWindow* parent
     p_plugin = plugin;
     
     m_btnShowOnChart->Enable(false);
+    
+    // Make sure we use popup that allows focusing the treectrl.
+	m_choiceFeature->UseAltPopupWindow();
+	
+	// Set popup interface right away, otherwise some of the calls
+	// below may fail
+	m_clcPopup = new CheckListComboPopup();
+	m_choiceFeature->SetPopupControl(m_clcPopup);
 }
 
 void ObjSearchDialogImpl::ClearFeatures()
 {
-    m_choiceFeature->Clear();
-    m_choiceFeature->Append(_("Any"));
-    m_choiceFeature->Select(0);
+    if(m_clcPopup)
+        m_clcPopup->Clear();
+    m_choiceFeature->SetValue(_("All"));
 }
 
 void ObjSearchDialogImpl::AddFeature(wxString feature)
 {
-    m_choiceFeature->Append(feature);
+    if(m_clcPopup)
+    {
+        m_clcPopup->Append(feature);
+        m_clcPopup->Check(m_clcPopup->GetCount() - 1);
+    }
 }
 
 void ObjSearchDialogImpl::OnSearch( wxCommandEvent& event )
@@ -502,8 +514,7 @@ void ObjSearchDialogImpl::OnSearch( wxCommandEvent& event )
         return;
     }
     wxString feature_filter = wxEmptyString;
-    if ( m_choiceFeature->GetSelection() > 0 )
-        feature_filter = m_choiceFeature->GetStringSelection();
+    feature_filter = m_clcPopup->GetStringValue();
     p_plugin->FindObjects( feature_filter, m_textCtrlSearchTerm->GetValue() );
 }
 

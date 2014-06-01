@@ -19,9 +19,15 @@ ObjSearchDialog::ObjSearchDialog( wxWindow* parent, wxWindowID id, const wxStrin
 	wxBoxSizer* bSearchSizer;
 	bSearchSizer = new wxBoxSizer( wxHORIZONTAL );
 	
-	wxArrayString m_choiceFeatureChoices;
-	m_choiceFeature = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choiceFeatureChoices, 0 );
-	m_choiceFeature->SetSelection( 0 );
+	m_choiceFeature = new wxGenericComboCtrl( this, wxID_ANY, wxEmptyString, wxPoint(0,0), wxDefaultSize, wxCB_READONLY );
+	
+	// Make sure we use popup that allows focusing the treectrl.
+	m_choiceFeature->UseAltPopupWindow();
+	
+	// Set popup interface right away, otherwise some of the calls
+	// below may fail
+	CheckListComboPopup* clcPopup = new CheckListComboPopup();
+	m_choiceFeature->SetPopupControl(clcPopup);
 	bSearchSizer->Add( m_choiceFeature, 0, wxALL, 5 );
 	
 	m_textCtrlSearchTerm = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
@@ -55,8 +61,7 @@ ObjSearchDialog::ObjSearchDialog( wxWindow* parent, wxWindowID id, const wxStrin
 	this->Centre( wxBOTH );
 	
 	// Connect Events
-	m_choiceFeature->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( ObjSearchDialog::OnFeatureSelected ), NULL, this );
-    m_textCtrlSearchTerm->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( ObjSearchDialog::OnSearch ), NULL, this );
+	m_textCtrlSearchTerm->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( ObjSearchDialog::OnSearch ), NULL, this );
 	m_buttonSearch->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ObjSearchDialog::OnSearch ), NULL, this );
 	m_listCtrlResults->Connect( wxEVT_COMMAND_LIST_ITEM_SELECTED, wxListEventHandler( ObjSearchDialog::OnItemSelected ), NULL, this );
 	m_btnShowOnChart->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ObjSearchDialog::OnShowOnChart ), NULL, this );
@@ -66,7 +71,6 @@ ObjSearchDialog::ObjSearchDialog( wxWindow* parent, wxWindowID id, const wxStrin
 ObjSearchDialog::~ObjSearchDialog()
 {
 	// Disconnect Events
-	m_choiceFeature->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( ObjSearchDialog::OnFeatureSelected ), NULL, this );
 	m_textCtrlSearchTerm->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( ObjSearchDialog::OnSearch ), NULL, this );
 	m_buttonSearch->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ObjSearchDialog::OnSearch ), NULL, this );
 	m_listCtrlResults->Disconnect( wxEVT_COMMAND_LIST_ITEM_SELECTED, wxListEventHandler( ObjSearchDialog::OnItemSelected ), NULL, this );
@@ -74,4 +78,3 @@ ObjSearchDialog::~ObjSearchDialog()
 	m_btnClose->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ObjSearchDialog::OnClose ), NULL, this );
 	
 }
-
