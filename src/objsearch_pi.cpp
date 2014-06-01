@@ -97,7 +97,7 @@ wxSQLite3Database* objsearch_pi::initDB(void)
 
     if ( have_to_create && m_bDBUsable )
     {
-        QueryDB( db, wxT("CREATE TABLE chart (id INTEGER PRIMARY KEY AUTOINCREMENT, chartname TEXT)") );
+        QueryDB( db, wxT("CREATE TABLE chart (id INTEGER PRIMARY KEY AUTOINCREMENT, chartname TEXT, scale REAL, nativescale INTEGER)") );
         QueryDB( db, wxT("CREATE TABLE feature (id INTEGER PRIMARY KEY AUTOINCREMENT, featurename TEXT)") );
         QueryDB( db, wxT("CREATE TABLE object (chart_id INTEGER, feature_id INTEGER, objname TEXT, lat REAL, lon REAL)") );
     }
@@ -161,10 +161,15 @@ objsearch_pi::objsearch_pi ( void *ppimgr )
     
     m_db = initDB();
     
-    wxSQLite3ResultSet set = SelectFromDB( m_db, wxT("SELECT id, chartname FROM chart") );
+    wxSQLite3ResultSet set = SelectFromDB( m_db, wxT("SELECT id, chartname, scale, nativescale FROM chart") );
     while (set.NextRow())
     {
-        m_chartsInDb[set.GetAsString(1)] = set.GetInt(0);
+        Chart ch;
+        ch.id = set.GetInt(0);
+        ch.name = set.GetAsString(1);
+        ch.scale = set.GetDouble(2);
+        ch.nativescale = set.GetInt(3);
+        m_chartsInDb[ch.name] = ch;
     }
     set.Finalize();
     
@@ -358,18 +363,16 @@ void objsearch_pi::SetPositionFix( PlugIn_Position_Fix &pfix )
     m_boatlon = pfix.Lon;
 }
 
-void objsearch_pi::SendVectorChartObjectInfo(wxString &chart, wxString &feature, wxString &objname, double lat, double lon)
+void objsearch_pi::SendVectorChartObjectInfo(wxString &chart, wxString &feature, wxString &objname, double lat, double lon, double scale, int nativescale)
 {
     if ( !m_bDBUsable )
         return;
     long chart_id = GetChartId(chart);
     long feature_id = GetFeatureId(feature);
     if ( chart_id == 0 )
-    {
-        chart_id = StoreNewChart( chart ).ToLong();
-        wxFileName chartname(chart);
-        wxString chrt = chartname.GetName();
-        m_chartsInDb[chrt] = chart_id;
+    {      
+        Chart ch = StoreNewChart( chart, scale, nativescale );
+        m_chartsInDb[ch.name] = ch;
     }
     if ( feature_id == 0 )
     {
@@ -381,16 +384,23 @@ void objsearch_pi::SendVectorChartObjectInfo(wxString &chart, wxString &feature,
         StoreNewObject( chart_id, feature_id, objname, lat, lon );
 }
 
-wxLongLong objsearch_pi::StoreNewChart(wxString chart)
+Chart objsearch_pi::StoreNewChart(wxString chart, double scale, int nativescale)
 {
+    Chart ch;
     if ( !m_bDBUsable )
-        return -1;
+    {
+        ch.id = -1;
+        return ch;
+    }
     wxFileName chartname(chart);
-    wxString chrt = chartname.GetName();
+    ch.name = chartname.GetName();
+    ch.scale = scale;
+    ch.nativescale = nativescale;
     
     m_chartLoading = chart;
-    QueryDB( m_db, wxString::Format(_T("INSERT INTO chart(chartname) VALUES ('%s')"), chrt.c_str()) );
-    return m_db->GetLastRowId();
+    QueryDB( m_db, wxString::Format(_T("INSERT INTO chart(chartname, scale, nativescale) VALUES ('%s', %f, %i)"), ch.name.c_str(), ch.scale, ch.nativescale) );
+    ch.id = m_db->GetLastRowId();
+    return ch;
 }
 
 wxLongLong objsearch_pi::StoreNewFeature(wxString feature)
@@ -414,7 +424,7 @@ void objsearch_pi::StoreNewObject(long chart_id, long feature_id, wxString objna
     }
 }
 
-int objsearch_pi::GetChartId(wxString chart)
+long objsearch_pi::GetChartId(wxString chart)
 {
     if ( !m_bDBUsable )
         return -1;
@@ -424,7 +434,7 @@ int objsearch_pi::GetChartId(wxString chart)
     if(m_chartsInDb.find(chrt) == m_chartsInDb.end())
         return 0;
     else
-        return m_chartsInDb[chrt];
+        return m_chartsInDb[chrt].id.ToLong();
 }
 
 int objsearch_pi::GetFeatureId(wxString feature)
@@ -452,7 +462,7 @@ void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& 
     }
     if ( show == wxYES )
     {
-        set = SelectFromDB( m_db, wxString::Format( wxT("SELECT f.featurename, o.objname, o.lat, o.lon FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) WHERE instr('%s', featurename) > 0 AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str() ) );
+        set = SelectFromDB( m_db, wxString::Format( wxT("SELECT f.featurename, o.objname, o.lat, o.lon, ch.scale, ch.nativescale, ch.chartname FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) LEFT JOIN chart ch ON (o.chart_id = ch.id) WHERE instr('%s', featurename) > 0 AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str() ) );
         double lat, lon;
         double dist, brg;
         if ( m_boatlat == NAN || m_boatlon == NAN)
@@ -468,7 +478,7 @@ void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& 
         while (set.NextRow())
         {
             DistanceBearingMercator_Plugin( lat, lat, set.GetDouble(2), set.GetDouble(3), &brg, &dist );
-            m_pObjSearchDialog->AddObject( set.GetAsString(0),  set.GetAsString(1), set.GetDouble(2), set.GetDouble(3), dist );
+            m_pObjSearchDialog->AddObject( set.GetAsString(0),  set.GetAsString(1), set.GetDouble(2), set.GetDouble(3), dist, set.GetDouble(4), set.GetInt(5), set.GetAsString(6) );
         }
         m_pObjSearchDialog->SortResults();
         set.Finalize();
@@ -551,10 +561,28 @@ void ObjSearchDialogImpl::ClearObjects()
     col4.SetWidth(80);
     m_listCtrlResults->InsertColumn(4, col4);
     
+    wxListItem col5;
+    col5.SetId(5);
+    col5.SetText( _("Scale") );
+    col5.SetWidth(0);
+    m_listCtrlResults->InsertColumn(5, col5);
+    
+    wxListItem col6;
+    col6.SetId(6);
+    col6.SetText( _("Scale") );
+    col6.SetWidth(80);
+    m_listCtrlResults->InsertColumn(6, col6);
+    
+    wxListItem col7;
+    col7.SetId(7);
+    col7.SetText( _("Chart") );
+    col7.SetWidth(80);
+    m_listCtrlResults->InsertColumn(7, col7);
+    
     m_btnShowOnChart->Enable(false);
 }
 
-void ObjSearchDialogImpl::AddObject(const wxString& feature, const wxString& objectname, double lat, double lon, double dist)
+void ObjSearchDialogImpl::AddObject(const wxString& feature, const wxString& objectname, double lat, double lon, double dist, double scale, int nativescale, const wxString& chart)
 {  
     wxListItem item;
     int n = m_listCtrlResults->GetItemCount();
@@ -565,9 +593,12 @@ void ObjSearchDialogImpl::AddObject(const wxString& feature, const wxString& obj
     
     m_listCtrlResults->SetItem(n, 0, feature);
     m_listCtrlResults->SetItem(n, 1, objectname);
-    m_listCtrlResults->SetItem(n, 2, wxString::Format(_T("%.4f"),lat));
-    m_listCtrlResults->SetItem(n, 3, wxString::Format(_T("%.4f"),lon));
-    m_listCtrlResults->SetItem(n, 4,  wxString::Format(_T("%.1f"),toUsrDistance_Plugin(dist, -1)));
+    m_listCtrlResults->SetItem(n, 2, wxString::Format(_T("%.4f"), lat));
+    m_listCtrlResults->SetItem(n, 3, wxString::Format(_T("%.4f"), lon));
+    m_listCtrlResults->SetItem(n, 4, wxString::Format(_T("%.1f"), toUsrDistance_Plugin(dist, -1)));
+    m_listCtrlResults->SetItem(n, 5, wxString::Format(_T("%.4f"), scale));
+    m_listCtrlResults->SetItem(n, 6, wxString::Format(_T("%i"), nativescale));
+    m_listCtrlResults->SetItem(n, 7, chart);
     m_listCtrlResults->SetItemData(n, (int) (dist * 10) );
 }
 
@@ -601,8 +632,14 @@ void ObjSearchDialogImpl::OnShowOnChart( wxCommandEvent& event )
     m_listCtrlResults->GetItem( row_info );
     double lon;
     row_info.m_text.ToDouble(&lon);
+    
+    row_info.m_col = 5;
+    m_listCtrlResults->GetItem( row_info );
+    double scale;
+    row_info.m_text.ToDouble(&scale);
+        
     event.Skip();
-    JumpToPosition(lat, lon, 0.01);
+    JumpToPosition(lat, lon, scale);
 }
 
 int wxCALLBACK ObjectDistanceCompareFunction(wxIntPtr item1, wxIntPtr item2, wxIntPtr WXUNUSED(sortData))

@@ -58,6 +58,14 @@
 
 class objsearch_pi;
 
+struct Chart
+{
+    wxLongLong id;
+    wxString name;
+    double scale;
+    int nativescale;
+};
+
 class DbThread : public wxThread
 {
 public:
@@ -78,7 +86,7 @@ public:
     void AddFeature(wxString feature);
     
     void ClearObjects();
-    void AddObject(const wxString& feature, const wxString& objectname, double lat, double lon, double dist);
+    void AddObject(const wxString& feature, const wxString& objectname, double lat, double lon, double dist, double scale, int nativescale, const wxString& chart);
     
     void SortResults();
     
@@ -116,7 +124,7 @@ public:
     int GetToolbarToolCount ( void );
     void OnToolbarToolCallback ( int id );
     void SetPositionFix( PlugIn_Position_Fix &pfix );
-    void SendVectorChartObjectInfo( wxString &chart, wxString &feature, wxString &objname, double lat, double lon );
+    void SendVectorChartObjectInfo( wxString &chart, wxString &feature, wxString &objname, double lat, double lon, double scale, int nativescale );
 
 // Other public methods
     void SetColorScheme ( PI_ColorScheme cs );
@@ -140,14 +148,14 @@ private:
     
     ObjSearchDialogImpl *m_pObjSearchDialog;
     
-    std::map<wxString, int> m_chartsInDb;
+    std::map<wxString, Chart> m_chartsInDb;
     std::map<wxString, int> m_featuresInDb;
     wxSQLite3Database *m_db;
     
-    int GetChartId(wxString chart);
+    long GetChartId(wxString chart);
     int GetFeatureId(wxString feature);
     
-    wxLongLong StoreNewChart(wxString chart);
+    Chart StoreNewChart(wxString chart, double scale, int nativescale);
     wxLongLong StoreNewFeature(wxString feature);
     void StoreNewObject(long chart_id, long feature_id, wxString objname, double lat, double lon);
     
