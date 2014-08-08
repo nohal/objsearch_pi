@@ -152,7 +152,7 @@ void objsearch_pi::clearDB(wxSQLite3Database* db)
 }
 
 objsearch_pi::objsearch_pi ( void *ppimgr )
-    : opencpn_plugin_111 ( ppimgr )
+    : opencpn_plugin_112 ( ppimgr )
 {
     // Create the PlugIn icons
     initialize_images();

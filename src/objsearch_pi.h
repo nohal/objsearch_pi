@@ -100,7 +100,7 @@ protected:
     void OnShowOnChart( wxCommandEvent& event );
 };
 
-class objsearch_pi : public opencpn_plugin_111
+class objsearch_pi : public opencpn_plugin_112
 {
 public:
     objsearch_pi ( void *ppimgr );
