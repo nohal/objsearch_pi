@@ -1,0 +1,90 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: opencpn\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-20 16:35-0500\n"
+"PO-Revision-Date: 2014-08-24 04:41-0400\n"
+"Last-Translator: nohal <pavel@kalian.cz>\n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+
+#: src/ObjSearchDialog.cpp:36
+msgid "Search"
+msgstr "Search"
+
+#: src/ObjSearchDialog.cpp:48
+msgid "Show on Chart"
+msgstr "Show on Chart"
+
+#: src/ObjSearchDialog.cpp:51
+msgid "Close"
+msgstr "Close"
+
+#: src/ObjSearchDialog.h:55 src/objsearch_pi.h:83
+msgid "Chart Object Search"
+msgstr "Chart Object Search"
+
+#: src/objsearch_pi.cpp:227
+msgid "Object Search"
+msgstr "Object Search"
+
+#: src/objsearch_pi.cpp:300
+msgid "Vector Chart Object Search PlugIn for OpenCPN"
+msgstr "Vector Chart Object Search PlugIn for OpenCPN"
+
+#: src/objsearch_pi.cpp:306
+msgid "Vector Chart Object Search PlugIn for OpenCPN\nProvides a search function for the named vector chart objects."
+msgstr "Vector Chart Object Search PlugIn for OpenCPN\nProvides a search function for the named vector chart objects."
+
+#: src/objsearch_pi.cpp:461
+#, c-format
+msgid "Your search resulted in %i objects found. This is a lot, do you really want to show all of them?"
+msgstr "Your search resulted in %i objects found. This is a lot, do you really want to show all of them?"
+
+#: src/objsearch_pi.cpp:461
+msgid "Too many objects found"
+msgstr "Too many objects found"
+
+#: src/objsearch_pi.cpp:507
+msgid "All"
+msgstr "All"
+
+#: src/objsearch_pi.cpp:523
+msgid "You did not enter any search term, do so."
+msgstr "You did not enter any search term, do so."
+
+#: src/objsearch_pi.cpp:536
+msgid "Type"
+msgstr "Type"
+
+#: src/objsearch_pi.cpp:542
+msgid "Name"
+msgstr "Name"
+
+#: src/objsearch_pi.cpp:548
+msgid "Lat"
+msgstr "Lat"
+
+#: src/objsearch_pi.cpp:554
+msgid "Lon"
+msgstr "Lon"
+
+#: src/objsearch_pi.cpp:560
+#, c-format
+msgid "Dist (%s)"
+msgstr "Dist (%s)"
+
+#: src/objsearch_pi.cpp:566 src/objsearch_pi.cpp:572
+msgid "Scale"
+msgstr "Scale"
+
+#: src/objsearch_pi.cpp:578
+msgid "Chart"
+msgstr "Chart"
+
