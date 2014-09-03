@@ -43,9 +43,9 @@
 #define     PLUGIN_VERSION_MINOR    1
 
 #define     MY_API_VERSION_MAJOR    1
-#define     MY_API_VERSION_MINOR    11
+#define     MY_API_VERSION_MINOR    12
 
-#include "../../../include/ocpn_plugin.h"
+#include "ocpn_plugin.h"
 
 #include "ObjSearchDialog.h"
 
