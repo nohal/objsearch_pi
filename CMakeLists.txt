@@ -45,10 +45,10 @@ SET(SRC_OBJSEARCH
             src/ObjSearchDialog.cpp
             src/clcpopup.h
             src/clcpopup.cpp
-            wxsqlite3-3.0.6/src/wxsqlite3.cpp
-            sqlite-amalgamation-3080403/sqlite3.c
+            wxsqlite3-3.1.1/src/wxsqlite3.cpp
+            sqlite-amalgamation-3080600/sqlite3.c
 )
-INCLUDE_DIRECTORIES(wxsqlite3-3.0.6/include sqlite-amalgamation-3080403)
+INCLUDE_DIRECTORIES(wxsqlite3-3.1.1/include sqlite-amalgamation-3080600)
 ADD_LIBRARY(${PACKAGE_NAME} SHARED ${SRC_OBJSEARCH})
 
 INCLUDE("cmake/PluginInstall.cmake")
