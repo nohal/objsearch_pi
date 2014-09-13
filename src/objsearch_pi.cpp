@@ -201,7 +201,7 @@ objsearch_pi::~objsearch_pi ( void )
                 break;
         }
         // wait for thread completion
-        wxThread::This()->Sleep(1);
+        // Do not wait and assume the thread will have enough time to die during the OPenCPN shutdown sequence // wxThread::This()->Sleep(1);
     }
     clearDB(m_db);
     delete _img_objsearch_pi;
@@ -640,6 +640,14 @@ void ObjSearchDialogImpl::OnShowOnChart( wxCommandEvent& event )
         
     event.Skip();
     JumpToPosition(lat, lon, scale);
+}
+
+wxString ObjSearchDialogImpl::HumanizeFeatureName(const wxString& feature_name)
+{
+    switch (feature_name)
+    {
+        case _T("") : return;
+    }
 }
 
 int wxCALLBACK ObjectDistanceCompareFunction(wxIntPtr item1, wxIntPtr item2, wxIntPtr WXUNUSED(sortData))
