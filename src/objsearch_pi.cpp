@@ -491,9 +491,6 @@ ObjSearchDialogImpl::ObjSearchDialogImpl( objsearch_pi* plugin, wxWindow* parent
     
     m_btnShowOnChart->Enable(false);
     
-    // Make sure we use popup that allows focusing the treectrl.
-	m_choiceFeature->UseAltPopupWindow();
-	
 	// Set popup interface right away, otherwise some of the calls
 	// below may fail
 	m_clcPopup = new CheckListComboPopup();
