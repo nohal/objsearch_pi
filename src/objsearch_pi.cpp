@@ -591,7 +591,7 @@ void ObjSearchDialogImpl::AddObject(const wxString& feature, const wxString& obj
 
     m_listCtrlResults->InsertItem( item );
     
-    m_listCtrlResults->SetItem(n, 0, feature);
+    m_listCtrlResults->SetItem(n, 0, HumanizeFeatureName(feature));
     m_listCtrlResults->SetItem(n, 1, objectname);
     m_listCtrlResults->SetItem(n, 2, wxString::Format(_T("%.4f"), lat));
     m_listCtrlResults->SetItem(n, 3, wxString::Format(_T("%.4f"), lon));
