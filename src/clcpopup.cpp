@@ -34,7 +34,7 @@ wxString CheckListComboPopup::GetStringValue() const
 {
     bool add_comma = false;
     wxString ret = wxEmptyString;
-    for ( unsigned int i = 0; i < GetCount(); i++ )
+    for ( unsigned int i = 1; i < GetCount(); i++ )
         if ( IsChecked(i) )
         {
             if ( add_comma )
@@ -47,16 +47,28 @@ wxString CheckListComboPopup::GetStringValue() const
     return ret;
 }
 
+void CheckListComboPopup::CheckAll(bool check)
+{
+    for ( unsigned int i = 1; i < GetCount(); i++ )
+        Check(i, check);
+}
 
 void CheckListComboPopup::OnListBox(wxCommandEvent& event)
 {
     int item_id = event.GetInt();
-/*        if IsChecked(item_id)
+    if (item_id == 0)
     {
-        //blah
+        if (IsChecked(item_id))
+        {
+            CheckAll();
+        }
+        else
+        {
+            CheckAll(false);
+        }
     }
     else
     {
-        //blah
-    }*/
+        Check(0, false);
+    }
 }

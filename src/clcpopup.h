@@ -68,6 +68,8 @@ public:
     
     void OnListBox(wxCommandEvent& event);
     
+    void CheckAll(bool check = true);
+    
 private:
     DECLARE_EVENT_TABLE()
 };

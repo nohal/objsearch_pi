@@ -505,6 +505,8 @@ void ObjSearchDialogImpl::ClearFeatures()
     if(m_clcPopup)
         m_clcPopup->Clear();
     m_choiceFeature->SetValue(_("All"));
+    m_clcPopup->Append(_("All"));
+    m_clcPopup->Check(0);
 }
 
 void ObjSearchDialogImpl::AddFeature(const wxString& feature)
