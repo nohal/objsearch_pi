@@ -83,10 +83,6 @@ wxSQLite3Database* objsearch_pi::initDB(void)
     try
     {
         db->Open( sDBName );
-        QueryDB( db, _T("PRAGMA synchronous=OFF") );
-        QueryDB( db, _T("PRAGMA count_changes=OFF") );
-        QueryDB( db, _T("PRAGMA journal_mode=MEMORY") );
-        QueryDB( db, _T("PRAGMA temp_store=MEMORY") );
     }
     catch (wxSQLite3Exception& e)
     {
@@ -105,6 +101,15 @@ wxSQLite3Database* objsearch_pi::initDB(void)
         QueryDB( db, wxT("CREATE TABLE feature (id INTEGER PRIMARY KEY AUTOINCREMENT, featurename TEXT)") );
         QueryDB( db, wxT("CREATE TABLE object (chart_id INTEGER, feature_id INTEGER, objname TEXT, lat REAL, lon REAL)") );
     }
+    
+    if ( m_bDBUsable )
+	{
+		QueryDB( db, _T("PRAGMA synchronous=OFF") );
+        QueryDB( db, _T("PRAGMA count_changes=OFF") );
+        QueryDB( db, _T("PRAGMA journal_mode=MEMORY") );
+        QueryDB( db, _T("PRAGMA temp_store=MEMORY") );
+	}
+	
     return db;
 }
 
@@ -161,7 +166,9 @@ objsearch_pi::objsearch_pi ( void *ppimgr )
     // Create the PlugIn icons
     initialize_images();
     
-    m_bDBUsable = false;
+    m_bDBUsable = true;
+    
+    m_bWaitForDB = true;
     
     m_db = initDB();
     
@@ -184,7 +191,7 @@ objsearch_pi::objsearch_pi ( void *ppimgr )
     }
     set.Finalize();
     
-    m_bDBUsable = true;
+    m_bWaitForDB = false;
 }
 
 objsearch_pi::~objsearch_pi ( void )
