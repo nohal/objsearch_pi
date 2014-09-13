@@ -595,8 +595,8 @@ void ObjSearchDialogImpl::AddObject(const wxString& feature, const wxString& obj
     
     m_listCtrlResults->SetItem(n, 0, HumanizeFeatureName(feature));
     m_listCtrlResults->SetItem(n, 1, objectname);
-    m_listCtrlResults->SetItem(n, 2, wxString::Format(_T("%.4f"), lat));
-    m_listCtrlResults->SetItem(n, 3, wxString::Format(_T("%.4f"), lon));
+    m_listCtrlResults->SetItem(n, 2, toSDMM_PlugIn(1, lat));
+    m_listCtrlResults->SetItem(n, 3, toSDMM_PlugIn(2, lon));
     m_listCtrlResults->SetItem(n, 4, wxString::Format(_T("%.1f"), toUsrDistance_Plugin(dist, -1)));
     m_listCtrlResults->SetItem(n, 5, wxString::Format(_T("%.4f"), scale));
     m_listCtrlResults->SetItem(n, 6, wxString::Format(_T("%i"), nativescale));
@@ -614,6 +614,65 @@ void ObjSearchDialogImpl::OnClose( wxCommandEvent& event )
     Hide();
 }
 
+double fromDMM( wxString sdms )
+{
+    wchar_t buf[64];
+    char narrowbuf[64];
+    int i, len, top = 0;
+    double stk[32], sign = 1;
+
+    //First round of string modifications to accomodate some known strange formats
+    wxString replhelper;
+    replhelper = wxString::FromUTF8( "´·" ); //UKHO PDFs
+    sdms.Replace( replhelper, _T(".") );
+    replhelper = wxString::FromUTF8( "\"·" ); //Don't know if used, but to make sure
+    sdms.Replace( replhelper, _T(".") );
+    replhelper = wxString::FromUTF8( "·" );
+    sdms.Replace( replhelper, _T(".") );
+
+    replhelper = wxString::FromUTF8( "s. š." ); //Another example: cs.wikipedia.org (someone was too active translating...)
+    sdms.Replace( replhelper, _T("N") );
+    replhelper = wxString::FromUTF8( "j. š." );
+    sdms.Replace( replhelper, _T("S") );
+    sdms.Replace( _T("v. d."), _T("E") );
+    sdms.Replace( _T("z. d."), _T("W") );
+
+    //If the string contains hemisphere specified by a letter, then '-' is for sure a separator...
+    sdms.UpperCase();
+    if( sdms.Contains( _T("N") ) || sdms.Contains( _T("S") ) || sdms.Contains( _T("E") )
+            || sdms.Contains( _T("W") ) ) sdms.Replace( _T("-"), _T(" ") );
+
+    wcsncpy( buf, sdms.wc_str( wxConvUTF8 ), 64 );
+    len = wcslen( buf );
+
+    for( i = 0; i < len; i++ ) {
+        wchar_t c = buf[i];
+        if( ( c >= '0' && c <= '9' ) || c == '-' || c == '.' || c == '+' ) {
+            narrowbuf[i] = c;
+            continue; /* Digit characters are cool as is */
+        }
+        if( c == ',' ) {
+            narrowbuf[i] = '.'; /* convert to decimal dot */
+            continue;
+        }
+        if( ( c | 32 ) == 'w' || ( c | 32 ) == 's' ) sign = -1; /* These mean "negate" (note case insensitivity) */
+        narrowbuf[i] = 0; /* Replace everything else with nuls */
+    }
+
+    /* Build a stack of doubles */
+    stk[0] = stk[1] = stk[2] = 0;
+    for( i = 0; i < len; i++ ) {
+        while( i < len && narrowbuf[i] == 0 )
+            i++;
+        if( i != len ) {
+            stk[top++] = atof( narrowbuf + i );
+            i += strlen( narrowbuf + i );
+        }
+    }
+
+    return sign * ( stk[0] + ( stk[1] + stk[2] / 60 ) / 60 );
+}
+
 void ObjSearchDialogImpl::OnShowOnChart( wxCommandEvent& event )
 {
     long itemIndex = -1;
@@ -627,13 +686,11 @@ void ObjSearchDialogImpl::OnShowOnChart( wxCommandEvent& event )
     row_info.m_col = 2;
     row_info.m_mask = wxLIST_MASK_TEXT;
     m_listCtrlResults->GetItem( row_info );
-    double lat;
-    row_info.m_text.ToDouble(&lat);
+    double lat = fromDMM(row_info.m_text);
     
     row_info.m_col = 3;
     m_listCtrlResults->GetItem( row_info );
-    double lon;
-    row_info.m_text.ToDouble(&lon);
+    double lon = fromDMM(row_info.m_text);
     
     row_info.m_col = 5;
     m_listCtrlResults->GetItem( row_info );

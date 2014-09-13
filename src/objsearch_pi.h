@@ -76,7 +76,6 @@ protected:
     objsearch_pi *m_pHandler;
 };
 
-
 class ObjSearchDialogImpl : public ObjSearchDialog
 {
 public:
