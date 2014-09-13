@@ -83,6 +83,10 @@ wxSQLite3Database* objsearch_pi::initDB(void)
     try
     {
         db->Open( sDBName );
+        QueryDB( db, _T("PRAGMA synchronous=OFF") );
+        QueryDB( db, _T("PRAGMA count_changes=OFF") );
+        QueryDB( db, _T("PRAGMA journal_mode=MEMORY") );
+        QueryDB( db, _T("PRAGMA temp_store=MEMORY") );
     }
     catch (wxSQLite3Exception& e)
     {
@@ -157,7 +161,7 @@ objsearch_pi::objsearch_pi ( void *ppimgr )
     // Create the PlugIn icons
     initialize_images();
     
-    m_bDBUsable = true;
+    m_bDBUsable = false;
     
     m_db = initDB();
     
@@ -179,6 +183,8 @@ objsearch_pi::objsearch_pi ( void *ppimgr )
         m_featuresInDb[set.GetAsString(1)] = set.GetInt(0);
     }
     set.Finalize();
+    
+    m_bDBUsable = true;
 }
 
 objsearch_pi::~objsearch_pi ( void )
@@ -230,6 +236,8 @@ int objsearch_pi::Init ( void )
     m_pObjSearchDialog = new ObjSearchDialogImpl( this, m_parent_window );
     
     m_chartLoading = wxEmptyString;
+    
+    m_bWaitForDB = false;
     
     m_boatlat = NAN;
     m_boatlon = NAN;
@@ -370,14 +378,18 @@ void objsearch_pi::SendVectorChartObjectInfo(wxString &chart, wxString &feature,
     long chart_id = GetChartId(chart);
     long feature_id = GetFeatureId(feature);
     if ( chart_id == 0 )
-    {      
+    {
+        m_bWaitForDB = true;
         Chart ch = StoreNewChart( chart, scale, nativescale );
         m_chartsInDb[ch.name] = ch;
+        m_bWaitForDB = false;
     }
     if ( feature_id == 0 )
     {
+        m_bWaitForDB = true;
         feature_id = StoreNewFeature( feature ).ToLong();
         m_featuresInDb[feature] = feature_id;
+        m_bWaitForDB = false;
     }
         
     if ( chart == m_chartLoading )
@@ -415,6 +427,8 @@ void objsearch_pi::StoreNewObject(long chart_id, long feature_id, wxString objna
 {
     if ( !m_bDBUsable )
         return;
+    while ( m_bWaitForDB )
+        wxMilliSleep(1);
     if ( objname.Len() > 1 )
     {
         wxString safe_value = objname;
@@ -1010,12 +1024,12 @@ void *DbThread::Entry()
 {
     while (!TestDestroy())
     {
+        m_pHandler->QueryDB(_T("BEGIN TRANSACTION"));
         while (m_pHandler->HasQueries())
         {
-            //wxString sql(query_queue.front().c_str(), wxConvUTF8);
             m_pHandler->QueryDB(m_pHandler->GetQuery());
-            //query_queue.pop();
         }
+        m_pHandler->QueryDB(_T("COMMIT TRANSACTION"));
         Sleep(500);
         //wxQueueEvent(m_pHandler, new wxThreadEvent(wxEVT_COMMAND_DBTHREAD_UPDATE));
     }

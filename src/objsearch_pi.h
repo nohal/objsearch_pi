@@ -163,6 +163,7 @@ private:
     
     wxString m_chartLoading;
     bool m_bDBUsable;
+    bool m_bWaitForDB;
     
     wxSQLite3Database* initDB(void);
     void clearDB(wxSQLite3Database* db);
