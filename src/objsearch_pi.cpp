@@ -696,6 +696,8 @@ void ObjSearchDialogImpl::OnShowOnChart( wxCommandEvent& event )
     m_listCtrlResults->GetItem( row_info );
     double scale;
     row_info.m_text.ToDouble(&scale);
+    if (scale < 0.001)
+        scale = 0.001;
         
     event.Skip();
     JumpToPosition(lat, lon, scale);
