@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: objsearch_pi 3.3.1931\n"
+"Project-Id-Version: objsearch_pi 0.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-30 12:52-0500\n"
+"POT-Creation-Date: 2014-09-13 16:35-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,68 +29,628 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: src/ObjSearchDialog.h:55 src/objsearch_pi.h:83
+#: src/ObjSearchDialog.h:55 src/objsearch_pi.h:82
 msgid "Chart Object Search"
 msgstr ""
 
-#: src/objsearch_pi.cpp:227
+#: src/objsearch_pi.cpp:240
 msgid "Object Search"
 msgstr ""
 
-#: src/objsearch_pi.cpp:300
+#: src/objsearch_pi.cpp:315
 msgid "Vector Chart Object Search PlugIn for OpenCPN"
 msgstr ""
 
-#: src/objsearch_pi.cpp:306
+#: src/objsearch_pi.cpp:321
 msgid ""
 "Vector Chart Object Search PlugIn for OpenCPN\n"
 "Provides a search function for the named vector chart objects."
 msgstr ""
 
-#: src/objsearch_pi.cpp:461
+#: src/objsearch_pi.cpp:482
 #, c-format
 msgid ""
 "Your search resulted in %i objects found. This is a lot, do you really want "
 "to show all of them?"
 msgstr ""
 
-#: src/objsearch_pi.cpp:461
+#: src/objsearch_pi.cpp:482
 msgid "Too many objects found"
 msgstr ""
 
-#: src/objsearch_pi.cpp:507
+#: src/objsearch_pi.cpp:525 src/objsearch_pi.cpp:526
 msgid "All"
 msgstr ""
 
-#: src/objsearch_pi.cpp:523
+#: src/objsearch_pi.cpp:543
 msgid "You did not enter any search term, do so."
 msgstr ""
 
-#: src/objsearch_pi.cpp:536
+#: src/objsearch_pi.cpp:556
 msgid "Type"
 msgstr ""
 
-#: src/objsearch_pi.cpp:542
+#: src/objsearch_pi.cpp:562
 msgid "Name"
 msgstr ""
 
-#: src/objsearch_pi.cpp:548
+#: src/objsearch_pi.cpp:568
 msgid "Lat"
 msgstr ""
 
-#: src/objsearch_pi.cpp:554
+#: src/objsearch_pi.cpp:574
 msgid "Lon"
 msgstr ""
 
-#: src/objsearch_pi.cpp:560
+#: src/objsearch_pi.cpp:580
 #, c-format
 msgid "Dist (%s)"
 msgstr ""
 
-#: src/objsearch_pi.cpp:566 src/objsearch_pi.cpp:572
+#: src/objsearch_pi.cpp:586 src/objsearch_pi.cpp:592
 msgid "Scale"
 msgstr ""
 
-#: src/objsearch_pi.cpp:578
+#: src/objsearch_pi.cpp:598
 msgid "Chart"
+msgstr ""
+
+#: src/objsearch_pi.cpp:727
+msgid "Administration area (Named)"
+msgstr ""
+
+#: src/objsearch_pi.cpp:729
+msgid "Airport / airfield"
+msgstr ""
+
+#: src/objsearch_pi.cpp:731
+msgid "Anchor berth"
+msgstr ""
+
+#: src/objsearch_pi.cpp:733
+msgid "Anchorage area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:735
+msgid "Beacon, cardinal"
+msgstr ""
+
+#: src/objsearch_pi.cpp:737
+msgid "Beacon, isolated danger"
+msgstr ""
+
+#: src/objsearch_pi.cpp:739
+msgid "Beacon, lateral"
+msgstr ""
+
+#: src/objsearch_pi.cpp:741
+msgid "Beacon, safe water"
+msgstr ""
+
+#: src/objsearch_pi.cpp:743
+msgid "Beacon, special purpose/general"
+msgstr ""
+
+#: src/objsearch_pi.cpp:745
+msgid "Berth"
+msgstr ""
+
+#: src/objsearch_pi.cpp:747
+msgid "Bridge"
+msgstr ""
+
+#: src/objsearch_pi.cpp:749
+msgid "Building, single"
+msgstr ""
+
+#: src/objsearch_pi.cpp:751
+msgid "Built-up area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:753
+msgid "Buoy, cardinal"
+msgstr ""
+
+#: src/objsearch_pi.cpp:755
+msgid "Buoy, installation"
+msgstr ""
+
+#: src/objsearch_pi.cpp:757
+msgid "Buoy, isolated danger"
+msgstr ""
+
+#: src/objsearch_pi.cpp:759
+msgid "Buoy, lateral"
+msgstr ""
+
+#: src/objsearch_pi.cpp:761
+msgid "Buoy, safe water"
+msgstr ""
+
+#: src/objsearch_pi.cpp:763
+msgid "Buoy, special purpose/general"
+msgstr ""
+
+#: src/objsearch_pi.cpp:765
+msgid "Cable area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:767
+msgid "Cable, overhead"
+msgstr ""
+
+#: src/objsearch_pi.cpp:769
+msgid "Cable, submarine"
+msgstr ""
+
+#: src/objsearch_pi.cpp:771
+msgid "Canal"
+msgstr ""
+
+#: src/objsearch_pi.cpp:773 src/objsearch_pi.cpp:997
+msgid "Canal bank"
+msgstr ""
+
+#: src/objsearch_pi.cpp:775
+msgid "Cargo transshipment area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:777
+msgid "Causeway"
+msgstr ""
+
+#: src/objsearch_pi.cpp:779
+msgid "Checkpoint"
+msgstr ""
+
+#: src/objsearch_pi.cpp:781
+msgid "Coastguard station"
+msgstr ""
+
+#: src/objsearch_pi.cpp:783
+msgid "Coastline"
+msgstr ""
+
+#: src/objsearch_pi.cpp:785
+msgid "Continental shelf area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:787
+msgid "Control point"
+msgstr ""
+
+#: src/objsearch_pi.cpp:789
+msgid "Conveyor"
+msgstr ""
+
+#: src/objsearch_pi.cpp:791
+msgid "Crane"
+msgstr ""
+
+#: src/objsearch_pi.cpp:793
+msgid "Current - non - gravitational"
+msgstr ""
+
+#: src/objsearch_pi.cpp:795
+msgid "Dam"
+msgstr ""
+
+#: src/objsearch_pi.cpp:797
+msgid "Daymark"
+msgstr ""
+
+#: src/objsearch_pi.cpp:799
+msgid "Deep water route centerline"
+msgstr ""
+
+#: src/objsearch_pi.cpp:801
+msgid "Deep water route part"
+msgstr ""
+
+#: src/objsearch_pi.cpp:803
+msgid "Distance mark"
+msgstr ""
+
+#: src/objsearch_pi.cpp:805
+msgid "Dock area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:807
+msgid "Dredged area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:809
+msgid "Dry dock"
+msgstr ""
+
+#: src/objsearch_pi.cpp:811
+msgid "Dumping ground"
+msgstr ""
+
+#: src/objsearch_pi.cpp:813
+msgid "Fairway"
+msgstr ""
+
+#: src/objsearch_pi.cpp:815
+msgid "Fence/wall"
+msgstr ""
+
+#: src/objsearch_pi.cpp:817
+msgid "Ferry route"
+msgstr ""
+
+#: src/objsearch_pi.cpp:819
+msgid "Fishery zone"
+msgstr ""
+
+#: src/objsearch_pi.cpp:821
+msgid "Fishing facility"
+msgstr ""
+
+#: src/objsearch_pi.cpp:823
+msgid "Fishing ground"
+msgstr ""
+
+#: src/objsearch_pi.cpp:825
+msgid "Floating dock"
+msgstr ""
+
+#: src/objsearch_pi.cpp:827
+msgid "Fog signal"
+msgstr ""
+
+#: src/objsearch_pi.cpp:829
+msgid "Fortified structure"
+msgstr ""
+
+#: src/objsearch_pi.cpp:831
+msgid "Free port area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:833
+msgid "Gate"
+msgstr ""
+
+#: src/objsearch_pi.cpp:835
+msgid "Gridiron"
+msgstr ""
+
+#: src/objsearch_pi.cpp:837
+msgid "Harbour area (administrative)"
+msgstr ""
+
+#: src/objsearch_pi.cpp:839
+msgid "Harbour facility"
+msgstr ""
+
+#: src/objsearch_pi.cpp:841
+msgid "Hulk"
+msgstr ""
+
+#: src/objsearch_pi.cpp:843
+msgid "Ice area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:845
+msgid "Incineration area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:847
+msgid "Lake"
+msgstr ""
+
+#: src/objsearch_pi.cpp:849
+msgid "Lake shore"
+msgstr ""
+
+#: src/objsearch_pi.cpp:851
+msgid "Land area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:853
+msgid "Land elevation"
+msgstr ""
+
+#: src/objsearch_pi.cpp:855
+msgid "Land region"
+msgstr ""
+
+#: src/objsearch_pi.cpp:857
+msgid "Landmark"
+msgstr ""
+
+#: src/objsearch_pi.cpp:859
+msgid "Light"
+msgstr ""
+
+#: src/objsearch_pi.cpp:861
+msgid "Light float"
+msgstr ""
+
+#: src/objsearch_pi.cpp:863
+msgid "Light vessel"
+msgstr ""
+
+#: src/objsearch_pi.cpp:865
+msgid "Local magnetic anomaly"
+msgstr ""
+
+#: src/objsearch_pi.cpp:867
+msgid "Lock basin"
+msgstr ""
+
+#: src/objsearch_pi.cpp:869
+msgid "Log pond"
+msgstr ""
+
+#: src/objsearch_pi.cpp:871
+msgid "Marine farm/culture"
+msgstr ""
+
+#: src/objsearch_pi.cpp:873
+msgid "Military practice area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:875
+msgid "Mooring/warping facility"
+msgstr ""
+
+#: src/objsearch_pi.cpp:877
+msgid "Obstruction"
+msgstr ""
+
+#: src/objsearch_pi.cpp:879
+msgid "Offshore platform"
+msgstr ""
+
+#: src/objsearch_pi.cpp:881
+msgid "Offshore production area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:883
+msgid "Oil barrier"
+msgstr ""
+
+#: src/objsearch_pi.cpp:885
+msgid "Pile"
+msgstr ""
+
+#: src/objsearch_pi.cpp:887
+msgid "Pilot boarding place"
+msgstr ""
+
+#: src/objsearch_pi.cpp:889
+msgid "Pipeline area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:891
+msgid "Pipeline, overhead"
+msgstr ""
+
+#: src/objsearch_pi.cpp:893
+msgid "Pipeline, submarine/on land"
+msgstr ""
+
+#: src/objsearch_pi.cpp:895
+msgid "Pontoon"
+msgstr ""
+
+#: src/objsearch_pi.cpp:897
+msgid "Production / storage area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:899
+msgid "Pylon/bridge support"
+msgstr ""
+
+#: src/objsearch_pi.cpp:901
+msgid "Radar line"
+msgstr ""
+
+#: src/objsearch_pi.cpp:903
+msgid "Radar range"
+msgstr ""
+
+#: src/objsearch_pi.cpp:905
+msgid "Radar station"
+msgstr ""
+
+#: src/objsearch_pi.cpp:907
+msgid "Radar transponder beacon"
+msgstr ""
+
+#: src/objsearch_pi.cpp:909
+msgid "Radio calling-in point"
+msgstr ""
+
+#: src/objsearch_pi.cpp:911
+msgid "Radio station"
+msgstr ""
+
+#: src/objsearch_pi.cpp:913
+msgid "Railway"
+msgstr ""
+
+#: src/objsearch_pi.cpp:915
+msgid "Rapids"
+msgstr ""
+
+#: src/objsearch_pi.cpp:917
+msgid "Recommended route centerline"
+msgstr ""
+
+#: src/objsearch_pi.cpp:919
+msgid "Recommended track"
+msgstr ""
+
+#: src/objsearch_pi.cpp:921
+msgid "Rescue station"
+msgstr ""
+
+#: src/objsearch_pi.cpp:923
+msgid "Restricted area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:925
+msgid "River"
+msgstr ""
+
+#: src/objsearch_pi.cpp:927 src/objsearch_pi.cpp:999
+msgid "River bank"
+msgstr ""
+
+#: src/objsearch_pi.cpp:929
+msgid "Road"
+msgstr ""
+
+#: src/objsearch_pi.cpp:931
+msgid "Runway"
+msgstr ""
+
+#: src/objsearch_pi.cpp:933
+msgid "Sea area / named water area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:935
+msgid "Sea-plane landing area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:937
+msgid "Seabed area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:939
+msgid "Shoreline Construction"
+msgstr ""
+
+#: src/objsearch_pi.cpp:941
+msgid "Signal station, traffic"
+msgstr ""
+
+#: src/objsearch_pi.cpp:943
+msgid "Signal station, warning"
+msgstr ""
+
+#: src/objsearch_pi.cpp:945
+msgid "Silo / tank"
+msgstr ""
+
+#: src/objsearch_pi.cpp:947
+msgid "Slope topline"
+msgstr ""
+
+#: src/objsearch_pi.cpp:949
+msgid "Sloping ground"
+msgstr ""
+
+#: src/objsearch_pi.cpp:951
+msgid "Small craft facility"
+msgstr ""
+
+#: src/objsearch_pi.cpp:953
+msgid "Sounding"
+msgstr ""
+
+#: src/objsearch_pi.cpp:955
+msgid "Spring"
+msgstr ""
+
+#: src/objsearch_pi.cpp:957
+msgid "Square"
+msgstr ""
+
+#: src/objsearch_pi.cpp:959
+msgid "Submarine transit lane"
+msgstr ""
+
+#: src/objsearch_pi.cpp:961
+msgid "Tidal stream - harmonic prediction"
+msgstr ""
+
+#: src/objsearch_pi.cpp:963
+msgid "Tidal stream - non-harmonic prediction"
+msgstr ""
+
+#: src/objsearch_pi.cpp:965
+msgid "Tidal stream panel data"
+msgstr ""
+
+#: src/objsearch_pi.cpp:967 src/objsearch_pi.cpp:973
+msgid "Tidal stream - time series"
+msgstr ""
+
+#: src/objsearch_pi.cpp:969
+msgid "Tide - harmonic prediction"
+msgstr ""
+
+#: src/objsearch_pi.cpp:971
+msgid "Tide - non-harmonic prediction"
+msgstr ""
+
+#: src/objsearch_pi.cpp:975
+msgid "Tideway"
+msgstr ""
+
+#: src/objsearch_pi.cpp:977
+msgid "Tunnel"
+msgstr ""
+
+#: src/objsearch_pi.cpp:979
+msgid "Underwater rock / awash rock"
+msgstr ""
+
+#: src/objsearch_pi.cpp:981
+msgid "Vegetation"
+msgstr ""
+
+#: src/objsearch_pi.cpp:983
+msgid "Water turbulence"
+msgstr ""
+
+#: src/objsearch_pi.cpp:985
+msgid "Waterfall"
+msgstr ""
+
+#: src/objsearch_pi.cpp:987
+msgid "Weed/Kelp"
+msgstr ""
+
+#: src/objsearch_pi.cpp:989
+msgid "Wreck"
+msgstr ""
+
+#: src/objsearch_pi.cpp:991
+msgid "Tidal stream - flood/ebb"
+msgstr ""
+
+#: src/objsearch_pi.cpp:993
+msgid "Aggregation"
+msgstr ""
+
+#: src/objsearch_pi.cpp:995
+msgid "Association"
+msgstr ""
+
+#: src/objsearch_pi.cpp:1001
+msgid "waterway axis"
+msgstr ""
+
+#: src/objsearch_pi.cpp:1003
+msgid "Bridge area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:1005
+msgid "Lock area"
+msgstr ""
+
+#: src/objsearch_pi.cpp:1007
+msgid "Beacon water-way"
+msgstr ""
+
+#: src/objsearch_pi.cpp:1009
+msgid "Buoy water-way"
+msgstr ""
+
+#: src/objsearch_pi.cpp:1011
+msgid "Route planning point"
 msgstr ""
