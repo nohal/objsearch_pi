@@ -41,7 +41,7 @@ wxString CheckListComboPopup::GetStringValue() const
                 ret += _T(",");
             else
                 add_comma = true;
-            ret += GetString( i );
+            ret += ((wxStringClientData*)GetClientObject(i))->GetData();
         }
 
     return ret;

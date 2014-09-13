@@ -83,7 +83,7 @@ public:
     ObjSearchDialogImpl( objsearch_pi* plugin, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Chart Object Search"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 649,560 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 
     void ClearFeatures();
-    void AddFeature(wxString feature);
+    void AddFeature(const wxString& feature);
     
     void ClearObjects();
     void AddObject(const wxString& feature, const wxString& objectname, double lat, double lon, double dist, double scale, int nativescale, const wxString& chart);
@@ -98,6 +98,9 @@ protected:
     void OnItemSelected( wxListEvent& event );
     void OnClose( wxCommandEvent& event );
     void OnShowOnChart( wxCommandEvent& event );
+
+private:
+    wxString HumanizeFeatureName(const wxString& feature_name);
 };
 
 class objsearch_pi : public opencpn_plugin_112
