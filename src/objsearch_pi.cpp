@@ -477,7 +477,7 @@ void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& 
         }
         while (set.NextRow())
         {
-            DistanceBearingMercator_Plugin( lat, lat, set.GetDouble(2), set.GetDouble(3), &brg, &dist );
+            DistanceBearingMercator_Plugin( lat, lon, set.GetDouble(2), set.GetDouble(3), &brg, &dist );
             m_pObjSearchDialog->AddObject( set.GetAsString(0),  set.GetAsString(1), set.GetDouble(2), set.GetDouble(3), dist, set.GetDouble(4), set.GetInt(5), set.GetAsString(6) );
         }
         m_pObjSearchDialog->SortResults();
