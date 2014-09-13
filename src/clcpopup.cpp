@@ -41,7 +41,7 @@ wxString CheckListComboPopup::GetStringValue() const
                 ret += _T(",");
             else
                 add_comma = true;
-            ret += ((wxStringClientData*)GetClientObject(i))->GetData();
+            ret += (m_values.Item(i - 1));
         }
 
     return ret;
@@ -71,4 +71,17 @@ void CheckListComboPopup::OnListBox(wxCommandEvent& event)
     {
         Check(0, false);
     }
+}
+
+int CheckListComboPopup::Append(const wxString& item, const wxString& value)
+{
+    int r = wxCheckListBox::Append(item);
+    m_values.Add(value);
+    return r;
+}
+
+void CheckListComboPopup::Clear()
+{
+    wxCheckListBox::Clear();
+    m_values.Clear();
 }

@@ -505,7 +505,7 @@ void ObjSearchDialogImpl::ClearFeatures()
     if(m_clcPopup)
         m_clcPopup->Clear();
     m_choiceFeature->SetValue(_("All"));
-    m_clcPopup->Append(_("All"));
+    ((wxCheckListBox*)m_clcPopup)->Append(_("All"));
     m_clcPopup->Check(0);
 }
 
@@ -513,7 +513,7 @@ void ObjSearchDialogImpl::AddFeature(const wxString& feature)
 {
     if(m_clcPopup)
     {
-        m_clcPopup->Append(HumanizeFeatureName(feature), new wxStringClientData(feature));
+        m_clcPopup->Append(HumanizeFeatureName(feature), feature);
         m_clcPopup->Check(m_clcPopup->GetCount() - 1);
     }
 }

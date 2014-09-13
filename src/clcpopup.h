@@ -49,7 +49,6 @@ public:
     
     virtual void OnShow() {}
 
-
     virtual wxSize GetAdjustedSize( int minWidth,
                                     int WXUNUSED(prefHeight),
                                     int maxHeight )
@@ -58,9 +57,12 @@ public:
     }
 
     virtual wxWindow *GetControl() { return this; }
-
     
     virtual wxString GetStringValue() const;
+    
+    int Append(const wxString& item, const wxString& value);
+    
+    void Clear();
     
     //
     // Popup event handlers
@@ -71,6 +73,7 @@ public:
     void CheckAll(bool check = true);
     
 private:
+    wxArrayString m_values;
     DECLARE_EVENT_TABLE()
 };
 #endif
