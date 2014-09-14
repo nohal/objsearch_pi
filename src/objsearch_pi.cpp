@@ -1025,6 +1025,24 @@ wxString ObjSearchDialogImpl::HumanizeFeatureName(const wxString& feature_name)
         return _("Buoy water-way");
     if ( feature_name == _T("rtplpt") )
         return _("Route planning point");
+    if ( feature_name == _T("_texto") )
+        return _("Text label");
+    if ( feature_name == _T("BRTFAC") )
+        return _("Berthing facility");
+    if ( feature_name == _T("BUIREL") )
+        return _("Building, religious");
+    if ( feature_name == _T("CTNARE") )
+        return _("Caution area");
+    if ( feature_name == _T("MONUMT") )
+        return _("Monument");
+    if ( feature_name == _T("PRDINS") )
+        return _("Production installation");
+    if ( feature_name == _T("SLTPAN") )
+        return _("Salt pan");
+    if ( feature_name == _T("TNKCON") )
+        return _("Tank");
+    if ( feature_name == _T("TOWERS") )
+        return _("Tower structure");
     return feature_name;
 }
 
