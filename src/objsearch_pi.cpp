@@ -108,6 +108,11 @@ wxSQLite3Database* objsearch_pi::initDB(void)
         QueryDB( db, _T("PRAGMA count_changes=OFF") );
         QueryDB( db, _T("PRAGMA journal_mode=MEMORY") );
         QueryDB( db, _T("PRAGMA temp_store=MEMORY") );
+        
+        //Fix the broken objects created by v 0.1 and 0.2
+        QueryDB( db, _T("UPDATE object SET lon = lon - 360 WHERE lon > 180") );
+        QueryDB( db, _T("UPDATE object SET lon = lon + 360 WHERE lon < - 180") );
+        QueryDB( db, _T("DELETE FROM object WHERE lon < - 180 OR lon > 180 OR lat < -90 OR lat > 90") );
 	}
 	
     return db;
@@ -434,6 +439,17 @@ void objsearch_pi::StoreNewObject(long chart_id, long feature_id, wxString objna
 {
     if ( !m_bDBUsable )
         return;
+    
+    // get object on the world chart...    
+    if( lon < -180. )
+        lon += 360.;
+    else if( lon > 180. )
+        lon -= 360.;
+    
+    // if it is still off the map, forget about it...
+    if ( lon > 180. || lon < -180. || lat > 90. || lat < -90.)
+        return;
+                
     while ( m_bWaitForDB )
         wxMilliSleep(1);
     if ( objname.Len() > 1 )
