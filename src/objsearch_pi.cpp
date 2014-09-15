@@ -141,6 +141,8 @@ int objsearch_pi::QueryDB(wxSQLite3Database* db, const wxString& sql)
 
 wxSQLite3ResultSet objsearch_pi::SelectFromDB(wxSQLite3Database* db, const wxString& sql)
 {
+    if (!m_bDBUsable)
+        return wxSQLite3ResultSet();
     try
     {
         return db->ExecuteQuery(sql);
@@ -177,24 +179,37 @@ objsearch_pi::objsearch_pi ( void *ppimgr )
     
     m_db = initDB();
     
-    wxSQLite3ResultSet set = SelectFromDB( m_db, wxT("SELECT id, chartname, scale, nativescale FROM chart") );
-    while (set.NextRow())
-    {
-        Chart ch;
-        ch.id = set.GetInt(0);
-        ch.name = set.GetAsString(1);
-        ch.scale = set.GetDouble(2);
-        ch.nativescale = set.GetInt(3);
-        m_chartsInDb[ch.name] = ch;
-    }
-    set.Finalize();
+    wxSQLite3ResultSet set;
     
-    set = SelectFromDB( m_db, wxT("SELECT id, featurename FROM feature"));
-    while (set.NextRow())
+    if (m_bDBUsable)
     {
-        m_featuresInDb[set.GetAsString(1)] = set.GetInt(0);
+        set = SelectFromDB( m_db, wxT("SELECT id, chartname, scale, nativescale FROM chart") );
+        if (m_bDBUsable)
+        {
+            while (set.NextRow())
+            {
+                Chart ch;
+                ch.id = set.GetInt(0);
+                ch.name = set.GetAsString(1);
+                ch.scale = set.GetDouble(2);
+                ch.nativescale = set.GetInt(3);
+                m_chartsInDb[ch.name] = ch;
+            }
+        }
+        set.Finalize();
     }
-    set.Finalize();
+    if (m_bDBUsable)
+    {
+        set = SelectFromDB( m_db, wxT("SELECT id, featurename FROM feature"));
+        if (m_bDBUsable)
+        {
+            while (set.NextRow())
+            {
+                m_featuresInDb[set.GetAsString(1)] = set.GetInt(0);
+            }
+        }
+        set.Finalize();
+    }
     
     m_bWaitForDB = false;
 }
@@ -486,11 +501,20 @@ int objsearch_pi::GetFeatureId(wxString feature)
 
 void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& search_string )
 {
+    if (!m_bDBUsable)
+    {
+        wxMessageBox(_("There is a problem with your database, check the OpenCPN logfile for more information."));
+        return;
+    }
     m_pObjSearchDialog->ClearObjects();
     wxString safe_value = search_string;
     safe_value.Replace(_T("'"), _T("''"));
     wxSQLite3ResultSet set = SelectFromDB( m_db, wxString::Format( wxT("SELECT COUNT(*) FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) WHERE instr('%s', featurename) > 0 AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str() ) );
-    int objects_found = set.GetInt(0);
+    int objects_found = 0;
+    if (m_bDBUsable)
+    {
+        objects_found = set.GetInt(0);
+    }
     set.Finalize();
     int show = wxYES;
     if ( objects_found > 1000 )
@@ -499,26 +523,32 @@ void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& 
     }
     if ( show == wxYES )
     {
-        set = SelectFromDB( m_db, wxString::Format( wxT("SELECT f.featurename, o.objname, o.lat, o.lon, ch.scale, ch.nativescale, ch.chartname FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) LEFT JOIN chart ch ON (o.chart_id = ch.id) WHERE instr('%s', featurename) > 0 AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str() ) );
-        double lat, lon;
-        double dist, brg;
-        if ( m_boatlat == NAN || m_boatlon == NAN)
+        if (m_bDBUsable)
         {
-            lat = m_vplat;
-            lon = m_vplon;
+            set = SelectFromDB( m_db, wxString::Format( wxT("SELECT f.featurename, o.objname, o.lat, o.lon, ch.scale, ch.nativescale, ch.chartname FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) LEFT JOIN chart ch ON (o.chart_id = ch.id) WHERE instr('%s', featurename) > 0 AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str() ) );
+            double lat, lon;
+            double dist, brg;
+            if ( m_boatlat == NAN || m_boatlon == NAN)
+            {
+                lat = m_vplat;
+                lon = m_vplon;
+            }
+            else
+            {
+                lat = m_boatlat;
+                lon = m_boatlon;
+            }
+            if (m_bDBUsable)
+            {
+                while (set.NextRow())
+                {
+                    DistanceBearingMercator_Plugin( lat, lon, set.GetDouble(2), set.GetDouble(3), &brg, &dist );
+                    m_pObjSearchDialog->AddObject( set.GetAsString(0),  set.GetAsString(1), set.GetDouble(2), set.GetDouble(3), dist, set.GetDouble(4), set.GetInt(5), set.GetAsString(6) );
+                }
+                m_pObjSearchDialog->SortResults();
+            }
+            set.Finalize();
         }
-        else
-        {
-            lat = m_boatlat;
-            lon = m_boatlon;
-        }
-        while (set.NextRow())
-        {
-            DistanceBearingMercator_Plugin( lat, lon, set.GetDouble(2), set.GetDouble(3), &brg, &dist );
-            m_pObjSearchDialog->AddObject( set.GetAsString(0),  set.GetAsString(1), set.GetDouble(2), set.GetDouble(3), dist, set.GetDouble(4), set.GetInt(5), set.GetAsString(6) );
-        }
-        m_pObjSearchDialog->SortResults();
-        set.Finalize();
     }
 }
 
