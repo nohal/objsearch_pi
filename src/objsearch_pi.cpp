@@ -427,10 +427,7 @@ Chart objsearch_pi::StoreNewChart(wxString chart, double scale, int nativescale)
 {
     Chart ch;
     if ( !m_bDBUsable )
-    {
-        ch.id = -1;
         return ch;
-    }
     wxFileName chartname(chart);
     ch.name = chartname.GetName();
     ch.scale = scale;
@@ -567,10 +564,12 @@ ObjSearchDialogImpl::ObjSearchDialogImpl( objsearch_pi* plugin, wxWindow* parent
 void ObjSearchDialogImpl::ClearFeatures()
 {
     if(m_clcPopup)
+    {
         m_clcPopup->Clear();
-    m_choiceFeature->SetValue(_("All"));
-    ((wxCheckListBox*)m_clcPopup)->Append(_("All"));
-    m_clcPopup->Check(0);
+        m_choiceFeature->SetValue(_("All"));
+        ((wxCheckListBox*)m_clcPopup)->Append(_("All"));
+        m_clcPopup->Check(0);
+    }
 }
 
 void ObjSearchDialogImpl::AddFeature(const wxString& feature)
