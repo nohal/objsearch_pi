@@ -15,3 +15,19 @@ script:
   - cd build
   - cmake ..
   - make
+
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "TM0wWPKq1QoV5IsY+LLVvA6T04EOhduyO8d+7k+qkLb+PRG9Pjs01bzwsiQQs2Bk08KsnZkSdgAzMTv+EETH+1ptHjW0QGBHO1EfYUw9ZkLaJl+HRiTkVozUAfltTlrOeUgsWNX4e59Id8iMB00htOSmBim4CgcaFaSfmRGCto0="
+
+addons:
+  coverity_scan:
+    project:
+      name: "nohal/objsearch_pi"
+      description: "Build submitted via Travis CI"
+    notification_email: pavel@kalian.cz
+    build_command_prepend: "mkdir -p build; cd build; cmake .."
+    build_command:   "make -j 4"
+    branch_pattern: coverity_scan
