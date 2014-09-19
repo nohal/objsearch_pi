@@ -64,6 +64,7 @@ struct Chart
     wxString name;
     double scale;
     int nativescale;
+    Chart():id(-1),name(wxEmptyString),scale(0.0),nativescale(-1) { }
 };
 
 class DbThread : public wxThread
