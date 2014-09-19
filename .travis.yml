@@ -2,9 +2,9 @@ language: cpp
 compiler:
   - gcc
 
-branches:
-  only:
-    - master
+#branches:
+#  only:
+#    - master
 
 before_install:
   - sudo apt-get update
@@ -31,3 +31,4 @@ addons:
     build_command_prepend: "mkdir -p build; cd build; cmake .."
     build_command:   "make -j 4"
     branch_pattern: coverity_scan
+    build_script_url: "https://raw.githubusercontent.com/nohal/objsearch_pi/master/scan_script.sh"
