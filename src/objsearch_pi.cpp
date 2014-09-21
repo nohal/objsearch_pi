@@ -294,6 +294,7 @@ bool objsearch_pi::DeInit ( void )
         m_pObjSearchDialog->Close();
         delete m_pObjSearchDialog;
         m_pObjSearchDialog = NULL;
+        SaveConfig();
     }
 
     return true;
@@ -371,7 +372,9 @@ bool objsearch_pi::LoadConfig ( void )
         return false;
 
     pConf->SetPath ( _T ( "/PlugIns/OBJSEARCH" ) );
-
+    
+    pConf->Read ( _T("CloseOnShow" ), &m_bCloseOnShow, 1 );
+    pConf->Read ( _T("LimitRange" ), &m_iLimitRange, 0 );
     return true;
 }
 
@@ -383,6 +386,9 @@ bool objsearch_pi::SaveConfig ( void )
         return false;
 
     pConf->SetPath ( _T ( "/PlugIns/OBJSEARCH" ) );
+    
+    pConf->Write ( _T("CloseOnShow" ), m_bCloseOnShow );
+    pConf->Write ( _T("LimitRange" ), m_iLimitRange );
 
     return true;
 }
@@ -540,7 +546,8 @@ void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& 
                 while (set.NextRow())
                 {
                     DistanceBearingMercator_Plugin( lat, lon, set.GetDouble(2), set.GetDouble(3), &brg, &dist );
-                    m_pObjSearchDialog->AddObject( set.GetAsString(0),  set.GetAsString(1), set.GetDouble(2), set.GetDouble(3), dist, set.GetDouble(4), set.GetInt(5), set.GetAsString(6) );
+                    if ( dist <= m_iLimitRange || m_iLimitRange == 0 )
+                        m_pObjSearchDialog->AddObject( set.GetAsString(0),  set.GetAsString(1), set.GetDouble(2), set.GetDouble(3), dist, set.GetDouble(4), set.GetInt(5), set.GetAsString(6) );
                 }
                 m_pObjSearchDialog->SortResults();
             }
@@ -559,6 +566,14 @@ ObjSearchDialogImpl::ObjSearchDialogImpl( objsearch_pi* plugin, wxWindow* parent
 	// below may fail
 	m_clcPopup = new CheckListComboPopup();
 	m_choiceFeature->SetPopupControl(m_clcPopup);
+	
+	m_cAutoClose->SetValue(p_plugin->GetAutoClose());
+	m_scRange->SetValue(p_plugin->GetRangeLimit());
+}
+
+ObjSearchDialogImpl::~ObjSearchDialogImpl()
+{
+    SaveSettings();
 }
 
 void ObjSearchDialogImpl::ClearFeatures()
@@ -588,6 +603,8 @@ void ObjSearchDialogImpl::OnSearch( wxCommandEvent& event )
         wxMessageBox( _("You did not enter any search term, do so.") );
         return;
     }
+    p_plugin->SetAutoClose(m_cAutoClose->GetValue());
+    p_plugin->SetRangeLimit(m_scRange->GetValue());
     wxString feature_filter = wxEmptyString;
     feature_filter = m_clcPopup->GetStringValue();
     p_plugin->FindObjects( feature_filter, m_textCtrlSearchTerm->GetValue() );
@@ -670,6 +687,12 @@ void ObjSearchDialogImpl::AddObject(const wxString& feature, const wxString& obj
 void ObjSearchDialogImpl::OnItemSelected( wxListEvent& event )
 {
     m_btnShowOnChart->Enable();
+}
+
+void ObjSearchDialogImpl::SaveSettings()
+{
+    p_plugin->SetAutoClose(m_cAutoClose->GetValue());
+    p_plugin->SetRangeLimit(m_scRange->GetValue());
 }
 
 void ObjSearchDialogImpl::OnClose( wxCommandEvent& event )
@@ -764,6 +787,8 @@ void ObjSearchDialogImpl::OnShowOnChart( wxCommandEvent& event )
         
     event.Skip();
     JumpToPosition(lat, lon, scale);
+    if (m_cAutoClose->GetValue())
+        Hide();
 }
 
 wxString ObjSearchDialogImpl::HumanizeFeatureName(const wxString& feature_name)

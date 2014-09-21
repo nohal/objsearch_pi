@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version Feb 26 2014)
+// C++ code generated with wxFormBuilder (version Jun  6 2014)
 // http://www.wxformbuilder.org/
 //
 // PLEASE DO "NOT" EDIT THIS FILE!
@@ -23,6 +23,9 @@
 #include <wx/button.h>
 #include <wx/sizer.h>
 #include <wx/listctrl.h>
+#include <wx/checkbox.h>
+#include <wx/stattext.h>
+#include <wx/spinctrl.h>
 #include <wx/dialog.h>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -42,6 +45,10 @@ class ObjSearchDialog : public wxDialog
 		wxListCtrl* m_listCtrlResults;
 		wxButton* m_btnShowOnChart;
 		wxButton* m_btnClose;
+		wxCheckBox* m_cAutoClose;
+		wxStaticText* m_stRange;
+		wxSpinCtrl* m_scRange;
+		wxStaticText* m_stUnit;
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnSearch( wxCommandEvent& event ) { event.Skip(); }
@@ -52,7 +59,7 @@ class ObjSearchDialog : public wxDialog
 	
 	public:
 		
-		ObjSearchDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Chart Object Search"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 649,560 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		ObjSearchDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Chart Object Search"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 660,480 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
 		~ObjSearchDialog();
 	
 };

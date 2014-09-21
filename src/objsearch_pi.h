@@ -81,6 +81,7 @@ class ObjSearchDialogImpl : public ObjSearchDialog
 {
 public:
     ObjSearchDialogImpl( objsearch_pi* plugin, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Chart Object Search"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 649,560 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+    ~ObjSearchDialogImpl();
 
     void ClearFeatures();
     void AddFeature(const wxString& feature);
@@ -101,6 +102,7 @@ protected:
 
 private:
     wxString HumanizeFeatureName(const wxString& feature_name);
+    void SaveSettings();
 };
 
 class objsearch_pi : public opencpn_plugin_112
@@ -133,6 +135,11 @@ public:
     void SetColorScheme ( PI_ColorScheme cs );
     
     void FindObjects( const wxString& feature_filter, const wxString& search_string );
+    
+    bool GetAutoClose() { return m_bCloseOnShow; }
+	int GetRangeLimit() { return m_iLimitRange; }
+	void SetAutoClose(bool val) { m_bCloseOnShow = val; }
+	void SetRangeLimit(int val) { m_iLimitRange =val; }
 
 protected:
     int QueryDB(const wxString& sql) { return QueryDB(m_db, sql); }
@@ -142,6 +149,9 @@ protected:
 private:
     bool LoadConfig ( void );
     bool SaveConfig ( void );
+    
+    bool m_bCloseOnShow;
+    int m_iLimitRange;
 
     wxFileConfig *m_pconfig;
     wxWindow *m_parent_window;

@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version Feb 26 2014)
+// C++ code generated with wxFormBuilder (version Jun  6 2014)
 // http://www.wxformbuilder.org/
 //
 // PLEASE DO "NOT" EDIT THIS FILE!
@@ -28,6 +28,8 @@ ObjSearchDialog::ObjSearchDialog( wxWindow* parent, wxWindowID id, const wxStrin
 	// below may fail
 	CheckListComboPopup* clcPopup = new CheckListComboPopup();
 	m_choiceFeature->SetPopupControl(clcPopup);
+	m_choiceFeature->SetMinSize( wxSize( 100,-1 ) );
+	
 	bSearchSizer->Add( m_choiceFeature, 0, wxALL, 5 );
 	
 	m_textCtrlSearchTerm = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
@@ -50,6 +52,30 @@ ObjSearchDialog::ObjSearchDialog( wxWindow* parent, wxWindowID id, const wxStrin
 	
 	m_btnClose = new wxButton( this, wxID_ANY, _("Close"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizerButtons->Add( m_btnClose, 0, wxALIGN_RIGHT|wxALL, 5 );
+	
+	m_cAutoClose = new wxCheckBox( this, wxID_ANY, _("Close on show"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_cAutoClose->SetValue(true); 
+	m_cAutoClose->SetToolTip( _(" ") );
+	
+	bSizerButtons->Add( m_cAutoClose, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	
+	bSizerButtons->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	m_stRange = new wxStaticText( this, wxID_ANY, _("Limit range to"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_stRange->Wrap( -1 );
+	m_stRange->SetToolTip( _("0 = Unlimited") );
+	
+	bSizerButtons->Add( m_stRange, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_scRange = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), wxSP_ARROW_KEYS, 0, 10000, 0 );
+	m_scRange->SetToolTip( _("0 = Unlimited") );
+	
+	bSizerButtons->Add( m_scRange, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_stUnit = new wxStaticText( this, wxID_ANY, _("NMi"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_stUnit->Wrap( -1 );
+	bSizerButtons->Add( m_stUnit, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
 	
 	bMainSizer->Add( bSizerButtons, 0, wxALIGN_RIGHT|wxEXPAND, 5 );
