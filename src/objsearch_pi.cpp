@@ -791,313 +791,344 @@ void ObjSearchDialogImpl::OnShowOnChart( wxCommandEvent& event )
         Hide();
 }
 
-wxString ObjSearchDialogImpl::HumanizeFeatureName(const wxString& feature_name)
+wxString ObjSearchDialogImpl::HumanizeFeatureName(const wxString& feature_name_chart)
 {
+    wxString feature_name = feature_name_chart.Upper();
+    wxString inland = wxEmptyString;
+
+    if (feature_name != feature_name_chart)
+        inland = _("Inland - ");
+
+    //ENC objects (could have inland version)
     if ( feature_name == _T("ADMARE") )
-        return _("Administration area (Named)");
+        return inland + _("Administration area (Named)");
     if ( feature_name == _T("AIRARE") )
-        return _("Airport / airfield");
+        return inland + _("Airport / airfield");
     if ( feature_name == _T("ACHBRT") )
-        return _("Anchor berth");
+        return inland + _("Anchor berth");
     if ( feature_name == _T("ACHARE") )
-        return _("Anchorage area");
+        return inland + _("Anchorage area");
     if ( feature_name == _T("BCNCAR") )
-        return _("Beacon, cardinal");
+        return inland + _("Beacon, cardinal");
     if ( feature_name == _T("BCNISD") )
-        return _("Beacon, isolated danger");
+        return inland + _("Beacon, isolated danger");
     if ( feature_name == _T("BCNLAT") )
-        return _("Beacon, lateral");
+        return inland + _("Beacon, lateral");
     if ( feature_name == _T("BCNSAW") )
-        return _("Beacon, safe water");
+        return inland + _("Beacon, safe water");
     if ( feature_name == _T("BCNSPP") )
-        return _("Beacon, special purpose/general");
+        return inland + _("Beacon, special purpose/general");
     if ( feature_name == _T("BERTHS") )
-        return _("Berth");
+        return inland + _("Berth");
     if ( feature_name == _T("BRIDGE") )
-        return _("Bridge");
+        return inland + _("Bridge");
     if ( feature_name == _T("BUISGL") )
-        return _("Building, single");
+        return inland + _("Building, single");
     if ( feature_name == _T("BUAARE") )
-        return _("Built-up area");
+        return inland + _("Built-up area");
     if ( feature_name == _T("BOYCAR") )
-        return _("Buoy, cardinal");
+        return inland + _("Buoy, cardinal");
     if ( feature_name == _T("BOYINB") )
-        return _("Buoy, installation");
+        return inland + _("Buoy, installation");
     if ( feature_name == _T("BOYISD") )
-        return _("Buoy, isolated danger");
+        return inland + _("Buoy, isolated danger");
     if ( feature_name == _T("BOYLAT") )
-        return _("Buoy, lateral");
+        return inland + _("Buoy, lateral");
     if ( feature_name == _T("BOYSAW") )
-        return _("Buoy, safe water");
+        return inland + _("Buoy, safe water");
     if ( feature_name == _T("BOYSPP") )
-        return _("Buoy, special purpose/general");
+        return inland + _("Buoy, special purpose/general");
     if ( feature_name == _T("CBLARE") )
-        return _("Cable area");
+        return inland + _("Cable area");
     if ( feature_name == _T("CBLOHD") )
-        return _("Cable, overhead");
+        return inland + _("Cable, overhead");
     if ( feature_name == _T("CBLSUB") )
-        return _("Cable, submarine");
+        return inland + _("Cable, submarine");
     if ( feature_name == _T("CANALS") )
-        return _("Canal");
+        return inland + _("Canal");
     if ( feature_name == _T("CANBNK") )
-        return _("Canal bank");
+        return inland + _("Canal bank");
     if ( feature_name == _T("CTSARE") )
-        return _("Cargo transshipment area");
+        return inland + _("Cargo transshipment area");
     if ( feature_name == _T("CAUSWY") )
-        return _("Causeway");
+        return inland + _("Causeway");
     if ( feature_name == _T("CHKPNT") )
-        return _("Checkpoint");
+        return inland + _("Checkpoint");
     if ( feature_name == _T("CGUSTA") )
-        return _("Coastguard station");
+        return inland + _("Coastguard station");
     if ( feature_name == _T("COALNE") )
-        return _("Coastline");
+        return inland + _("Coastline");
     if ( feature_name == _T("COSARE") )
-        return _("Continental shelf area");
+        return inland + _("Continental shelf area");
     if ( feature_name == _T("CTRPNT") )
-        return _("Control point");
+        return inland + _("Control point");
     if ( feature_name == _T("CONVYR") )
-        return _("Conveyor");
+        return inland + _("Conveyor");
     if ( feature_name == _T("CRANES") )
-        return _("Crane");
+        return inland + _("Crane");
     if ( feature_name == _T("CURENT") )
-        return _("Current - non - gravitational");
+        return inland + _("Current - non - gravitational");
     if ( feature_name == _T("DAMCON") )
-        return _("Dam");
+        return inland + _("Dam");
     if ( feature_name == _T("DAYMAR") )
-        return _("Daymark");
+        return inland + _("Daymark");
     if ( feature_name == _T("DWRTCL") )
-        return _("Deep water route centerline");
+        return inland + _("Deep water route centerline");
     if ( feature_name == _T("DWRTPT") )
-        return _("Deep water route part");
+        return inland + _("Deep water route part");
     if ( feature_name == _T("DISMAR") )
-        return _("Distance mark");
+        return inland + _("Distance mark");
     if ( feature_name == _T("DOCARE") )
-        return _("Dock area");
+        return inland + _("Dock area");
     if ( feature_name == _T("DRGARE") )
-        return _("Dredged area");
+        return inland + _("Dredged area");
     if ( feature_name == _T("DRYDOC") )
-        return _("Dry dock");
+        return inland + _("Dry dock");
     if ( feature_name == _T("DMPGRD") )
-        return _("Dumping ground");
+        return inland + _("Dumping ground");
     if ( feature_name == _T("FAIRWY") )
-        return _("Fairway");
+        return inland + _("Fairway");
     if ( feature_name == _T("FNCLNE") )
-        return _("Fence/wall");
+        return inland + _("Fence/wall");
     if ( feature_name == _T("FERYRT") )
-        return _("Ferry route");
+        return inland + _("Ferry route");
     if ( feature_name == _T("FSHZNE") )
-        return _("Fishery zone");
+        return inland + _("Fishery zone");
     if ( feature_name == _T("FSHFAC") )
-        return _("Fishing facility");
+        return inland + _("Fishing facility");
     if ( feature_name == _T("FSHGRD") )
-        return _("Fishing ground");
+        return inland + _("Fishing ground");
     if ( feature_name == _T("FLODOC") )
-        return _("Floating dock");
+        return inland + _("Floating dock");
     if ( feature_name == _T("FOGSIG") )
-        return _("Fog signal");
+        return inland + _("Fog signal");
     if ( feature_name == _T("FORSTC") )
-        return _("Fortified structure");
+        return inland + _("Fortified structure");
     if ( feature_name == _T("FRPARE") )
-        return _("Free port area");
+        return inland + _("Free port area");
     if ( feature_name == _T("GATCON") )
-        return _("Gate");
+        return inland + _("Gate");
     if ( feature_name == _T("GRIDRN") )
-        return _("Gridiron");
+        return inland + _("Gridiron");
     if ( feature_name == _T("HRBARE") )
-        return _("Harbour area (administrative)");
+        return inland + _("Harbour area (administrative)");
     if ( feature_name == _T("HRBFAC") )
-        return _("Harbour facility");
+        return inland + _("Harbour facility");
     if ( feature_name == _T("HULKES") )
-        return _("Hulk");
+        return inland + _("Hulk");
     if ( feature_name == _T("ICEARE") )
-        return _("Ice area");
+        return inland + _("Ice area");
     if ( feature_name == _T("ICNARE") )
-        return _("Incineration area");
+        return inland + _("Incineration area");
     if ( feature_name == _T("LAKARE") )
-        return _("Lake");
+        return inland + _("Lake");
     if ( feature_name == _T("LAKSHR") )
-        return _("Lake shore");
+        return inland + _("Lake shore");
     if ( feature_name == _T("LNDARE") )
-        return _("Land area");
+        return inland + _("Land area");
     if ( feature_name == _T("LNDELV") )
-        return _("Land elevation");
+        return inland + _("Land elevation");
     if ( feature_name == _T("LNDRGN") )
-        return _("Land region");
+        return inland + _("Land region");
     if ( feature_name == _T("LNDMRK") )
-        return _("Landmark");
+        return inland + _("Landmark");
     if ( feature_name == _T("LIGHTS") )
-        return _("Light");
+        return inland + _("Light");
     if ( feature_name == _T("LITFLT") )
-        return _("Light float");
+        return inland + _("Light float");
     if ( feature_name == _T("LITVES") )
-        return _("Light vessel");
+        return inland + _("Light vessel");
     if ( feature_name == _T("LOCMAG") )
-        return _("Local magnetic anomaly");
+        return inland + _("Local magnetic anomaly");
     if ( feature_name == _T("LOKBSN") )
-        return _("Lock basin");
+        return inland + _("Lock basin");
     if ( feature_name == _T("LOGPON") )
-        return _("Log pond");
+        return inland + _("Log pond");
     if ( feature_name == _T("MARCUL") )
-        return _("Marine farm/culture");
+        return inland + _("Marine farm/culture");
     if ( feature_name == _T("MIPARE") )
-        return _("Military practice area");
+        return inland + _("Military practice area");
     if ( feature_name == _T("MORFAC") )
-        return _("Mooring/warping facility");
+        return inland + _("Mooring/warping facility");
     if ( feature_name == _T("OBSTRN") )
-        return _("Obstruction");
+        return inland + _("Obstruction");
     if ( feature_name == _T("OFSPLF") )
-        return _("Offshore platform");
+        return inland + _("Offshore platform");
     if ( feature_name == _T("OSPARE") )
-        return _("Offshore production area");
+        return inland + _("Offshore production area");
     if ( feature_name == _T("OILBAR") )
-        return _("Oil barrier");
+        return inland + _("Oil barrier");
     if ( feature_name == _T("PILPNT") )
-        return _("Pile");
+        return inland + _("Pile");
     if ( feature_name == _T("PILBOP") )
-        return _("Pilot boarding place");
+        return inland + _("Pilot boarding place");
     if ( feature_name == _T("PIPARE") )
-        return _("Pipeline area");
+        return inland + _("Pipeline area");
     if ( feature_name == _T("PIPOHD") )
-        return _("Pipeline, overhead");
+        return inland + _("Pipeline, overhead");
     if ( feature_name == _T("PIPSOL") )
-        return _("Pipeline, submarine/on land");
+        return inland + _("Pipeline, submarine/on land");
     if ( feature_name == _T("PONTON") )
-        return _("Pontoon");
+        return inland + _("Pontoon");
     if ( feature_name == _T("PRDARE") )
-        return _("Production / storage area");
+        return inland + _("Production / storage area");
     if ( feature_name == _T("PYLONS") )
-        return _("Pylon/bridge support");
+        return inland + _("Pylon/bridge support");
     if ( feature_name == _T("RADLNE") )
-        return _("Radar line");
+        return inland + _("Radar line");
     if ( feature_name == _T("RADRNG") )
-        return _("Radar range");
+        return inland + _("Radar range");
     if ( feature_name == _T("RADSTA") )
-        return _("Radar station");
+        return inland + _("Radar station");
     if ( feature_name == _T("RTPBCN") )
-        return _("Radar transponder beacon");
+        return inland + _("Radar transponder beacon");
     if ( feature_name == _T("RDOCAL") )
-        return _("Radio calling-in point");
+        return inland + _("Radio calling-in point");
     if ( feature_name == _T("RDOSTA") )
-        return _("Radio station");
+        return inland + _("Radio station");
     if ( feature_name == _T("RAILWY") )
-        return _("Railway");
+        return inland + _("Railway");
     if ( feature_name == _T("RAPIDS") )
-        return _("Rapids");
+        return inland + _("Rapids");
     if ( feature_name == _T("RCRTCL") )
-        return _("Recommended route centerline");
+        return inland + _("Recommended route centerline");
     if ( feature_name == _T("RECTRC") )
-        return _("Recommended track");
+        return inland + _("Recommended track");
     if ( feature_name == _T("RSCSTA") )
-        return _("Rescue station");
+        return inland + _("Rescue station");
     if ( feature_name == _T("RESARE") )
-        return _("Restricted area");
+        return inland + _("Restricted area");
     if ( feature_name == _T("RIVERS") )
-        return _("River");
+        return inland + _("River");
     if ( feature_name == _T("RIVBNK") )
-        return _("River bank");
+        return inland + _("River bank");
     if ( feature_name == _T("ROADWY") )
-        return _("Road");
+        return inland + _("Road");
     if ( feature_name == _T("RUNWAY") )
-        return _("Runway");
+        return inland + _("Runway");
     if ( feature_name == _T("SEAARE") )
-        return _("Sea area / named water area");
+        return inland + _("Sea area / named water area");
     if ( feature_name == _T("SPLARE") )
-        return _("Sea-plane landing area");
+        return inland + _("Sea-plane landing area");
     if ( feature_name == _T("SBDARE") )
-        return _("Seabed area");
+        return inland + _("Seabed area");
     if ( feature_name == _T("SLCONS") )
-        return _("Shoreline Construction");
+        return inland + _("Shoreline Construction");
     if ( feature_name == _T("SISTAT") )
-        return _("Signal station, traffic");
+        return inland + _("Signal station, traffic");
     if ( feature_name == _T("SISTAW") )
-        return _("Signal station, warning");
+        return inland + _("Signal station, warning");
     if ( feature_name == _T("SILTNK") )
-        return _("Silo / tank");
+        return inland + _("Silo / tank");
     if ( feature_name == _T("SLOTOP") )
-        return _("Slope topline");
+        return inland + _("Slope topline");
     if ( feature_name == _T("SLOGRD") )
-        return _("Sloping ground");
+        return inland + _("Sloping ground");
     if ( feature_name == _T("SMCFAC") )
-        return _("Small craft facility");
+        return inland + _("Small craft facility");
     if ( feature_name == _T("SOUNDG") )
-        return _("Sounding");
+        return inland + _("Sounding");
     if ( feature_name == _T("SPRING") )
-        return _("Spring");
+        return inland + _("Spring");
     if ( feature_name == _T("SQUARE") )
-        return _("Square");
+        return inland + _("Square");
     if ( feature_name == _T("SUBTLN") )
-        return _("Submarine transit lane");
+        return inland + _("Submarine transit lane");
     if ( feature_name == _T("TS_PRH") )
-        return _("Tidal stream - harmonic prediction");
+        return inland + _("Tidal stream - harmonic prediction");
     if ( feature_name == _T("TS_PNH") )
-        return _("Tidal stream - non-harmonic prediction");
+        return inland + _("Tidal stream - non-harmonic prediction");
     if ( feature_name == _T("TS_PAD") )
-        return _("Tidal stream panel data");
+        return inland + _("Tidal stream panel data");
     if ( feature_name == _T("TS_TIS") )
-        return _("Tidal stream - time series");
+        return inland + _("Tidal stream - time series");
     if ( feature_name == _T("T_HMON") )
-        return _("Tide - harmonic prediction");
+        return inland + _("Tide - harmonic prediction");
     if ( feature_name == _T("T_NHMN") )
-        return _("Tide - non-harmonic prediction");
+        return inland + _("Tide - non-harmonic prediction");
     if ( feature_name == _T("T_TIMS") )
-        return _("Tidal stream - time series");
+        return inland + _("Tidal stream - time series");
     if ( feature_name == _T("TIDEWY") )
-        return _("Tideway");
+        return inland + _("Tideway");
     if ( feature_name == _T("TUNNEL") )
-        return _("Tunnel");
+        return inland + _("Tunnel");
     if ( feature_name == _T("UWTROC") )
-        return _("Underwater rock / awash rock");
+        return inland + _("Underwater rock / awash rock");
     if ( feature_name == _T("VEGATN") )
-        return _("Vegetation");
+        return inland + _("Vegetation");
     if ( feature_name == _T("WATTUR") )
-        return _("Water turbulence");
+        return inland + _("Water turbulence");
     if ( feature_name == _T("WATFAL") )
-        return _("Waterfall");
+        return inland + _("Waterfall");
     if ( feature_name == _T("WEDKLP") )
-        return _("Weed/Kelp");
+        return inland + _("Weed/Kelp");
     if ( feature_name == _T("WRECKS") )
-        return _("Wreck");
+        return inland + _("Wreck");
     if ( feature_name == _T("TS_FEB") )
-        return _("Tidal stream - flood/ebb");
+        return inland + _("Tidal stream - flood/ebb");
     if ( feature_name == _T("C_AGGR") )
-        return _("Aggregation");
+        return inland + _("Aggregation");
     if ( feature_name == _T("C_ASSO") )
-        return _("Association");
-    if ( feature_name == _T("canbnk") )
-        return _("Canal bank");
-    if ( feature_name == _T("rivbnk") )
-        return _("River bank");
-    if ( feature_name == _T("wtwaxs") )
-        return _("waterway axis");
-    if ( feature_name == _T("brgare") )
-        return _("Bridge area");
-    if ( feature_name == _T("lokare") )
-        return _("Lock area");
-    if ( feature_name == _T("bcnwtw") )
-        return _("Beacon water-way");
-    if ( feature_name == _T("boywtw") )
-        return _("Buoy water-way");
-    if ( feature_name == _T("rtplpt") )
-        return _("Route planning point");
-    if ( feature_name == _T("_texto") )
-        return _("Text label");
+        return inland + _("Association");
     if ( feature_name == _T("BRTFAC") )
-        return _("Berthing facility");
+        return inland + _("Berthing facility");
     if ( feature_name == _T("BUIREL") )
-        return _("Building, religious");
+        return inland + _("Building, religious");
     if ( feature_name == _T("CTNARE") )
-        return _("Caution area");
+        return inland + _("Caution area");
     if ( feature_name == _T("MONUMT") )
-        return _("Monument");
+        return inland + _("Monument");
     if ( feature_name == _T("PRDINS") )
-        return _("Production installation");
+        return inland + _("Production installation");
     if ( feature_name == _T("SLTPAN") )
-        return _("Salt pan");
+        return inland + _("Salt pan");
     if ( feature_name == _T("TNKCON") )
-        return _("Tank");
+        return inland + _("Tank");
     if ( feature_name == _T("TOWERS") )
-        return _("Tower structure");
-    return feature_name;
+        return inland + _("Tower structure");
+    if ( feature_name == _T("WNDMIL") )
+        return inland + _("Windmill");
+
+    //IENC-only objects
+    if ( feature_name_chart == _T("canbnk") )
+        return _("Canal bank");
+    if ( feature_name_chart == _T("rivbnk") )
+        return _("River bank");
+    if ( feature_name_chart == _T("wtwaxs") )
+        return _("waterway axis");
+    if ( feature_name_chart == _T("brgare") )
+        return _("Bridge area");
+    if ( feature_name_chart == _T("lokare") )
+        return _("Lock area");
+    if ( feature_name_chart == _T("bcnwtw") )
+        return _("Beacon water-way");
+    if ( feature_name_chart == _T("boywtw") )
+        return _("Buoy water-way");
+    if ( feature_name_chart == _T("rtplpt") )
+        return _("Route planning point");
+    if ( feature_name_chart == _T("comare") )
+        return _("Communication area");
+    if ( feature_name_chart == _T("wtwgag") )
+        return _("Waterway gauge");
+    if ( feature_name_chart == _T("termnl") )
+        return _("Terminal");
+    if ( feature_name_chart == _T("notmrk") )
+        return _("Notice mark");
+    if ( feature_name_chart == _T("bunsta") )
+        return _("Bunker station");
+    if ( feature_name_chart == _T("hrbbsn") )
+        return _("Harbour basin");
+    if ( feature_name_chart == _T("refdmp") )
+        return _("Refuse dump");
+    if ( feature_name_chart == _T("trnbsn") )
+        return _("Turning basin");
+
+    //CM93, "special case"
+    if ( feature_name_chart == _T("_texto") )
+        return _("Text label");
+
+    //We don't know that object, just return the mnemonic
+    return feature_name_chart;
 }
 
 int wxCALLBACK ObjectDistanceCompareFunction(wxIntPtr item1, wxIntPtr item2, wxIntPtr WXUNUSED(sortData))
