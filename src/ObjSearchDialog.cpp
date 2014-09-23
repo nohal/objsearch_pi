@@ -55,8 +55,6 @@ ObjSearchDialog::ObjSearchDialog( wxWindow* parent, wxWindowID id, const wxStrin
 	
 	m_cAutoClose = new wxCheckBox( this, wxID_ANY, _("Close on show"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_cAutoClose->SetValue(true); 
-	m_cAutoClose->SetToolTip( _(" ") );
-	
 	bSizerButtons->Add( m_cAutoClose, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
 	
@@ -103,4 +101,117 @@ ObjSearchDialog::~ObjSearchDialog()
 	m_btnShowOnChart->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ObjSearchDialog::OnShowOnChart ), NULL, this );
 	m_btnClose->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ObjSearchDialog::OnClose ), NULL, this );
 	
+}
+
+PopulateDbDlg::PopulateDbDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	
+	wxBoxSizer* bSizerMain;
+	bSizerMain = new wxBoxSizer( wxVERTICAL );
+	
+	wxBoxSizer* bSizerParams;
+	bSizerParams = new wxBoxSizer( wxHORIZONTAL );
+	
+	wxBoxSizer* bSizerArea;
+	bSizerArea = new wxBoxSizer( wxVERTICAL );
+	
+	wxStaticBoxSizer* sbSizerFrom;
+	sbSizerFrom = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, _("From") ), wxVERTICAL );
+	
+	wxGridSizer* gSizerFrom;
+	gSizerFrom = new wxGridSizer( 0, 2, 0, 0 );
+	
+	m_staticTextFromLat = new wxStaticText( this, wxID_ANY, _("Latitude"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextFromLat->Wrap( -1 );
+	gSizerFrom->Add( m_staticTextFromLat, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_spFromLat = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, -80, 80, 0 );
+	gSizerFrom->Add( m_spFromLat, 0, wxALL, 5 );
+	
+	m_staticTextFromLon = new wxStaticText( this, wxID_ANY, _("Longitude"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextFromLon->Wrap( -1 );
+	gSizerFrom->Add( m_staticTextFromLon, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_spFromLon = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, -180, 180, 0 );
+	gSizerFrom->Add( m_spFromLon, 0, wxALL, 5 );
+	
+	
+	sbSizerFrom->Add( gSizerFrom, 0, wxEXPAND, 5 );
+	
+	
+	bSizerArea->Add( sbSizerFrom, 1, wxEXPAND, 5 );
+	
+	wxStaticBoxSizer* sbSizerTo;
+	sbSizerTo = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, _("To") ), wxVERTICAL );
+	
+	wxGridSizer* gSizerTo;
+	gSizerTo = new wxGridSizer( 0, 2, 0, 0 );
+	
+	m_staticTextToLat = new wxStaticText( this, wxID_ANY, _("Latitude"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextToLat->Wrap( -1 );
+	gSizerTo->Add( m_staticTextToLat, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_spToLat = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, -80, 80, 0 );
+	gSizerTo->Add( m_spToLat, 0, wxALL, 5 );
+	
+	m_staticTextToLon = new wxStaticText( this, wxID_ANY, _("Longitude"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextToLon->Wrap( -1 );
+	gSizerTo->Add( m_staticTextToLon, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_spToLon = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, -180, 180, 0 );
+	gSizerTo->Add( m_spToLon, 0, wxALL, 5 );
+	
+	
+	sbSizerTo->Add( gSizerTo, 0, wxEXPAND, 5 );
+	
+	
+	bSizerArea->Add( sbSizerTo, 1, wxEXPAND, 5 );
+	
+	
+	bSizerParams->Add( bSizerArea, 1, wxEXPAND, 5 );
+	
+	wxStaticBoxSizer* sbSizerScales;
+	sbSizerScales = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, _("Scales") ), wxVERTICAL );
+	
+	m_cb5000000 = new wxCheckBox( this, wxID_ANY, _("1:5000000"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_cb5000000->SetValue(true); 
+	sbSizerScales->Add( m_cb5000000, 0, wxALL, 5 );
+	
+	m_cb1000000 = new wxCheckBox( this, wxID_ANY, _("1:1000000"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_cb1000000->SetValue(true); 
+	sbSizerScales->Add( m_cb1000000, 0, wxALL, 5 );
+	
+	m_cb200000 = new wxCheckBox( this, wxID_ANY, _("1:200000"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_cb200000->SetValue(true); 
+	sbSizerScales->Add( m_cb200000, 0, wxALL, 5 );
+	
+	m_cb20000 = new wxCheckBox( this, wxID_ANY, _("1:20000"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_cb20000->SetValue(true); 
+	sbSizerScales->Add( m_cb20000, 0, wxALL, 5 );
+	
+	
+	bSizerParams->Add( sbSizerScales, 1, wxEXPAND, 5 );
+	
+	
+	bSizerMain->Add( bSizerParams, 1, wxEXPAND, 5 );
+	
+	m_sdbSizerBtns = new wxStdDialogButtonSizer();
+	m_sdbSizerBtnsOK = new wxButton( this, wxID_OK );
+	m_sdbSizerBtns->AddButton( m_sdbSizerBtnsOK );
+	m_sdbSizerBtnsCancel = new wxButton( this, wxID_CANCEL );
+	m_sdbSizerBtns->AddButton( m_sdbSizerBtnsCancel );
+	m_sdbSizerBtns->Realize();
+	
+	bSizerMain->Add( m_sdbSizerBtns, 0, wxALL|wxEXPAND, 5 );
+	
+	
+	this->SetSizer( bSizerMain );
+	this->Layout();
+	
+	this->Centre( wxBOTH );
+}
+
+PopulateDbDlg::~PopulateDbDlg()
+{
 }

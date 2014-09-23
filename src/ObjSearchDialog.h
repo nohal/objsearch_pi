@@ -27,6 +27,7 @@
 #include <wx/stattext.h>
 #include <wx/spinctrl.h>
 #include <wx/dialog.h>
+#include <wx/statbox.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -61,6 +62,37 @@ class ObjSearchDialog : public wxDialog
 		
 		ObjSearchDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Chart Object Search"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 660,480 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
 		~ObjSearchDialog();
+	
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class PopulateDbDlg
+///////////////////////////////////////////////////////////////////////////////
+class PopulateDbDlg : public wxDialog 
+{
+	private:
+	
+	protected:
+		wxStaticText* m_staticTextFromLat;
+		wxSpinCtrl* m_spFromLat;
+		wxStaticText* m_staticTextFromLon;
+		wxSpinCtrl* m_spFromLon;
+		wxStaticText* m_staticTextToLat;
+		wxSpinCtrl* m_spToLat;
+		wxStaticText* m_staticTextToLon;
+		wxSpinCtrl* m_spToLon;
+		wxCheckBox* m_cb5000000;
+		wxCheckBox* m_cb1000000;
+		wxCheckBox* m_cb200000;
+		wxCheckBox* m_cb20000;
+		wxStdDialogButtonSizer* m_sdbSizerBtns;
+		wxButton* m_sdbSizerBtnsOK;
+		wxButton* m_sdbSizerBtnsCancel;
+	
+	public:
+		
+		PopulateDbDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Populate Object Database"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 476,281 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		~PopulateDbDlg();
 	
 };
 
