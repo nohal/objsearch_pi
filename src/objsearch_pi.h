@@ -70,11 +70,14 @@ struct Chart
 class DbThread : public wxThread
 {
 public:
-    DbThread(objsearch_pi * handler) : wxThread() { Create(); m_pHandler = handler; }
+    DbThread(objsearch_pi * handler) : wxThread() { Create(); m_pHandler = handler; m_bIsWriting = false; }
     ~DbThread();
     void *Entry();
+    bool IsWriting() { return m_bIsWriting; }
 protected:
     objsearch_pi *m_pHandler;
+private:
+    bool m_bIsWriting;
 };
 
 class ObjSearchDialogImpl : public ObjSearchDialog
@@ -140,6 +143,9 @@ public:
 	int GetRangeLimit() { return m_iLimitRange; }
 	void SetAutoClose(bool val) { m_bCloseOnShow = val; }
 	void SetRangeLimit(int val) { m_iLimitRange =val; }
+	
+	void SetDBThreadRunning(bool state) { m_db_thread_running = state; }
+	bool IsDBThreadRunning() { return m_db_thread_running; }
 
 protected:
     int QueryDB(const wxString& sql) { return QueryDB(m_db, sql); }
@@ -149,6 +155,7 @@ protected:
 private:
     bool LoadConfig ( void );
     bool SaveConfig ( void );
+    bool m_db_thread_running;
     
     bool m_bCloseOnShow;
     int m_iLimitRange;

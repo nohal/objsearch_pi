@@ -173,6 +173,8 @@ objsearch_pi::objsearch_pi ( void *ppimgr )
     // Create the PlugIn icons
     initialize_images();
     
+    m_db_thread_running = false;
+    
     m_bDBUsable = true;
     
     m_bWaitForDB = true;
@@ -216,26 +218,6 @@ objsearch_pi::objsearch_pi ( void *ppimgr )
 
 objsearch_pi::~objsearch_pi ( void )
 {
-    {
-        wxCriticalSectionLocker enter(m_pThreadCS);
-        if (m_pThread) // does the thread still exist?
-        {
-            if (m_pThread->Delete() != wxTHREAD_NO_ERROR )
-                wxLogError(_T("Can't delete the DB thread!"));
-        }
-    } // exit from the critical section to give the thread
-        // the possibility to enter its destructor
-        // (which is guarded with m_pThreadCS critical section!)
-    while (1)
-    {
-        { // was the ~MyThread() function executed?
-            wxCriticalSectionLocker enter(m_pThreadCS);
-            if (!m_pThread)
-                break;
-        }
-        // wait for thread completion
-        // Do not wait and assume the thread will have enough time to die during the OPenCPN shutdown sequence // wxThread::This()->Sleep(1);
-    }
     clearDB(m_db);
     delete _img_objsearch_pi;
     delete _img_objsearch;
@@ -295,6 +277,48 @@ bool objsearch_pi::DeInit ( void )
         delete m_pObjSearchDialog;
         m_pObjSearchDialog = NULL;
         SaveConfig();
+    }
+    
+    {
+        wxCriticalSectionLocker enter(m_pThreadCS);
+        if (m_pThread) // does the thread still exist?
+        {
+            while (m_pThread->IsWriting())
+            {
+                wxMilliSleep(10);
+            }
+            if (m_pThread->Delete() != wxTHREAD_NO_ERROR )
+                wxLogError(_T("Can't delete the DB thread!"));
+        }
+    } // exit from the critical section to give the thread
+        // the possibility to enter its destructor
+        // (which is guarded with m_pThreadCS critical section!)
+    while (1)
+    {
+        { // was the ~MyThread() function executed?
+            wxCriticalSectionLocker enter(m_pThreadCS);
+            if (!m_pThread)
+                break;
+        }
+        // wait for thread completion
+    }
+    
+    //Last resort check for thread completion, wait if it looks bad
+    #define THREAD_WAIT_SECONDS  5
+    //  Try to wait a bit to see if all compression threads exit nicely
+    wxDateTime now = wxDateTime::Now();
+    time_t stall = now.GetTicks();
+    time_t start = stall;
+    time_t end = stall + THREAD_WAIT_SECONDS;
+    
+    while(m_db_thread_running && stall < end ){
+        wxDateTime later = wxDateTime::Now();
+        stall = later.GetTicks();
+        
+        wxYield();
+        wxSleep(1);
+        if(!m_db_thread_running)
+            break;
     }
 
     return true;
@@ -406,7 +430,7 @@ void objsearch_pi::SetPositionFix( PlugIn_Position_Fix &pfix )
 
 void objsearch_pi::SendVectorChartObjectInfo(wxString &chart, wxString &feature, wxString &objname, double lat, double lon, double scale, int nativescale)
 {
-    if ( !m_bDBUsable )
+    if ( !m_bDBUsable || !IsDBThreadRunning() )
         return;
     long chart_id = GetChartId(chart);
     long feature_id = GetFeatureId(feature);
@@ -1148,14 +1172,17 @@ void ObjSearchDialogImpl::SortResults()
 
 void *DbThread::Entry()
 {
+    m_pHandler->SetDBThreadRunning(true);
     while (!TestDestroy())
     {
         m_pHandler->QueryDB(_T("BEGIN TRANSACTION"));
+        m_bIsWriting = true;
         while (m_pHandler->HasQueries())
         {
             m_pHandler->QueryDB(m_pHandler->GetQuery());
         }
         m_pHandler->QueryDB(_T("COMMIT TRANSACTION"));
+        m_bIsWriting = false;
         Sleep(500);
         //wxQueueEvent(m_pHandler, new wxThreadEvent(wxEVT_COMMAND_DBTHREAD_UPDATE));
     }
@@ -1173,6 +1200,7 @@ DbThread::~DbThread()
 {
     wxCriticalSectionLocker enter(m_pHandler->m_pThreadCS);
     m_pHandler->m_pThread = NULL;
+    m_pHandler->SetDBThreadRunning(false);
 }
 
 wxString objsearch_pi::GetQuery()
