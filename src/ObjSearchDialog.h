@@ -66,13 +66,14 @@ class ObjSearchDialog : public wxDialog
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class PopulateDbDlg
+/// Class PopulateDbDialog
 ///////////////////////////////////////////////////////////////////////////////
-class PopulateDbDlg : public wxDialog 
+class PopulateDbDialog : public wxDialog 
 {
 	private:
 	
 	protected:
+		wxStaticText* m_stScanCharts;
 		wxStaticText* m_staticTextFromLat;
 		wxSpinCtrl* m_spFromLat;
 		wxStaticText* m_staticTextFromLon;
@@ -85,14 +86,26 @@ class PopulateDbDlg : public wxDialog
 		wxCheckBox* m_cb1000000;
 		wxCheckBox* m_cb200000;
 		wxCheckBox* m_cb20000;
+		wxStaticText* m_stOr;
+		wxStaticText* m_stFile;
+		wxTextCtrl* m_tPath;
+		wxButton* m_button4;
 		wxStdDialogButtonSizer* m_sdbSizerBtns;
 		wxButton* m_sdbSizerBtnsOK;
 		wxButton* m_sdbSizerBtnsCancel;
+		
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnScale( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnPathChange( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnBrowse( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnCancel( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnOk( wxCommandEvent& event ) { event.Skip(); }
+		
 	
 	public:
 		
-		PopulateDbDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Populate Object Database"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 476,281 ), long style = wxDEFAULT_DIALOG_STYLE ); 
-		~PopulateDbDlg();
+		PopulateDbDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Populate Object Database"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 460,380 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		~PopulateDbDialog();
 	
 };
 

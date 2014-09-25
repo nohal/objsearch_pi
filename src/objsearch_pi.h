@@ -80,10 +80,17 @@ private:
     bool m_bIsWriting;
 };
 
+class PopulateDbDialogImpl : public PopulateDbDialog
+{
+public:
+    PopulateDbDialogImpl( objsearch_pi* plugin, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Populate Object Database"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 460,380 ), long style = wxDEFAULT_DIALOG_STYLE );
+    ~PopulateDbDialogImpl();
+};
+
 class ObjSearchDialogImpl : public ObjSearchDialog
 {
 public:
-    ObjSearchDialogImpl( objsearch_pi* plugin, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Chart Object Search"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 649,560 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+    ObjSearchDialogImpl( objsearch_pi* plugin, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Chart Object Search"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 660,480 ), long style = wxDEFAULT_DIALOG_STYLE ); 
     ~ObjSearchDialogImpl();
 
     void ClearFeatures();

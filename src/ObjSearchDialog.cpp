@@ -103,12 +103,16 @@ ObjSearchDialog::~ObjSearchDialog()
 	
 }
 
-PopulateDbDlg::PopulateDbDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+PopulateDbDialog::PopulateDbDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	
 	wxBoxSizer* bSizerMain;
 	bSizerMain = new wxBoxSizer( wxVERTICAL );
+	
+	m_stScanCharts = new wxStaticText( this, wxID_ANY, _("Scan charts"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_stScanCharts->Wrap( -1 );
+	bSizerMain->Add( m_stScanCharts, 0, wxALL, 5 );
 	
 	wxBoxSizer* bSizerParams;
 	bSizerParams = new wxBoxSizer( wxHORIZONTAL );
@@ -140,7 +144,7 @@ PopulateDbDlg::PopulateDbDlg( wxWindow* parent, wxWindowID id, const wxString& t
 	sbSizerFrom->Add( gSizerFrom, 0, wxEXPAND, 5 );
 	
 	
-	bSizerArea->Add( sbSizerFrom, 1, wxEXPAND, 5 );
+	bSizerArea->Add( sbSizerFrom, 0, wxALL|wxEXPAND, 5 );
 	
 	wxStaticBoxSizer* sbSizerTo;
 	sbSizerTo = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, _("To") ), wxVERTICAL );
@@ -166,10 +170,10 @@ PopulateDbDlg::PopulateDbDlg( wxWindow* parent, wxWindowID id, const wxString& t
 	sbSizerTo->Add( gSizerTo, 0, wxEXPAND, 5 );
 	
 	
-	bSizerArea->Add( sbSizerTo, 1, wxEXPAND, 5 );
+	bSizerArea->Add( sbSizerTo, 0, wxALL|wxEXPAND, 5 );
 	
 	
-	bSizerParams->Add( bSizerArea, 1, wxEXPAND, 5 );
+	bSizerParams->Add( bSizerArea, 0, wxEXPAND, 5 );
 	
 	wxStaticBoxSizer* sbSizerScales;
 	sbSizerScales = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, _("Scales") ), wxVERTICAL );
@@ -191,10 +195,33 @@ PopulateDbDlg::PopulateDbDlg( wxWindow* parent, wxWindowID id, const wxString& t
 	sbSizerScales->Add( m_cb20000, 0, wxALL, 5 );
 	
 	
-	bSizerParams->Add( sbSizerScales, 1, wxEXPAND, 5 );
+	bSizerParams->Add( sbSizerScales, 1, wxALL|wxEXPAND, 5 );
 	
 	
 	bSizerMain->Add( bSizerParams, 1, wxEXPAND, 5 );
+	
+	
+	bSizerMain->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	m_stOr = new wxStaticText( this, wxID_ANY, _("or"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_stOr->Wrap( -1 );
+	bSizerMain->Add( m_stOr, 1, wxALL, 5 );
+	
+	wxStaticBoxSizer* sbSizerCSV;
+	sbSizerCSV = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, _("Import data") ), wxHORIZONTAL );
+	
+	m_stFile = new wxStaticText( this, wxID_ANY, _("File"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_stFile->Wrap( -1 );
+	sbSizerCSV->Add( m_stFile, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_tPath = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizerCSV->Add( m_tPath, 1, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_button4 = new wxButton( this, wxID_ANY, _("Browse..."), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizerCSV->Add( m_button4, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	
+	bSizerMain->Add( sbSizerCSV, 0, wxALL|wxEXPAND, 5 );
 	
 	m_sdbSizerBtns = new wxStdDialogButtonSizer();
 	m_sdbSizerBtnsOK = new wxButton( this, wxID_OK );
@@ -210,8 +237,28 @@ PopulateDbDlg::PopulateDbDlg( wxWindow* parent, wxWindowID id, const wxString& t
 	this->Layout();
 	
 	this->Centre( wxBOTH );
+	
+	// Connect Events
+	m_cb5000000->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( PopulateDbDialog::OnScale ), NULL, this );
+	m_cb1000000->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( PopulateDbDialog::OnScale ), NULL, this );
+	m_cb200000->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( PopulateDbDialog::OnScale ), NULL, this );
+	m_cb20000->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( PopulateDbDialog::OnScale ), NULL, this );
+	m_tPath->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( PopulateDbDialog::OnPathChange ), NULL, this );
+	m_button4->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PopulateDbDialog::OnBrowse ), NULL, this );
+	m_sdbSizerBtnsCancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PopulateDbDialog::OnCancel ), NULL, this );
+	m_sdbSizerBtnsOK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PopulateDbDialog::OnOk ), NULL, this );
 }
 
-PopulateDbDlg::~PopulateDbDlg()
+PopulateDbDialog::~PopulateDbDialog()
 {
+	// Disconnect Events
+	m_cb5000000->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( PopulateDbDialog::OnScale ), NULL, this );
+	m_cb1000000->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( PopulateDbDialog::OnScale ), NULL, this );
+	m_cb200000->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( PopulateDbDialog::OnScale ), NULL, this );
+	m_cb20000->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( PopulateDbDialog::OnScale ), NULL, this );
+	m_tPath->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( PopulateDbDialog::OnPathChange ), NULL, this );
+	m_button4->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PopulateDbDialog::OnBrowse ), NULL, this );
+	m_sdbSizerBtnsCancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PopulateDbDialog::OnCancel ), NULL, this );
+	m_sdbSizerBtnsOK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PopulateDbDialog::OnOk ), NULL, this );
+	
 }
