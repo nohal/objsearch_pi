@@ -597,7 +597,7 @@ void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& 
             {
                 while (set.NextRow())
                 {
-                    m_pObjSearchDialog->AddObject( set.GetAsString(0),  set.GetAsString(1), set.GetDouble(2), set.GetDouble(3), set.GetDouble(7), set.GetDouble(4), set.GetInt(5), set.GetAsString(6) );
+                    m_pObjSearchDialog->AddObject( set.GetAsString(0),  set.GetAsString(1), set.GetDouble(2), set.GetDouble(3), toUsrDistance_Plugin(set.GetDouble(7)), set.GetDouble(4), set.GetInt(5), set.GetAsString(6) );
                 }
                 m_pObjSearchDialog->SortResults();
             }
