@@ -45,6 +45,8 @@ SET(SRC_OBJSEARCH
             src/ObjSearchDialog.cpp
             src/clcpopup.h
             src/clcpopup.cpp
+            src/csv_parser.h
+            src/csv_parser.cpp
             wxsqlite3-3.1.1/src/wxsqlite3.cpp
             sqlite-amalgamation-3080600/sqlite3.c
 )

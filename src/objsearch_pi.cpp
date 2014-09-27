@@ -42,6 +42,36 @@
 #define NAN (INFINITY-INFINITY)
 #endif
 
+//SQLite user functions
+
+void DistanceMercatorFunc::Execute(wxSQLite3FunctionContext& ctx)
+{
+    if ( ctx.GetArgCount() != 4 )
+    {
+        ctx.SetResultError(_T("Function takes exactly 4 arguments."));
+        return;
+    }
+    double lat0 = ctx.GetDouble(0);
+    double lon0 = ctx.GetDouble(1);
+    double lat1 = ctx.GetDouble(2);
+    double lon1 = ctx.GetDouble(3);
+    if ( lat0 > 90. || lat0 < -90. || lat1 > 90. || lat1 < -90.)
+    {
+        ctx.SetResultError(_T("Latitude must be between -90 and 90."));
+        return;
+    }
+    
+    if ( lon0 > 180. || lon0 < -180. || lon1 > 180. || lon1 < -180.)
+    {
+        ctx.SetResultError(_T("Longitude must be between -180 and 180."));
+        return;
+    }
+    
+    double dist;
+    DistanceBearingMercator_Plugin(lat0, lon0, lat1, lon1, NULL, &dist);
+    
+    ctx.SetResult(dist);
+}
 
 // the class factories, used to create and destroy instances of the PlugIn
 
@@ -104,6 +134,8 @@ wxSQLite3Database* objsearch_pi::initDB(void)
     
     if ( m_bDBUsable )
 	{
+        db->CreateFunction(_T("distanceMercator"), 4, distMercFunc, true);
+        //sqlite3_create_function(db, "distanceMercator", 4, SQLITE_UTF8, NULL, &distanceMercatorFunc, NULL, NULL));
 		QueryDB( db, _T("PRAGMA synchronous=OFF") );
         QueryDB( db, _T("PRAGMA count_changes=OFF") );
         QueryDB( db, _T("PRAGMA journal_mode=MEMORY") );
@@ -526,7 +558,7 @@ int objsearch_pi::GetFeatureId(wxString feature)
         return m_featuresInDb[feature];
 }
 
-void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& search_string )
+void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& search_string, double lat, double lon, double dist )
 {
     if (!m_bDBUsable)
     {
@@ -536,7 +568,11 @@ void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& 
     m_pObjSearchDialog->ClearObjects();
     wxString safe_value = search_string;
     safe_value.Replace(_T("'"), _T("''"));
-    wxSQLite3ResultSet set = SelectFromDB( m_db, wxString::Format( wxT("SELECT COUNT(*) FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) WHERE instr('%s', featurename) > 0 AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str() ) );
+    wxSQLite3ResultSet set;
+    if ( dist > 0.1 )
+        set = SelectFromDB( m_db, wxString::Format( wxT("SELECT COUNT(*) FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) WHERE instr('%s', featurename) > 0 AND objname LIKE '%%%s%%' AND distanceMercator(lat, lon, %f, %f) <= %f"), feature_filter.c_str(), safe_value.c_str(), lat, lon, dist ) );
+    else
+        set = SelectFromDB( m_db, wxString::Format( wxT("SELECT COUNT(*) FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) WHERE instr('%s', featurename) > 0 AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str() ) );
     int objects_found = 0;
     if (m_bDBUsable)
     {
@@ -552,26 +588,16 @@ void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& 
     {
         if (m_bDBUsable)
         {
-            set = SelectFromDB( m_db, wxString::Format( wxT("SELECT f.featurename, o.objname, o.lat, o.lon, ch.scale, ch.nativescale, ch.chartname FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) LEFT JOIN chart ch ON (o.chart_id = ch.id) WHERE instr('%s', featurename) > 0 AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str() ) );
-            double lat, lon;
-            double dist, brg;
-            if ( m_boatlat == NAN || m_boatlon == NAN)
-            {
-                lat = m_vplat;
-                lon = m_vplon;
-            }
+            if ( dist > 0.1 )
+                set = SelectFromDB( m_db, wxString::Format( wxT("SELECT f.featurename, o.objname, o.lat, o.lon, ch.scale, ch.nativescale, ch.chartname, distanceMercator(lat, lon, %f, %f) FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) LEFT JOIN chart ch ON (o.chart_id = ch.id) WHERE instr('%s', featurename) > 0 AND objname LIKE '%%%s%%' AND distanceMercator(lat, lon, %f, %f) <= %f"), feature_filter.c_str(), safe_value.c_str(), lat, lon, lat, lon, dist ) );
             else
-            {
-                lat = m_boatlat;
-                lon = m_boatlon;
-            }
+                set = SelectFromDB( m_db, wxString::Format( wxT("SELECT f.featurename, o.objname, o.lat, o.lon, ch.scale, ch.nativescale, ch.chartname, distanceMercator(lat, lon, %f, %f) FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) LEFT JOIN chart ch ON (o.chart_id = ch.id) WHERE instr('%s', featurename) > 0 AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str(), lat, lon ) );
+
             if (m_bDBUsable)
             {
                 while (set.NextRow())
                 {
-                    DistanceBearingMercator_Plugin( lat, lon, set.GetDouble(2), set.GetDouble(3), &brg, &dist );
-                    if ( dist <= m_iLimitRange || m_iLimitRange == 0 )
-                        m_pObjSearchDialog->AddObject( set.GetAsString(0),  set.GetAsString(1), set.GetDouble(2), set.GetDouble(3), dist, set.GetDouble(4), set.GetInt(5), set.GetAsString(6) );
+                    m_pObjSearchDialog->AddObject( set.GetAsString(0),  set.GetAsString(1), set.GetDouble(2), set.GetDouble(3), set.GetDouble(7), set.GetDouble(4), set.GetInt(5), set.GetAsString(6) );
                 }
                 m_pObjSearchDialog->SortResults();
             }
@@ -631,7 +657,7 @@ void ObjSearchDialogImpl::OnSearch( wxCommandEvent& event )
     p_plugin->SetRangeLimit(m_scRange->GetValue());
     wxString feature_filter = wxEmptyString;
     feature_filter = m_clcPopup->GetStringValue();
-    p_plugin->FindObjects( feature_filter, m_textCtrlSearchTerm->GetValue() );
+    p_plugin->FindObjects( feature_filter, m_textCtrlSearchTerm->GetValue(), p_plugin->GetLat(), p_plugin->GetLon(), p_plugin->GetRangeLimit() );
 }
 
 void ObjSearchDialogImpl::ClearObjects()

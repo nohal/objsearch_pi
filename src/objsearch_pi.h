@@ -67,6 +67,13 @@ struct Chart
     Chart():id(-1),name(wxEmptyString),scale(0.0),nativescale(-1) { }
 };
 
+class DistanceMercatorFunc : public wxSQLite3ScalarFunction
+{
+public:
+  DistanceMercatorFunc() {};
+  void Execute(wxSQLite3FunctionContext& ctx);
+};
+
 class DbThread : public wxThread
 {
 public:
@@ -144,13 +151,16 @@ public:
 // Other public methods
     void SetColorScheme ( PI_ColorScheme cs );
     
-    void FindObjects( const wxString& feature_filter, const wxString& search_string );
+    void FindObjects( const wxString& feature_filter, const wxString& search_string, double lat, double lon, double dist );
     
     bool GetAutoClose() { return m_bCloseOnShow; }
 	int GetRangeLimit() { return m_iLimitRange; }
 	void SetAutoClose(bool val) { m_bCloseOnShow = val; }
-	void SetRangeLimit(int val) { m_iLimitRange =val; }
+	void SetRangeLimit(int val) { m_iLimitRange = round(fromUsrDistance_Plugin(val)); }
 	
+	double GetLat() { if ( m_boatlat == NAN || m_boatlon == NAN) return m_vplat; else return m_boatlat; }
+    double GetLon() { if ( m_boatlat == NAN || m_boatlon == NAN) return m_vplon; else return m_boatlon; }
+    	
 	void SetDBThreadRunning(bool state) { m_db_thread_running = state; }
 	bool IsDBThreadRunning() { return m_db_thread_running; }
 
@@ -207,6 +217,8 @@ private:
     friend class DbThread; // allow it to access our m_pThread
 
     std::queue<wxString> query_queue;
+    
+    DistanceMercatorFunc distMercFunc;
 };
 
 #endif
