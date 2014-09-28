@@ -87,11 +87,21 @@ private:
     bool m_bIsWriting;
 };
 
-class PopulateDbDialogImpl : public PopulateDbDialog
+class SettingsDialogImpl : public SettingsDialog
 {
 public:
-    PopulateDbDialogImpl( objsearch_pi* plugin, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Populate Object Database"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 460,380 ), long style = wxDEFAULT_DIALOG_STYLE );
-    ~PopulateDbDialogImpl();
+    SettingsDialogImpl( objsearch_pi* plugin, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Object Search Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 600,440 ), long style = wxDEFAULT_DIALOG_STYLE );
+    ~SettingsDialogImpl();
+    void OnBrowse( wxCommandEvent& event );
+    void OnOk( wxCommandEvent& event );
+    void OnCancel( wxCommandEvent& event );
+    void CreateObject( double lat, double lon, wxString& name, wxString& feature, wxString& source, long scale, double truescale );
+
+private:
+    static int ProcessCsvLine(void * frm, int cnt, const char ** cv);
+    objsearch_pi *p_plugin;
+    wxProgressDialog* m_prgdlg;
+    int m_iProcessed;
 };
 
 class ObjSearchDialogImpl : public ObjSearchDialog
@@ -108,18 +118,18 @@ public:
     
     void SortResults();
     
-    objsearch_pi *p_plugin;
-    
 protected:
     CheckListComboPopup* m_clcPopup;
     void OnSearch( wxCommandEvent& event );
     void OnItemSelected( wxListEvent& event );
     void OnClose( wxCommandEvent& event );
     void OnShowOnChart( wxCommandEvent& event );
+    void OnSettings( wxCommandEvent& event );
 
 private:
     wxString HumanizeFeatureName(const wxString& feature_name);
     void SaveSettings();
+    objsearch_pi *p_plugin;
 };
 
 class objsearch_pi : public opencpn_plugin_112
@@ -147,6 +157,7 @@ public:
     void OnToolbarToolCallback ( int id );
     void SetPositionFix( PlugIn_Position_Fix &pfix );
     void SendVectorChartObjectInfo( wxString &chart, wxString &feature, wxString &objname, double lat, double lon, double scale, int nativescale );
+    void ShowPreferencesDialog(wxWindow * parent);
 
 // Other public methods
     void SetColorScheme ( PI_ColorScheme cs );

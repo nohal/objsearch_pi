@@ -32,7 +32,13 @@
 #include "wx/wx.h"
 #endif
 
+#include <wx/progdlg.h>
 #include "wx/wxsqlite3.h"
+
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include "csv_parser.h"
 
 #include "objsearch_pi.h"
 
@@ -297,6 +303,7 @@ int objsearch_pi::Init ( void )
              INSTALLS_TOOLBAR_TOOL     |
              WANTS_CONFIG              |
              WANTS_NMEA_EVENTS         |
+             WANTS_PREFERENCES         |
              WANTS_VECTOR_CHART_OBJECT_INFO
            );
 }
@@ -606,7 +613,8 @@ void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& 
     }
 }
 
-ObjSearchDialogImpl::ObjSearchDialogImpl( objsearch_pi* plugin, wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : ObjSearchDialog(parent, id, title, pos, size, style )
+ObjSearchDialogImpl::ObjSearchDialogImpl( objsearch_pi* plugin, wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style )
+    : ObjSearchDialog(parent, id, title, pos, size, style )
 {
     p_plugin = plugin;
     
@@ -749,6 +757,13 @@ void ObjSearchDialogImpl::OnClose( wxCommandEvent& event )
 {
     Hide();
 }
+
+void ObjSearchDialogImpl::OnSettings( wxCommandEvent& event )
+{
+    Hide();
+    p_plugin->ShowPreferencesDialog(m_parent);
+}
+
 
 double fromDMM( wxString sdms )
 {
@@ -1239,4 +1254,125 @@ wxString objsearch_pi::GetQuery()
 bool objsearch_pi::HasQueries()
 {
     return !query_queue.empty();
+}
+
+void objsearch_pi::ShowPreferencesDialog(wxWindow * parent)
+{
+    SettingsDialogImpl* settingsdlg = new SettingsDialogImpl(this, parent);
+    settingsdlg->ShowModal();
+}
+
+SettingsDialogImpl::SettingsDialogImpl( objsearch_pi* plugin, wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style )
+    : SettingsDialog(parent, id, title, pos, size, style )
+{
+    p_plugin = plugin;
+    m_prgdlg = NULL;
+    m_iProcessed = 0;
+}
+
+SettingsDialogImpl::~SettingsDialogImpl()
+{
+}
+
+
+void SettingsDialogImpl::OnBrowse(wxCommandEvent& event)
+{
+    wxFileDialog dlg(this, _T("Import data"), wxEmptyString, wxEmptyString, _("CSV files (*.csv)|*.csv|All files (*.*)|*.*"));
+    if( dlg.ShowModal() == wxID_OK )
+    {
+        m_tPath->SetValue(dlg.GetPath());
+    }
+}
+
+void SettingsDialogImpl::CreateObject( double lat, double lon, wxString& name, wxString& feature, wxString& source, long scale, double truescale )
+{
+    m_iProcessed++;
+    p_plugin->SendVectorChartObjectInfo( source, feature, name, lat, lon, truescale, (int)scale );
+    if( m_iProcessed % 10 == 0 )
+        m_prgdlg->Update(m_iProcessed);
+}
+
+int SettingsDialogImpl::ProcessCsvLine(void * frm, int cnt, const char ** cv)
+{
+    SettingsDialogImpl* p_frm=(SettingsDialogImpl*)frm;
+    
+    if( cnt < 5 )
+        return 0; //At least Lat, Lon, Object name, Feature name and "Source" name are needed
+    double lat = 0.0;
+    if( cnt >= 1)
+        lat = strtod(cv[0], NULL);
+    double lon = 0.0;
+    if( cnt >= 2)
+        lon = strtod(cv[1], NULL);
+    wxString name = wxEmptyString;
+    if( cnt >= 3)
+        name = wxString::FromUTF8(cv[2]);
+    wxString feature = wxEmptyString;
+    if( cnt >= 4)
+        feature = wxString::FromUTF8(cv[3]);
+    wxString source = wxEmptyString;
+    if( cnt >= 5)
+        source = wxString::FromUTF8(cv[4]);
+    long scale = -1;
+    if( cnt >= 6)
+        scale = strtol(cv[5], NULL, 10);
+    double truescale = 0.0;
+    if( cnt >= 7)
+        truescale = strtod(cv[6], NULL);
+    if( lat >= -90.0 && lat <= 90.0 && lon >= -180.0 && lon <= 180.0 && name != wxEmptyString && feature != wxEmptyString && source != wxEmptyString )
+        p_frm->CreateObject( lat, lon, name, feature, source, scale, truescale );
+    return 0;
+}
+
+void SettingsDialogImpl::OnOk(wxCommandEvent& event)
+{
+    if( m_tPath->GetValue() == wxEmptyString )
+    {
+        //TODO: perform scan
+    }
+    else
+    {
+        if( wxFileExists(m_tPath->GetValue()) )
+        {
+            std::ifstream inFile( m_tPath->GetValue().mb_str() ); 
+            int linecount = std::count(std::istreambuf_iterator<char>(inFile), std::istreambuf_iterator<char>(), '\n');
+            m_prgdlg = new wxProgressDialog(_("Import progress..."),
+                wxString::Format( _("Importing data from %s."), m_tPath->GetValue().c_str() ),
+                linecount, this	);
+            m_prgdlg->Show();
+            
+            FILE *fp;
+            if ( NULL==(fp=fopen (m_tPath->GetValue().mb_str(),"r") ) )
+            {
+                fprintf (stderr, "Cannot open input file sales.csv\n");
+                return;
+            }
+            switch( csv_parse (fp, ProcessCsvLine, this) )
+            {
+            case E_LINE_TOO_WIDE:
+                //fprintf(stderr,"Error parsing csv: line too wide.\n");
+                break;
+            case E_QUOTED_STRING:
+                //fprintf(stderr,"Error parsing csv: ill-formatted quoted string.\n");
+                break;
+            }
+            
+            fclose (fp);
+            
+            m_prgdlg->Close();
+            delete m_prgdlg;
+            m_iProcessed = 0;
+            m_prgdlg = NULL;
+        }
+        else
+        {
+            wxMessageBox( wxString::Format( _("The files %s does not exist, nothing to import."), m_tPath->GetValue().c_str() ) );
+        }
+    }
+    this->Close();
+}
+
+void SettingsDialogImpl::OnCancel(wxCommandEvent& event)
+{
+    this->Close();
 }

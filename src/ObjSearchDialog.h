@@ -28,6 +28,11 @@
 #include <wx/spinctrl.h>
 #include <wx/dialog.h>
 #include <wx/statbox.h>
+#include <wx/panel.h>
+#include <wx/bitmap.h>
+#include <wx/image.h>
+#include <wx/icon.h>
+#include <wx/notebook.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -50,12 +55,14 @@ class ObjSearchDialog : public wxDialog
 		wxStaticText* m_stRange;
 		wxSpinCtrl* m_scRange;
 		wxStaticText* m_stUnit;
+		wxButton* m_btnSettings;
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnSearch( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnItemSelected( wxListEvent& event ) { event.Skip(); }
 		virtual void OnShowOnChart( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnClose( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnSettings( wxCommandEvent& event ) { event.Skip(); }
 		
 	
 	public:
@@ -66,13 +73,15 @@ class ObjSearchDialog : public wxDialog
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class PopulateDbDialog
+/// Class SettingsDialog
 ///////////////////////////////////////////////////////////////////////////////
-class PopulateDbDialog : public wxDialog 
+class SettingsDialog : public wxDialog 
 {
 	private:
 	
 	protected:
+		wxNotebook* m_notebookSettings;
+		wxPanel* m_panelPopulate;
 		wxStaticText* m_stScanCharts;
 		wxStaticText* m_staticTextFromLat;
 		wxSpinCtrl* m_spFromLat;
@@ -90,6 +99,7 @@ class PopulateDbDialog : public wxDialog
 		wxStaticText* m_stFile;
 		wxTextCtrl* m_tPath;
 		wxButton* m_button4;
+		wxPanel* m_panelManage;
 		wxStdDialogButtonSizer* m_sdbSizerBtns;
 		wxButton* m_sdbSizerBtnsOK;
 		wxButton* m_sdbSizerBtnsCancel;
@@ -104,8 +114,8 @@ class PopulateDbDialog : public wxDialog
 	
 	public:
 		
-		PopulateDbDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Populate Object Database"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 460,380 ), long style = wxDEFAULT_DIALOG_STYLE ); 
-		~PopulateDbDialog();
+		SettingsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Object Search Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 600,440 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		~SettingsDialog();
 	
 };
 
