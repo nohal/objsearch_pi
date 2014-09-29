@@ -1,6 +1,10 @@
 #Vector Chart Object Search  Plugin for OpenCPN
 This plugin provides a search interface to the objects on the vector charts in OpenCPN. Note that it indexes the objects on the charts which were loaded at least once with the plugin enabled.
 
+##Current CI Status
+[![Build Status](https://api.travis-ci.org/nohal/objsearch_pi.svg)](http://travis-ci.org/nohal/objsearch_pi)
+[![Coverity Scan Build Status](https://scan.coverity.com/projects/3039/badge.svg)](https://scan.coverity.com/projects/3039)
+
 ##Building
 This assumes you have already seen the building instructions at http://opencpn.org/ocpn/compiling_source_linux or http://opencpn.org/ocpn/compiling_source_windows and can build OpenCPN from source.
 
