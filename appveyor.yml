@@ -1,0 +1,68 @@
+environment:
+  global:
+    CMD_IN_ENV: "cmd /E:ON /V:ON /C .\\appveyor_run_with_env.cmd"
+
+# version format
+version: 0.4.{build}
+
+branches:
+  only:
+    - master
+  #  - appveyorbuild
+  # blacklist
+  #except:
+  #  - gh-pages
+
+#---------------------------------#
+#    environment configuration    #
+#---------------------------------#
+
+# clone directory
+clone_folder: c:\projects\objsearch_pi
+
+platform:
+  - x86
+
+configuration:
+  - Release
+
+install:
+  - cmd: cinst wget -x86
+  - cmd: cinst nsis -x86
+  - cmd: cinst poedit -x86
+#  - cmd: cinst cmake -x86
+  - cmd: cinst 7zip.commandline  -x86
+  - cmd: wget -q --no-check-certificate https://googledrive.com/host/0B3tDmChwjRbRTTdhaTFOeGN1eEU/wxWidgets.7z -O c:\projects\objsearch_pi\wxwidgets.7z
+  - cmd: 7z x C:\projects\objsearch_pi\wxwidgets.7z -oc:\projects\objsearch_pi\wxWidgets
+  
+build:
+
+before_build:
+  - echo Running cmake...
+  - mkdir c:\projects\objsearch_pi\build
+  - cd c:\projects\objsearch_pi\build
+  - cmake -G "Visual Studio 10" ..
+
+build_script:
+  - cmake --build . --config Release --target package
+  
+#after_build:
+#  - cmd: package.bat
+
+artifacts:
+  - path: c:\projects\objsearch_pi\build\objsearch_pi*.exe
+
+deploy: OFF
+#  - provider: FTP
+#    server: 
+#      secure: kZT7rsbEPGQ0fC2GFRBGfL2vPwUgih2JkwjbSuw00T8=
+#    username:
+#      secure: YJzwsi4wfSezFLqaB9uiww==
+#    password:
+#      secure: EQ3xa2LoRgelAdE57+qakQ==
+#    folder: .\rpcs3\
+#    enable_ssl: false
+  
+test: OFF
+
+

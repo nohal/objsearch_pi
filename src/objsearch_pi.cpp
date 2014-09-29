@@ -347,7 +347,6 @@ bool objsearch_pi::DeInit ( void )
     //  Try to wait a bit to see if all compression threads exit nicely
     wxDateTime now = wxDateTime::Now();
     time_t stall = now.GetTicks();
-    time_t start = stall;
     time_t end = stall + THREAD_WAIT_SECONDS;
     
     while(m_db_thread_running && stall < end ){
