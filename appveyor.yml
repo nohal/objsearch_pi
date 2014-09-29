@@ -34,7 +34,7 @@ install:
   - cmd: cinst poedit -x86
 #  - cmd: cinst cmake -x86
 #  - cmd: cinst 7zip.commandline  -x86
-  - cmd: wget -q --no-check-certificate https://docs.google.com/uc?export=download&id=0B3X7CS_nVEeGYWo4MHdZam5zTlU -O c:\projects\objsearch_pi\wxwidgets.7z
+  - cmd: wget -q --no-check-certificate https://googledrive.com/host/0B3X7CS_nVEeGc2JPYWdxQVdXeGc/wxWidgets-2.8.12.7z -O c:\projects\objsearch_pi\wxwidgets.7z
   - cmd: 7z x C:\projects\objsearch_pi\wxwidgets.7z -oc:\wxWidgets-2.8.12
   - cmd: SET WIN_SDK_ROOT=C:\Program Files\Microsoft SDKs\Windows
   - cmd: SET PATH=%PATH%;C:\wxWidgets-2.8.12
