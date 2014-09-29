@@ -44,8 +44,8 @@ install:
 build:
 
 before_build:
-  - "C:\\Program Files\\Microsoft Visual Studio 10.0\\VC\\vcvarsall.bat" x86
-  - "C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\VC\\vcvarsall.bat" x86
+  - C:\Program Files\Microsoft Visual Studio 10.0\VC\vcvarsall.bat x86
+  - C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\vcvarsall.bat x86
   - echo Running cmake...
   - mkdir c:\projects\objsearch_pi\build
   - cd c:\projects\objsearch_pi\build
