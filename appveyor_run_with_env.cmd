@@ -13,6 +13,7 @@
 
 SET COMMAND_TO_RUN=%*
 SET WIN_SDK_ROOT=C:\Program Files\Microsoft SDKs\Windows
+SET PATH=%PATH%;C:\wxWidgets-2.8.12
 
 SET WINDOWS_SDK_VERSION="v7.1"
 
