@@ -3,6 +3,7 @@ This plugin provides a search interface to the objects on the vector charts in O
 
 ##Current CI Status
 [![Build Status](https://api.travis-ci.org/nohal/objsearch_pi.svg)](http://travis-ci.org/nohal/objsearch_pi)
+[![Build status](https://ci.appveyor.com/api/projects/status/em6ev0oljveg842k)](https://ci.appveyor.com/project/nohal/objsearch-pi)
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/3039/badge.svg)](https://scan.coverity.com/projects/3039)
 
 ##Building
