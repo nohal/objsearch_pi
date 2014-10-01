@@ -595,9 +595,9 @@ void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& 
         if (m_bDBUsable)
         {
             if ( dist > 0.1 )
-                set = SelectFromDB( m_db, wxString::Format( wxT("SELECT f.featurename, o.objname, o.lat, o.lon, ch.scale, ch.nativescale, ch.chartname, distanceMercator(lat, lon, %f, %f) FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) LEFT JOIN chart ch ON (o.chart_id = ch.id) WHERE instr('%s', featurename) > 0 AND objname LIKE '%%%s%%' AND distanceMercator(lat, lon, %f, %f) <= %f"), feature_filter.c_str(), safe_value.c_str(), lat, lon, lat, lon, dist ) );
+                set = SelectFromDB( m_db, wxString::Format( wxT("SELECT f.featurename, o.objname, o.lat, o.lon, ch.scale, ch.nativescale, ch.chartname, distanceMercator(lat, lon, %f, %f) FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) LEFT JOIN chart ch ON (o.chart_id = ch.id) WHERE instr('%s', featurename) > 0 AND objname LIKE '%%%s%%' AND distanceMercator(lat, lon, %f, %f) <= %f"),lat, lon, feature_filter.c_str(), safe_value.c_str(), lat, lon, dist ) );
             else
-                set = SelectFromDB( m_db, wxString::Format( wxT("SELECT f.featurename, o.objname, o.lat, o.lon, ch.scale, ch.nativescale, ch.chartname, distanceMercator(lat, lon, %f, %f) FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) LEFT JOIN chart ch ON (o.chart_id = ch.id) WHERE instr('%s', featurename) > 0 AND objname LIKE '%%%s%%'"), feature_filter.c_str(), safe_value.c_str(), lat, lon ) );
+                set = SelectFromDB( m_db, wxString::Format( wxT("SELECT f.featurename, o.objname, o.lat, o.lon, ch.scale, ch.nativescale, ch.chartname, distanceMercator(lat, lon, %f, %f) FROM object o LEFT JOIN feature f ON (o.feature_id = f.id) LEFT JOIN chart ch ON (o.chart_id = ch.id) WHERE instr('%s', featurename) > 0 AND objname LIKE '%%%s%%'"), lat, lon, feature_filter.c_str(), safe_value.c_str() ) );
 
             if (m_bDBUsable)
             {
