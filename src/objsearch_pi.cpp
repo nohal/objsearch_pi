@@ -42,12 +42,6 @@
 
 #include "objsearch_pi.h"
 
-// Define NAN, which is unavailable on Windows
-#ifdef _MSC_VER
-#define INFINITY (DBL_MAX+DBL_MAX)
-#define NAN (INFINITY-INFINITY)
-#endif
-
 //SQLite user functions
 
 void DistanceMercatorFunc::Execute(wxSQLite3FunctionContext& ctx)
