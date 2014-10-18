@@ -661,7 +661,7 @@ void objsearch_pi::ScanArea( int latmin, int lonmin, int latmax, int lonmax, int
         lat += lat_step;
     }
     
-//    finishing = false;
+    finishing = false;
 }
 
 ObjSearchDialogImpl::ObjSearchDialogImpl( objsearch_pi* plugin, wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style )
@@ -1400,6 +1400,7 @@ void SettingsDialogImpl::OnOk(wxCommandEvent& event)
             p_plugin->ScanArea( latmin, lonmin, latmax, lonmax, 200000 );
         if( can_scan && m_cb20000->GetValue() )
             p_plugin->ScanArea( latmin, lonmin, latmax, lonmax, 20000 );
+        this->Close();
     }
     else
     {
