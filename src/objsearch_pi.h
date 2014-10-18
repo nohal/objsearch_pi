@@ -38,9 +38,7 @@
 #include <wx/fileconf.h>
 //#include <wx/thread.h>
 //#include <wx/event.h>
-
-#define     PLUGIN_VERSION_MAJOR    0
-#define     PLUGIN_VERSION_MINOR    4
+#include "version.h"
 
 #define     MY_API_VERSION_MAJOR    1
 #define     MY_API_VERSION_MINOR    12
