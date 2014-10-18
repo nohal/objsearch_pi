@@ -217,6 +217,8 @@ objsearch_pi::objsearch_pi ( void *ppimgr )
     
     m_bWaitForDB = true;
     
+    finishing = false;
+    
     m_db = initDB();
     
     wxSQLite3ResultSet set;
@@ -310,6 +312,7 @@ int objsearch_pi::Init ( void )
 
 bool objsearch_pi::DeInit ( void )
 {
+    finishing = true;
     if ( m_pObjSearchDialog )
     {
         m_pObjSearchDialog->Close();
@@ -424,6 +427,13 @@ void objsearch_pi::SetCurrentViewPort(PlugIn_ViewPort &vp)
 {
     m_vplat = vp.clat;
     m_vplon = vp.clon;
+    
+    m_vpppm = vp.view_scale_ppm;
+    m_vpscale = vp.chart_scale;
+    vplat_max = vp.lat_max;
+    vplat_min = vp.lat_min;
+    vplon_max = vp.lon_max;
+    vplon_min = vp.lon_min;
 }
 
 bool objsearch_pi::LoadConfig ( void )
@@ -610,6 +620,48 @@ void objsearch_pi::FindObjects( const wxString& feature_filter, const wxString& 
             set.Finalize();
         }
     }
+}
+
+double objsearch_pi::CalculatePPM( float scale )
+{
+    double sc = m_vpscale / scale * m_vpppm;
+    return sc;
+}
+
+
+void objsearch_pi::ScanArea( int latmin, int lonmin, int latmax, int lonmax, int scale )
+{
+    double lat = latmin;
+    double lon = lonmin;
+    double lat_step;
+    double lon_step;
+    double ppm_scale;
+    
+    while( !finishing && lat <= latmax )
+    {
+        JumpToPosition( lat, lon, m_vpppm );
+        RequestRefresh(m_parent_window);
+        wxMicroSleep(100);
+        ppm_scale = CalculatePPM( scale );
+        JumpToPosition( lat, lon, ppm_scale );
+        RequestRefresh(m_parent_window);
+        wxMicroSleep(100);
+        lat_step = vplat_max - vplat_min;
+        lon_step = vplon_max - vplon_min;
+        while( !finishing && lon <= lonmax )
+        {
+            JumpToPosition(lat, lon, ppm_scale);
+            RequestRefresh(m_parent_window);
+            //wxMicroSleep(100);
+            if (!finishing)
+                wxYield();
+            lon += lon_step;
+        }
+        lon = lonmin;
+        lat += lat_step;
+    }
+    
+//    finishing = false;
 }
 
 ObjSearchDialogImpl::ObjSearchDialogImpl( objsearch_pi* plugin, wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style )
@@ -1325,9 +1377,29 @@ int SettingsDialogImpl::ProcessCsvLine(void * frm, int cnt, const char ** cv)
 
 void SettingsDialogImpl::OnOk(wxCommandEvent& event)
 {
+    this->m_sdbSizerBtns->GetAffirmativeButton()->Disable();
+    bool can_scan = true;
     if( m_tPath->GetValue() == wxEmptyString )
     {
-        //TODO: perform scan
+        int latmin = wxMin(m_spFromLat->GetValue(), m_spToLat->GetValue());
+        int latmax = wxMax(m_spFromLat->GetValue(), m_spToLat->GetValue());
+        int lonmin = wxMin(m_spFromLon->GetValue(), m_spToLon->GetValue());
+        int lonmax = wxMax(m_spFromLon->GetValue(), m_spToLon->GetValue());
+        //Check if we cross IDL and refuse to run...
+        if( (lonmin < -90 && lonmax > 90) || (lonmin < 0 && lonmax > 0 && 180 + lonmin + lonmax < 180) )
+        {
+            wxMessageBox(_("Sorry, I'm stupid and can't cross the IDL, please divide your scan in two."));
+            can_scan = false;
+        }
+//        this->Hide();
+        if( can_scan && m_cb5000000->GetValue() )
+            p_plugin->ScanArea( latmin, lonmin, latmax, lonmax, 5000000 );
+        if( can_scan && m_cb1000000->GetValue() )
+            p_plugin->ScanArea( latmin, lonmin, latmax, lonmax, 1000000 );
+        if( can_scan && m_cb200000->GetValue() )
+            p_plugin->ScanArea( latmin, lonmin, latmax, lonmax, 200000 );
+        if( can_scan && m_cb20000->GetValue() )
+            p_plugin->ScanArea( latmin, lonmin, latmax, lonmax, 20000 );
     }
     else
     {
@@ -1367,11 +1439,12 @@ void SettingsDialogImpl::OnOk(wxCommandEvent& event)
         {
             wxMessageBox( wxString::Format( _("The files %s does not exist, nothing to import."), m_tPath->GetValue().c_str() ) );
         }
+        this->Close();
     }
-    this->Close();
 }
 
 void SettingsDialogImpl::OnCancel(wxCommandEvent& event)
 {
+    p_plugin->StopScan();
     this->Close();
 }

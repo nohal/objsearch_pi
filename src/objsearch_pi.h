@@ -174,6 +174,9 @@ public:
     	
 	void SetDBThreadRunning(bool state) { m_db_thread_running = state; }
 	bool IsDBThreadRunning() { return m_db_thread_running; }
+	
+	void ScanArea( int latmin, int lonmin, int latmax, int lonmax, int scale );
+	void StopScan() { finishing = true; };
 
 protected:
     int QueryDB(const wxString& sql) { return QueryDB(m_db, sql); }
@@ -222,6 +225,11 @@ private:
     
     double m_vplat;
     double m_vplon;
+    
+    double m_vpppm;
+    double m_vpscale;
+    double vplat_min, vplat_max, vplon_min, vplon_max;
+    bool finishing;
 
     DbThread *m_pThread;
     wxCriticalSection m_pThreadCS; // protects the m_pThread pointer
@@ -230,6 +238,8 @@ private:
     std::queue<wxString> query_queue;
     
     DistanceMercatorFunc distMercFunc;
+    
+    double CalculatePPM(float scale);
 };
 
 #endif
