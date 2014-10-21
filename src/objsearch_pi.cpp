@@ -1304,7 +1304,7 @@ bool objsearch_pi::HasQueries()
 void objsearch_pi::ShowPreferencesDialog(wxWindow * parent)
 {
     SettingsDialogImpl* settingsdlg = new SettingsDialogImpl(this, parent);
-    settingsdlg->ShowModal();
+    settingsdlg->Show();
 }
 
 SettingsDialogImpl::SettingsDialogImpl( objsearch_pi* plugin, wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style )
@@ -1313,6 +1313,10 @@ SettingsDialogImpl::SettingsDialogImpl( objsearch_pi* plugin, wxWindow* parent, 
     p_plugin = plugin;
     m_prgdlg = NULL;
     m_iProcessed = 0;
+    m_spFromLat->SetValue(0);
+    m_spFromLon->SetValue(0);
+    m_spToLat->SetValue(0);
+    m_spToLon->SetValue(0);
 }
 
 SettingsDialogImpl::~SettingsDialogImpl()
@@ -1442,4 +1446,5 @@ void SettingsDialogImpl::OnCancel(wxCommandEvent& event)
 {
     p_plugin->StopScan();
     this->Close();
+    event.Skip();
 }
