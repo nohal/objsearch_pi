@@ -2,89 +2,710 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-20 16:35-0500\n"
-"PO-Revision-Date: 2014-08-30 13:43-0400\n"
+"POT-Creation-Date: 2014-09-19 00:48-0500\n"
+"PO-Revision-Date: 2015-01-12 13:30-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
+"X-Crowdin-Project: opencpn\n"
+"X-Crowdin-File: /plugins/objsearch_pi/po/objsearch_pi.pot\n"
 
-#: src/ObjSearchDialog.cpp:36
+#: src/ObjSearchDialog.cpp:38
 msgid "Search"
-msgstr "Search"
+msgstr "Etsi"
 
-#: src/ObjSearchDialog.cpp:48
+#: src/ObjSearchDialog.cpp:50
 msgid "Show on Chart"
-msgstr "Show on Chart"
+msgstr "Näytä kartalla"
 
-#: src/ObjSearchDialog.cpp:51
+#: src/ObjSearchDialog.cpp:53
 msgid "Close"
-msgstr "Close"
+msgstr "Sulje"
 
-#: src/ObjSearchDialog.h:55 src/objsearch_pi.h:83
+#: src/ObjSearchDialog.cpp:56
+msgid "Close on show"
+msgstr "Lähes näkyvissä"
+
+#: src/ObjSearchDialog.cpp:58
+msgid " "
+msgstr ""
+
+#: src/ObjSearchDialog.cpp:65
+msgid "Limit range to"
+msgstr "Rajoita alue"
+
+#: src/ObjSearchDialog.cpp:67 src/ObjSearchDialog.cpp:72
+msgid "0 = Unlimited"
+msgstr "0 = rajoittamaton"
+
+#: src/ObjSearchDialog.cpp:76
+msgid "NMi"
+msgstr "NMi"
+
+#: src/ObjSearchDialog.h:62 src/objsearch_pi.h:83
 msgid "Chart Object Search"
-msgstr "Chart Object Search"
+msgstr "Karttakohteen haku"
 
-#: src/objsearch_pi.cpp:227
+#: src/objsearch_pi.cpp:260
 msgid "Object Search"
-msgstr "Object Search"
+msgstr "Kohdehaku"
 
-#: src/objsearch_pi.cpp:300
+#: src/objsearch_pi.cpp:335
 msgid "Vector Chart Object Search PlugIn for OpenCPN"
-msgstr "Vector Chart Object Search PlugIn for OpenCPN"
+msgstr "Vektorikarttakohteiden hakukone OpenCPN:lle"
 
-#: src/objsearch_pi.cpp:306
+#: src/objsearch_pi.cpp:341
 msgid "Vector Chart Object Search PlugIn for OpenCPN\nProvides a search function for the named vector chart objects."
-msgstr "Vector Chart Object Search PlugIn for OpenCPN\nProvides a search function for the named vector chart objects."
+msgstr "Vektorikarttakohteiden hakukone OpenCPN:lle\nTuottaa  hakutoiminnon kohteista, jotka on nimetty vektorikartoissa."
 
-#: src/objsearch_pi.cpp:461
+#: src/objsearch_pi.cpp:503
+msgid "There is a problem with your database, check the OpenCPN logfile for more information."
+msgstr "Tietokannassasi on ongelma, tarkista OpenCPN logfile, saat lisätietoja."
+
+#: src/objsearch_pi.cpp:519
 #, c-format
 msgid "Your search resulted in %i objects found. This is a lot, do you really want to show all of them?"
-msgstr "Your search resulted in %i objects found. This is a lot, do you really want to show all of them?"
+msgstr "Hakusi tuloksena oli %i kohdetta. Tämä on aika paljon, haluatko näyttää ne kaikki?"
 
-#: src/objsearch_pi.cpp:461
+#: src/objsearch_pi.cpp:519
 msgid "Too many objects found"
-msgstr "Too many objects found"
+msgstr "Liian monta kohdetta löydetty"
 
-#: src/objsearch_pi.cpp:507
+#: src/objsearch_pi.cpp:569 src/objsearch_pi.cpp:570
 msgid "All"
-msgstr "All"
+msgstr "Kaikki"
 
-#: src/objsearch_pi.cpp:523
+#: src/objsearch_pi.cpp:588
 msgid "You did not enter any search term, do so."
-msgstr "You did not enter any search term, do so."
+msgstr "Et kirjoittanut mitään hakusanaa, tee niin."
 
-#: src/objsearch_pi.cpp:536
+#: src/objsearch_pi.cpp:601
 msgid "Type"
-msgstr "Type"
+msgstr "Tyyppi"
 
-#: src/objsearch_pi.cpp:542
+#: src/objsearch_pi.cpp:607
 msgid "Name"
-msgstr "Name"
+msgstr "Nimi"
 
-#: src/objsearch_pi.cpp:548
+#: src/objsearch_pi.cpp:613
 msgid "Lat"
 msgstr "Lat"
 
-#: src/objsearch_pi.cpp:554
+#: src/objsearch_pi.cpp:619
 msgid "Lon"
 msgstr "Lon"
 
-#: src/objsearch_pi.cpp:560
+#: src/objsearch_pi.cpp:625
 #, c-format
 msgid "Dist (%s)"
-msgstr "Dist (%s)"
+msgstr "Etäis. (%s)"
 
-#: src/objsearch_pi.cpp:566 src/objsearch_pi.cpp:572
+#: src/objsearch_pi.cpp:631 src/objsearch_pi.cpp:637
 msgid "Scale"
-msgstr "Scale"
+msgstr "Mittakaava"
 
-#: src/objsearch_pi.cpp:578
+#: src/objsearch_pi.cpp:643
 msgid "Chart"
-msgstr "Chart"
+msgstr "Kartta"
+
+#: src/objsearch_pi.cpp:772
+msgid "Administration area (Named)"
+msgstr "Hallinnon alue (nimetty)"
+
+#: src/objsearch_pi.cpp:774
+msgid "Airport / airfield"
+msgstr "Lentoasema / lentokenttä"
+
+#: src/objsearch_pi.cpp:776
+msgid "Anchor berth"
+msgstr "Ankkurointipaikka"
+
+#: src/objsearch_pi.cpp:778
+msgid "Anchorage area"
+msgstr "Ankkurointialue"
+
+#: src/objsearch_pi.cpp:780
+msgid "Beacon, cardinal"
+msgstr "Kardinaalimajakka"
+
+#: src/objsearch_pi.cpp:782
+msgid "Beacon, isolated danger"
+msgstr "Majakka, eristetty vaara"
+
+#: src/objsearch_pi.cpp:784
+msgid "Beacon, lateral"
+msgstr "Lateraalimajakka"
+
+#: src/objsearch_pi.cpp:786
+msgid "Beacon, safe water"
+msgstr "Turvavesimajakka"
+
+#: src/objsearch_pi.cpp:788
+msgid "Beacon, special purpose/general"
+msgstr "Erikoismerkkimajakka"
+
+#: src/objsearch_pi.cpp:790
+msgid "Berth"
+msgstr "Laituri"
+
+#: src/objsearch_pi.cpp:792
+msgid "Bridge"
+msgstr "Silta"
+
+#: src/objsearch_pi.cpp:794
+msgid "Building, single"
+msgstr "Yksittäinen rakennus"
+
+#: src/objsearch_pi.cpp:796
+msgid "Built-up area"
+msgstr "Taajama-alue"
+
+#: src/objsearch_pi.cpp:798
+msgid "Buoy, cardinal"
+msgstr "Kardinaaliviitta"
+
+#: src/objsearch_pi.cpp:800
+msgid "Buoy, installation"
+msgstr "Viitta-asennus"
+
+#: src/objsearch_pi.cpp:802
+msgid "Buoy, isolated danger"
+msgstr "Vaaran eristysviitta"
+
+#: src/objsearch_pi.cpp:804
+msgid "Buoy, lateral"
+msgstr "Lateraaliviitta"
+
+#: src/objsearch_pi.cpp:806
+msgid "Buoy, safe water"
+msgstr "Turvavesimerkki"
+
+#: src/objsearch_pi.cpp:808
+msgid "Buoy, special purpose/general"
+msgstr "Erikois-/yleisviitta"
+
+#: src/objsearch_pi.cpp:810
+msgid "Cable area"
+msgstr "Kaapeli alue"
+
+#: src/objsearch_pi.cpp:812
+msgid "Cable, overhead"
+msgstr "Kaapeli yläpuolella"
+
+#: src/objsearch_pi.cpp:814
+msgid "Cable, submarine"
+msgstr "Merikaapeli"
+
+#: src/objsearch_pi.cpp:816
+msgid "Canal"
+msgstr "Kanava"
+
+#: src/objsearch_pi.cpp:818 src/objsearch_pi.cpp:1042
+msgid "Canal bank"
+msgstr "Kanavan reuna"
+
+#: src/objsearch_pi.cpp:820
+msgid "Cargo transshipment area"
+msgstr "Rahdin uudelleenlastausalue"
+
+#: src/objsearch_pi.cpp:822
+msgid "Causeway"
+msgstr "Kapulasilta"
+
+#: src/objsearch_pi.cpp:824
+msgid "Checkpoint"
+msgstr "Tarkistuspiste"
+
+#: src/objsearch_pi.cpp:826
+msgid "Coastguard station"
+msgstr "Rannikkovartioston tukikohta"
+
+#: src/objsearch_pi.cpp:828
+msgid "Coastline"
+msgstr "Rannikko"
+
+#: src/objsearch_pi.cpp:830
+msgid "Continental shelf area"
+msgstr "Mannerjalustan alue"
+
+#: src/objsearch_pi.cpp:832
+msgid "Control point"
+msgstr "Tarkistuspiste"
+
+#: src/objsearch_pi.cpp:834
+msgid "Conveyor"
+msgstr "Kuljetin"
+
+#: src/objsearch_pi.cpp:836
+msgid "Crane"
+msgstr "Nosturi"
+
+#: src/objsearch_pi.cpp:838
+msgid "Current - non - gravitational"
+msgstr "Virta - ei - painovoimainen"
+
+#: src/objsearch_pi.cpp:840
+msgid "Dam"
+msgstr "Pato"
+
+#: src/objsearch_pi.cpp:842
+msgid "Daymark"
+msgstr "Päivämerkki"
+
+#: src/objsearch_pi.cpp:844
+msgid "Deep water route centerline"
+msgstr "Syvän veden reitin keskilinjan"
+
+#: src/objsearch_pi.cpp:846
+msgid "Deep water route part"
+msgstr "Syvän veden reitin osa"
+
+#: src/objsearch_pi.cpp:848
+msgid "Distance mark"
+msgstr "Etäisyys merkki"
+
+#: src/objsearch_pi.cpp:850
+msgid "Dock area"
+msgstr "Satama-alue"
+
+#: src/objsearch_pi.cpp:852
+msgid "Dredged area"
+msgstr "Ruopattu alue"
+
+#: src/objsearch_pi.cpp:854
+msgid "Dry dock"
+msgstr "Kuivatelakka"
+
+#: src/objsearch_pi.cpp:856
+msgid "Dumping ground"
+msgstr "Läjitysalue"
+
+#: src/objsearch_pi.cpp:858
+msgid "Fairway"
+msgstr "Kulkuväylä"
+
+#: src/objsearch_pi.cpp:860
+msgid "Fence/wall"
+msgstr "Aita/muuri"
+
+#: src/objsearch_pi.cpp:862
+msgid "Ferry route"
+msgstr "Lauttalinja"
+
+#: src/objsearch_pi.cpp:864
+msgid "Fishery zone"
+msgstr "Kalastusalue"
+
+#: src/objsearch_pi.cpp:866
+msgid "Fishing facility"
+msgstr "Kalastus laitos"
+
+#: src/objsearch_pi.cpp:868
+msgid "Fishing ground"
+msgstr "Pohjakalastus"
+
+#: src/objsearch_pi.cpp:870
+msgid "Floating dock"
+msgstr "Uiva telakka"
+
+#: src/objsearch_pi.cpp:872
+msgid "Fog signal"
+msgstr "Sumu signaali"
+
+#: src/objsearch_pi.cpp:874
+msgid "Fortified structure"
+msgstr "Linnoitusrakenneteita"
+
+#: src/objsearch_pi.cpp:876
+msgid "Free port area"
+msgstr "Vapaasatama-alue"
+
+#: src/objsearch_pi.cpp:878
+msgid "Gate"
+msgstr "Portti"
+
+#: src/objsearch_pi.cpp:880
+msgid "Gridiron"
+msgstr "Halstari"
+
+#: src/objsearch_pi.cpp:882
+msgid "Harbour area (administrative)"
+msgstr "Satama-alue (hallinnollinen)"
+
+#: src/objsearch_pi.cpp:884
+msgid "Harbour facility"
+msgstr "Satamarakenteita"
+
+#: src/objsearch_pi.cpp:886
+msgid "Hulk"
+msgstr "Hylky"
+
+#: src/objsearch_pi.cpp:888
+msgid "Ice area"
+msgstr "Jää-alue"
+
+#: src/objsearch_pi.cpp:890
+msgid "Incineration area"
+msgstr "Poltto alue"
+
+#: src/objsearch_pi.cpp:892
+msgid "Lake"
+msgstr "Järvi"
+
+#: src/objsearch_pi.cpp:894
+msgid "Lake shore"
+msgstr "Järven ranta"
+
+#: src/objsearch_pi.cpp:896
+msgid "Land area"
+msgstr "Maa-alue"
+
+#: src/objsearch_pi.cpp:898
+msgid "Land elevation"
+msgstr "Maan kohoaminen"
+
+#: src/objsearch_pi.cpp:900
+msgid "Land region"
+msgstr "Alueen"
+
+#: src/objsearch_pi.cpp:902
+msgid "Landmark"
+msgstr "Maamerkki"
+
+#: src/objsearch_pi.cpp:904
+msgid "Light"
+msgstr "Valo"
+
+#: src/objsearch_pi.cpp:906
+msgid "Light float"
+msgstr "Valopoiju"
+
+#: src/objsearch_pi.cpp:908
+msgid "Light vessel"
+msgstr "Kevyt alus"
+
+#: src/objsearch_pi.cpp:910
+msgid "Local magnetic anomaly"
+msgstr "Paikallinen magneettinen häiriö"
+
+#: src/objsearch_pi.cpp:912
+msgid "Lock basin"
+msgstr "Patoallas"
+
+#: src/objsearch_pi.cpp:914
+msgid "Log pond"
+msgstr "Halkolampi"
+
+#: src/objsearch_pi.cpp:916
+msgid "Marine farm/culture"
+msgstr "Merifarmi/viljelmä"
+
+#: src/objsearch_pi.cpp:918
+msgid "Military practice area"
+msgstr "Sotilaallinen harjoitus alue"
+
+#: src/objsearch_pi.cpp:920
+msgid "Mooring/warping facility"
+msgstr "Kiinnitys/varppaus-laittteisto"
+
+#: src/objsearch_pi.cpp:922
+msgid "Obstruction"
+msgstr "Tukkeuma"
+
+#: src/objsearch_pi.cpp:924
+msgid "Offshore platform"
+msgstr "Öljynporauslautta"
+
+#: src/objsearch_pi.cpp:926
+msgid "Offshore production area"
+msgstr "Avomerituotantoalue"
+
+#: src/objsearch_pi.cpp:928
+msgid "Oil barrier"
+msgstr "Öljy puomi"
+
+#: src/objsearch_pi.cpp:930
+msgid "Pile"
+msgstr "Paalu"
+
+#: src/objsearch_pi.cpp:932
+msgid "Pilot boarding place"
+msgstr "Luotsin alukseennousupaikka"
+
+#: src/objsearch_pi.cpp:934
+msgid "Pipeline area"
+msgstr "Putkjohtoalue"
+
+#: src/objsearch_pi.cpp:936
+msgid "Pipeline, overhead"
+msgstr "Yläpuolinen putkijohto"
+
+#: src/objsearch_pi.cpp:938
+msgid "Pipeline, submarine/on land"
+msgstr "Putkijohto meressä/maalla"
+
+#: src/objsearch_pi.cpp:940
+msgid "Pontoon"
+msgstr "Ponttooni"
+
+#: src/objsearch_pi.cpp:942
+msgid "Production / storage area"
+msgstr "Tuotanto / varastointi alue"
+
+#: src/objsearch_pi.cpp:944
+msgid "Pylon/bridge support"
+msgstr "Pylväs/silta tuki"
+
+#: src/objsearch_pi.cpp:946
+msgid "Radar line"
+msgstr "Tutka linja"
+
+#: src/objsearch_pi.cpp:948
+msgid "Radar range"
+msgstr "Tutkan kantama"
+
+#: src/objsearch_pi.cpp:950
+msgid "Radar station"
+msgstr "Tutka-asema"
+
+#: src/objsearch_pi.cpp:952
+msgid "Radar transponder beacon"
+msgstr "Tutkan vastaajapoiju"
+
+#: src/objsearch_pi.cpp:954
+msgid "Radio calling-in point"
+msgstr "Radiokutsu piste"
+
+#: src/objsearch_pi.cpp:956
+msgid "Radio station"
+msgstr "Radioasema"
+
+#: src/objsearch_pi.cpp:958
+msgid "Railway"
+msgstr "Rautatie"
+
+#: src/objsearch_pi.cpp:960
+msgid "Rapids"
+msgstr "Koski"
+
+#: src/objsearch_pi.cpp:962
+msgid "Recommended route centerline"
+msgstr "Suositeltu reitin keskilinja"
+
+#: src/objsearch_pi.cpp:964
+msgid "Recommended track"
+msgstr "Suositeltu jälki"
+
+#: src/objsearch_pi.cpp:966
+msgid "Rescue station"
+msgstr "Pelastusasema"
+
+#: src/objsearch_pi.cpp:968
+msgid "Restricted area"
+msgstr "Rajattu alue"
+
+#: src/objsearch_pi.cpp:970
+msgid "River"
+msgstr "Joki"
+
+#: src/objsearch_pi.cpp:972 src/objsearch_pi.cpp:1044
+msgid "River bank"
+msgstr "Joen ranta"
+
+#: src/objsearch_pi.cpp:974
+msgid "Road"
+msgstr "Tie"
+
+#: src/objsearch_pi.cpp:976
+msgid "Runway"
+msgstr "Kiitotie"
+
+#: src/objsearch_pi.cpp:978
+msgid "Sea area / named water area"
+msgstr "Merialue / nimetty vesialue"
+
+#: src/objsearch_pi.cpp:980
+msgid "Sea-plane landing area"
+msgstr "Vesitasojen laskeutumisalue"
+
+#: src/objsearch_pi.cpp:982
+msgid "Seabed area"
+msgstr "Merenpohja-alue"
+
+#: src/objsearch_pi.cpp:984
+msgid "Shoreline Construction"
+msgstr "Rakennetturantaviiva"
+
+#: src/objsearch_pi.cpp:986
+msgid "Signal station, traffic"
+msgstr "Opastetaulu, liikennettä"
+
+#: src/objsearch_pi.cpp:988
+msgid "Signal station, warning"
+msgstr "Opastetaulu, varoitus"
+
+#: src/objsearch_pi.cpp:990
+msgid "Silo / tank"
+msgstr "Siilo / säiliö"
+
+#: src/objsearch_pi.cpp:992
+msgid "Slope topline"
+msgstr "Luiskan yläreuna"
+
+#: src/objsearch_pi.cpp:994
+msgid "Sloping ground"
+msgstr "Viettävä pohja"
+
+#: src/objsearch_pi.cpp:996
+msgid "Small craft facility"
+msgstr "Pienaluspalveluja"
+
+#: src/objsearch_pi.cpp:998
+msgid "Sounding"
+msgstr "Luotaus"
+
+#: src/objsearch_pi.cpp:1000
+msgid "Spring"
+msgstr "Vesilähde"
+
+#: src/objsearch_pi.cpp:1002
+msgid "Square"
+msgstr "Aukio"
+
+#: src/objsearch_pi.cpp:1004
+msgid "Submarine transit lane"
+msgstr "Sukellusveneen kauttakulkuajokaista"
+
+#: src/objsearch_pi.cpp:1006
+msgid "Tidal stream - harmonic prediction"
+msgstr "Vuorovesivirtaa - harmonic ennusteita"
+
+#: src/objsearch_pi.cpp:1008
+msgid "Tidal stream - non-harmonic prediction"
+msgstr "Vuorovesivirtaa - ei harmonic ennusteita"
+
+#: src/objsearch_pi.cpp:1010
+msgid "Tidal stream panel data"
+msgstr "Vuorovesivirran taulukkotiedot"
+
+#: src/objsearch_pi.cpp:1012 src/objsearch_pi.cpp:1018
+msgid "Tidal stream - time series"
+msgstr "Vuorovesivirta - aikasarjat"
+
+#: src/objsearch_pi.cpp:1014
+msgid "Tide - harmonic prediction"
+msgstr "Vuorovesi - harmonic ennuste"
+
+#: src/objsearch_pi.cpp:1016
+msgid "Tide - non-harmonic prediction"
+msgstr "Vuorovesi - ei harmonic ennuste"
+
+#: src/objsearch_pi.cpp:1020
+msgid "Tideway"
+msgstr "Vuorovesiväylä"
+
+#: src/objsearch_pi.cpp:1022
+msgid "Tunnel"
+msgstr "Tunneli"
+
+#: src/objsearch_pi.cpp:1024
+msgid "Underwater rock / awash rock"
+msgstr "Vedenalaisen kivi / pinta kivi"
+
+#: src/objsearch_pi.cpp:1026
+msgid "Vegetation"
+msgstr "Kasvillisuus"
+
+#: src/objsearch_pi.cpp:1028
+msgid "Water turbulence"
+msgstr "Veden turbulenssi"
+
+#: src/objsearch_pi.cpp:1030
+msgid "Waterfall"
+msgstr "Vesiputous"
+
+#: src/objsearch_pi.cpp:1032
+msgid "Weed/Kelp"
+msgstr "Ruoho/rakkolevä"
+
+#: src/objsearch_pi.cpp:1034
+msgid "Wreck"
+msgstr "Hylky"
+
+#: src/objsearch_pi.cpp:1036
+msgid "Tidal stream - flood/ebb"
+msgstr "Vuorovesivirtaus - vuoksi/luode"
+
+#: src/objsearch_pi.cpp:1038
+msgid "Aggregation"
+msgstr "Keräymä"
+
+#: src/objsearch_pi.cpp:1040
+msgid "Association"
+msgstr "Yhdistyminen"
+
+#: src/objsearch_pi.cpp:1046
+msgid "waterway axis"
+msgstr "väylän keskiviiva"
+
+#: src/objsearch_pi.cpp:1048
+msgid "Bridge area"
+msgstr "Silta-alue"
+
+#: src/objsearch_pi.cpp:1050
+msgid "Lock area"
+msgstr "Sulku alue"
+
+#: src/objsearch_pi.cpp:1052
+msgid "Beacon water-way"
+msgstr "Majakkavesi-tie"
+
+#: src/objsearch_pi.cpp:1054
+msgid "Buoy water-way"
+msgstr "Viitoitettu vesi-tie"
+
+#: src/objsearch_pi.cpp:1056
+msgid "Route planning point"
+msgstr "Reitin suunnittelu kohta"
+
+#: src/objsearch_pi.cpp:1058
+msgid "Text label"
+msgstr "Tekstikenttä"
+
+#: src/objsearch_pi.cpp:1060
+msgid "Berthing facility"
+msgstr "Kiinnityslaitteisto"
+
+#: src/objsearch_pi.cpp:1062
+msgid "Building, religious"
+msgstr "Rakennus, uskonnollinen"
+
+#: src/objsearch_pi.cpp:1064
+msgid "Caution area"
+msgstr "Varoitus alue"
+
+#: src/objsearch_pi.cpp:1066
+msgid "Monument"
+msgstr "Muistomerkki"
+
+#: src/objsearch_pi.cpp:1068
+msgid "Production installation"
+msgstr "Tuotanto asennus"
+
+#: src/objsearch_pi.cpp:1070
+msgid "Salt pan"
+msgstr "Suolauskaukalo"
+
+#: src/objsearch_pi.cpp:1072
+msgid "Tank"
+msgstr "Säiliö"
+
+#: src/objsearch_pi.cpp:1074
+msgid "Tower structure"
+msgstr "Tornirakenne"
 

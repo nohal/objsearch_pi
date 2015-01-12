@@ -2,89 +2,710 @@ msgid ""
 msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-20 16:35-0500\n"
-"PO-Revision-Date: 2014-08-29 12:06-0400\n"
+"POT-Creation-Date: 2014-09-19 00:48-0500\n"
+"PO-Revision-Date: 2015-01-12 13:30-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Norwegian Bokmal\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
+"X-Crowdin-Project: opencpn\n"
+"X-Crowdin-File: /plugins/objsearch_pi/po/objsearch_pi.pot\n"
 
-#: src/ObjSearchDialog.cpp:36
+#: src/ObjSearchDialog.cpp:38
 msgid "Search"
 msgstr "Søk"
 
-#: src/ObjSearchDialog.cpp:48
+#: src/ObjSearchDialog.cpp:50
 msgid "Show on Chart"
 msgstr "Vis på kart"
 
-#: src/ObjSearchDialog.cpp:51
+#: src/ObjSearchDialog.cpp:53
 msgid "Close"
 msgstr "Lukk"
 
-#: src/ObjSearchDialog.h:55 src/objsearch_pi.h:83
+#: src/ObjSearchDialog.cpp:56
+msgid "Close on show"
+msgstr "Lukk ved visning"
+
+#: src/ObjSearchDialog.cpp:58
+msgid " "
+msgstr ""
+
+#: src/ObjSearchDialog.cpp:65
+msgid "Limit range to"
+msgstr "Begrens rekkevidde til"
+
+#: src/ObjSearchDialog.cpp:67 src/ObjSearchDialog.cpp:72
+msgid "0 = Unlimited"
+msgstr "0 = Ubegrenset"
+
+#: src/ObjSearchDialog.cpp:76
+msgid "NMi"
+msgstr "Nm"
+
+#: src/ObjSearchDialog.h:62 src/objsearch_pi.h:83
 msgid "Chart Object Search"
 msgstr "Søk i kartobjekter"
 
-#: src/objsearch_pi.cpp:227
+#: src/objsearch_pi.cpp:260
 msgid "Object Search"
 msgstr "Objektsøk"
 
-#: src/objsearch_pi.cpp:300
+#: src/objsearch_pi.cpp:335
 msgid "Vector Chart Object Search PlugIn for OpenCPN"
 msgstr "Vektorkart Objektsøk utvidelse for OpenCPN"
 
-#: src/objsearch_pi.cpp:306
+#: src/objsearch_pi.cpp:341
 msgid "Vector Chart Object Search PlugIn for OpenCPN\nProvides a search function for the named vector chart objects."
 msgstr "Vektorkart objektsøk utvidelse for OpenCPN\nGir en søkefunksjon for navngitte vektorkart objekter."
 
-#: src/objsearch_pi.cpp:461
+#: src/objsearch_pi.cpp:503
+msgid "There is a problem with your database, check the OpenCPN logfile for more information."
+msgstr "Det er et problem med databasen din, se i OpenCPN loggfilen for mer informasjon."
+
+#: src/objsearch_pi.cpp:519
 #, c-format
 msgid "Your search resulted in %i objects found. This is a lot, do you really want to show all of them?"
 msgstr "Ditt søk fikk %i treff. Dette er mange treff, vil du virkelig vise alle?"
 
-#: src/objsearch_pi.cpp:461
+#: src/objsearch_pi.cpp:519
 msgid "Too many objects found"
 msgstr "For mange objekter funnet"
 
-#: src/objsearch_pi.cpp:507
+#: src/objsearch_pi.cpp:569 src/objsearch_pi.cpp:570
 msgid "All"
 msgstr "Alle"
 
-#: src/objsearch_pi.cpp:523
+#: src/objsearch_pi.cpp:588
 msgid "You did not enter any search term, do so."
 msgstr "Du skrev ikke noen søkestreng, vennligst prøv på nytt."
 
-#: src/objsearch_pi.cpp:536
+#: src/objsearch_pi.cpp:601
 msgid "Type"
 msgstr "Skriv"
 
-#: src/objsearch_pi.cpp:542
+#: src/objsearch_pi.cpp:607
 msgid "Name"
 msgstr "Navn"
 
-#: src/objsearch_pi.cpp:548
+#: src/objsearch_pi.cpp:613
 msgid "Lat"
 msgstr "Bgrad"
 
-#: src/objsearch_pi.cpp:554
+#: src/objsearch_pi.cpp:619
 msgid "Lon"
 msgstr "Lgrad"
 
-#: src/objsearch_pi.cpp:560
+#: src/objsearch_pi.cpp:625
 #, c-format
 msgid "Dist (%s)"
 msgstr "Dist (%s)"
 
-#: src/objsearch_pi.cpp:566 src/objsearch_pi.cpp:572
+#: src/objsearch_pi.cpp:631 src/objsearch_pi.cpp:637
 msgid "Scale"
 msgstr "Skala"
 
-#: src/objsearch_pi.cpp:578
+#: src/objsearch_pi.cpp:643
 msgid "Chart"
 msgstr "Kart"
+
+#: src/objsearch_pi.cpp:772
+msgid "Administration area (Named)"
+msgstr "Administrasjonsområde (Navngitt)"
+
+#: src/objsearch_pi.cpp:774
+msgid "Airport / airfield"
+msgstr "Lufthavn / flyplass"
+
+#: src/objsearch_pi.cpp:776
+msgid "Anchor berth"
+msgstr "Ankerfortøyning"
+
+#: src/objsearch_pi.cpp:778
+msgid "Anchorage area"
+msgstr "Ankerområde"
+
+#: src/objsearch_pi.cpp:780
+msgid "Beacon, cardinal"
+msgstr "Sjømerke, kardinal"
+
+#: src/objsearch_pi.cpp:782
+msgid "Beacon, isolated danger"
+msgstr "Lykt, isolert fare"
+
+#: src/objsearch_pi.cpp:784
+msgid "Beacon, lateral"
+msgstr "Merke, lateral"
+
+#: src/objsearch_pi.cpp:786
+msgid "Beacon, safe water"
+msgstr "Sjømerke, seilbart farvann"
+
+#: src/objsearch_pi.cpp:788
+msgid "Beacon, special purpose/general"
+msgstr "Sjømerke, spesielt formål/generellt"
+
+#: src/objsearch_pi.cpp:790
+msgid "Berth"
+msgstr "Kaiplass"
+
+#: src/objsearch_pi.cpp:792
+msgid "Bridge"
+msgstr "Bro"
+
+#: src/objsearch_pi.cpp:794
+msgid "Building, single"
+msgstr "Bygning, enkel"
+
+#: src/objsearch_pi.cpp:796
+msgid "Built-up area"
+msgstr "Tettsted"
+
+#: src/objsearch_pi.cpp:798
+msgid "Buoy, cardinal"
+msgstr "Bøye, kardinal"
+
+#: src/objsearch_pi.cpp:800
+msgid "Buoy, installation"
+msgstr "Bøye, installasjon"
+
+#: src/objsearch_pi.cpp:802
+msgid "Buoy, isolated danger"
+msgstr "Bøye, isolert fare"
+
+#: src/objsearch_pi.cpp:804
+msgid "Buoy, lateral"
+msgstr "Bøye, lateral"
+
+#: src/objsearch_pi.cpp:806
+msgid "Buoy, safe water"
+msgstr "Bøye, trygt farvann"
+
+#: src/objsearch_pi.cpp:808
+msgid "Buoy, special purpose/general"
+msgstr "Bøye, spesielt formål/generelt"
+
+#: src/objsearch_pi.cpp:810
+msgid "Cable area"
+msgstr "Kabelområde"
+
+#: src/objsearch_pi.cpp:812
+msgid "Cable, overhead"
+msgstr "Kabel, hengende"
+
+#: src/objsearch_pi.cpp:814
+msgid "Cable, submarine"
+msgstr "Kabel, under vann"
+
+#: src/objsearch_pi.cpp:816
+msgid "Canal"
+msgstr "Kanal/Elv"
+
+#: src/objsearch_pi.cpp:818 src/objsearch_pi.cpp:1042
+msgid "Canal bank"
+msgstr "Kanal/elvebredde"
+
+#: src/objsearch_pi.cpp:820
+msgid "Cargo transshipment area"
+msgstr "Omlastningsområde"
+
+#: src/objsearch_pi.cpp:822
+msgid "Causeway"
+msgstr "Molo"
+
+#: src/objsearch_pi.cpp:824
+msgid "Checkpoint"
+msgstr "Sjekkpunkt"
+
+#: src/objsearch_pi.cpp:826
+msgid "Coastguard station"
+msgstr "Kystvaktstasjon"
+
+#: src/objsearch_pi.cpp:828
+msgid "Coastline"
+msgstr "Kystlinje"
+
+#: src/objsearch_pi.cpp:830
+msgid "Continental shelf area"
+msgstr "Kontinentalsokkel område"
+
+#: src/objsearch_pi.cpp:832
+msgid "Control point"
+msgstr "Kontrollpunkt"
+
+#: src/objsearch_pi.cpp:834
+msgid "Conveyor"
+msgstr "Transportbånd"
+
+#: src/objsearch_pi.cpp:836
+msgid "Crane"
+msgstr "Krane"
+
+#: src/objsearch_pi.cpp:838
+msgid "Current - non - gravitational"
+msgstr "Strøm - ikke graviterende"
+
+#: src/objsearch_pi.cpp:840
+msgid "Dam"
+msgstr "Demning"
+
+#: src/objsearch_pi.cpp:842
+msgid "Daymark"
+msgstr "Dagmerke"
+
+#: src/objsearch_pi.cpp:844
+msgid "Deep water route centerline"
+msgstr "Senterlinje for dypvannsrute"
+
+#: src/objsearch_pi.cpp:846
+msgid "Deep water route part"
+msgstr "Dypvannsrute del"
+
+#: src/objsearch_pi.cpp:848
+msgid "Distance mark"
+msgstr "Distansemarkør"
+
+#: src/objsearch_pi.cpp:850
+msgid "Dock area"
+msgstr "Dokk-område"
+
+#: src/objsearch_pi.cpp:852
+msgid "Dredged area"
+msgstr "Mudret område"
+
+#: src/objsearch_pi.cpp:854
+msgid "Dry dock"
+msgstr "Tørrdokk"
+
+#: src/objsearch_pi.cpp:856
+msgid "Dumping ground"
+msgstr "Avfallsplass"
+
+#: src/objsearch_pi.cpp:858
+msgid "Fairway"
+msgstr "Led"
+
+#: src/objsearch_pi.cpp:860
+msgid "Fence/wall"
+msgstr "Gjerde/vegg"
+
+#: src/objsearch_pi.cpp:862
+msgid "Ferry route"
+msgstr "Fergerute"
+
+#: src/objsearch_pi.cpp:864
+msgid "Fishery zone"
+msgstr "Fiskeri sone"
+
+#: src/objsearch_pi.cpp:866
+msgid "Fishing facility"
+msgstr "Fiskefasiliteter"
+
+#: src/objsearch_pi.cpp:868
+msgid "Fishing ground"
+msgstr "Fiskeområde"
+
+#: src/objsearch_pi.cpp:870
+msgid "Floating dock"
+msgstr "Flytedokk"
+
+#: src/objsearch_pi.cpp:872
+msgid "Fog signal"
+msgstr "Tåkelur"
+
+#: src/objsearch_pi.cpp:874
+msgid "Fortified structure"
+msgstr "Befestet bygning"
+
+#: src/objsearch_pi.cpp:876
+msgid "Free port area"
+msgstr "Fritt havneområde"
+
+#: src/objsearch_pi.cpp:878
+msgid "Gate"
+msgstr "Port"
+
+#: src/objsearch_pi.cpp:880
+msgid "Gridiron"
+msgstr "Netting"
+
+#: src/objsearch_pi.cpp:882
+msgid "Harbour area (administrative)"
+msgstr "Havneområde (administrativt)"
+
+#: src/objsearch_pi.cpp:884
+msgid "Harbour facility"
+msgstr "Havnefasilitet"
+
+#: src/objsearch_pi.cpp:886
+msgid "Hulk"
+msgstr "Fortøyd skipsvrak"
+
+#: src/objsearch_pi.cpp:888
+msgid "Ice area"
+msgstr "Isområde"
+
+#: src/objsearch_pi.cpp:890
+msgid "Incineration area"
+msgstr "Forbrenningsområde"
+
+#: src/objsearch_pi.cpp:892
+msgid "Lake"
+msgstr "Innsjø"
+
+#: src/objsearch_pi.cpp:894
+msgid "Lake shore"
+msgstr "Innsjøkant"
+
+#: src/objsearch_pi.cpp:896
+msgid "Land area"
+msgstr "Landområde"
+
+#: src/objsearch_pi.cpp:898
+msgid "Land elevation"
+msgstr "Landhøyde"
+
+#: src/objsearch_pi.cpp:900
+msgid "Land region"
+msgstr "Landregion"
+
+#: src/objsearch_pi.cpp:902
+msgid "Landmark"
+msgstr "Landmerke"
+
+#: src/objsearch_pi.cpp:904
+msgid "Light"
+msgstr "Lys"
+
+#: src/objsearch_pi.cpp:906
+msgid "Light float"
+msgstr "Lysflåte"
+
+#: src/objsearch_pi.cpp:908
+msgid "Light vessel"
+msgstr "Lysfartøy"
+
+#: src/objsearch_pi.cpp:910
+msgid "Local magnetic anomaly"
+msgstr "Lokalt magnetisk avvik"
+
+#: src/objsearch_pi.cpp:912
+msgid "Lock basin"
+msgstr "Slusebaseng"
+
+#: src/objsearch_pi.cpp:914
+msgid "Log pond"
+msgstr "Fløtningsdam"
+
+#: src/objsearch_pi.cpp:916
+msgid "Marine farm/culture"
+msgstr "Oppdrett/fiskefarm"
+
+#: src/objsearch_pi.cpp:918
+msgid "Military practice area"
+msgstr "Militært øvningsområde"
+
+#: src/objsearch_pi.cpp:920
+msgid "Mooring/warping facility"
+msgstr "Forankrings/fortøynings anlegg"
+
+#: src/objsearch_pi.cpp:922
+msgid "Obstruction"
+msgstr "Hindring"
+
+#: src/objsearch_pi.cpp:924
+msgid "Offshore platform"
+msgstr "Plattform"
+
+#: src/objsearch_pi.cpp:926
+msgid "Offshore production area"
+msgstr "Offshore produksjonsområde"
+
+#: src/objsearch_pi.cpp:928
+msgid "Oil barrier"
+msgstr "Oljebarriære"
+
+#: src/objsearch_pi.cpp:930
+msgid "Pile"
+msgstr "Haug"
+
+#: src/objsearch_pi.cpp:932
+msgid "Pilot boarding place"
+msgstr "Bordingsområde for los"
+
+#: src/objsearch_pi.cpp:934
+msgid "Pipeline area"
+msgstr "Rørledningsområde"
+
+#: src/objsearch_pi.cpp:936
+msgid "Pipeline, overhead"
+msgstr "Hengende rørledning"
+
+#: src/objsearch_pi.cpp:938
+msgid "Pipeline, submarine/on land"
+msgstr "Rørledning, nedsenket/på land"
+
+#: src/objsearch_pi.cpp:940
+msgid "Pontoon"
+msgstr "Pontong"
+
+#: src/objsearch_pi.cpp:942
+msgid "Production / storage area"
+msgstr "Produksjons / lagerområde"
+
+#: src/objsearch_pi.cpp:944
+msgid "Pylon/bridge support"
+msgstr "Bro-kar/bro-fundament"
+
+#: src/objsearch_pi.cpp:946
+msgid "Radar line"
+msgstr "Radarlinje"
+
+#: src/objsearch_pi.cpp:948
+msgid "Radar range"
+msgstr "Radar rekkevidde"
+
+#: src/objsearch_pi.cpp:950
+msgid "Radar station"
+msgstr "Radarstasjon"
+
+#: src/objsearch_pi.cpp:952
+msgid "Radar transponder beacon"
+msgstr "Radar transponderfyr"
+
+#: src/objsearch_pi.cpp:954
+msgid "Radio calling-in point"
+msgstr "Radio oppkallingspunkt"
+
+#: src/objsearch_pi.cpp:956
+msgid "Radio station"
+msgstr "Radiostasjon"
+
+#: src/objsearch_pi.cpp:958
+msgid "Railway"
+msgstr "Jernbane"
+
+#: src/objsearch_pi.cpp:960
+msgid "Rapids"
+msgstr "Stryk"
+
+#: src/objsearch_pi.cpp:962
+msgid "Recommended route centerline"
+msgstr "Anbefalt senterlinje for rute"
+
+#: src/objsearch_pi.cpp:964
+msgid "Recommended track"
+msgstr "Anbefalt seilingsled"
+
+#: src/objsearch_pi.cpp:966
+msgid "Rescue station"
+msgstr "Redningsstasjon"
+
+#: src/objsearch_pi.cpp:968
+msgid "Restricted area"
+msgstr "Begrenset område"
+
+#: src/objsearch_pi.cpp:970
+msgid "River"
+msgstr "Elv"
+
+#: src/objsearch_pi.cpp:972 src/objsearch_pi.cpp:1044
+msgid "River bank"
+msgstr "Elvebredde"
+
+#: src/objsearch_pi.cpp:974
+msgid "Road"
+msgstr "Vei"
+
+#: src/objsearch_pi.cpp:976
+msgid "Runway"
+msgstr "Rullebane"
+
+#: src/objsearch_pi.cpp:978
+msgid "Sea area / named water area"
+msgstr "Havområde / navngitt havområde"
+
+#: src/objsearch_pi.cpp:980
+msgid "Sea-plane landing area"
+msgstr "Sjøfly lufthavn"
+
+#: src/objsearch_pi.cpp:982
+msgid "Seabed area"
+msgstr "Havbunnområde"
+
+#: src/objsearch_pi.cpp:984
+msgid "Shoreline Construction"
+msgstr "Konstruksjon i fjæra"
+
+#: src/objsearch_pi.cpp:986
+msgid "Signal station, traffic"
+msgstr "Signalstasjon, trafikk"
+
+#: src/objsearch_pi.cpp:988
+msgid "Signal station, warning"
+msgstr "Signalstasjon, advarsel"
+
+#: src/objsearch_pi.cpp:990
+msgid "Silo / tank"
+msgstr "Silo / tank"
+
+#: src/objsearch_pi.cpp:992
+msgid "Slope topline"
+msgstr "Skråning, topplinje"
+
+#: src/objsearch_pi.cpp:994
+msgid "Sloping ground"
+msgstr "Skråning, bunn"
+
+#: src/objsearch_pi.cpp:996
+msgid "Small craft facility"
+msgstr "Småbåt fasiliteter"
+
+#: src/objsearch_pi.cpp:998
+msgid "Sounding"
+msgstr "Loddskudd"
+
+#: src/objsearch_pi.cpp:1000
+msgid "Spring"
+msgstr "Oppkomme"
+
+#: src/objsearch_pi.cpp:1002
+msgid "Square"
+msgstr "Firkant"
+
+#: src/objsearch_pi.cpp:1004
+msgid "Submarine transit lane"
+msgstr "Ubåt ferdselsled"
+
+#: src/objsearch_pi.cpp:1006
+msgid "Tidal stream - harmonic prediction"
+msgstr "Tidevannstrøm - harmonisk varsel"
+
+#: src/objsearch_pi.cpp:1008
+msgid "Tidal stream - non-harmonic prediction"
+msgstr "Tidevannstrøm - ikke harmonisk varsel"
+
+#: src/objsearch_pi.cpp:1010
+msgid "Tidal stream panel data"
+msgstr "Tidevannstrøm paneldata"
+
+#: src/objsearch_pi.cpp:1012 src/objsearch_pi.cpp:1018
+msgid "Tidal stream - time series"
+msgstr "Tidevannstrøm - tidsserie"
+
+#: src/objsearch_pi.cpp:1014
+msgid "Tide - harmonic prediction"
+msgstr "Tidevann - harmonisk varsel"
+
+#: src/objsearch_pi.cpp:1016
+msgid "Tide - non-harmonic prediction"
+msgstr "Tidevann - ikke harmonisk varsel"
+
+#: src/objsearch_pi.cpp:1020
+msgid "Tideway"
+msgstr "Tidevannskanal"
+
+#: src/objsearch_pi.cpp:1022
+msgid "Tunnel"
+msgstr "Tunell"
+
+#: src/objsearch_pi.cpp:1024
+msgid "Underwater rock / awash rock"
+msgstr "Undervannsskjær / skvalpeskjær"
+
+#: src/objsearch_pi.cpp:1026
+msgid "Vegetation"
+msgstr "Vegetasjon"
+
+#: src/objsearch_pi.cpp:1028
+msgid "Water turbulence"
+msgstr "Vannturbulens"
+
+#: src/objsearch_pi.cpp:1030
+msgid "Waterfall"
+msgstr "Fossefall"
+
+#: src/objsearch_pi.cpp:1032
+msgid "Weed/Kelp"
+msgstr "Ugress/tare"
+
+#: src/objsearch_pi.cpp:1034
+msgid "Wreck"
+msgstr "Vrak"
+
+#: src/objsearch_pi.cpp:1036
+msgid "Tidal stream - flood/ebb"
+msgstr "Småbåt fasiliteter"
+
+#: src/objsearch_pi.cpp:1038
+msgid "Aggregation"
+msgstr "Aggregering"
+
+#: src/objsearch_pi.cpp:1040
+msgid "Association"
+msgstr "Forbindelse"
+
+#: src/objsearch_pi.cpp:1046
+msgid "waterway axis"
+msgstr "seilingsled akse"
+
+#: src/objsearch_pi.cpp:1048
+msgid "Bridge area"
+msgstr "Bro-område"
+
+#: src/objsearch_pi.cpp:1050
+msgid "Lock area"
+msgstr "Sluseområde"
+
+#: src/objsearch_pi.cpp:1052
+msgid "Beacon water-way"
+msgstr "Sjømerke, seilingsled"
+
+#: src/objsearch_pi.cpp:1054
+msgid "Buoy water-way"
+msgstr "Bøye, seilingsled"
+
+#: src/objsearch_pi.cpp:1056
+msgid "Route planning point"
+msgstr "Ruteplanleggingspunkt"
+
+#: src/objsearch_pi.cpp:1058
+msgid "Text label"
+msgstr "Tekstetikett"
+
+#: src/objsearch_pi.cpp:1060
+msgid "Berthing facility"
+msgstr "Fortøyningsanlegg"
+
+#: src/objsearch_pi.cpp:1062
+msgid "Building, religious"
+msgstr "Bygning, religion"
+
+#: src/objsearch_pi.cpp:1064
+msgid "Caution area"
+msgstr "Forsiktighetsområde"
+
+#: src/objsearch_pi.cpp:1066
+msgid "Monument"
+msgstr "Monument"
+
+#: src/objsearch_pi.cpp:1068
+msgid "Production installation"
+msgstr "Produksjons installasjon"
+
+#: src/objsearch_pi.cpp:1070
+msgid "Salt pan"
+msgstr "Saltverk"
+
+#: src/objsearch_pi.cpp:1072
+msgid "Tank"
+msgstr "Tank"
+
+#: src/objsearch_pi.cpp:1074
+msgid "Tower structure"
+msgstr "Tårnstruktur"
 
