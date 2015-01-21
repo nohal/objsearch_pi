@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-19 00:48-0500\n"
-"PO-Revision-Date: 2015-01-12 13:30-0500\n"
+"PO-Revision-Date: 2015-01-20 17:00-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -223,203 +223,203 @@ msgstr "Checkpoint"
 
 #: src/objsearch_pi.cpp:826
 msgid "Coastguard station"
-msgstr ""
+msgstr "Kystvagt station"
 
 #: src/objsearch_pi.cpp:828
 msgid "Coastline"
-msgstr ""
+msgstr "Kystlinje"
 
 #: src/objsearch_pi.cpp:830
 msgid "Continental shelf area"
-msgstr ""
+msgstr "Kontinentalsokkel område"
 
 #: src/objsearch_pi.cpp:832
 msgid "Control point"
-msgstr ""
+msgstr "Kontrolpunkt"
 
 #: src/objsearch_pi.cpp:834
 msgid "Conveyor"
-msgstr ""
+msgstr "Transportbånd"
 
 #: src/objsearch_pi.cpp:836
 msgid "Crane"
-msgstr ""
+msgstr "Kran"
 
 #: src/objsearch_pi.cpp:838
 msgid "Current - non - gravitational"
-msgstr ""
+msgstr "Current - non - gravitational"
 
 #: src/objsearch_pi.cpp:840
 msgid "Dam"
-msgstr ""
+msgstr "Dæmning"
 
 #: src/objsearch_pi.cpp:842
 msgid "Daymark"
-msgstr ""
+msgstr "Dagsømærke"
 
 #: src/objsearch_pi.cpp:844
 msgid "Deep water route centerline"
-msgstr ""
+msgstr "Dybvandsrute midterlinje"
 
 #: src/objsearch_pi.cpp:846
 msgid "Deep water route part"
-msgstr ""
+msgstr "Del af Dybvandsrute"
 
 #: src/objsearch_pi.cpp:848
 msgid "Distance mark"
-msgstr ""
+msgstr "Afstandsmærke"
 
 #: src/objsearch_pi.cpp:850
 msgid "Dock area"
-msgstr ""
+msgstr "Havneområde"
 
 #: src/objsearch_pi.cpp:852
 msgid "Dredged area"
-msgstr ""
+msgstr "Uddybet område"
 
 #: src/objsearch_pi.cpp:854
 msgid "Dry dock"
-msgstr ""
+msgstr "Tørdok"
 
 #: src/objsearch_pi.cpp:856
 msgid "Dumping ground"
-msgstr ""
+msgstr "Klappplads"
 
 #: src/objsearch_pi.cpp:858
 msgid "Fairway"
-msgstr ""
+msgstr "Fairway"
 
 #: src/objsearch_pi.cpp:860
 msgid "Fence/wall"
-msgstr ""
+msgstr "Hegn/mur"
 
 #: src/objsearch_pi.cpp:862
 msgid "Ferry route"
-msgstr ""
+msgstr "Færgerute"
 
 #: src/objsearch_pi.cpp:864
 msgid "Fishery zone"
-msgstr ""
+msgstr "Fiskerizone"
 
 #: src/objsearch_pi.cpp:866
 msgid "Fishing facility"
-msgstr ""
+msgstr "Fiskeri facilitet"
 
 #: src/objsearch_pi.cpp:868
 msgid "Fishing ground"
-msgstr ""
+msgstr "Fiskeplads"
 
 #: src/objsearch_pi.cpp:870
 msgid "Floating dock"
-msgstr ""
+msgstr "Flydedok"
 
 #: src/objsearch_pi.cpp:872
 msgid "Fog signal"
-msgstr ""
+msgstr "Tågesignal"
 
 #: src/objsearch_pi.cpp:874
 msgid "Fortified structure"
-msgstr ""
+msgstr "Befæstet struktur"
 
 #: src/objsearch_pi.cpp:876
 msgid "Free port area"
-msgstr ""
+msgstr "Frihavnsområde"
 
 #: src/objsearch_pi.cpp:878
 msgid "Gate"
-msgstr ""
+msgstr "Port"
 
 #: src/objsearch_pi.cpp:880
 msgid "Gridiron"
-msgstr ""
+msgstr "Gridiron"
 
 #: src/objsearch_pi.cpp:882
 msgid "Harbour area (administrative)"
-msgstr ""
+msgstr "Havneområde (administrativt)"
 
 #: src/objsearch_pi.cpp:884
 msgid "Harbour facility"
-msgstr ""
+msgstr "Havnefacilitet"
 
 #: src/objsearch_pi.cpp:886
 msgid "Hulk"
-msgstr ""
+msgstr "Hulk"
 
 #: src/objsearch_pi.cpp:888
 msgid "Ice area"
-msgstr ""
+msgstr "Isområde"
 
 #: src/objsearch_pi.cpp:890
 msgid "Incineration area"
-msgstr ""
+msgstr "Forbrændingsområde"
 
 #: src/objsearch_pi.cpp:892
 msgid "Lake"
-msgstr ""
+msgstr "Sø"
 
 #: src/objsearch_pi.cpp:894
 msgid "Lake shore"
-msgstr ""
+msgstr "Søbred"
 
 #: src/objsearch_pi.cpp:896
 msgid "Land area"
-msgstr ""
+msgstr "Landområde"
 
 #: src/objsearch_pi.cpp:898
 msgid "Land elevation"
-msgstr ""
+msgstr "Jordhøjde"
 
 #: src/objsearch_pi.cpp:900
 msgid "Land region"
-msgstr ""
+msgstr "Landeregion"
 
 #: src/objsearch_pi.cpp:902
 msgid "Landmark"
-msgstr ""
+msgstr "Vartegn"
 
 #: src/objsearch_pi.cpp:904
 msgid "Light"
-msgstr ""
+msgstr "Fyr"
 
 #: src/objsearch_pi.cpp:906
 msgid "Light float"
-msgstr ""
+msgstr "Flydende fyr"
 
 #: src/objsearch_pi.cpp:908
 msgid "Light vessel"
-msgstr ""
+msgstr "Fyrskib"
 
 #: src/objsearch_pi.cpp:910
 msgid "Local magnetic anomaly"
-msgstr ""
+msgstr "Lokal magnetisk anomali"
 
 #: src/objsearch_pi.cpp:912
 msgid "Lock basin"
-msgstr ""
+msgstr "Slusebassin"
 
 #: src/objsearch_pi.cpp:914
 msgid "Log pond"
-msgstr ""
+msgstr "Slusebassin"
 
 #: src/objsearch_pi.cpp:916
 msgid "Marine farm/culture"
-msgstr ""
+msgstr "Havbrug"
 
 #: src/objsearch_pi.cpp:918
 msgid "Military practice area"
-msgstr ""
+msgstr "Militært øvelsesområde"
 
 #: src/objsearch_pi.cpp:920
 msgid "Mooring/warping facility"
-msgstr ""
+msgstr "Fortøjning/forhalingsfacilitet"
 
 #: src/objsearch_pi.cpp:922
 msgid "Obstruction"
-msgstr ""
+msgstr "Forhindring"
 
 #: src/objsearch_pi.cpp:924
 msgid "Offshore platform"
-msgstr ""
+msgstr "Offshore platform"
 
 #: src/objsearch_pi.cpp:926
 msgid "Offshore production area"
@@ -491,203 +491,203 @@ msgstr "Jernbane"
 
 #: src/objsearch_pi.cpp:960
 msgid "Rapids"
-msgstr ""
+msgstr "Rapids"
 
 #: src/objsearch_pi.cpp:962
 msgid "Recommended route centerline"
-msgstr ""
+msgstr "Anbefalet rute midterlinje"
 
 #: src/objsearch_pi.cpp:964
 msgid "Recommended track"
-msgstr ""
+msgstr "Anbefalet spor"
 
 #: src/objsearch_pi.cpp:966
 msgid "Rescue station"
-msgstr ""
+msgstr "Redningsstation"
 
 #: src/objsearch_pi.cpp:968
 msgid "Restricted area"
-msgstr ""
+msgstr "Forbudt område"
 
 #: src/objsearch_pi.cpp:970
 msgid "River"
-msgstr ""
+msgstr "Flod"
 
 #: src/objsearch_pi.cpp:972 src/objsearch_pi.cpp:1044
 msgid "River bank"
-msgstr ""
+msgstr "Flodbred"
 
 #: src/objsearch_pi.cpp:974
 msgid "Road"
-msgstr ""
+msgstr "Vej"
 
 #: src/objsearch_pi.cpp:976
 msgid "Runway"
-msgstr ""
+msgstr "Startbane"
 
 #: src/objsearch_pi.cpp:978
 msgid "Sea area / named water area"
-msgstr ""
+msgstr "Havområde / navngivet vandområde"
 
 #: src/objsearch_pi.cpp:980
 msgid "Sea-plane landing area"
-msgstr ""
+msgstr "Vandflyver landingsområde"
 
 #: src/objsearch_pi.cpp:982
 msgid "Seabed area"
-msgstr ""
+msgstr "Havbundsområde"
 
 #: src/objsearch_pi.cpp:984
 msgid "Shoreline Construction"
-msgstr ""
+msgstr "Kystlinjekonstruktion"
 
 #: src/objsearch_pi.cpp:986
 msgid "Signal station, traffic"
-msgstr ""
+msgstr "Signalstation, trafik"
 
 #: src/objsearch_pi.cpp:988
 msgid "Signal station, warning"
-msgstr ""
+msgstr "Signalstation, advarsel"
 
 #: src/objsearch_pi.cpp:990
 msgid "Silo / tank"
-msgstr ""
+msgstr "Silo / tank"
 
 #: src/objsearch_pi.cpp:992
 msgid "Slope topline"
-msgstr ""
+msgstr "Kant af skråning"
 
 #: src/objsearch_pi.cpp:994
 msgid "Sloping ground"
-msgstr ""
+msgstr "Skråning"
 
 #: src/objsearch_pi.cpp:996
 msgid "Small craft facility"
-msgstr ""
+msgstr "Småbåds facilitet"
 
 #: src/objsearch_pi.cpp:998
 msgid "Sounding"
-msgstr ""
+msgstr "Lodskud"
 
 #: src/objsearch_pi.cpp:1000
 msgid "Spring"
-msgstr ""
+msgstr "Spring"
 
 #: src/objsearch_pi.cpp:1002
 msgid "Square"
-msgstr ""
+msgstr "Firkant"
 
 #: src/objsearch_pi.cpp:1004
 msgid "Submarine transit lane"
-msgstr ""
+msgstr "Ubåds transitområde"
 
 #: src/objsearch_pi.cpp:1006
 msgid "Tidal stream - harmonic prediction"
-msgstr ""
+msgstr "Tidevandsstrøm - harmonisk forudsigelse"
 
 #: src/objsearch_pi.cpp:1008
 msgid "Tidal stream - non-harmonic prediction"
-msgstr ""
+msgstr "Tidevandsstrøm - ikke-harmonisk forudsigelse"
 
 #: src/objsearch_pi.cpp:1010
 msgid "Tidal stream panel data"
-msgstr ""
+msgstr "Tidevandssrøm - panel data"
 
 #: src/objsearch_pi.cpp:1012 src/objsearch_pi.cpp:1018
 msgid "Tidal stream - time series"
-msgstr ""
+msgstr "Tidevandsstrøm - tidsserier"
 
 #: src/objsearch_pi.cpp:1014
 msgid "Tide - harmonic prediction"
-msgstr ""
+msgstr "Tidevand - harmonisk forudsigelse"
 
 #: src/objsearch_pi.cpp:1016
 msgid "Tide - non-harmonic prediction"
-msgstr ""
+msgstr "Tidevand - ikke-harmonisk forudsigelse"
 
 #: src/objsearch_pi.cpp:1020
 msgid "Tideway"
-msgstr ""
+msgstr "Tideway"
 
 #: src/objsearch_pi.cpp:1022
 msgid "Tunnel"
-msgstr ""
+msgstr "Tunnel"
 
 #: src/objsearch_pi.cpp:1024
 msgid "Underwater rock / awash rock"
-msgstr ""
+msgstr "Undervandsklippe/ overskyllet klippe"
 
 #: src/objsearch_pi.cpp:1026
 msgid "Vegetation"
-msgstr ""
+msgstr "Vegetation"
 
 #: src/objsearch_pi.cpp:1028
 msgid "Water turbulence"
-msgstr ""
+msgstr "Vand-turbulens"
 
 #: src/objsearch_pi.cpp:1030
 msgid "Waterfall"
-msgstr ""
+msgstr "Vandfald"
 
 #: src/objsearch_pi.cpp:1032
 msgid "Weed/Kelp"
-msgstr ""
+msgstr "Ukrudt/tang"
 
 #: src/objsearch_pi.cpp:1034
 msgid "Wreck"
-msgstr ""
+msgstr "Vrag"
 
 #: src/objsearch_pi.cpp:1036
 msgid "Tidal stream - flood/ebb"
-msgstr ""
+msgstr "Tidevandsstrøm - flod/ebbe"
 
 #: src/objsearch_pi.cpp:1038
 msgid "Aggregation"
-msgstr ""
+msgstr "Sammenlægning"
 
 #: src/objsearch_pi.cpp:1040
 msgid "Association"
-msgstr ""
+msgstr "Forening"
 
 #: src/objsearch_pi.cpp:1046
 msgid "waterway axis"
-msgstr ""
+msgstr "vandvejsakse"
 
 #: src/objsearch_pi.cpp:1048
 msgid "Bridge area"
-msgstr ""
+msgstr "Broområde"
 
 #: src/objsearch_pi.cpp:1050
 msgid "Lock area"
-msgstr ""
+msgstr "Sluseområde"
 
 #: src/objsearch_pi.cpp:1052
 msgid "Beacon water-way"
-msgstr ""
+msgstr "Fyrlinie"
 
 #: src/objsearch_pi.cpp:1054
 msgid "Buoy water-way"
-msgstr ""
+msgstr "Bøjelinie"
 
 #: src/objsearch_pi.cpp:1056
 msgid "Route planning point"
-msgstr ""
+msgstr "Ruteplanlægningspunkt"
 
 #: src/objsearch_pi.cpp:1058
 msgid "Text label"
-msgstr ""
+msgstr "Tekstetiket"
 
 #: src/objsearch_pi.cpp:1060
 msgid "Berthing facility"
-msgstr ""
+msgstr "Anløbsfacilitet"
 
 #: src/objsearch_pi.cpp:1062
 msgid "Building, religious"
-msgstr ""
+msgstr "Bygning, religiøs"
 
 #: src/objsearch_pi.cpp:1064
 msgid "Caution area"
-msgstr ""
+msgstr "Forsigtighedsområde"
 
 #: src/objsearch_pi.cpp:1066
 msgid "Monument"
@@ -695,17 +695,17 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:1068
 msgid "Production installation"
-msgstr ""
+msgstr "Produktionsinstallation"
 
 #: src/objsearch_pi.cpp:1070
 msgid "Salt pan"
-msgstr ""
+msgstr "Salt pan"
 
 #: src/objsearch_pi.cpp:1072
 msgid "Tank"
-msgstr ""
+msgstr "Tank"
 
 #: src/objsearch_pi.cpp:1074
 msgid "Tower structure"
-msgstr ""
+msgstr "Tårnstruktur"
 
