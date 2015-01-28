@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-19 00:48-0500\n"
-"PO-Revision-Date: 2015-01-20 17:00-0500\n"
+"PO-Revision-Date: 2015-01-25 13:36-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -167,7 +167,7 @@ msgstr "Bebygget område"
 
 #: src/objsearch_pi.cpp:798
 msgid "Buoy, cardinal"
-msgstr "Bøje, kardinal"
+msgstr "Bøje, kompasafmærkning"
 
 #: src/objsearch_pi.cpp:800
 msgid "Buoy, installation"
@@ -183,7 +183,7 @@ msgstr "Bøje, sideafmærkning"
 
 #: src/objsearch_pi.cpp:806
 msgid "Buoy, safe water"
-msgstr "Anduvningsbøje"
+msgstr "Midtfarvandsbøje"
 
 #: src/objsearch_pi.cpp:808
 msgid "Buoy, special purpose/general"
@@ -283,7 +283,7 @@ msgstr "Tørdok"
 
 #: src/objsearch_pi.cpp:856
 msgid "Dumping ground"
-msgstr "Klappplads"
+msgstr "Klapplads"
 
 #: src/objsearch_pi.cpp:858
 msgid "Fairway"
