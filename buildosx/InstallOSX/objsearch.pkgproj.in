@@ -34,7 +34,7 @@
 																	<key>GID</key>
 																	<integer>80</integer>
 																	<key>PATH</key>
-																	<string>libobjsearch_pi.dylib</string>
+																	<string>lib${PACKAGE_NAME}.dylib</string>
 																	<key>PATH_TYPE</key>
 																	<integer>3</integer>
 																	<key>PERMISSIONS</key>
@@ -48,7 +48,7 @@
 															<key>GID</key>
 															<integer>80</integer>
 															<key>PATH</key>
-															<string>objsearch_pi</string>
+															<string>${PACKAGE_NAME}</string>
 															<key>PATH_TYPE</key>
 															<integer>0</integer>
 															<key>PERMISSIONS</key>
@@ -74,183 +74,17 @@
 												</dict>
 												<dict>
 													<key>CHILDREN</key>
-													<array>
-														<dict>
-															<key>CHILDREN</key>
-															<array>
-																<dict>
-																	<key>CHILDREN</key>
-																	<array/>
-																	<key>GID</key>
-																	<integer>80</integer>
-																	<key>PATH</key>
-																	<string>Resources/de.lproj/opencpn-objsearch_pi.mo</string>
-																	<key>PATH_TYPE</key>
-																	<integer>3</integer>
-																	<key>PERMISSIONS</key>
-																	<integer>420</integer>
-																	<key>TYPE</key>
-																	<integer>3</integer>
-																	<key>UID</key>
-																	<integer>0</integer>
-																</dict>
-															</array>
-															<key>GID</key>
-															<integer>80</integer>
-															<key>PATH</key>
-															<string>de.lproj</string>
-															<key>PATH_TYPE</key>
-															<integer>0</integer>
-															<key>PERMISSIONS</key>
-															<integer>509</integer>
-															<key>TYPE</key>
-															<integer>2</integer>
-															<key>UID</key>
-															<integer>0</integer>
-														</dict>
-														<dict>
-															<key>CHILDREN</key>
-															<array>
-																<dict>
-																	<key>CHILDREN</key>
-																	<array/>
-																	<key>GID</key>
-																	<integer>80</integer>
-																	<key>PATH</key>
-																	<string>Resources/es.lproj/opencpn-objsearch_pi.mo</string>
-																	<key>PATH_TYPE</key>
-																	<integer>3</integer>
-																	<key>PERMISSIONS</key>
-																	<integer>420</integer>
-																	<key>TYPE</key>
-																	<integer>3</integer>
-																	<key>UID</key>
-																	<integer>0</integer>
-																</dict>
-															</array>
-															<key>GID</key>
-															<integer>80</integer>
-															<key>PATH</key>
-															<string>es.lproj</string>
-															<key>PATH_TYPE</key>
-															<integer>0</integer>
-															<key>PERMISSIONS</key>
-															<integer>509</integer>
-															<key>TYPE</key>
-															<integer>2</integer>
-															<key>UID</key>
-															<integer>0</integer>
-														</dict>
-														<dict>
-															<key>CHILDREN</key>
-															<array>
-																<dict>
-																	<key>CHILDREN</key>
-																	<array/>
-																	<key>GID</key>
-																	<integer>80</integer>
-																	<key>PATH</key>
-																	<string>Resources/et.lproj/opencpn-objsearch_pi.mo</string>
-																	<key>PATH_TYPE</key>
-																	<integer>3</integer>
-																	<key>PERMISSIONS</key>
-																	<integer>420</integer>
-																	<key>TYPE</key>
-																	<integer>3</integer>
-																	<key>UID</key>
-																	<integer>0</integer>
-																</dict>
-															</array>
-															<key>GID</key>
-															<integer>80</integer>
-															<key>PATH</key>
-															<string>et.lproj</string>
-															<key>PATH_TYPE</key>
-															<integer>0</integer>
-															<key>PERMISSIONS</key>
-															<integer>509</integer>
-															<key>TYPE</key>
-															<integer>2</integer>
-															<key>UID</key>
-															<integer>0</integer>
-														</dict>
-														<dict>
-															<key>CHILDREN</key>
-															<array>
-																<dict>
-																	<key>CHILDREN</key>
-																	<array/>
-																	<key>GID</key>
-																	<integer>80</integer>
-																	<key>PATH</key>
-																	<string>Resources/fr.lproj/opencpn-objsearch_pi.mo</string>
-																	<key>PATH_TYPE</key>
-																	<integer>3</integer>
-																	<key>PERMISSIONS</key>
-																	<integer>420</integer>
-																	<key>TYPE</key>
-																	<integer>3</integer>
-																	<key>UID</key>
-																	<integer>0</integer>
-																</dict>
-															</array>
-															<key>GID</key>
-															<integer>80</integer>
-															<key>PATH</key>
-															<string>fr.lproj</string>
-															<key>PATH_TYPE</key>
-															<integer>0</integer>
-															<key>PERMISSIONS</key>
-															<integer>509</integer>
-															<key>TYPE</key>
-															<integer>2</integer>
-															<key>UID</key>
-															<integer>0</integer>
-														</dict>
-														<dict>
-															<key>CHILDREN</key>
-															<array>
-																<dict>
-																	<key>CHILDREN</key>
-																	<array/>
-																	<key>GID</key>
-																	<integer>80</integer>
-																	<key>PATH</key>
-																	<string>Resources/pl.lproj/opencpn-objsearch_pi.mo</string>
-																	<key>PATH_TYPE</key>
-																	<integer>3</integer>
-																	<key>PERMISSIONS</key>
-																	<integer>420</integer>
-																	<key>TYPE</key>
-																	<integer>3</integer>
-																	<key>UID</key>
-																	<integer>0</integer>
-																</dict>
-															</array>
-															<key>GID</key>
-															<integer>80</integer>
-															<key>PATH</key>
-															<string>pl.lproj</string>
-															<key>PATH_TYPE</key>
-															<integer>0</integer>
-															<key>PERMISSIONS</key>
-															<integer>509</integer>
-															<key>TYPE</key>
-															<integer>2</integer>
-															<key>UID</key>
-															<integer>0</integer>
-														</dict>
-													</array>
+													<array/>
 													<key>GID</key>
 													<integer>80</integer>
 													<key>PATH</key>
 													<string>Resources</string>
 													<key>PATH_TYPE</key>
-													<integer>0</integer>
+													<integer>3</integer>
 													<key>PERMISSIONS</key>
-													<integer>509</integer>
+													<integer>493</integer>
 													<key>TYPE</key>
-													<integer>2</integer>
+													<integer>3</integer>
 													<key>UID</key>
 													<integer>0</integer>
 												</dict>
@@ -737,11 +571,11 @@
 				<key>CONCLUSION_ACTION</key>
 				<integer>0</integer>
 				<key>IDENTIFIER</key>
-				<string>org.opencpn.pkg.objsearch</string>
+				<string>org.opencpn.pkg.${PACKAGE_NAME}</string>
 				<key>LOCATION</key>
 				<integer>0</integer>
 				<key>NAME</key>
-				<string>ObjSearch-Plugin</string>
+				<string>${VERBOSE_NAME}-Plugin</string>
 				<key>OVERWRITE_PERMISSIONS</key>
 				<false/>
 				<key>USE_HFS+_COMPRESSION</key>
@@ -781,7 +615,7 @@
 				<key>BACKGROUND_PATH</key>
 				<dict>
                                         <key>PATH</key>
-                                        <string>pkg_background.png</string>
+                                        <string>pkg_background.jpg</string>
                                         <key>PATH_TYPE</key>
                                         <integer>1</integer>
                                 </dict>
@@ -887,43 +721,43 @@
 										<key>LANGUAGE</key>
 										<string>Czech</string>
 										<key>VALUE</key>
-										<string>Object Search Plugin for OpenCPN</string>
+										<string>${TITLE_NAME} Plugin for OpenCPN</string>
 									</dict>
 									<dict>
 										<key>LANGUAGE</key>
 										<string>Dutch</string>
 										<key>VALUE</key>
-										<string>ObjectSearch Plugin for OpenCPN</string>
+										<string>${TITLE_NAME} Plugin for OpenCPN</string>
 									</dict>
 									<dict>
 										<key>LANGUAGE</key>
 										<string>English</string>
 										<key>VALUE</key>
-										<string>ObjectSearch Plugin for OpenCPN</string>
+										<string>${TITLE_NAME} Plugin for OpenCPN</string>
 									</dict>
 									<dict>
 										<key>LANGUAGE</key>
 										<string>French</string>
 										<key>VALUE</key>
-										<string>Object Search Complément (plugin) pour OpenCPN</string>
+										<string>${TITLE_NAME} Complément (plugin) pour OpenCPN</string>
 									</dict>
 									<dict>
 										<key>LANGUAGE</key>
 										<string>German</string>
 										<key>VALUE</key>
-										<string>Object Search Plugin für OpenCPN</string>
+										<string>${TITLE_NAME} Plugin für OpenCPN</string>
 									</dict>
 									<dict>
 										<key>LANGUAGE</key>
 										<string>Italian</string>
 										<key>VALUE</key>
-										<string>Object Search Plugin for OpenCPN</string>
+										<string>${TITLE_NAME} Plugin for OpenCPN</string>
 									</dict>
 									<dict>
 										<key>LANGUAGE</key>
 										<string>Spanish</string>
 										<key>VALUE</key>
-										<string>Plugin Object Search para OpenCPN</string>
+										<string>Plugin ${TITLE_NAME} para OpenCPN</string>
 									</dict>
 								</array>
 								<key>TOOLTIP</key>
@@ -1118,7 +952,7 @@
 						<key>LANGUAGE</key>
 						<string>English</string>
 						<key>VALUE</key>
-						<string>Object Search Plugin</string>
+						<string>${TITLE_NAME} Plugin</string>
 					</dict>
 				</array>
 			</dict>
@@ -1433,7 +1267,7 @@
 				</dict>
 			</array>
 			<key>NAME</key>
-			<string>ObjSearch-Plugin_${VERSION_MAJOR}.${VERSION_MINOR}</string>
+			<string>${VERBOSE_NAME}-Plugin_${VERSION_MAJOR}.${VERSION_MINOR}</string>
 			<key>REFERENCE_FOLDER_PATH</key>
 			<string>.</string>
 		</dict>

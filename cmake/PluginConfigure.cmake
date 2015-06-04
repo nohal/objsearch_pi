@@ -1,6 +1,6 @@
 ##---------------------------------------------------------------------------
-## Author:      Sean D'Epagnier
-## Copyright:   
+## Author:      Pavel Kalian (Based on the work of Sean D'Epagnier)
+## Copyright:   2014
 ## License:     GPLv3+
 ##---------------------------------------------------------------------------
 
@@ -70,7 +70,6 @@ IF(OPENGL_GLU_FOUND)
     MESSAGE (STATUS "    Lib: " ${OPENGL_LIBRARIES})
     MESSAGE (STATUS "    Include: " ${OPENGL_INCLUDE_DIR})
     ADD_DEFINITIONS(-DocpnUSE_GL)
-
 ELSE(OPENGL_GLU_FOUND)
     MESSAGE (STATUS "OpenGL not found..." )
 ENDIF(OPENGL_GLU_FOUND)
