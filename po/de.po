@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-19 00:48-0500\n"
-"PO-Revision-Date: 2015-01-03 15:08-0500\n"
+"PO-Revision-Date: 2015-05-19 07:21-0400\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -13,6 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: opencpn\n"
+"X-Crowdin-Language: de\n"
 "X-Crowdin-File: /plugins/objsearch_pi/po/objsearch_pi.pot\n"
 
 #: src/ObjSearchDialog.cpp:38
@@ -60,7 +61,8 @@ msgid "Vector Chart Object Search PlugIn for OpenCPN"
 msgstr ""
 
 #: src/objsearch_pi.cpp:341
-msgid "Vector Chart Object Search PlugIn for OpenCPN\nProvides a search function for the named vector chart objects."
+msgid "Vector Chart Object Search PlugIn for OpenCPN\n"
+"Provides a search function for the named vector chart objects."
 msgstr ""
 
 #: src/objsearch_pi.cpp:503

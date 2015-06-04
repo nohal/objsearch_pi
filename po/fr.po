@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-19 00:48-0500\n"
-"PO-Revision-Date: 2015-01-27 17:29-0500\n"
+"PO-Revision-Date: 2015-06-02 20:34-0400\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -13,6 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: opencpn\n"
+"X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /plugins/objsearch_pi/po/objsearch_pi.pot\n"
 
 #: src/ObjSearchDialog.cpp:38
@@ -60,8 +61,10 @@ msgid "Vector Chart Object Search PlugIn for OpenCPN"
 msgstr "Complément Recherche des objets des cartes vectorielles pour OpenCPN"
 
 #: src/objsearch_pi.cpp:341
-msgid "Vector Chart Object Search PlugIn for OpenCPN\nProvides a search function for the named vector chart objects."
-msgstr "Complément de recherche d'objet graphique dans les cartes vectorielles pour OpenCPN\nIl fournit une fonction de recherche pour les objets nommés dans les cartes vectorielles."
+msgid "Vector Chart Object Search PlugIn for OpenCPN\n"
+"Provides a search function for the named vector chart objects."
+msgstr "Complément de recherche d'objet graphique dans les cartes vectorielles pour OpenCPN\n"
+"Il fournit une fonction de recherche pour les objets nommés dans les cartes vectorielles."
 
 #: src/objsearch_pi.cpp:503
 msgid "There is a problem with your database, check the OpenCPN logfile for more information."

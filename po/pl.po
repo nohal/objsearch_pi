@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-19 00:48-0500\n"
-"PO-Revision-Date: 2015-01-27 17:29-0500\n"
+"PO-Revision-Date: 2015-05-29 14:05-0400\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -13,19 +13,20 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: opencpn\n"
+"X-Crowdin-Language: pl\n"
 "X-Crowdin-File: /plugins/objsearch_pi/po/objsearch_pi.pot\n"
 
 #: src/ObjSearchDialog.cpp:38
 msgid "Search"
-msgstr ""
+msgstr "Wyszukaj"
 
 #: src/ObjSearchDialog.cpp:50
 msgid "Show on Chart"
-msgstr ""
+msgstr "Pokaż na mapie"
 
 #: src/ObjSearchDialog.cpp:53
 msgid "Close"
-msgstr ""
+msgstr "Zamknij"
 
 #: src/ObjSearchDialog.cpp:56
 msgid "Close on show"
@@ -41,11 +42,11 @@ msgstr ""
 
 #: src/ObjSearchDialog.cpp:67 src/ObjSearchDialog.cpp:72
 msgid "0 = Unlimited"
-msgstr ""
+msgstr "0 = nieograniczone"
 
 #: src/ObjSearchDialog.cpp:76
 msgid "NMi"
-msgstr ""
+msgstr "Mm"
 
 #: src/ObjSearchDialog.h:62 src/objsearch_pi.h:83
 msgid "Chart Object Search"
@@ -60,7 +61,8 @@ msgid "Vector Chart Object Search PlugIn for OpenCPN"
 msgstr ""
 
 #: src/objsearch_pi.cpp:341
-msgid "Vector Chart Object Search PlugIn for OpenCPN\nProvides a search function for the named vector chart objects."
+msgid "Vector Chart Object Search PlugIn for OpenCPN\n"
+"Provides a search function for the named vector chart objects."
 msgstr ""
 
 #: src/objsearch_pi.cpp:503
@@ -74,11 +76,11 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:519
 msgid "Too many objects found"
-msgstr ""
+msgstr "Znaleziono zbyt wiele obiektów"
 
 #: src/objsearch_pi.cpp:569 src/objsearch_pi.cpp:570
 msgid "All"
-msgstr ""
+msgstr "wszystkie"
 
 #: src/objsearch_pi.cpp:588
 msgid "You did not enter any search term, do so."
@@ -86,19 +88,19 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:601
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #: src/objsearch_pi.cpp:607
 msgid "Name"
-msgstr ""
+msgstr "Nazwa"
 
 #: src/objsearch_pi.cpp:613
 msgid "Lat"
-msgstr ""
+msgstr "φ"
 
 #: src/objsearch_pi.cpp:619
 msgid "Lon"
-msgstr ""
+msgstr "λ"
 
 #: src/objsearch_pi.cpp:625
 #, c-format
@@ -227,15 +229,15 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:828
 msgid "Coastline"
-msgstr ""
+msgstr "Linia brzegowa"
 
 #: src/objsearch_pi.cpp:830
 msgid "Continental shelf area"
-msgstr ""
+msgstr "Obszar szelfu kontynentalnego"
 
 #: src/objsearch_pi.cpp:832
 msgid "Control point"
-msgstr ""
+msgstr "Punkt kontrolny"
 
 #: src/objsearch_pi.cpp:834
 msgid "Conveyor"
@@ -243,7 +245,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:836
 msgid "Crane"
-msgstr ""
+msgstr "Żuraw"
 
 #: src/objsearch_pi.cpp:838
 msgid "Current - non - gravitational"
@@ -279,7 +281,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:854
 msgid "Dry dock"
-msgstr ""
+msgstr "Suchy dok"
 
 #: src/objsearch_pi.cpp:856
 msgid "Dumping ground"
@@ -311,11 +313,11 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:870
 msgid "Floating dock"
-msgstr ""
+msgstr "Dok pływający"
 
 #: src/objsearch_pi.cpp:872
 msgid "Fog signal"
-msgstr ""
+msgstr "Sygnał mgłowy"
 
 #: src/objsearch_pi.cpp:874
 msgid "Fortified structure"
@@ -459,7 +461,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:944
 msgid "Pylon/bridge support"
-msgstr ""
+msgstr "Pylon / podpora mostu"
 
 #: src/objsearch_pi.cpp:946
 msgid "Radar line"
@@ -471,7 +473,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:950
 msgid "Radar station"
-msgstr ""
+msgstr "Stacja radarowa"
 
 #: src/objsearch_pi.cpp:952
 msgid "Radar transponder beacon"
@@ -483,7 +485,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:956
 msgid "Radio station"
-msgstr ""
+msgstr "Stacja radiowa"
 
 #: src/objsearch_pi.cpp:958
 msgid "Railway"
@@ -611,7 +613,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:1022
 msgid "Tunnel"
-msgstr ""
+msgstr "Tunel"
 
 #: src/objsearch_pi.cpp:1024
 msgid "Underwater rock / awash rock"
@@ -627,7 +629,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:1030
 msgid "Waterfall"
-msgstr ""
+msgstr "Wodospad"
 
 #: src/objsearch_pi.cpp:1032
 msgid "Weed/Kelp"
@@ -635,7 +637,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:1034
 msgid "Wreck"
-msgstr ""
+msgstr "Wrak"
 
 #: src/objsearch_pi.cpp:1036
 msgid "Tidal stream - flood/ebb"
@@ -683,7 +685,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:1062
 msgid "Building, religious"
-msgstr ""
+msgstr "Budynek religijny"
 
 #: src/objsearch_pi.cpp:1064
 msgid "Caution area"
@@ -691,7 +693,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:1066
 msgid "Monument"
-msgstr ""
+msgstr "Pomnik"
 
 #: src/objsearch_pi.cpp:1068
 msgid "Production installation"
@@ -703,9 +705,9 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:1072
 msgid "Tank"
-msgstr ""
+msgstr "Zbiornik"
 
 #: src/objsearch_pi.cpp:1074
 msgid "Tower structure"
-msgstr ""
+msgstr "Struktura wieżowa"
 

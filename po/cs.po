@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-19 00:48-0500\n"
-"PO-Revision-Date: 2015-01-18 18:34-0500\n"
+"PO-Revision-Date: 2015-05-23 05:01-0400\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -13,6 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: opencpn\n"
+"X-Crowdin-Language: cs\n"
 "X-Crowdin-File: /plugins/objsearch_pi/po/objsearch_pi.pot\n"
 
 #: src/ObjSearchDialog.cpp:38
@@ -29,7 +30,7 @@ msgstr "Zavřít"
 
 #: src/ObjSearchDialog.cpp:56
 msgid "Close on show"
-msgstr ""
+msgstr "Uzavřít při zobrazení"
 
 #: src/ObjSearchDialog.cpp:58
 msgid " "
@@ -37,11 +38,11 @@ msgstr ""
 
 #: src/ObjSearchDialog.cpp:65
 msgid "Limit range to"
-msgstr ""
+msgstr "Omezení vzdálenosti na"
 
 #: src/ObjSearchDialog.cpp:67 src/ObjSearchDialog.cpp:72
 msgid "0 = Unlimited"
-msgstr ""
+msgstr "0 = bez omezení"
 
 #: src/ObjSearchDialog.cpp:76
 msgid "NMi"
@@ -60,12 +61,14 @@ msgid "Vector Chart Object Search PlugIn for OpenCPN"
 msgstr "Doplněk pro vyhledávání mapových objektú"
 
 #: src/objsearch_pi.cpp:341
-msgid "Vector Chart Object Search PlugIn for OpenCPN\nProvides a search function for the named vector chart objects."
-msgstr "Doplněk pro vyhledávání mapových objektú\nPoskytujé vyhledávací funkce pro pojmeované objekty na vektorových mapách."
+msgid "Vector Chart Object Search PlugIn for OpenCPN\n"
+"Provides a search function for the named vector chart objects."
+msgstr "Doplněk pro vyhledávání mapových objektú\n"
+"Poskytujé vyhledávací funkce pro pojmeované objekty na vektorových mapách."
 
 #: src/objsearch_pi.cpp:503
 msgid "There is a problem with your database, check the OpenCPN logfile for more information."
-msgstr ""
+msgstr "Došlo k potížím s databází, zkontroluj soubor logu OpenCPN pro další informace."
 
 #: src/objsearch_pi.cpp:519
 #, c-format
@@ -115,597 +118,597 @@ msgstr "Mapa"
 
 #: src/objsearch_pi.cpp:772
 msgid "Administration area (Named)"
-msgstr ""
+msgstr "Správní oblast (Pojmenovaná)"
 
 #: src/objsearch_pi.cpp:774
 msgid "Airport / airfield"
-msgstr ""
+msgstr "Letiště"
 
 #: src/objsearch_pi.cpp:776
 msgid "Anchor berth"
-msgstr ""
+msgstr "Kotevní kóje"
 
 #: src/objsearch_pi.cpp:778
 msgid "Anchorage area"
-msgstr ""
+msgstr "Kotviště"
 
 #: src/objsearch_pi.cpp:780
 msgid "Beacon, cardinal"
-msgstr ""
+msgstr "Maják, kardinál"
 
 #: src/objsearch_pi.cpp:782
 msgid "Beacon, isolated danger"
-msgstr ""
+msgstr "Maják, izolované nebezpečí"
 
 #: src/objsearch_pi.cpp:784
 msgid "Beacon, lateral"
-msgstr ""
+msgstr "Maják, laterální"
 
 #: src/objsearch_pi.cpp:786
 msgid "Beacon, safe water"
-msgstr ""
+msgstr "Maják, bezpečné vody"
 
 #: src/objsearch_pi.cpp:788
 msgid "Beacon, special purpose/general"
-msgstr ""
+msgstr "Maják, zvláštní účel/obecné"
 
 #: src/objsearch_pi.cpp:790
 msgid "Berth"
-msgstr ""
+msgstr "Přístaviště"
 
 #: src/objsearch_pi.cpp:792
 msgid "Bridge"
-msgstr ""
+msgstr "Most"
 
 #: src/objsearch_pi.cpp:794
 msgid "Building, single"
-msgstr ""
+msgstr "Budova, osamocená"
 
 #: src/objsearch_pi.cpp:796
 msgid "Built-up area"
-msgstr ""
+msgstr "Zastavěná plocha"
 
 #: src/objsearch_pi.cpp:798
 msgid "Buoy, cardinal"
-msgstr ""
+msgstr "Bóje, kardinál"
 
 #: src/objsearch_pi.cpp:800
 msgid "Buoy, installation"
-msgstr ""
+msgstr "Bóje, instalace"
 
 #: src/objsearch_pi.cpp:802
 msgid "Buoy, isolated danger"
-msgstr ""
+msgstr "Bóje, izolované nebezpečí"
 
 #: src/objsearch_pi.cpp:804
 msgid "Buoy, lateral"
-msgstr ""
+msgstr "Bóje, laterální"
 
 #: src/objsearch_pi.cpp:806
 msgid "Buoy, safe water"
-msgstr ""
+msgstr "Bóje, bezpečné vody"
 
 #: src/objsearch_pi.cpp:808
 msgid "Buoy, special purpose/general"
-msgstr ""
+msgstr "Bóje, zvláštní účel/obecné"
 
 #: src/objsearch_pi.cpp:810
 msgid "Cable area"
-msgstr ""
+msgstr "Oblast s kabely"
 
 #: src/objsearch_pi.cpp:812
 msgid "Cable, overhead"
-msgstr ""
+msgstr "Kabel, visutý"
 
 #: src/objsearch_pi.cpp:814
 msgid "Cable, submarine"
-msgstr ""
+msgstr "Podmořský kabel"
 
 #: src/objsearch_pi.cpp:816
 msgid "Canal"
-msgstr ""
+msgstr "Kanál"
 
 #: src/objsearch_pi.cpp:818 src/objsearch_pi.cpp:1042
 msgid "Canal bank"
-msgstr ""
+msgstr "Břeh kanálu"
 
 #: src/objsearch_pi.cpp:820
 msgid "Cargo transshipment area"
-msgstr ""
+msgstr "Oblast překládky nákladu"
 
 #: src/objsearch_pi.cpp:822
 msgid "Causeway"
-msgstr ""
+msgstr "Hráz"
 
 #: src/objsearch_pi.cpp:824
 msgid "Checkpoint"
-msgstr ""
+msgstr "Kontrolní bod"
 
 #: src/objsearch_pi.cpp:826
 msgid "Coastguard station"
-msgstr ""
+msgstr "Stanice pobřežní stráže"
 
 #: src/objsearch_pi.cpp:828
 msgid "Coastline"
-msgstr ""
+msgstr "Pobřeží"
 
 #: src/objsearch_pi.cpp:830
 msgid "Continental shelf area"
-msgstr ""
+msgstr "Oblast kontinentálního šelfu"
 
 #: src/objsearch_pi.cpp:832
 msgid "Control point"
-msgstr ""
+msgstr "Kontrolní bod"
 
 #: src/objsearch_pi.cpp:834
 msgid "Conveyor"
-msgstr ""
+msgstr "Dopravník"
 
 #: src/objsearch_pi.cpp:836
 msgid "Crane"
-msgstr ""
+msgstr "Jeřáb"
 
 #: src/objsearch_pi.cpp:838
 msgid "Current - non - gravitational"
-msgstr ""
+msgstr "Nesplavný proud"
 
 #: src/objsearch_pi.cpp:840
 msgid "Dam"
-msgstr ""
+msgstr "Přehrada"
 
 #: src/objsearch_pi.cpp:842
 msgid "Daymark"
-msgstr ""
+msgstr "Denní znak"
 
 #: src/objsearch_pi.cpp:844
 msgid "Deep water route centerline"
-msgstr ""
+msgstr "Osa hlubokovodní trasy"
 
 #: src/objsearch_pi.cpp:846
 msgid "Deep water route part"
-msgstr ""
+msgstr "Část hlubokovodní trasy"
 
 #: src/objsearch_pi.cpp:848
 msgid "Distance mark"
-msgstr ""
+msgstr "Znak vzdálenosti"
 
 #: src/objsearch_pi.cpp:850
 msgid "Dock area"
-msgstr ""
+msgstr "Oblast doku"
 
 #: src/objsearch_pi.cpp:852
 msgid "Dredged area"
-msgstr ""
+msgstr "Vybagrovaná oblast"
 
 #: src/objsearch_pi.cpp:854
 msgid "Dry dock"
-msgstr ""
+msgstr "Suchý dok"
 
 #: src/objsearch_pi.cpp:856
 msgid "Dumping ground"
-msgstr ""
+msgstr "Skládka"
 
 #: src/objsearch_pi.cpp:858
 msgid "Fairway"
-msgstr ""
+msgstr "Plavební dráha"
 
 #: src/objsearch_pi.cpp:860
 msgid "Fence/wall"
-msgstr ""
+msgstr "Plot/zeď"
 
 #: src/objsearch_pi.cpp:862
 msgid "Ferry route"
-msgstr ""
+msgstr "Trasa trajektu"
 
 #: src/objsearch_pi.cpp:864
 msgid "Fishery zone"
-msgstr ""
+msgstr "Rybolovná oblast"
 
 #: src/objsearch_pi.cpp:866
 msgid "Fishing facility"
-msgstr ""
+msgstr "Rybolovné zařízení"
 
 #: src/objsearch_pi.cpp:868
 msgid "Fishing ground"
-msgstr ""
+msgstr "Rybářský revír"
 
 #: src/objsearch_pi.cpp:870
 msgid "Floating dock"
-msgstr ""
+msgstr "Plovoucí dok"
 
 #: src/objsearch_pi.cpp:872
 msgid "Fog signal"
-msgstr ""
+msgstr "Mlhový signál"
 
 #: src/objsearch_pi.cpp:874
 msgid "Fortified structure"
-msgstr ""
+msgstr "Opevněná struktura"
 
 #: src/objsearch_pi.cpp:876
 msgid "Free port area"
-msgstr ""
+msgstr "Oblast svobodného přístavu"
 
 #: src/objsearch_pi.cpp:878
 msgid "Gate"
-msgstr ""
+msgstr "Brána"
 
 #: src/objsearch_pi.cpp:880
 msgid "Gridiron"
-msgstr ""
+msgstr "Rošt"
 
 #: src/objsearch_pi.cpp:882
 msgid "Harbour area (administrative)"
-msgstr ""
+msgstr "Přístavní oblast (administrativní)"
 
 #: src/objsearch_pi.cpp:884
 msgid "Harbour facility"
-msgstr ""
+msgstr "Přístavní zařízení"
 
 #: src/objsearch_pi.cpp:886
 msgid "Hulk"
-msgstr ""
+msgstr "Vyřazená loď/vrak"
 
 #: src/objsearch_pi.cpp:888
 msgid "Ice area"
-msgstr ""
+msgstr "Ledová plocha"
 
 #: src/objsearch_pi.cpp:890
 msgid "Incineration area"
-msgstr ""
+msgstr "Spalovací prostor"
 
 #: src/objsearch_pi.cpp:892
 msgid "Lake"
-msgstr ""
+msgstr "Jezero"
 
 #: src/objsearch_pi.cpp:894
 msgid "Lake shore"
-msgstr ""
+msgstr "Břeh jezera"
 
 #: src/objsearch_pi.cpp:896
 msgid "Land area"
-msgstr ""
+msgstr "Oblast souše"
 
 #: src/objsearch_pi.cpp:898
 msgid "Land elevation"
-msgstr ""
+msgstr "Nadmořská výška souše"
 
 #: src/objsearch_pi.cpp:900
 msgid "Land region"
-msgstr ""
+msgstr "Oblast pevniny"
 
 #: src/objsearch_pi.cpp:902
 msgid "Landmark"
-msgstr ""
+msgstr "Pamětihodnost"
 
 #: src/objsearch_pi.cpp:904
 msgid "Light"
-msgstr ""
+msgstr "Světlo"
 
 #: src/objsearch_pi.cpp:906
 msgid "Light float"
-msgstr ""
+msgstr "Plovoucí světlo"
 
 #: src/objsearch_pi.cpp:908
 msgid "Light vessel"
-msgstr ""
+msgstr "Majáková loď"
 
 #: src/objsearch_pi.cpp:910
 msgid "Local magnetic anomaly"
-msgstr ""
+msgstr "Lokální magnetické anomálie"
 
 #: src/objsearch_pi.cpp:912
 msgid "Lock basin"
-msgstr ""
+msgstr "Zdrž"
 
 #: src/objsearch_pi.cpp:914
 msgid "Log pond"
-msgstr ""
+msgstr "Skladiště kmenů"
 
 #: src/objsearch_pi.cpp:916
 msgid "Marine farm/culture"
-msgstr ""
+msgstr "Mořské farmy/kultura"
 
 #: src/objsearch_pi.cpp:918
 msgid "Military practice area"
-msgstr ""
+msgstr "Vojenské cvičiště"
 
 #: src/objsearch_pi.cpp:920
 msgid "Mooring/warping facility"
-msgstr ""
+msgstr "Kotevni/vyvazovací zařízení"
 
 #: src/objsearch_pi.cpp:922
 msgid "Obstruction"
-msgstr ""
+msgstr "Překážka"
 
 #: src/objsearch_pi.cpp:924
 msgid "Offshore platform"
-msgstr ""
+msgstr "Offshore platforma"
 
 #: src/objsearch_pi.cpp:926
 msgid "Offshore production area"
-msgstr ""
+msgstr "Offshore produkční oblast"
 
 #: src/objsearch_pi.cpp:928
 msgid "Oil barrier"
-msgstr ""
+msgstr "Ropná bariéra"
 
 #: src/objsearch_pi.cpp:930
 msgid "Pile"
-msgstr ""
+msgstr "Hromada"
 
 #: src/objsearch_pi.cpp:932
 msgid "Pilot boarding place"
-msgstr ""
+msgstr "Nástupní místo lodivoda"
 
 #: src/objsearch_pi.cpp:934
 msgid "Pipeline area"
-msgstr ""
+msgstr "Potrubní oblast"
 
 #: src/objsearch_pi.cpp:936
 msgid "Pipeline, overhead"
-msgstr ""
+msgstr "Potrubí, visuté"
 
 #: src/objsearch_pi.cpp:938
 msgid "Pipeline, submarine/on land"
-msgstr ""
+msgstr "Potrubí, podvodní/na pevnině"
 
 #: src/objsearch_pi.cpp:940
 msgid "Pontoon"
-msgstr ""
+msgstr "Ponton"
 
 #: src/objsearch_pi.cpp:942
 msgid "Production / storage area"
-msgstr ""
+msgstr "Výroba / úložiště"
 
 #: src/objsearch_pi.cpp:944
 msgid "Pylon/bridge support"
-msgstr ""
+msgstr "Podpora/pilíř mostu"
 
 #: src/objsearch_pi.cpp:946
 msgid "Radar line"
-msgstr ""
+msgstr "Radarové linie"
 
 #: src/objsearch_pi.cpp:948
 msgid "Radar range"
-msgstr ""
+msgstr "Dosahu radaru"
 
 #: src/objsearch_pi.cpp:950
 msgid "Radar station"
-msgstr ""
+msgstr "Radarové stanice"
 
 #: src/objsearch_pi.cpp:952
 msgid "Radar transponder beacon"
-msgstr ""
+msgstr "Radarový odpovídač maják"
 
 #: src/objsearch_pi.cpp:954
 msgid "Radio calling-in point"
-msgstr ""
+msgstr "Bod pro radiové ohlášení"
 
 #: src/objsearch_pi.cpp:956
 msgid "Radio station"
-msgstr ""
+msgstr "Rádiová stanice"
 
 #: src/objsearch_pi.cpp:958
 msgid "Railway"
-msgstr ""
+msgstr "Železnice"
 
 #: src/objsearch_pi.cpp:960
 msgid "Rapids"
-msgstr ""
+msgstr "Peřeje"
 
 #: src/objsearch_pi.cpp:962
 msgid "Recommended route centerline"
-msgstr ""
+msgstr "Osa doporučené trasy"
 
 #: src/objsearch_pi.cpp:964
 msgid "Recommended track"
-msgstr ""
+msgstr "Doporučená trasa"
 
 #: src/objsearch_pi.cpp:966
 msgid "Rescue station"
-msgstr ""
+msgstr "Záchranná stanice"
 
 #: src/objsearch_pi.cpp:968
 msgid "Restricted area"
-msgstr ""
+msgstr "Omezená oblast"
 
 #: src/objsearch_pi.cpp:970
 msgid "River"
-msgstr ""
+msgstr "Řeka"
 
 #: src/objsearch_pi.cpp:972 src/objsearch_pi.cpp:1044
 msgid "River bank"
-msgstr ""
+msgstr "Břeh řeky"
 
 #: src/objsearch_pi.cpp:974
 msgid "Road"
-msgstr ""
+msgstr "Cesta"
 
 #: src/objsearch_pi.cpp:976
 msgid "Runway"
-msgstr ""
+msgstr "Dráha"
 
 #: src/objsearch_pi.cpp:978
 msgid "Sea area / named water area"
-msgstr ""
+msgstr "Mořská oblast / s názvem vodní plochy"
 
 #: src/objsearch_pi.cpp:980
 msgid "Sea-plane landing area"
-msgstr ""
+msgstr "Oblast přistávání hydroplánů"
 
 #: src/objsearch_pi.cpp:982
 msgid "Seabed area"
-msgstr ""
+msgstr "Oblast mořského dna"
 
 #: src/objsearch_pi.cpp:984
 msgid "Shoreline Construction"
-msgstr ""
+msgstr "Pobřeží konstrukce"
 
 #: src/objsearch_pi.cpp:986
 msgid "Signal station, traffic"
-msgstr ""
+msgstr "Signální stanice, dopravní"
 
 #: src/objsearch_pi.cpp:988
 msgid "Signal station, warning"
-msgstr ""
+msgstr "Signální stanice, upozornění"
 
 #: src/objsearch_pi.cpp:990
 msgid "Silo / tank"
-msgstr ""
+msgstr "Silo / zásobník"
 
 #: src/objsearch_pi.cpp:992
 msgid "Slope topline"
-msgstr ""
+msgstr "Vrcholová linie svahu"
 
 #: src/objsearch_pi.cpp:994
 msgid "Sloping ground"
-msgstr ""
+msgstr "Svažitý terén"
 
 #: src/objsearch_pi.cpp:996
 msgid "Small craft facility"
-msgstr ""
+msgstr "Zařízení pro malá plavidla"
 
 #: src/objsearch_pi.cpp:998
 msgid "Sounding"
-msgstr ""
+msgstr "Hloubka"
 
 #: src/objsearch_pi.cpp:1000
 msgid "Spring"
-msgstr ""
+msgstr "Pramen"
 
 #: src/objsearch_pi.cpp:1002
 msgid "Square"
-msgstr ""
+msgstr "Náměstí"
 
 #: src/objsearch_pi.cpp:1004
 msgid "Submarine transit lane"
-msgstr ""
+msgstr "Podmořská tranzitní linie"
 
 #: src/objsearch_pi.cpp:1006
 msgid "Tidal stream - harmonic prediction"
-msgstr ""
+msgstr "Slapové proudění - harmonická předpověď"
 
 #: src/objsearch_pi.cpp:1008
 msgid "Tidal stream - non-harmonic prediction"
-msgstr ""
+msgstr "Slapové proudění - neharmonická předpověď"
 
 #: src/objsearch_pi.cpp:1010
 msgid "Tidal stream panel data"
-msgstr ""
+msgstr "Slapové proudění - panelová data"
 
 #: src/objsearch_pi.cpp:1012 src/objsearch_pi.cpp:1018
 msgid "Tidal stream - time series"
-msgstr ""
+msgstr "Slapové proudění - časová řada"
 
 #: src/objsearch_pi.cpp:1014
 msgid "Tide - harmonic prediction"
-msgstr ""
+msgstr "Příliv - harmonická předpověď"
 
 #: src/objsearch_pi.cpp:1016
 msgid "Tide - non-harmonic prediction"
-msgstr ""
+msgstr "Příliv - neharmonická předpověď"
 
 #: src/objsearch_pi.cpp:1020
 msgid "Tideway"
-msgstr ""
+msgstr "Slapový průliv"
 
 #: src/objsearch_pi.cpp:1022
 msgid "Tunnel"
-msgstr ""
+msgstr "Tunel"
 
 #: src/objsearch_pi.cpp:1024
 msgid "Underwater rock / awash rock"
-msgstr ""
+msgstr "Podvodní kámen / omývaný kámen"
 
 #: src/objsearch_pi.cpp:1026
 msgid "Vegetation"
-msgstr ""
+msgstr "Vegetace"
 
 #: src/objsearch_pi.cpp:1028
 msgid "Water turbulence"
-msgstr ""
+msgstr "Turbulence vody"
 
 #: src/objsearch_pi.cpp:1030
 msgid "Waterfall"
-msgstr ""
+msgstr "Vodopád"
 
 #: src/objsearch_pi.cpp:1032
 msgid "Weed/Kelp"
-msgstr ""
+msgstr "Kelp/řasy"
 
 #: src/objsearch_pi.cpp:1034
 msgid "Wreck"
-msgstr ""
+msgstr "Vrak"
 
 #: src/objsearch_pi.cpp:1036
 msgid "Tidal stream - flood/ebb"
-msgstr ""
+msgstr "Slapové proudy - příliv/odliv"
 
 #: src/objsearch_pi.cpp:1038
 msgid "Aggregation"
-msgstr ""
+msgstr "Agregace"
 
 #: src/objsearch_pi.cpp:1040
 msgid "Association"
-msgstr ""
+msgstr "Asociace"
 
 #: src/objsearch_pi.cpp:1046
 msgid "waterway axis"
-msgstr ""
+msgstr "osa vodní cesty"
 
 #: src/objsearch_pi.cpp:1048
 msgid "Bridge area"
-msgstr ""
+msgstr "Oblast mostu"
 
 #: src/objsearch_pi.cpp:1050
 msgid "Lock area"
-msgstr ""
+msgstr "Oblast komory"
 
 #: src/objsearch_pi.cpp:1052
 msgid "Beacon water-way"
-msgstr ""
+msgstr "Maják vodní cesty"
 
 #: src/objsearch_pi.cpp:1054
 msgid "Buoy water-way"
-msgstr ""
+msgstr "Bóje vodní cesty"
 
 #: src/objsearch_pi.cpp:1056
 msgid "Route planning point"
-msgstr ""
+msgstr "Plánování bod trasy"
 
 #: src/objsearch_pi.cpp:1058
 msgid "Text label"
-msgstr ""
+msgstr "Textový popisek"
 
 #: src/objsearch_pi.cpp:1060
 msgid "Berthing facility"
-msgstr ""
+msgstr "Kotvicí zařízení"
 
 #: src/objsearch_pi.cpp:1062
 msgid "Building, religious"
-msgstr ""
+msgstr "Budova, náboženské"
 
 #: src/objsearch_pi.cpp:1064
 msgid "Caution area"
-msgstr ""
+msgstr "Oblast upozornění"
 
 #: src/objsearch_pi.cpp:1066
 msgid "Monument"
-msgstr ""
+msgstr "Památník"
 
 #: src/objsearch_pi.cpp:1068
 msgid "Production installation"
-msgstr ""
+msgstr "Výrobní instalace"
 
 #: src/objsearch_pi.cpp:1070
 msgid "Salt pan"
-msgstr ""
+msgstr "Solné pánve"
 
 #: src/objsearch_pi.cpp:1072
 msgid "Tank"
-msgstr ""
+msgstr "Nádrž"
 
 #: src/objsearch_pi.cpp:1074
 msgid "Tower structure"
-msgstr ""
+msgstr "Věžová struktura"
 
