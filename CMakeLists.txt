@@ -27,7 +27,7 @@ SET(PACKAGE_NAME objsearch_pi)
 SET(CPACK_PACKAGE_CONTACT "Pavel Kalian")
 
 SET(VERSION_MAJOR "0")
-SET(VERSION_MINOR "6")
+SET(VERSION_MINOR "7")
 
 #SET(CMAKE_BUILD_TYPE Debug)
 
@@ -47,10 +47,10 @@ SET(SRC_OBJSEARCH
             src/clcpopup.cpp
             src/csv_parser.h
             src/csv_parser.cpp
-            wxsqlite3-3.1.1/src/wxsqlite3.cpp
-            sqlite-amalgamation-3080600/sqlite3.c
+            wxsqlite3-3.3.0/src/wxsqlite3.cpp
+            sqlite-amalgamation-3110000/sqlite3.c
 )
-INCLUDE_DIRECTORIES(wxsqlite3-3.1.1/include sqlite-amalgamation-3080600)
+INCLUDE_DIRECTORIES(wxsqlite3-3.3.0/include sqlite-amalgamation-3110000)
 ADD_LIBRARY(${PACKAGE_NAME} SHARED ${SRC_OBJSEARCH})
 
 INCLUDE("cmake/PluginInstall.cmake")
