@@ -965,6 +965,8 @@ wxString ObjSearchDialogImpl::HumanizeFeatureName(const wxString& feature_name_c
         return inland + _("Cargo transshipment area");
     if ( feature_name == _T("CAUSWY") )
         return inland + _("Causeway");
+    if ( feature_name == _T("CHIMNY") )
+        return inland + _("Chimney");
     if ( feature_name == _T("CHKPNT") )
         return inland + _("Checkpoint");
     if ( feature_name == _T("CGUSTA") )
@@ -1163,6 +1165,8 @@ wxString ObjSearchDialogImpl::HumanizeFeatureName(const wxString& feature_name_c
         return inland + _("Tidal stream - time series");
     if ( feature_name == _T("TIDEWY") )
         return inland + _("Tideway");
+    if ( feature_name == _T("TREPNT") )
+        return inland + _("Tree");
     if ( feature_name == _T("TUNNEL") )
         return inland + _("Tunnel");
     if ( feature_name == _T("UWTROC") )
@@ -1239,6 +1243,8 @@ wxString ObjSearchDialogImpl::HumanizeFeatureName(const wxString& feature_name_c
     //CM93, "special case"
     if ( feature_name_chart == _T("_texto") )
         return _("Text label");
+    if ( feature_name_chart == _T("_extgn") )
+        return _("Extended navigational aid");
 
     //We don't know that object, just return the mnemonic
     return feature_name_chart;
