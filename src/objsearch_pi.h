@@ -41,7 +41,7 @@
 #include "version.h"
 
 #define     MY_API_VERSION_MAJOR    1
-#define     MY_API_VERSION_MINOR    12
+#define     MY_API_VERSION_MINOR    13
 
 #include "ocpn_plugin.h"
 
@@ -139,7 +139,7 @@ private:
     objsearch_pi *p_plugin;
 };
 
-class objsearch_pi : public opencpn_plugin_112
+class objsearch_pi : public opencpn_plugin_113
 {
 public:
     objsearch_pi ( void *ppimgr );

@@ -28,7 +28,6 @@
 
 BEGIN_EVENT_TABLE( CheckListComboPopup, wxCheckListBox )
     EVT_CHECKLISTBOX( wxID_ANY, CheckListComboPopup::OnListBox )
-    EVT_LISTBOX( wxID_ANY, CheckListComboPopup::OnListBox )
 END_EVENT_TABLE()
 
 wxString CheckListComboPopup::GetStringValue() const

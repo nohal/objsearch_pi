@@ -200,7 +200,7 @@ void objsearch_pi::clearDB(wxSQLite3Database* db)
 }
 
 objsearch_pi::objsearch_pi ( void *ppimgr )
-    : opencpn_plugin_112 ( ppimgr )
+    : opencpn_plugin_113 ( ppimgr )
 {
     // Create the PlugIn icons
     initialize_images();
@@ -271,10 +271,13 @@ int objsearch_pi::Init ( void )
 
     // Get a pointer to the opencpn display canvas, to use as a parent for the OBJSEARCH dialog
     m_parent_window = GetOCPNCanvasWindow();
-
+    
+#ifdef OBJSEARCH_USE_SVG
+    m_leftclick_tool_id = InsertPlugInToolSVG( _T( "Object Search" ), _svg_objsearch, _svg_objsearch_rollover, _svg_objsearch_toggled, wxITEM_CHECK, _( "Object Search" ), _T( "" ), NULL, OBJSEARCH_TOOL_POSITION, 0, this);
+#else
     m_leftclick_tool_id = InsertPlugInTool ( _T ( "" ), _img_objsearch, _img_objsearch, wxITEM_CHECK,
-                          _ ( "Object Search" ), _T ( "" ), NULL,
-                          OBJSEARCH_TOOL_POSITION, 0, this );
+        _( "Object Search" ), _T ( "" ), NULL, OBJSEARCH_TOOL_POSITION, 0, this );
+#endif
 
     m_pObjSearchDialog = new ObjSearchDialogImpl( this, m_parent_window );
     
