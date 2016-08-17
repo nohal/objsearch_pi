@@ -114,7 +114,11 @@ private:
 class ObjSearchDialogImpl : public ObjSearchDialog
 {
 public:
+    #if __WXOSX_
     ObjSearchDialogImpl( objsearch_pi* plugin, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Chart Object Search"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 660,480 ), long style = wxDEFAULT_DIALOG_STYLE | wxSTAY_ON_TOP ); 
+    #else
+    ObjSearchDialogImpl( objsearch_pi* plugin, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Chart Object Search"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 660,480 ), long style = wxDEFAULT_DIALOG_STYLE );
+    #endif
     ~ObjSearchDialogImpl();
 
     void ClearFeatures();
