@@ -1,3 +1,5 @@
+version: 0.7.{build}
+
 clone_folder: c:\projects\objsearch_pi
 shallow_clone: true
 image:
@@ -34,7 +36,6 @@ install:
   - cmd: nmake -f makefile.vc BUILD=release SHARED=1 CFLAGS=/D_USING_V120_SDK71_ CXXFLAGS=/D_USING_V120_SDK71_
   - cmd: nmake -f makefile.vc BUILD=debug SHARED=1 CFLAGS=/D_USING_V120_SDK71_ CXXFLAGS=/D_USING_V120_SDK71_
 
-  
 before_build:
   - cd c:\project\objsearch_pi
   - mkdir build
@@ -46,7 +47,7 @@ before_build:
 
 build_script:
   - cmake --build . --config Release --target package
-  
+
 artifacts:
   - path: build\objsearch_pi*.exe
     name: installer
