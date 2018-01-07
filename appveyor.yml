@@ -1,16 +1,3 @@
-branches:
-  only:
-    - master
-  #  - appveyorbuild
-  # blacklist
-  #except:
-  #  - gh-pages
-
-#---------------------------------#
-#    environment configuration    #
-#---------------------------------#
-
-# clone directory
 clone_folder: c:\projects\objsearch_pi
 shallow_clone: true
 image:
@@ -19,8 +6,8 @@ image:
 platform:
   - Win32
 
-configuration:
-  - Release
+configuration: Release
+test: OFF
 
 install:
   - '"C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x86'
@@ -60,23 +47,7 @@ before_build:
 build_script:
   - cmake --build . --config Release --target package
   
-#after_build:
-#  - cmd: package.bat
-
 artifacts:
   - path: build\objsearch_pi*.exe
     name: installer
-
-deploy: OFF
-#  - provider: FTP
-#    server: 
-#      secure: kZT7rsbEPGQ0fC2GFRBGfL2vPwUgih2JkwjbSuw00T8=
-#    username:
-#      secure: YJzwsi4wfSezFLqaB9uiww==
-#    password:
-#      secure: EQ3xa2LoRgelAdE57+qakQ==
-#    folder: .\rpcs3\
-#    enable_ssl: false
-  
-test: OFF
 
