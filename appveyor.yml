@@ -37,11 +37,11 @@ install:
   - cmd: nmake -f makefile.vc BUILD=debug SHARED=1 CFLAGS=/D_USING_V120_SDK71_ CXXFLAGS=/D_USING_V120_SDK71_
 
 before_build:
-  - cd c:\project\objsearch_pi
+  - cd c:\projects\objsearch_pi
   - mkdir build
   - cd build
   - ps: Start-FileDownload http://downloads.sourceforge.net/project/opencpnplugins/opencpn_packaging_data/OpenCPN_buildwin.7z
-  - cmd: 7z x -y OpenCPN_buildwin.7z -oc:\project\objsearch_pi
+  - cmd: 7z x -y OpenCPN_buildwin.7z -oc:\projects\objsearch_pi
   - ps: Start-FileDownload http://downloads.sourceforge.net/project/opencpnplugins/opencpn_lib/4.2-vc120_xp/opencpn.lib
   - cmake -T v120_xp ..
 
