@@ -48,8 +48,6 @@ install:
   - cmd: nmake -f makefile.vc BUILD=debug SHARED=1 CFLAGS=/D_USING_V120_SDK71_ CXXFLAGS=/D_USING_V120_SDK71_
 
   
-build:
-
 before_build:
   - cd c:\project\objsearch_pi
   - mkdir build
