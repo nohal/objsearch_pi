@@ -217,6 +217,8 @@ objsearch_pi::objsearch_pi ( void *ppimgr )
     
     wxSQLite3ResultSet set;
     
+    m_vpppm = 0.1;
+    
     if (m_bDBUsable)
     {
         set = SelectFromDB( m_db, wxT("SELECT id, chartname, scale, nativescale FROM chart") );
