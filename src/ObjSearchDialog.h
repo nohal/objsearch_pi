@@ -51,7 +51,6 @@ class ObjSearchDialog : public wxDialog
 		wxButton* m_buttonSearch;
 		wxListCtrl* m_listCtrlResults;
 		wxButton* m_btnShowOnChart;
-		wxButton* m_btnClose;
 		wxCheckBox* m_cAutoClose;
 		wxStaticText* m_stRange;
 		wxSpinCtrl* m_scRange;
@@ -62,7 +61,6 @@ class ObjSearchDialog : public wxDialog
 		virtual void OnSearch( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnItemSelected( wxListEvent& event ) { event.Skip(); }
 		virtual void OnShowOnChart( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnClose( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnSettings( wxCommandEvent& event ) { event.Skip(); }
 		
 	
