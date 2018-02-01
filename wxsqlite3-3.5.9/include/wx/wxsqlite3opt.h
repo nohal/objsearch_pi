@@ -38,7 +38,7 @@
 //! To enable SQLite's database encryption support define WXSQLITE3_HAVE_CODEC as 1 here.
 //! Attention: SQLite needs to be compiled with SQLITE_HAS_CODEC for this to work
 #ifndef WXSQLITE3_HAVE_CODEC
-#define WXSQLITE3_HAVE_CODEC 1
+#define WXSQLITE3_HAVE_CODEC 0
 #endif
 
 //! To enable SQLite's loadable extension feature define WXSQLITE3_HAVE_LOAD_EXTENSION as 1 here.
