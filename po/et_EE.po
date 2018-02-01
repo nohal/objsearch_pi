@@ -3,46 +3,46 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-23 16:26-0300\n"
-"PO-Revision-Date: 2016-02-23 15:03-0500\n"
+"PO-Revision-Date: 2018-01-29 21:30-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
-"Language-Team: Galician\n"
-"Language: gl_ES\n"
+"Language-Team: Estonian\n"
+"Language: et_EE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: opencpn\n"
-"X-Crowdin-Language: gl\n"
+"X-Crowdin-Language: et\n"
 "X-Crowdin-File: /plugins/objsearch_pi/po/objsearch_pi.pot\n"
 
 #: src/ObjSearchDialog.cpp:38
 msgid "Search"
-msgstr ""
+msgstr "Otsing"
 
 #: src/ObjSearchDialog.cpp:50
 msgid "Show on Chart"
-msgstr ""
+msgstr "Näita kaardil"
 
 #: src/ObjSearchDialog.cpp:53
 msgid "Close"
-msgstr ""
+msgstr "Sulge"
 
 #: src/ObjSearchDialog.cpp:56
 msgid "Close on show"
-msgstr ""
+msgstr "Sulge peale kuvamist"
 
 #: src/ObjSearchDialog.cpp:63
 msgid "Limit range to"
-msgstr ""
+msgstr "Piira ulatus kuni"
 
 #: src/ObjSearchDialog.cpp:65 src/ObjSearchDialog.cpp:70
 msgid "0 = Unlimited"
-msgstr ""
+msgstr "0 = piiramatu"
 
 #: src/ObjSearchDialog.cpp:74
 msgid "NMi"
-msgstr ""
+msgstr "Mm"
 
 #: src/ObjSearchDialog.cpp:78
 msgid "..."
@@ -50,816 +50,819 @@ msgstr ""
 
 #: src/ObjSearchDialog.cpp:79
 msgid "Settings..."
-msgstr ""
+msgstr "Sätted..."
 
 #: src/ObjSearchDialog.cpp:125
 msgid "Scan charts"
-msgstr ""
+msgstr "Skaneeri kaarte"
 
 #: src/ObjSearchDialog.cpp:129
 msgid "0-80S/N, 0-180E/W, W longitudes and S latitudes are expressed as negative numbers.\n"
 "The area selected can't cross the IDL (180W/E)"
-msgstr ""
+msgstr "0-80S/N 0-180E/W, W pikkuskraadid ja S laiuskraadidel on väljendatud negatiivsete arvudena.\n"
+"Valitud ala ei saa ületada IDL'i (180W/E)"
 
 #: src/ObjSearchDialog.cpp:142
 msgid "From"
-msgstr ""
+msgstr "Alates"
 
 #: src/ObjSearchDialog.cpp:147 src/ObjSearchDialog.cpp:173
 msgid "Latitude"
-msgstr ""
+msgstr "Laius"
 
 #: src/ObjSearchDialog.cpp:154 src/ObjSearchDialog.cpp:180
 msgid "Longitude"
-msgstr ""
+msgstr "Pikkus"
 
 #: src/ObjSearchDialog.cpp:168
 msgid "To"
-msgstr ""
+msgstr "Kuni"
 
 #: src/ObjSearchDialog.cpp:197
 msgid "Scales"
-msgstr ""
+msgstr "Mõõtkava"
 
 #: src/ObjSearchDialog.cpp:199
 msgid "1:5000000"
-msgstr ""
+msgstr "1:5000000"
 
 #: src/ObjSearchDialog.cpp:203
 msgid "1:1000000"
-msgstr ""
+msgstr "1:1000000"
 
 #: src/ObjSearchDialog.cpp:207
 msgid "1:200000"
-msgstr ""
+msgstr "1:200000"
 
 #: src/ObjSearchDialog.cpp:210
 msgid "1:20000 (Very time consuming,\n"
 "use for really small areas only)"
-msgstr ""
+msgstr "1:20000 (Väga aeganõudev,\n"
+"kasuta ainult tõesti väikeste alade jaoks)"
 
 #: src/ObjSearchDialog.cpp:221
 msgid "or"
-msgstr ""
+msgstr "või"
 
 #: src/ObjSearchDialog.cpp:226
 msgid "Import data"
-msgstr ""
+msgstr "Impordi andmed"
 
 #: src/ObjSearchDialog.cpp:228
 msgid "File"
-msgstr ""
+msgstr "Fail"
 
 #: src/ObjSearchDialog.cpp:235
 msgid "Browse..."
-msgstr ""
+msgstr "Sirvi..."
 
 #: src/ObjSearchDialog.cpp:245
 msgid "Populate database"
-msgstr ""
+msgstr "Täida andmebaas"
 
 #: src/ObjSearchDialog.cpp:250
 msgid "Manage Database"
-msgstr ""
+msgstr "Andmebaasi haldus"
 
 #: src/ObjSearchDialog.h:70 src/objsearch_pi.h:117
 msgid "Chart Object Search"
-msgstr ""
+msgstr "Kaardiobjekti otsing"
 
 #: src/ObjSearchDialog.h:118 src/objsearch_pi.h:97 src/objsearch_pi.h:99
 msgid "Object Search Settings"
-msgstr ""
+msgstr "Objekti otsingu sätted"
 
 #: src/objsearch_pi.cpp:276 src/objsearch_pi.cpp:279
 msgid "Object Search"
-msgstr ""
+msgstr "Objekti otsing"
 
 #: src/objsearch_pi.cpp:398
 msgid "Vector Chart Object Search PlugIn for OpenCPN"
-msgstr ""
+msgstr "Vektorkaardi objekti otsingu plugin OpenCPN'i jaoks"
 
 #: src/objsearch_pi.cpp:404
 msgid "Vector Chart Object Search PlugIn for OpenCPN\n"
 "Provides a search function for the named vector chart objects."
-msgstr ""
+msgstr "Vektorkaardi objekti otsingu plugin OpenCPN'i jaoks\n"
+"Võimaldab otsingu funtsiooni vektorkaardi nimedega objektide jaoks."
 
 #: src/objsearch_pi.cpp:578
 msgid "There is a problem with your database, check the OpenCPN logfile for more information."
-msgstr ""
+msgstr "On probleem teie andmebaasiga, vaadake OpenCPN'i logifaili lisateabe saamiseks."
 
 #: src/objsearch_pi.cpp:598
 #, c-format
 msgid "Your search resulted in %i objects found. This is a lot, do you really want to show all of them?"
-msgstr ""
+msgstr "Otsingu tulemusel leitud %i objekti. Seda on palju, kas te tõesti tahate neid kõiki näidata?"
 
 #: src/objsearch_pi.cpp:598
 msgid "Too many objects found"
-msgstr ""
+msgstr "Leitud liiga palju objekte"
 
 #: src/objsearch_pi.cpp:690 src/objsearch_pi.cpp:691
 msgid "All"
-msgstr ""
+msgstr "Kõik"
 
 #: src/objsearch_pi.cpp:709
 msgid "You did not enter any search term, do so."
-msgstr ""
+msgstr "Te ei sisestanud ühtegi otsinguterminit, tehke nii."
 
 #: src/objsearch_pi.cpp:724
 msgid "Type"
-msgstr ""
+msgstr "Tüüp"
 
 #: src/objsearch_pi.cpp:730
 msgid "Name"
-msgstr ""
+msgstr "Nimi"
 
 #: src/objsearch_pi.cpp:736
 msgid "Lat"
-msgstr ""
+msgstr "L°"
 
 #: src/objsearch_pi.cpp:742
 msgid "Lon"
-msgstr ""
+msgstr "P°"
 
 #: src/objsearch_pi.cpp:748
 #, c-format
 msgid "Dist (%s)"
-msgstr ""
+msgstr "Dist (%s)"
 
 #: src/objsearch_pi.cpp:754 src/objsearch_pi.cpp:760
 msgid "Scale"
-msgstr ""
+msgstr "Skaala"
 
 #: src/objsearch_pi.cpp:766
 msgid "Chart"
-msgstr ""
+msgstr "Kaart"
 
 #: src/objsearch_pi.cpp:913
 msgid "Inland - "
-msgstr ""
+msgstr "Sise - "
 
 #: src/objsearch_pi.cpp:917
 msgid "Administration area (Named)"
-msgstr ""
+msgstr "Haldusala (nimega)"
 
 #: src/objsearch_pi.cpp:919
 msgid "Airport / airfield"
-msgstr ""
+msgstr "Lennujaam / lennuväli"
 
 #: src/objsearch_pi.cpp:921
 msgid "Anchor berth"
-msgstr ""
+msgstr "Ankrupaik"
 
 #: src/objsearch_pi.cpp:923
 msgid "Anchorage area"
-msgstr ""
+msgstr "Ankurdusala"
 
 #: src/objsearch_pi.cpp:925
 msgid "Beacon, cardinal"
-msgstr ""
+msgstr "Kardinaalne meremärk"
 
 #: src/objsearch_pi.cpp:927
 msgid "Beacon, isolated danger"
-msgstr ""
+msgstr "Eraldiohu meremärk"
 
 #: src/objsearch_pi.cpp:929
 msgid "Beacon, lateral"
-msgstr ""
+msgstr "Lateraalne meremärk"
 
 #: src/objsearch_pi.cpp:931
 msgid "Beacon, safe water"
-msgstr ""
+msgstr "Faarvaatri meremärk"
 
 #: src/objsearch_pi.cpp:933
 msgid "Beacon, special purpose/general"
-msgstr ""
+msgstr "Eriotstarbeline/üldine meremärk"
 
 #: src/objsearch_pi.cpp:935
 msgid "Berth"
-msgstr ""
+msgstr "Kai"
 
 #: src/objsearch_pi.cpp:937
 msgid "Bridge"
-msgstr ""
+msgstr "Sild"
 
 #: src/objsearch_pi.cpp:939
 msgid "Building, single"
-msgstr ""
+msgstr "Üksik hoone"
 
 #: src/objsearch_pi.cpp:941
 msgid "Built-up area"
-msgstr ""
+msgstr "Hoonestatud maa-ala"
 
 #: src/objsearch_pi.cpp:943
 msgid "Buoy, cardinal"
-msgstr ""
+msgstr "Kardinaalpoi"
 
 #: src/objsearch_pi.cpp:945
 msgid "Buoy, installation"
-msgstr ""
+msgstr "Paigalduspoi"
 
 #: src/objsearch_pi.cpp:947
 msgid "Buoy, isolated danger"
-msgstr ""
+msgstr "Eraldiohupoi"
 
 #: src/objsearch_pi.cpp:949
 msgid "Buoy, lateral"
-msgstr ""
+msgstr "Lateraalpoi"
 
 #: src/objsearch_pi.cpp:951
 msgid "Buoy, safe water"
-msgstr ""
+msgstr "Faarvaatri teljepoi"
 
 #: src/objsearch_pi.cpp:953
 msgid "Buoy, special purpose/general"
-msgstr ""
+msgstr "Eriotstarbeline/üldine poi"
 
 #: src/objsearch_pi.cpp:955
 msgid "Cable area"
-msgstr ""
+msgstr "Kaabliala"
 
 #: src/objsearch_pi.cpp:957
 msgid "Cable, overhead"
-msgstr ""
+msgstr "Õhukaabel"
 
 #: src/objsearch_pi.cpp:959
 msgid "Cable, submarine"
-msgstr ""
+msgstr "Veealune kaabel"
 
 #: src/objsearch_pi.cpp:961
 msgid "Canal"
-msgstr ""
+msgstr "Kanal"
 
 #: src/objsearch_pi.cpp:963 src/objsearch_pi.cpp:1211
 msgid "Canal bank"
-msgstr ""
+msgstr "Kanalikindlustus"
 
 #: src/objsearch_pi.cpp:965
 msgid "Cargo transshipment area"
-msgstr ""
+msgstr "Ümberlaadimisala"
 
 #: src/objsearch_pi.cpp:967
 msgid "Causeway"
-msgstr ""
+msgstr "Teetamm"
 
 #: src/objsearch_pi.cpp:969
 msgid "Chimney"
-msgstr ""
+msgstr "Korsten"
 
 #: src/objsearch_pi.cpp:971
 msgid "Checkpoint"
-msgstr ""
+msgstr "Kontrollpunkt"
 
 #: src/objsearch_pi.cpp:973
 msgid "Coastguard station"
-msgstr ""
+msgstr "Rannavalvejaam"
 
 #: src/objsearch_pi.cpp:975
 msgid "Coastline"
-msgstr ""
+msgstr "Rannajoon"
 
 #: src/objsearch_pi.cpp:977
 msgid "Continental shelf area"
-msgstr ""
+msgstr "Mandrilava piirkond"
 
 #: src/objsearch_pi.cpp:979
 msgid "Control point"
-msgstr ""
+msgstr "Kontrollpunkti"
 
 #: src/objsearch_pi.cpp:981
 msgid "Conveyor"
-msgstr ""
+msgstr "Konveier"
 
 #: src/objsearch_pi.cpp:983
 msgid "Crane"
-msgstr ""
+msgstr "Kraana"
 
 #: src/objsearch_pi.cpp:985
 msgid "Current - non - gravitational"
-msgstr ""
+msgstr "Hoovus - mittegravitatsiooniline"
 
 #: src/objsearch_pi.cpp:987
 msgid "Dam"
-msgstr ""
+msgstr "Tamm"
 
 #: src/objsearch_pi.cpp:989
 msgid "Daymark"
-msgstr ""
+msgstr "Päevamärk"
 
 #: src/objsearch_pi.cpp:991
 msgid "Deep water route centerline"
-msgstr ""
+msgstr "Süvaveeteede keskjoon"
 
 #: src/objsearch_pi.cpp:993
 msgid "Deep water route part"
-msgstr ""
+msgstr "Süvaveetee osa"
 
 #: src/objsearch_pi.cpp:995
 msgid "Distance mark"
-msgstr ""
+msgstr "Kaugusmärk"
 
 #: src/objsearch_pi.cpp:997
 msgid "Dock area"
-msgstr ""
+msgstr "Dokkimisala"
 
 #: src/objsearch_pi.cpp:999
 msgid "Dredged area"
-msgstr ""
+msgstr "Süvendatud ala"
 
 #: src/objsearch_pi.cpp:1001
 msgid "Dry dock"
-msgstr ""
+msgstr "Kuivdokk"
 
 #: src/objsearch_pi.cpp:1003
 msgid "Dumping ground"
-msgstr ""
+msgstr "Kaadamisala"
 
 #: src/objsearch_pi.cpp:1005
 msgid "Fairway"
-msgstr ""
+msgstr "Faarvaater"
 
 #: src/objsearch_pi.cpp:1007
 msgid "Fence/wall"
-msgstr ""
+msgstr "Tara/sein"
 
 #: src/objsearch_pi.cpp:1009
 msgid "Ferry route"
-msgstr ""
+msgstr "Parvlaevaliin"
 
 #: src/objsearch_pi.cpp:1011
 msgid "Fishery zone"
-msgstr ""
+msgstr "Kalastusvöönd"
 
 #: src/objsearch_pi.cpp:1013
 msgid "Fishing facility"
-msgstr ""
+msgstr "Kalapüügi võimalus"
 
 #: src/objsearch_pi.cpp:1015
 msgid "Fishing ground"
-msgstr ""
+msgstr "Kalapüügiala"
 
 #: src/objsearch_pi.cpp:1017
 msgid "Floating dock"
-msgstr ""
+msgstr "Ujuvdokk"
 
 #: src/objsearch_pi.cpp:1019
 msgid "Fog signal"
-msgstr ""
+msgstr "Udusignaal"
 
 #: src/objsearch_pi.cpp:1021
 msgid "Fortified structure"
-msgstr ""
+msgstr "Kindlustatud ehitis"
 
 #: src/objsearch_pi.cpp:1023
 msgid "Free port area"
-msgstr ""
+msgstr "Vabasadama ala"
 
 #: src/objsearch_pi.cpp:1025
 msgid "Gate"
-msgstr ""
+msgstr "Värav"
 
 #: src/objsearch_pi.cpp:1027
 msgid "Gridiron"
-msgstr ""
+msgstr "Võrestik"
 
 #: src/objsearch_pi.cpp:1029
 msgid "Harbour area (administrative)"
-msgstr ""
+msgstr "Sadamaala (haldus)"
 
 #: src/objsearch_pi.cpp:1031
 msgid "Harbour facility"
-msgstr ""
+msgstr "Sadama teenus"
 
 #: src/objsearch_pi.cpp:1033
 msgid "Hulk"
-msgstr ""
+msgstr "Laevakere"
 
 #: src/objsearch_pi.cpp:1035
 msgid "Ice area"
-msgstr ""
+msgstr "Jääala"
 
 #: src/objsearch_pi.cpp:1037
 msgid "Incineration area"
-msgstr ""
+msgstr "Põletamisala"
 
 #: src/objsearch_pi.cpp:1039
 msgid "Lake"
-msgstr ""
+msgstr "Järv"
 
 #: src/objsearch_pi.cpp:1041
 msgid "Lake shore"
-msgstr ""
+msgstr "Järvekallas"
 
 #: src/objsearch_pi.cpp:1043
 msgid "Land area"
-msgstr ""
+msgstr "Maa-ala"
 
 #: src/objsearch_pi.cpp:1045
 msgid "Land elevation"
-msgstr ""
+msgstr "Maa reljeef"
 
 #: src/objsearch_pi.cpp:1047
 msgid "Land region"
-msgstr ""
+msgstr "Maa piirkond"
 
 #: src/objsearch_pi.cpp:1049
 msgid "Landmark"
-msgstr ""
+msgstr "Maamärk"
 
 #: src/objsearch_pi.cpp:1051
 msgid "Light"
-msgstr ""
+msgstr "Tuli"
 
 #: src/objsearch_pi.cpp:1053
 msgid "Light float"
-msgstr ""
+msgstr "Ujuvtuli"
 
 #: src/objsearch_pi.cpp:1055
 msgid "Light vessel"
-msgstr ""
+msgstr "Tulelaev"
 
 #: src/objsearch_pi.cpp:1057
 msgid "Local magnetic anomaly"
-msgstr ""
+msgstr "Kohalik magnetiline anomaalia"
 
 #: src/objsearch_pi.cpp:1059
 msgid "Lock basin"
-msgstr ""
+msgstr "Lüüsibassein"
 
 #: src/objsearch_pi.cpp:1061
 msgid "Log pond"
-msgstr ""
+msgstr "Palgitiik"
 
 #: src/objsearch_pi.cpp:1063
 msgid "Marine farm/culture"
-msgstr ""
+msgstr "Merefarm/-kultuur"
 
 #: src/objsearch_pi.cpp:1065
 msgid "Military practice area"
-msgstr ""
+msgstr "Sõjaline harjutusala"
 
 #: src/objsearch_pi.cpp:1067
 msgid "Mooring/warping facility"
-msgstr ""
+msgstr "Sildumis-/varpimisrajatis"
 
 #: src/objsearch_pi.cpp:1069
 msgid "Obstruction"
-msgstr ""
+msgstr "Takistus"
 
 #: src/objsearch_pi.cpp:1071
 msgid "Offshore platform"
-msgstr ""
+msgstr "Avamere platvorm"
 
 #: src/objsearch_pi.cpp:1073
 msgid "Offshore production area"
-msgstr ""
+msgstr "Avamere tootmislala"
 
 #: src/objsearch_pi.cpp:1075
 msgid "Oil barrier"
-msgstr ""
+msgstr "Õlitõke"
 
 #: src/objsearch_pi.cpp:1077
 msgid "Pile"
-msgstr ""
+msgstr "Vai"
 
 #: src/objsearch_pi.cpp:1079
 msgid "Pilot boarding place"
-msgstr ""
+msgstr "Lootsi pardaleminku koht"
 
 #: src/objsearch_pi.cpp:1081
 msgid "Pipeline area"
-msgstr ""
+msgstr "Torujuhtme ala"
 
 #: src/objsearch_pi.cpp:1083
 msgid "Pipeline, overhead"
-msgstr ""
+msgstr "Õhuliini torujuhtmed"
 
 #: src/objsearch_pi.cpp:1085
 msgid "Pipeline, submarine/on land"
-msgstr ""
+msgstr "Veealune/maa peal olev torujuhe"
 
 #: src/objsearch_pi.cpp:1087
 msgid "Pontoon"
-msgstr ""
+msgstr "Pontoon"
 
 #: src/objsearch_pi.cpp:1089
 msgid "Production / storage area"
-msgstr ""
+msgstr "Tootmisala / laoala"
 
 #: src/objsearch_pi.cpp:1091
 msgid "Pylon/bridge support"
-msgstr ""
+msgstr "Silla tugipost"
 
 #: src/objsearch_pi.cpp:1093
 msgid "Radar line"
-msgstr ""
+msgstr "Radarijoon"
 
 #: src/objsearch_pi.cpp:1095
 msgid "Radar range"
-msgstr ""
+msgstr "Radari ulatus"
 
 #: src/objsearch_pi.cpp:1097
 msgid "Radar station"
-msgstr ""
+msgstr "Radarijaam"
 
 #: src/objsearch_pi.cpp:1099
 msgid "Radar transponder beacon"
-msgstr ""
+msgstr "Radarmajakas-vastaja"
 
 #: src/objsearch_pi.cpp:1101
 msgid "Radio calling-in point"
-msgstr ""
+msgstr "Raadio ettekandepunkt"
 
 #: src/objsearch_pi.cpp:1103
 msgid "Radio station"
-msgstr ""
+msgstr "Raadiojaam"
 
 #: src/objsearch_pi.cpp:1105
 msgid "Railway"
-msgstr ""
+msgstr "Raudtee"
 
 #: src/objsearch_pi.cpp:1107
 msgid "Rapids"
-msgstr ""
+msgstr "Kärestikud"
 
 #: src/objsearch_pi.cpp:1109
 msgid "Recommended route centerline"
-msgstr ""
+msgstr "Soovitatava teekonna keskjoon"
 
 #: src/objsearch_pi.cpp:1111
 msgid "Recommended track"
-msgstr ""
+msgstr "Soovitatav teekond"
 
 #: src/objsearch_pi.cpp:1113
 msgid "Rescue station"
-msgstr ""
+msgstr "Päästejaam"
 
 #: src/objsearch_pi.cpp:1115
 msgid "Restricted area"
-msgstr ""
+msgstr "Piiratud ala"
 
 #: src/objsearch_pi.cpp:1117
 msgid "River"
-msgstr ""
+msgstr "Jõgi"
 
 #: src/objsearch_pi.cpp:1119 src/objsearch_pi.cpp:1213
 msgid "River bank"
-msgstr ""
+msgstr "Jõekallas"
 
 #: src/objsearch_pi.cpp:1121
 msgid "Road"
-msgstr ""
+msgstr "Tee"
 
 #: src/objsearch_pi.cpp:1123
 msgid "Runway"
-msgstr ""
+msgstr "Rada"
 
 #: src/objsearch_pi.cpp:1125
 msgid "Sea area / named water area"
-msgstr ""
+msgstr "Mereala / nimega veeala"
 
 #: src/objsearch_pi.cpp:1127
 msgid "Sea-plane landing area"
-msgstr ""
+msgstr "Vesilennuki maandumise ala"
 
 #: src/objsearch_pi.cpp:1129
 msgid "Seabed area"
-msgstr ""
+msgstr "Merepõhja ala"
 
 #: src/objsearch_pi.cpp:1131
 msgid "Shoreline Construction"
-msgstr ""
+msgstr "Kaldakonstruktsioon"
 
 #: src/objsearch_pi.cpp:1133
 msgid "Signal station, traffic"
-msgstr ""
+msgstr "Liikluse signaaljaam"
 
 #: src/objsearch_pi.cpp:1135
 msgid "Signal station, warning"
-msgstr ""
+msgstr "Hoiatuse signaaljaam"
 
 #: src/objsearch_pi.cpp:1137
 msgid "Silo / tank"
-msgstr ""
+msgstr "Silohoidla / mahuti"
 
 #: src/objsearch_pi.cpp:1139
 msgid "Slope topline"
-msgstr ""
+msgstr "Nõlva ülaserv"
 
 #: src/objsearch_pi.cpp:1141
 msgid "Sloping ground"
-msgstr ""
+msgstr "Kaldega pinnas"
 
 #: src/objsearch_pi.cpp:1143
 msgid "Small craft facility"
-msgstr ""
+msgstr "Väikelaeva-ala"
 
 #: src/objsearch_pi.cpp:1145
 msgid "Sounding"
-msgstr ""
+msgstr "Loodimine"
 
 #: src/objsearch_pi.cpp:1147
 msgid "Spring"
-msgstr ""
+msgstr "Kinnitusots"
 
 #: src/objsearch_pi.cpp:1149
 msgid "Square"
-msgstr ""
+msgstr "Väljak"
 
 #: src/objsearch_pi.cpp:1151
 msgid "Submarine transit lane"
-msgstr ""
+msgstr "Veealune transiiditee"
 
 #: src/objsearch_pi.cpp:1153
 msgid "Tidal stream - harmonic prediction"
-msgstr ""
+msgstr "Loodevool - harmooniline ennustus"
 
 #: src/objsearch_pi.cpp:1155
 msgid "Tidal stream - non-harmonic prediction"
-msgstr ""
+msgstr "Loodevool - mitteharmooniline ennustus"
 
 #: src/objsearch_pi.cpp:1157
 msgid "Tidal stream panel data"
-msgstr ""
+msgstr "Loodevoolu paneelandmed"
 
 #: src/objsearch_pi.cpp:1159 src/objsearch_pi.cpp:1165
 msgid "Tidal stream - time series"
-msgstr ""
+msgstr "Loodevool - ajaseeriad"
 
 #: src/objsearch_pi.cpp:1161
 msgid "Tide - harmonic prediction"
-msgstr ""
+msgstr "Loode - harmooniline ennustus"
 
 #: src/objsearch_pi.cpp:1163
 msgid "Tide - non-harmonic prediction"
-msgstr ""
+msgstr "Loode - mitteharmooniline ennustus"
 
 #: src/objsearch_pi.cpp:1167
 msgid "Tideway"
-msgstr ""
+msgstr "Loodetevool"
 
 #: src/objsearch_pi.cpp:1169
 msgid "Tree"
-msgstr ""
+msgstr "Puu"
 
 #: src/objsearch_pi.cpp:1171
 msgid "Tunnel"
-msgstr ""
+msgstr "Tunnel"
 
 #: src/objsearch_pi.cpp:1173
 msgid "Underwater rock / awash rock"
-msgstr ""
+msgstr "Veealune kivi / veepinnatasa kivi"
 
 #: src/objsearch_pi.cpp:1175
 msgid "Vegetation"
-msgstr ""
+msgstr "Taimestik"
 
 #: src/objsearch_pi.cpp:1177
 msgid "Water turbulence"
-msgstr ""
+msgstr "Vee turbulents"
 
 #: src/objsearch_pi.cpp:1179
 msgid "Waterfall"
-msgstr ""
+msgstr "Kosk"
 
 #: src/objsearch_pi.cpp:1181
 msgid "Weed/Kelp"
-msgstr ""
+msgstr "Mererohi / vetikad"
 
 #: src/objsearch_pi.cpp:1183
 msgid "Wreck"
-msgstr ""
+msgstr "Vrakk"
 
 #: src/objsearch_pi.cpp:1185
 msgid "Tidal stream - flood/ebb"
-msgstr ""
+msgstr "Loodevool - üleujutus/mõõn"
 
 #: src/objsearch_pi.cpp:1187
 msgid "Aggregation"
-msgstr ""
+msgstr "Kontsentreerumine"
 
 #: src/objsearch_pi.cpp:1189
 msgid "Association"
-msgstr ""
+msgstr "Assotsieerumine"
 
 #: src/objsearch_pi.cpp:1191
 msgid "Berthing facility"
-msgstr ""
+msgstr "Sildumisvõimalus"
 
 #: src/objsearch_pi.cpp:1193
 msgid "Building, religious"
-msgstr ""
+msgstr "Usuline hoone"
 
 #: src/objsearch_pi.cpp:1195
 msgid "Caution area"
-msgstr ""
+msgstr "Ettevaatuse ala"
 
 #: src/objsearch_pi.cpp:1197
 msgid "Monument"
-msgstr ""
+msgstr "Monument"
 
 #: src/objsearch_pi.cpp:1199
 msgid "Production installation"
-msgstr ""
+msgstr "Tootmise paigaldus"
 
 #: src/objsearch_pi.cpp:1201
 msgid "Salt pan"
-msgstr ""
+msgstr "Soolanõgu"
 
 #: src/objsearch_pi.cpp:1203
 msgid "Tank"
-msgstr ""
+msgstr "Tsistern"
 
 #: src/objsearch_pi.cpp:1205
 msgid "Tower structure"
-msgstr ""
+msgstr "Torn"
 
 #: src/objsearch_pi.cpp:1207
 msgid "Windmill"
-msgstr ""
+msgstr "Tuuleveski"
 
 #: src/objsearch_pi.cpp:1215
 msgid "waterway axis"
-msgstr ""
+msgstr "laevatee telg"
 
 #: src/objsearch_pi.cpp:1217
 msgid "Bridge area"
-msgstr ""
+msgstr "Silla-ala"
 
 #: src/objsearch_pi.cpp:1219
 msgid "Lock area"
-msgstr ""
+msgstr "Lüüsiala"
 
 #: src/objsearch_pi.cpp:1221
 msgid "Beacon water-way"
-msgstr ""
+msgstr "Laevatee meremärk"
 
 #: src/objsearch_pi.cpp:1223
 msgid "Buoy water-way"
-msgstr ""
+msgstr "Laevatee poi"
 
 #: src/objsearch_pi.cpp:1225
 msgid "Route planning point"
-msgstr ""
+msgstr "Teekonna planeereimise punkt"
 
 #: src/objsearch_pi.cpp:1227
 msgid "Communication area"
-msgstr ""
+msgstr "Sideala"
 
 #: src/objsearch_pi.cpp:1229
 msgid "Waterway gauge"
-msgstr ""
+msgstr "Veetee tasememõõtur"
 
 #: src/objsearch_pi.cpp:1231
 msgid "Terminal"
-msgstr ""
+msgstr "Sihtpunkt"
 
 #: src/objsearch_pi.cpp:1233
 msgid "Notice mark"
-msgstr ""
+msgstr "Teate koht"
 
 #: src/objsearch_pi.cpp:1235
 msgid "Bunker station"
-msgstr ""
+msgstr "Bunkerdusjaam"
 
 #: src/objsearch_pi.cpp:1237
 msgid "Harbour basin"
-msgstr ""
+msgstr "Sadamabassein"
 
 #: src/objsearch_pi.cpp:1239
 msgid "Refuse dump"
-msgstr ""
+msgstr "Jääkide äraandmine"
 
 #: src/objsearch_pi.cpp:1241
 msgid "Turning basin"
-msgstr ""
+msgstr "Pöördeala"
 
 #: src/objsearch_pi.cpp:1245
 msgid "Text label"
-msgstr ""
+msgstr "Tekstisilt"
 
 #: src/objsearch_pi.cpp:1247
 msgid "Extended navigational aid"
-msgstr ""
+msgstr "Laiendatud navigatsiooniline abi"
 
 #: src/objsearch_pi.cpp:1342
 msgid "CSV files (*.csv)|*.csv|All files (*.*)|*.*"
-msgstr ""
+msgstr "CSV-failid (*.csv) | *. csv| Kõik failid (*. *) | *. *"
 
 #: src/objsearch_pi.cpp:1402
 msgid "Sorry, I'm stupid and can't cross the IDL, please divide your scan in two."
-msgstr ""
+msgstr "Vabandust, olen loll ja ei saa ületadae IDL'i, palun jagage oma skaneering kaheks."
 
 #: src/objsearch_pi.cpp:1422
 msgid "Import progress..."
-msgstr ""
+msgstr "Impordi edenemine..."
 
 #: src/objsearch_pi.cpp:1423
 #, c-format
 msgid "Importing data from %s."
-msgstr ""
+msgstr "Andmete importimine %s."
 
 #: src/objsearch_pi.cpp:1452
 #, c-format
 msgid "The files %s does not exist, nothing to import."
-msgstr ""
+msgstr "Faile %s pole olemas, pole midagi importida."
 
