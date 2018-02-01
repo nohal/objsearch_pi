@@ -33,6 +33,7 @@
 #include <wx/image.h>
 #include <wx/icon.h>
 #include <wx/notebook.h>
+#include <wx/scrolwin.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -80,6 +81,7 @@ class SettingsDialog : public wxDialog
 	private:
 	
 	protected:
+		wxScrolledWindow* m_swMain;
 		wxNotebook* m_notebookSettings;
 		wxPanel* m_panelPopulate;
 		wxStaticText* m_stScanCharts;
@@ -96,11 +98,10 @@ class SettingsDialog : public wxDialog
 		wxCheckBox* m_cb1000000;
 		wxCheckBox* m_cb200000;
 		wxCheckBox* m_cb20000;
-		wxStaticText* m_stOr;
+		wxPanel* m_panelManage;
 		wxStaticText* m_stFile;
 		wxTextCtrl* m_tPath;
 		wxButton* m_button4;
-		wxPanel* m_panelManage;
 		wxStdDialogButtonSizer* m_sdbSizerBtns;
 		wxButton* m_sdbSizerBtnsOK;
 		wxButton* m_sdbSizerBtnsCancel;
@@ -115,7 +116,7 @@ class SettingsDialog : public wxDialog
 	
 	public:
 		
-		SettingsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Object Search Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 600,500 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		SettingsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Object Search Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 600,450 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~SettingsDialog();
 	
 };

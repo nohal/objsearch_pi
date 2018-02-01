@@ -117,7 +117,12 @@ SettingsDialog::SettingsDialog( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizerMain;
 	bSizerMain = new wxBoxSizer( wxVERTICAL );
 	
-	m_notebookSettings = new wxNotebook( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+	m_swMain = new wxScrolledWindow( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxHSCROLL|wxVSCROLL );
+	m_swMain->SetScrollRate( 5, 5 );
+	wxBoxSizer* bSizerCintentMain;
+	bSizerCintentMain = new wxBoxSizer( wxVERTICAL );
+	
+	m_notebookSettings = new wxNotebook( m_swMain, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	m_panelPopulate = new wxPanel( m_notebookSettings, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizerPopulate;
 	bSizerPopulate = new wxBoxSizer( wxVERTICAL );
@@ -162,7 +167,7 @@ SettingsDialog::SettingsDialog( wxWindow* parent, wxWindowID id, const wxString&
 	sbSizerFrom->Add( gSizerFrom, 0, wxEXPAND, 5 );
 	
 	
-	bSizerArea->Add( sbSizerFrom, 0, wxALL|wxEXPAND, 5 );
+	bSizerArea->Add( sbSizerFrom, 1, wxALL|wxEXPAND, 5 );
 	
 	wxStaticBoxSizer* sbSizerTo;
 	sbSizerTo = new wxStaticBoxSizer( new wxStaticBox( m_panelPopulate, wxID_ANY, _("To") ), wxVERTICAL );
@@ -188,7 +193,7 @@ SettingsDialog::SettingsDialog( wxWindow* parent, wxWindowID id, const wxString&
 	sbSizerTo->Add( gSizerTo, 0, wxEXPAND, 5 );
 	
 	
-	bSizerArea->Add( sbSizerTo, 0, wxALL|wxEXPAND, 5 );
+	bSizerArea->Add( sbSizerTo, 1, wxALL|wxEXPAND, 5 );
 	
 	
 	bSizerParams->Add( bSizerArea, 0, wxEXPAND, 5 );
@@ -218,12 +223,20 @@ SettingsDialog::SettingsDialog( wxWindow* parent, wxWindowID id, const wxString&
 	
 	bSizerPopulate->Add( bSizerParams, 1, wxEXPAND, 5 );
 	
-	m_stOr = new wxStaticText( m_panelPopulate, wxID_ANY, _("or"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_stOr->Wrap( -1 );
-	bSizerPopulate->Add( m_stOr, 0, wxALL, 5 );
+	
+	m_panelPopulate->SetSizer( bSizerPopulate );
+	m_panelPopulate->Layout();
+	bSizerPopulate->Fit( m_panelPopulate );
+	m_notebookSettings->AddPage( m_panelPopulate, _("Populate database"), true );
+	m_panelManage = new wxPanel( m_notebookSettings, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+	m_panelManage->Enable( false );
+	m_panelManage->Hide();
+	
+	wxBoxSizer* bSizerManageDB;
+	bSizerManageDB = new wxBoxSizer( wxVERTICAL );
 	
 	wxStaticBoxSizer* sbSizerCSV;
-	sbSizerCSV = new wxStaticBoxSizer( new wxStaticBox( m_panelPopulate, wxID_ANY, _("Import data") ), wxHORIZONTAL );
+	sbSizerCSV = new wxStaticBoxSizer( new wxStaticBox( m_panelManage, wxID_ANY, _("Import data") ), wxHORIZONTAL );
 	
 	m_stFile = new wxStaticText( sbSizerCSV->GetStaticBox(), wxID_ANY, _("File"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_stFile->Wrap( -1 );
@@ -236,20 +249,21 @@ SettingsDialog::SettingsDialog( wxWindow* parent, wxWindowID id, const wxString&
 	sbSizerCSV->Add( m_button4, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
 	
-	bSizerPopulate->Add( sbSizerCSV, 0, wxALL|wxEXPAND, 5 );
+	bSizerManageDB->Add( sbSizerCSV, 0, wxALL|wxEXPAND, 5 );
 	
 	
-	m_panelPopulate->SetSizer( bSizerPopulate );
-	m_panelPopulate->Layout();
-	bSizerPopulate->Fit( m_panelPopulate );
-	m_notebookSettings->AddPage( m_panelPopulate, _("Populate database"), true );
-	m_panelManage = new wxPanel( m_notebookSettings, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
-	m_panelManage->Enable( false );
-	m_panelManage->Hide();
-	
+	m_panelManage->SetSizer( bSizerManageDB );
+	m_panelManage->Layout();
+	bSizerManageDB->Fit( m_panelManage );
 	m_notebookSettings->AddPage( m_panelManage, _("Manage Database"), false );
 	
-	bSizerMain->Add( m_notebookSettings, 1, wxEXPAND | wxALL, 5 );
+	bSizerCintentMain->Add( m_notebookSettings, 1, wxEXPAND | wxALL, 5 );
+	
+	
+	m_swMain->SetSizer( bSizerCintentMain );
+	m_swMain->Layout();
+	bSizerCintentMain->Fit( m_swMain );
+	bSizerMain->Add( m_swMain, 1, wxEXPAND | wxALL, 5 );
 	
 	m_sdbSizerBtns = new wxStdDialogButtonSizer();
 	m_sdbSizerBtnsOK = new wxButton( this, wxID_OK );
