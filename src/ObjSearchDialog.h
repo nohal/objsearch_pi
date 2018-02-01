@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version Jun  6 2014)
+// C++ code generated with wxFormBuilder (version Jan 25 2018)
 // http://www.wxformbuilder.org/
 //
-// PLEASE DO "NOT" EDIT THIS FILE!
+// PLEASE DO *NOT* EDIT THIS FILE!
 ///////////////////////////////////////////////////////////////////////////
 
 #ifndef __OBJSEARCHDIALOG_H__
@@ -67,7 +67,7 @@ class ObjSearchDialog : public wxDialog
 	
 	public:
 		
-		ObjSearchDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Chart Object Search"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 660,480 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
+		ObjSearchDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Chart Object Search"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 660,480 ), long style = wxCAPTION|wxCLOSE_BOX|wxMAXIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU ); 
 		~ObjSearchDialog();
 	
 };
@@ -83,7 +83,7 @@ class SettingsDialog : public wxDialog
 		wxNotebook* m_notebookSettings;
 		wxPanel* m_panelPopulate;
 		wxStaticText* m_stScanCharts;
-        wxStaticText* m_stScanChartsExplain;
+		wxStaticText* m_stScanChartsExplain;
 		wxStaticText* m_staticTextFromLat;
 		wxSpinCtrl* m_spFromLat;
 		wxStaticText* m_staticTextFromLon;
@@ -115,7 +115,7 @@ class SettingsDialog : public wxDialog
 	
 	public:
 		
-		SettingsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Object Search Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 600,480 ), long style = wxDEFAULT_DIALOG_STYLE );
+		SettingsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Object Search Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 600,500 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~SettingsDialog();
 	
 };
