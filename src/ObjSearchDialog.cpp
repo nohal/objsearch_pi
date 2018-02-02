@@ -224,9 +224,6 @@ SettingsDialog::SettingsDialog( wxWindow* parent, wxWindowID id, const wxString&
 	bSizerPopulate->Fit( m_panelPopulate );
 	m_notebookSettings->AddPage( m_panelPopulate, _("Populate database"), true );
 	m_panelManage = new wxPanel( m_notebookSettings, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
-	m_panelManage->Enable( false );
-	m_panelManage->Hide();
-	
 	wxBoxSizer* bSizerManageDB;
 	bSizerManageDB = new wxBoxSizer( wxVERTICAL );
 	
