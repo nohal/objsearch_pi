@@ -31,7 +31,7 @@ install:
   - ps: Start-FileDownload http://opencpn.navnux.org/build_deps/wxWidgets-3.1.2.7z
   - cmd: 7z x wxWidgets-3.1.2.7z -o%WXWIN% > null
 
-  - set
+  #- set #Use only while debugging - it reveals the deploy token set on Appveyor
 
 before_build:
   - cd c:\project\objsearch_pi
