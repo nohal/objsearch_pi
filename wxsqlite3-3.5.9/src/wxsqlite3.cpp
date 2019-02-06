@@ -112,15 +112,15 @@ static void InitSQLite3DLL()
 #else
 // Define Windows specific SQLite API functions (not defined in sqlite3.h)
 #if SQLITE_VERSION_NUMBER >= 3007014
-#if SQLITE_VERSION_NUMBER < 3026000
 #if defined(__WXMSW__)
 #ifdef __cplusplus
 extern "C" {
 #endif
+#if SQLITE_VERSION_NUMBER < 3024000
 SQLITE_API int sqlite3_win32_set_directory(DWORD type, LPCWSTR zValue);
+#endif
 #ifdef __cplusplus
 }
-#endif
 #endif
 #endif
 #endif
@@ -4333,13 +4333,15 @@ bool wxSQLite3Database::SetTemporaryDirectory(const wxString& tempDirectory)
   bool ok = false;
 #if SQLITE_VERSION_NUMBER >= 3007014
 #if defined(__WXMSW__)
-  DWORD SQLITE_WIN32_TEMP_DIRECTORY_TYPE = 2; 
+#if SQLITE_VERSION_NUMBER < 3024000
+  DWORD SQLITE_WIN32_TEMP_DIRECTORY_TYPE = 2;
+#endif
 #if wxUSE_UNICODE
   const wxChar* zValue = tempDirectory.wc_str();
 #else
   const wxWCharBuffer zValue = tempDirectory.wc_str(wxConvLocal);
 #endif
-  int rc = sqlite3_win32_set_directory(SQLITE_WIN32_TEMP_DIRECTORY_TYPE, zValue);
+  int rc = sqlite3_win32_set_directory(SQLITE_WIN32_TEMP_DIRECTORY_TYPE, (void*) zValue);
   ok = (rc == SQLITE_OK);
 #if 0
   if (rc != SQLITE_OK)
