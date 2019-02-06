@@ -112,6 +112,7 @@ static void InitSQLite3DLL()
 #else
 // Define Windows specific SQLite API functions (not defined in sqlite3.h)
 #if SQLITE_VERSION_NUMBER >= 3007014
+#if SQLITE_VERSION_NUMBER < 3026000
 #if defined(__WXMSW__)
 #ifdef __cplusplus
 extern "C" {
@@ -119,6 +120,7 @@ extern "C" {
 SQLITE_API int sqlite3_win32_set_directory(DWORD type, LPCWSTR zValue);
 #ifdef __cplusplus
 }
+#endif
 #endif
 #endif
 #endif
