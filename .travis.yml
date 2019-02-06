@@ -22,6 +22,7 @@ script:
 - cd build
 - cmake ..
 - make
+- [[ "$TRAVIS_OS_NAME" == "osx" ]]; then make create-pkg; fi
 
 deploy:
   provider: releases
