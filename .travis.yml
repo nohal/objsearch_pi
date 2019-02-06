@@ -1,32 +1,36 @@
 language: cpp
-
 os:
-  - linux
-  - osx
-
-#compiler:
-#  - gcc
-#  - clang
-
+- linux
+- osx
 branches:
   only:
-    - master
-
+  - master
 before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade; fi
-
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade; fi
 install:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install build-essential cmake gettext git-core gpsd gpsd-clients libgps-dev wx-common libwxgtk3.0-dev libglu1-mesa-dev libgtk2.0-dev wx3.0-headers libbz2-dev libtinyxml-dev libportaudio2 portaudio19-dev libcurl4-openssl-dev libexpat1-dev libcairo2-dev libarchive-dev liblzma-dev libexif-dev; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install cairo libexif libarchive wxmac; export PATH="/usr/local/opt/gettext/bin:$PATH";  echo 'export PATH="/usr/local/opt/gettext/bin:$PATH"' >> ~/.bash_profile; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install build-essential
+  cmake gettext git-core gpsd gpsd-clients libgps-dev wx-common libwxgtk3.0-dev libglu1-mesa-dev
+  libgtk2.0-dev wx3.0-headers libbz2-dev libtinyxml-dev libportaudio2 portaudio19-dev
+  libcurl4-openssl-dev libexpat1-dev libcairo2-dev libarchive-dev liblzma-dev libexif-dev;
+  fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install cairo libexif libarchive
+  wxmac; export PATH="/usr/local/opt/gettext/bin:$PATH";  echo 'export PATH="/usr/local/opt/gettext/bin:$PATH"'
+  >> ~/.bash_profile; fi
 script:
-  - mkdir -p build
-  - cd build
-  - cmake ..
-  - make
+- mkdir -p build
+- cd build
+- cmake ..
+- make
 
-env:
-  global:
-   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
-   #   via the "travis encrypt" command using the project repo's public key
-   - secure: "gzuRKPoISDCbjfRdI+KS0H3/9T4CDLybTxLwirUJ660IaFTewNYXj/pyOJOr7miOrBmQaJQw7aKAG4fpfbHpY0kkLQe2JHaJv84uyuev4QuJGtfyim3a2U4FbxtCyyjREyGI15enBra3N1xKtQqNbnkgOCKPtWSAlX4rf1elj5A="
+deploy:
+  provider: releases
+  api_key:
+    secure: guj0BW+8ZrnDHrEs3bISPjwGiealp729g+nKas0GDnyhMkvv6RfFhb+2thOVh1BxGHyASqMVyqrmw9RB4J/eMYIderHR7zKDVH9/ERgkSRNpf1g0vUUlcqRkcD4FKc6vADy5sBx/qk2Hi7Q8toD39zky8V4hcnUosaSjij+MB/0=
+  file_glob: true
+  file: $TRAVIS_BUILD_DIR/build/*.{deb,rpm,dmg,txz,pkg.tar.xz}
+  skip_cleanup: true
+  on:
+    tags: true
+    branch: master
+    repo: nohal/objsearch_pi
