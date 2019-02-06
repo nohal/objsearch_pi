@@ -55,9 +55,9 @@ SET(SRC_OBJSEARCH
             src/csv_parser.h
             src/csv_parser.cpp
             wxsqlite3-3.5.9/src/wxsqlite3.cpp
-            sqlite-amalgamation-3220000/sqlite3.c
+            sqlite-amalgamation-3260000/sqlite3.c
 )
-INCLUDE_DIRECTORIES(wxsqlite3-3.5.9/include sqlite-amalgamation-3220000)
+INCLUDE_DIRECTORIES(wxsqlite3-3.5.9/include sqlite-amalgamation-3260000)
 ADD_LIBRARY(${PACKAGE_NAME} SHARED ${SRC_OBJSEARCH})
 
 INCLUDE("cmake/PluginInstall.cmake")
