@@ -23,21 +23,19 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301,  USA.         *
  ***************************************************************************
  */
- 
- #include "clcpopup.h"
 
-BEGIN_EVENT_TABLE( CheckListComboPopup, wxCheckListBox )
-    EVT_CHECKLISTBOX( wxID_ANY, CheckListComboPopup::OnListBox )
+#include "clcpopup.h"
+
+BEGIN_EVENT_TABLE(CheckListComboPopup, wxCheckListBox)
+EVT_CHECKLISTBOX(wxID_ANY, CheckListComboPopup::OnListBox)
 END_EVENT_TABLE()
 
-wxString CheckListComboPopup::GetStringValue() const
-{
+wxString CheckListComboPopup::GetStringValue() const {
     bool add_comma = false;
     wxString ret = wxEmptyString;
-    for ( unsigned int i = 1; i < GetCount(); i++ )
-        if ( IsChecked(i) )
-        {
-            if ( add_comma )
+    for (unsigned int i = 1; i < GetCount(); i++)
+        if (IsChecked(i)) {
+            if (add_comma)
                 ret += _T(",");
             else
                 add_comma = true;
@@ -47,41 +45,30 @@ wxString CheckListComboPopup::GetStringValue() const
     return ret;
 }
 
-void CheckListComboPopup::CheckAll(bool check)
-{
-    for ( unsigned int i = 1; i < GetCount(); i++ )
-        Check(i, check);
+void CheckListComboPopup::CheckAll(bool check) {
+    for (unsigned int i = 1; i < GetCount(); i++) Check(i, check);
 }
 
-void CheckListComboPopup::OnListBox(wxCommandEvent& event)
-{
+void CheckListComboPopup::OnListBox(wxCommandEvent& event) {
     int item_id = event.GetInt();
-    if (item_id == 0)
-    {
-        if (IsChecked(item_id))
-        {
+    if (item_id == 0) {
+        if (IsChecked(item_id)) {
             CheckAll();
-        }
-        else
-        {
+        } else {
             CheckAll(false);
         }
-    }
-    else
-    {
+    } else {
         Check(0, false);
     }
 }
 
-int CheckListComboPopup::Append(const wxString& item, const wxString& value)
-{
+int CheckListComboPopup::Append(const wxString& item, const wxString& value) {
     int r = wxCheckListBox::Append(item);
     m_values.Add(value);
     return r;
 }
 
-void CheckListComboPopup::Clear()
-{
+void CheckListComboPopup::Clear() {
     wxCheckListBox::Clear();
     m_values.Clear();
 }

@@ -29,50 +29,41 @@
 
 #include "wx/wxprec.h"
 
-#ifndef  WX_PRECOMP
+#ifndef WX_PRECOMP
 #include "wx/wx.h"
-#endif //precompiled headers
+#endif  // precompiled headers
 
 #include <wx/checklst.h>
 #include <wx/combo.h>
 
-
-class CheckListComboPopup : public wxCheckListBox, public wxComboPopup
-{
-public:
-
+class CheckListComboPopup : public wxCheckListBox, public wxComboPopup {
+   public:
     virtual void Init() {}
-    virtual bool Create( wxWindow* parent )
-    {
-        return wxCheckListBox::Create( parent, wxID_ANY, wxPoint(0,0));
-    }
-    
+    virtual bool Create(wxWindow* parent) { return wxCheckListBox::Create(parent, wxID_ANY, wxPoint(0, 0)); }
+
     virtual void OnShow() {}
 
-    virtual wxSize GetAdjustedSize( int minWidth,
-                                    int WXUNUSED(prefHeight),
-                                    int maxHeight )
-    {
-        return wxSize(wxMax(300,minWidth),wxMin(250,maxHeight));
+    virtual wxSize GetAdjustedSize(int minWidth, int WXUNUSED(prefHeight), int maxHeight) {
+        return wxSize(wxMax(300, minWidth), wxMin(250, maxHeight));
     }
 
-    virtual wxWindow *GetControl() { return this; }
-    
+    virtual wxWindow* GetControl() { return this; }
+
     virtual wxString GetStringValue() const;
-    
+
     int Append(const wxString& item, const wxString& value);
-    
+
     void Clear();
-    
+
     //
     // Popup event handlers
     //
-    
+
     void OnListBox(wxCommandEvent& event);
-    
+
     void CheckAll(bool check = true);
-    
-private:
+
+   private:
     wxArrayString m_values;
     DECLARE_EVENT_TABLE()
 };

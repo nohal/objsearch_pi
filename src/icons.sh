@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/ bin / bash
 #/******************************************************************************
 # *
 # * Project:  OpenCPN
@@ -27,9 +27,9 @@
 
 path=$(dirname $0)
 
-# Require icotool from package icoutils
-# Require convert from package ImageMagick
-# Require inkscape
+#Require icotool from package icoutils
+#Require convert from package ImageMagick
+#Require inkscape
 
 for pic in $path/objsearch.svg $path/objsearch_pi.svg
 do

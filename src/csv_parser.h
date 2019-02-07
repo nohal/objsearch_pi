@@ -6,8 +6,7 @@
 
 #include <stdio.h>  // for fopen, fclose, etc.
 
-
-#define MAX_LINE_LEN (1024*512)
+#define MAX_LINE_LEN (1024 * 512)
 #define MAX_COLUMN_COUNT 1024
 /* digest from CSV wiki: http://en.wikipedia.org/wiki/Comma-separated_values
 
@@ -19,19 +18,15 @@
     * a line break within an element must be preserved.
 */
 
-enum { E_LINE_TOO_WIDE=-2, // error code for line width >= MAX_LINE_LEN
-       E_QUOTED_STRING     // error code for ill-formatted quoted string
+enum {
+    E_LINE_TOO_WIDE = -2,  // error code for line width >= MAX_LINE_LEN
+    E_QUOTED_STRING        // error code for ill-formatted quoted string
 };
 
 // mimic sqlite callback interface
 //
-typedef int (*CSV_CB_record_handler)
-(
-    void * params,
-    int colum_cnt,
-    const char ** column_values
-);
+typedef int (*CSV_CB_record_handler)(void *params, int colum_cnt, const char **column_values);
 
-int csv_parse (FILE *fp, CSV_CB_record_handler cb, void *params);
+int csv_parse(FILE *fp, CSV_CB_record_handler cb, void *params);
 
 #endif
