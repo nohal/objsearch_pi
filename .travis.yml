@@ -16,7 +16,8 @@ install:
   fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
     brew install cairo libexif libarchive wxmac;
-    export PATH="/usr/local/opt/gettext/bin:$PATH";  echo 'export PATH="/usr/local/opt/gettext/bin:$PATH"' >> ~/.bash_profile
+    export PATH="/usr/local/opt/gettext/bin:$PATH";
+    echo 'export PATH="/usr/local/opt/gettext/bin:$PATH"' >> ~/.bash_profile;
     wget http://s.sudre.free.fr/Software/files/Packages.dmg;
     hdiutil attach Packages.dmg;
     sudo installer -pkg "/Volumes/Packages 1.2.5/Install Packages.pkg" -target "/";
