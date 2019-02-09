@@ -48,13 +48,13 @@ ObjSearchDialog::ObjSearchDialog(wxWindow* parent, wxWindowID id, const wxString
     bSizerButtons = new wxBoxSizer(wxHORIZONTAL);
 
     m_btnShowOnChart = new wxButton(this, wxID_ANY, _("Show on Chart"), wxDefaultPosition, wxDefaultSize, 0);
-    bSizerButtons->Add(m_btnShowOnChart, 0, wxALIGN_RIGHT | wxALL | wxALIGN_CENTER_VERTICAL, 5);
+    bSizerButtons->Add(m_btnShowOnChart, 0, wxALL | wxALIGN_CENTER_VERTICAL, 5);
 
     m_cAutoClose = new wxCheckBox(this, wxID_ANY, _("Close on show"), wxDefaultPosition, wxDefaultSize, 0);
     m_cAutoClose->SetValue(true);
     bSizerButtons->Add(m_cAutoClose, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 
-    bSizerButtons->Add(0, 0, 1, wxEXPAND | wxALIGN_CENTER_VERTICAL, 5);
+    bSizerButtons->Add(0, 0, 1, wxEXPAND, 5);
 
     m_stRange = new wxStaticText(this, wxID_ANY, _("Limit range to"), wxDefaultPosition, wxDefaultSize, 0);
     m_stRange->Wrap(-1);
@@ -76,7 +76,7 @@ ObjSearchDialog::ObjSearchDialog(wxWindow* parent, wxWindowID id, const wxString
 
     bSizerButtons->Add(m_btnSettings, 0, wxALL | wxALIGN_CENTER_VERTICAL, 5);
 
-    bMainSizer->Add(bSizerButtons, 0, wxALIGN_RIGHT | wxEXPAND, 5);
+    bMainSizer->Add(bSizerButtons, 0, wxEXPAND, 5);
 
     this->SetSizer(bMainSizer);
     this->Layout();

@@ -443,7 +443,7 @@ void objsearch_pi::StoreNewObject(long chart_id, long feature_id, wxString objna
         wxString safe_value = objname;
         safe_value.Replace(_T("'"), _T("''"));
         wxString sql =
-            wxString::Format(_T("INSERT INTO object(chart_id, feature_id, objname, lat, lon) VALUES (%i, %i, '%s', %f, %f)"),
+            wxString::Format(_T("INSERT INTO object(chart_id, feature_id, objname, lat, lon) VALUES (%ld, %ld, '%s', %f, %f)"),
                              chart_id, feature_id, safe_value.c_str(), lat, lon);
         query_queue.push(sql);
     }
