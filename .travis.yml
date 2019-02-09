@@ -31,11 +31,14 @@ script:
 - make
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then make create-pkg; ls -la; pwd; fi
 
+before_deploy:
+  - export RELEASE_PKG_FILE=$(ls *.pkg)
+
 deploy:
   provider: releases
   api_key:
     secure: guj0BW+8ZrnDHrEs3bISPjwGiealp729g+nKas0GDnyhMkvv6RfFhb+2thOVh1BxGHyASqMVyqrmw9RB4J/eMYIderHR7zKDVH9/ERgkSRNpf1g0vUUlcqRkcD4FKc6vADy5sBx/qk2Hi7Q8toD39zky8V4hcnUosaSjij+MB/0=
-  file: "$TRAVIS_BUILD_DIR/build/*.pkg"
+  file: "${RELEASE_PKG_FILE}"
   skip_cleanup: true
   on:
     tags: true
