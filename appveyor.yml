@@ -1,4 +1,4 @@
-version: 0.10.{build}
+version: 0.20.{build}
 
 clone_folder: c:\project\objsearch_pi
 shallow_clone: true
