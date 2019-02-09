@@ -32,7 +32,7 @@ script:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then make create-pkg; ls -la; pwd; fi
 
 before_deploy:
-  - export RELEASE_PKG_FILE=$(ls *.pkg)
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export RELEASE_PKG_FILE=$(ls *.pkg); fi
 
 deploy:
   provider: releases
