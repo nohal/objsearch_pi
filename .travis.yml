@@ -46,3 +46,5 @@ deploy:
   on:
     tags: true
     all_branches: true
+    os: osx
+    repo: nohal/objsearch_pi
