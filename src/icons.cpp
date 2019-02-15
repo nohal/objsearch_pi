@@ -17,7 +17,7 @@ wxString _svg_objsearch_toggled;
 wxBitmap *_img_objsearch_pi;
 wxBitmap *_img_objsearch;
 
-void initialize_images(void) {
+void initialize_images() {
     {
         wxMemoryInputStream sm(
             "\211PNG\r\n\032\n\000\000\000\rIHDR\000\000\000 \000\000\000 "
