@@ -2,7 +2,7 @@
 // The code is from http://forum.codecall.net/topic/45404-parsing-csv/?p=454107
 
 #include "csv_parser.h"
-//#include <ctype.h>  // for isspace
+//#include <cctype>  // for isspace
 #include <cctype>
 
 // private:

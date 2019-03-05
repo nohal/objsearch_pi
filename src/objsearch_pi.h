@@ -160,11 +160,11 @@ class ObjSearchDialogImpl : public ObjSearchDialog {
 class objsearch_pi : public opencpn_plugin_113 {
    public:
     objsearch_pi(void* ppimgr);
-    ~objsearch_pi(void);
+    ~objsearch_pi();
 
     //    The required PlugIn Methods
-    int Init(void);
-    bool DeInit(void);
+    int Init();
+    bool DeInit();
 
     int GetAPIVersionMajor();
     int GetAPIVersionMinor();
@@ -177,7 +177,7 @@ class objsearch_pi : public opencpn_plugin_113 {
 
     //    The override PlugIn Methods
     void SetCurrentViewPort(PlugIn_ViewPort& vp);
-    int GetToolbarToolCount(void);
+    int GetToolbarToolCount();
     void OnToolbarToolCallback(int id);
     void SetPositionFix(PlugIn_Position_Fix& pfix);
     void SendVectorChartObjectInfo(wxString& chart, wxString& feature, wxString& objname, double lat, double lon, double scale,
@@ -219,8 +219,8 @@ class objsearch_pi : public opencpn_plugin_113 {
     bool HasQueries();
 
    private:
-    bool LoadConfig(void);
-    bool SaveConfig(void);
+    bool LoadConfig();
+    bool SaveConfig();
     bool m_db_thread_running;
 
     bool m_bCloseOnShow;
@@ -249,7 +249,7 @@ class objsearch_pi : public opencpn_plugin_113 {
     bool m_bDBUsable;
     bool m_bWaitForDB;
 
-    wxSQLite3Database* initDB(void);
+    wxSQLite3Database* initDB();
     void clearDB(wxSQLite3Database* db);
 
     int QueryDB(wxSQLite3Database* db, const wxString& sql);

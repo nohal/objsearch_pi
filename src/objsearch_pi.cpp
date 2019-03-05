@@ -88,7 +88,7 @@ extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p) { delete p; }
 //
 //---------------------------------------------------------------------------------------------------------
 
-wxSQLite3Database* objsearch_pi::initDB(void) {
+wxSQLite3Database* objsearch_pi::initDB() {
     bool have_to_create = false;
     wxString sDBName = *GetpPrivateApplicationDataLocation() + wxFileName::GetPathSeparator() + wxT("objsearch_pi.db");
 
@@ -211,13 +211,13 @@ objsearch_pi::objsearch_pi(void* ppimgr) : opencpn_plugin_113(ppimgr) {
     m_bWaitForDB = false;
 }
 
-objsearch_pi::~objsearch_pi(void) {
+objsearch_pi::~objsearch_pi() {
     clearDB(m_db);
     delete _img_objsearch_pi;
     delete _img_objsearch;
 }
 
-int objsearch_pi::Init(void) {
+int objsearch_pi::Init() {
     AddLocaleCatalog(_T ( "opencpn-objsearch_pi" ));
 
     ::wxDisplaySize(&m_display_width, &m_display_height);
@@ -261,7 +261,7 @@ int objsearch_pi::Init(void) {
             WANTS_PREFERENCES | WANTS_VECTOR_CHART_OBJECT_INFO);
 }
 
-bool objsearch_pi::DeInit(void) {
+bool objsearch_pi::DeInit() {
     finishing = true;
     if (m_pObjSearchDialog) {
         m_pObjSearchDialog->Close();
@@ -329,7 +329,7 @@ wxString objsearch_pi::GetLongDescription() {
 Provides a search function for the named vector chart objects.");
 }
 
-int objsearch_pi::GetToolbarToolCount(void) { return 1; }
+int objsearch_pi::GetToolbarToolCount() { return 1; }
 
 void objsearch_pi::OnToolbarToolCallback(int id) {
     SetToolbarItemState(id, false);
@@ -352,7 +352,7 @@ void objsearch_pi::SetCurrentViewPort(PlugIn_ViewPort& vp) {
     vplon_min = vp.lon_min;
 }
 
-bool objsearch_pi::LoadConfig(void) {
+bool objsearch_pi::LoadConfig() {
     wxFileConfig* pConf = (wxFileConfig*)m_pconfig;
 
     if (!pConf) return false;
@@ -364,7 +364,7 @@ bool objsearch_pi::LoadConfig(void) {
     return true;
 }
 
-bool objsearch_pi::SaveConfig(void) {
+bool objsearch_pi::SaveConfig() {
     wxFileConfig* pConf = (wxFileConfig*)m_pconfig;
 
     if (!pConf) return false;
