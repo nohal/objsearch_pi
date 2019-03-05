@@ -9,6 +9,7 @@ os:
 
 before_install:
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update; fi
+- echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 #- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
 install:
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install build-essential
@@ -48,3 +49,17 @@ deploy:
     all_branches: true
     os: osx
     repo: nohal/objsearch_pi
+
+env:
+  global:
+  - secure: "cRsSK3MFfArirBn59geGFFdlt0jG6uHux9Lln0ULtnftWAw/eusNAoWnORhNU7stUeNhyp9pVlwkqMIn63C3s5m2JOjYxU4W/qw3OOTM6vIy4Pma65vInQZBKtkpSaXxgcOIgr2SZ4JwVr9niNOdPe7vO2smziwUcmn1Zg4S8fY="
+
+addons:
+  coverity_scan:
+    project:
+      name: "nohal/objsearch_pi"
+      description: "Vector chart object search plugin for OpenCPN"
+    notification_email: pavel@kalian.cz
+    build_command_prepend: "mkdir -p build; cd build; cmake ..; make clean"
+    build_command: "make"
+    branch_pattern: coverity_scan
