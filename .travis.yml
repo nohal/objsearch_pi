@@ -39,16 +39,28 @@ before_deploy:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export RELEASE_PKG_FILE=$(ls *.pkg); fi
 
 deploy:
-  provider: releases
-  api_key:
-    secure: guj0BW+8ZrnDHrEs3bISPjwGiealp729g+nKas0GDnyhMkvv6RfFhb+2thOVh1BxGHyASqMVyqrmw9RB4J/eMYIderHR7zKDVH9/ERgkSRNpf1g0vUUlcqRkcD4FKc6vADy5sBx/qk2Hi7Q8toD39zky8V4hcnUosaSjij+MB/0=
-  file: "${RELEASE_PKG_FILE}"
-  skip_cleanup: true
-  on:
-    tags: true
-    all_branches: true
-    os: osx
-    repo: nohal/objsearch_pi
+  - provider: releases
+    api_key:
+      secure: guj0BW+8ZrnDHrEs3bISPjwGiealp729g+nKas0GDnyhMkvv6RfFhb+2thOVh1BxGHyASqMVyqrmw9RB4J/eMYIderHR7zKDVH9/ERgkSRNpf1g0vUUlcqRkcD4FKc6vADy5sBx/qk2Hi7Q8toD39zky8V4hcnUosaSjij+MB/0=
+    file: "${RELEASE_PKG_FILE}"
+    skip_cleanup: true
+    on:
+      tags: true
+      all_branches: true
+      os: osx
+      repo: nohal/objsearch_pi
+  - provider: launchpad
+    slug: "~nohal/objsearch-pi/+git/master"
+    skip_cleanup: true
+    on:
+      tags: true
+      all_branches: true
+      condition: "$TRAVIS_OS_NAME = linux"
+      repo: nohal/objsearch_pi
+    oauth_token:
+      secure: "YUcngzWA1HzgUeH6UTL4cZWn/MApbg7jrtU71TF88y1R3IjOZamfu03RL9ovlvqSD65ppq8pqymFZ7vNO6K26ZUhNJRbuYOT2mJCp5ru75S/LDPz4bHRWpmK9ka0v/86flwWsfplf3QCqx8Jp2a3i70pCO3uKPeDvvKQZPZoagA="
+    oauth_token_secret:
+      secure: "OHjmCJnr7qeg1+rUkStYcbbgEvoljSnh8owo62PnkTbJXxfvKAqJW61jQ0nONPet9JhK4PxdHEjg3cynr1wHsMzw9rYQv2acQ89PrYdN3ITqB3cr5yM4JSa7h6x7T4NqwKEVvfDpeVq95zdhwPSNCWVLIqVbaYhIkbucJxeeb6k="
 
 env:
   global:
