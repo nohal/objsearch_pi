@@ -442,15 +442,9 @@ void objsearch_pi::StoreNewObject(long chart_id, long feature_id, wxString objna
     if (objname.Len() > 1) {
         wxString safe_value = objname;
         safe_value.Replace(_T("'"), _T("''"));
-#ifdef __WXMSW__
-        wxString sql =
-            wxString::Format(_T("INSERT INTO object(chart_id, feature_id, objname, lat, lon) VALUES (%l, %l, '%s', %f, %f)"),
-                             chart_id, feature_id, safe_value.c_str(), lat, lon);
-#else
         wxString sql =
             wxString::Format(_T("INSERT INTO object(chart_id, feature_id, objname, lat, lon) VALUES (%ld, %ld, '%s', %f, %f)"),
-                             chart_id, feature_id, safe_value.c_str(), lat, lon);
-#endif
+                             chart_id, feature_id, safe_value, lat, lon);
         query_queue.push(sql);
     }
 }
