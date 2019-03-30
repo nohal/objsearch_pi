@@ -3,42 +3,42 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-23 16:26-0300\n"
-"PO-Revision-Date: 2019-02-23 17:31\n"
+"PO-Revision-Date: 2018-03-20 18:26-0400\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
-"Language-Team: Catalan\n"
-"Language: ca_ES\n"
+"Language-Team: Filipino\n"
+"Language: fil_PH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: opencpn\n"
-"X-Crowdin-Language: ca\n"
+"X-Crowdin-Language: fil\n"
 "X-Crowdin-File: /plugins/objsearch_pi/po/objsearch_pi.pot\n"
 
 #: src/ObjSearchDialog.cpp:38
 msgid "Search"
-msgstr "Cerca"
+msgstr "Maghanap"
 
 #: src/ObjSearchDialog.cpp:50
 msgid "Show on Chart"
-msgstr "Mostrar a la carta"
+msgstr "Ipakita sa Tsart"
 
 #: src/ObjSearchDialog.cpp:53
 msgid "Close"
-msgstr "Tancar"
+msgstr "Isarado"
 
 #: src/ObjSearchDialog.cpp:56
 msgid "Close on show"
-msgstr "Tancament de l'escenari"
+msgstr "Isarado sa paglabas"
 
 #: src/ObjSearchDialog.cpp:63
 msgid "Limit range to"
-msgstr "Rang limitat a"
+msgstr "Ilimit ang saklaw sa"
 
 #: src/ObjSearchDialog.cpp:65 src/ObjSearchDialog.cpp:70
 msgid "0 = Unlimited"
-msgstr "0 = Il·limitat"
+msgstr "0 = Walang limitasyon"
 
 #: src/ObjSearchDialog.cpp:74
 msgid "NMi"
@@ -50,20 +50,21 @@ msgstr ""
 
 #: src/ObjSearchDialog.cpp:79
 msgid "Settings..."
-msgstr ""
+msgstr "Mga pagkakatakda..."
 
 #: src/ObjSearchDialog.cpp:125
 msgid "Scan charts"
-msgstr ""
+msgstr "Suriin ang mga tsart"
 
 #: src/ObjSearchDialog.cpp:129
 msgid "0-80S/N, 0-180E/W, W longitudes and S latitudes are expressed as negative numbers.\n"
 "The area selected can't cross the IDL (180W/E)"
-msgstr ""
+msgstr "0-80T/H, 0-180S/K, K na nga longhitud at T na mga latitud ay inihahayag bilang mga negatibong numero.\n"
+"Ang lugar na napili ay hindi dapat tumawid sa IDL (180K/S)"
 
 #: src/ObjSearchDialog.cpp:142
 msgid "From"
-msgstr "Des de"
+msgstr "Mula"
 
 #: src/ObjSearchDialog.cpp:147 src/ObjSearchDialog.cpp:173
 msgid "Latitude"
@@ -71,107 +72,108 @@ msgstr "Latitud"
 
 #: src/ObjSearchDialog.cpp:154 src/ObjSearchDialog.cpp:180
 msgid "Longitude"
-msgstr "Longitud"
+msgstr "Longhitud"
 
 #: src/ObjSearchDialog.cpp:168
 msgid "To"
-msgstr "Cap a"
+msgstr "Sa"
 
 #: src/ObjSearchDialog.cpp:197
 msgid "Scales"
-msgstr "Escales"
+msgstr "Mga Iskala"
 
 #: src/ObjSearchDialog.cpp:199
 msgid "1:5000000"
-msgstr "1:5000000"
+msgstr ""
 
 #: src/ObjSearchDialog.cpp:203
 msgid "1:1000000"
-msgstr "1: 1000000"
+msgstr ""
 
 #: src/ObjSearchDialog.cpp:207
 msgid "1:200000"
-msgstr "1:200000"
+msgstr ""
 
 #: src/ObjSearchDialog.cpp:210
 msgid "1:20000 (Very time consuming,\n"
 "use for really small areas only)"
-msgstr ""
+msgstr "1:20000 (Masyadong matagal,\n"
+"gamitin para sa mga maliit na lugar lamang)"
 
 #: src/ObjSearchDialog.cpp:221
 msgid "or"
-msgstr ""
+msgstr "o"
 
 #: src/ObjSearchDialog.cpp:226
 msgid "Import data"
-msgstr ""
+msgstr "I-angkat ang datos"
 
 #: src/ObjSearchDialog.cpp:228
 msgid "File"
-msgstr ""
+msgstr "Taklasan"
 
 #: src/ObjSearchDialog.cpp:235
 msgid "Browse..."
-msgstr ""
+msgstr "Mag-browse..."
 
 #: src/ObjSearchDialog.cpp:245
 msgid "Populate database"
-msgstr ""
+msgstr "Lagyan ang database"
 
 #: src/ObjSearchDialog.cpp:250
 msgid "Manage Database"
-msgstr ""
+msgstr "Pangasiwaan ang Database"
 
 #: src/ObjSearchDialog.h:70 src/objsearch_pi.h:117
 msgid "Chart Object Search"
-msgstr "Cerca objecte de carta"
+msgstr "Paghahanap sa Bagay ng Tsart"
 
 #: src/ObjSearchDialog.h:118 src/objsearch_pi.h:97 src/objsearch_pi.h:99
 msgid "Object Search Settings"
-msgstr ""
+msgstr "Pagkakatakda sa Paghahanap ng Bagay"
 
 #: src/objsearch_pi.cpp:276 src/objsearch_pi.cpp:279
 msgid "Object Search"
-msgstr "Cerca d'objecte"
+msgstr "Paghahanap sa Bagay"
 
 #: src/objsearch_pi.cpp:398
 msgid "Vector Chart Object Search PlugIn for OpenCPN"
-msgstr "Connector de Recerca d'Objectes de Cartes Vectorials per a OpenCPN"
+msgstr "Plugin na Naghahanap sa Bagay na Tsart na Vector"
 
 #: src/objsearch_pi.cpp:404
 msgid "Vector Chart Object Search PlugIn for OpenCPN\n"
 "Provides a search function for the named vector chart objects."
-msgstr "El connector de Recerca d'Objectes en Cartes Vectorials per a OpenCPN\n"
-"Està provist d'una funció de recerda per als noms dels objectes en les cartes vectorials."
+msgstr "Ang Plugin na Naghahanap sa Bagay na Tsart na Vector para sa OpenCPN\n"
+"Nagbibigay ng punsyon sa paghahanap para sa may pangalang mga bagay na tsart na vector."
 
 #: src/objsearch_pi.cpp:578
 msgid "There is a problem with your database, check the OpenCPN logfile for more information."
-msgstr "Hi ha un problema amb la vostra base de dades, Comproveu el fitxer de registre d'OpenCPN per a més informació."
+msgstr "Merong problem sa iyong database, suriin ang taklasang-talaan ng OpenCPN para sa karagdagang impormasyon."
 
 #: src/objsearch_pi.cpp:598
 #, c-format
 msgid "Your search resulted in %i objects found. This is a lot, do you really want to show all of them?"
-msgstr "El resultat de la recerca ha trobat %i objectes. Esteu segur que voleu mostrar-los tots?"
+msgstr "Ang iyong paghahanap ay nagresulta sa pagkahanap ng %i bagay. Sobrang dami nito, gusto mo ba talagang makita ang lahat?"
 
 #: src/objsearch_pi.cpp:598
 msgid "Too many objects found"
-msgstr "Molts objectes trobats"
+msgstr "Masyadong maraming nakitang bagay"
 
 #: src/objsearch_pi.cpp:690 src/objsearch_pi.cpp:691
 msgid "All"
-msgstr "Tot"
+msgstr "Lahat"
 
 #: src/objsearch_pi.cpp:709
 msgid "You did not enter any search term, do so."
-msgstr "No heu introduït cap terme de cerca, feu-ho."
+msgstr "Hindi ka naglagay ng anumang terminong hahanapin, gawin ito."
 
 #: src/objsearch_pi.cpp:724
 msgid "Type"
-msgstr "Tipus"
+msgstr "Uri"
 
 #: src/objsearch_pi.cpp:730
 msgid "Name"
-msgstr "Nom"
+msgstr "Pangalan"
 
 #: src/objsearch_pi.cpp:736
 msgid "Lat"
@@ -188,627 +190,627 @@ msgstr "Dist (%s)"
 
 #: src/objsearch_pi.cpp:754 src/objsearch_pi.cpp:760
 msgid "Scale"
-msgstr "Escala"
+msgstr "Iskala"
 
 #: src/objsearch_pi.cpp:766
 msgid "Chart"
-msgstr "Carta"
+msgstr "Tsart"
 
 #: src/objsearch_pi.cpp:913
 msgid "Inland - "
-msgstr "L'interior- "
+msgstr "Sa lupa - "
 
 #: src/objsearch_pi.cpp:917
 msgid "Administration area (Named)"
-msgstr "Àrea d'Administració (Anomenat)"
+msgstr "Lugar ng administrasyon (Pinangalanan)"
 
 #: src/objsearch_pi.cpp:919
 msgid "Airport / airfield"
-msgstr "Aeroport / aeròdrom"
+msgstr "Paliparan / palapagan"
 
 #: src/objsearch_pi.cpp:921
 msgid "Anchor berth"
-msgstr "Amarradors d'ancoratge"
+msgstr "Mag-angkorahe sa kamarote"
 
 #: src/objsearch_pi.cpp:923
 msgid "Anchorage area"
-msgstr "Zona de fondeig"
+msgstr "Lugar sa pag-angkorahe"
 
 #: src/objsearch_pi.cpp:925
 msgid "Beacon, cardinal"
-msgstr "Balisa o far, orientat"
+msgstr "Parola, kardinal"
 
 #: src/objsearch_pi.cpp:927
 msgid "Beacon, isolated danger"
-msgstr "Balisa, perill aïllat"
+msgstr "Parola, hiwalay na panganib"
 
 #: src/objsearch_pi.cpp:929
 msgid "Beacon, lateral"
-msgstr "Balisa, lateral"
+msgstr "Parola, lateral"
 
 #: src/objsearch_pi.cpp:931
 msgid "Beacon, safe water"
-msgstr "Balisa, aigua segura"
+msgstr "Parola, ligtas na tubig"
 
 #: src/objsearch_pi.cpp:933
 msgid "Beacon, special purpose/general"
-msgstr "Balisa, propòsit especial/general"
+msgstr "Parola, may espesyal na layon/pangkalahatan"
 
 #: src/objsearch_pi.cpp:935
 msgid "Berth"
-msgstr "Amarradors"
+msgstr "Berth"
 
 #: src/objsearch_pi.cpp:937
 msgid "Bridge"
-msgstr "Pont"
+msgstr "Plataporma"
 
 #: src/objsearch_pi.cpp:939
 msgid "Building, single"
-msgstr "Construcció aillada"
+msgstr "Gusali, iisa"
 
 #: src/objsearch_pi.cpp:941
 msgid "Built-up area"
-msgstr "Zona construïda"
+msgstr "Ipanatayong lugar"
 
 #: src/objsearch_pi.cpp:943
 msgid "Buoy, cardinal"
-msgstr "Boia, orientada"
+msgstr "Boya, kardinal"
 
 #: src/objsearch_pi.cpp:945
 msgid "Buoy, installation"
-msgstr "Boia, instal·lació"
+msgstr "Boya, instalasyon"
 
 #: src/objsearch_pi.cpp:947
 msgid "Buoy, isolated danger"
-msgstr "Boia, perill aïllat"
+msgstr "Boya, hiwalay na panganib"
 
 #: src/objsearch_pi.cpp:949
 msgid "Buoy, lateral"
-msgstr "Boia, lateral"
+msgstr "Boya, lateral"
 
 #: src/objsearch_pi.cpp:951
 msgid "Buoy, safe water"
-msgstr "Boia, aigua segura"
+msgstr "Boya, ligtas na tubig"
 
 #: src/objsearch_pi.cpp:953
 msgid "Buoy, special purpose/general"
-msgstr "Boia, propòsit especial/general"
+msgstr "Boya, may espesyal na layon/pangkalahatan"
 
 #: src/objsearch_pi.cpp:955
 msgid "Cable area"
-msgstr "Àrea de cable"
+msgstr "Lugar ng kable"
 
 #: src/objsearch_pi.cpp:957
 msgid "Cable, overhead"
-msgstr "Cable, aeri"
+msgstr "Kable, sa itaas"
 
 #: src/objsearch_pi.cpp:959
 msgid "Cable, submarine"
-msgstr "Cable, submarí"
+msgstr "Kable, submarino"
 
 #: src/objsearch_pi.cpp:961
 msgid "Canal"
-msgstr "Canal"
+msgstr "Bambang"
 
 #: src/objsearch_pi.cpp:963 src/objsearch_pi.cpp:1211
 msgid "Canal bank"
-msgstr "Riba del canal"
+msgstr "Tabing-bambang"
 
 #: src/objsearch_pi.cpp:965
 msgid "Cargo transshipment area"
-msgstr "Zona de transbordament de càrrega/carguers"
+msgstr "Lugar na pagdadalhin sa kargamento"
 
 #: src/objsearch_pi.cpp:967
 msgid "Causeway"
-msgstr "Carretera elevada"
+msgstr "Daanan"
 
 #: src/objsearch_pi.cpp:969
 msgid "Chimney"
-msgstr ""
+msgstr "Tsimenea"
 
 #: src/objsearch_pi.cpp:971
 msgid "Checkpoint"
-msgstr "Punt de control"
+msgstr "Tsekpoint"
 
 #: src/objsearch_pi.cpp:973
 msgid "Coastguard station"
-msgstr "Estació de guardacostes"
+msgstr "Istasyon ng mga bantay ng babayin"
 
 #: src/objsearch_pi.cpp:975
 msgid "Coastline"
-msgstr "Línia de costa"
+msgstr "Baybayin"
 
 #: src/objsearch_pi.cpp:977
 msgid "Continental shelf area"
-msgstr "Zona de la plataforma continental"
+msgstr "Kontinental na lugar na salansanan"
 
 #: src/objsearch_pi.cpp:979
 msgid "Control point"
-msgstr "Punt de control"
+msgstr "Punto sa pagkontrol"
 
 #: src/objsearch_pi.cpp:981
 msgid "Conveyor"
-msgstr "Cinta transportadora"
+msgstr "Conveyor"
 
 #: src/objsearch_pi.cpp:983
 msgid "Crane"
-msgstr "Grua"
+msgstr "Kreyn"
 
 #: src/objsearch_pi.cpp:985
 msgid "Current - non - gravitational"
-msgstr "Corrent no gravitacional"
+msgstr "Daloy - hindi grabitasyonal"
 
 #: src/objsearch_pi.cpp:987
 msgid "Dam"
-msgstr "Dic"
+msgstr "Dike"
 
 #: src/objsearch_pi.cpp:989
 msgid "Daymark"
-msgstr "Marca de dia"
+msgstr "Pananda sa araw"
 
 #: src/objsearch_pi.cpp:991
 msgid "Deep water route centerline"
-msgstr "Línia central de ruta d'aigües profundes"
+msgstr "Ruta na centerline na nasa malalim na tubig"
 
 #: src/objsearch_pi.cpp:993
 msgid "Deep water route part"
-msgstr "Part de ruta d'aigües profundes"
+msgstr "Bahagi ng ruta na nasa malalim na tubig"
 
 #: src/objsearch_pi.cpp:995
 msgid "Distance mark"
-msgstr "Marca de distància"
+msgstr "Tanda ng distansya"
 
 #: src/objsearch_pi.cpp:997
 msgid "Dock area"
-msgstr "Àrea dels pantalans"
+msgstr "Lugar ng pantalan"
 
 #: src/objsearch_pi.cpp:999
 msgid "Dredged area"
-msgstr "Zona de dragatge"
+msgstr "Lugar na dinraga"
 
 #: src/objsearch_pi.cpp:1001
 msgid "Dry dock"
-msgstr "Escar"
+msgstr "Tuyong pantalan"
 
 #: src/objsearch_pi.cpp:1003
 msgid "Dumping ground"
-msgstr "Abocaments de terra"
+msgstr "Lugar na paglalaglagan"
 
 #: src/objsearch_pi.cpp:1005
 msgid "Fairway"
-msgstr "Carrer"
+msgstr "Daanan sa ilog"
 
 #: src/objsearch_pi.cpp:1007
 msgid "Fence/wall"
-msgstr "Tancament/paret"
+msgstr "Bakod/pader"
 
 #: src/objsearch_pi.cpp:1009
 msgid "Ferry route"
-msgstr "Ruta del ferri"
+msgstr "Tawiran na ruta"
 
 #: src/objsearch_pi.cpp:1011
 msgid "Fishery zone"
-msgstr "Zona de pesca"
+msgstr "Sona na palaisdaan"
 
 #: src/objsearch_pi.cpp:1013
 msgid "Fishing facility"
-msgstr "Possibilitat de pesca"
+msgstr "Pasilidad sa pangingisda"
 
 #: src/objsearch_pi.cpp:1015
 msgid "Fishing ground"
-msgstr "Fons de pesca"
+msgstr "Lugar sa pangingisda"
 
 #: src/objsearch_pi.cpp:1017
 msgid "Floating dock"
-msgstr "Pantalà flotant"
+msgstr "Nakalutang na pantalan"
 
 #: src/objsearch_pi.cpp:1019
 msgid "Fog signal"
-msgstr "Avisador de boira"
+msgstr "Signal ng hamog"
 
 #: src/objsearch_pi.cpp:1021
 msgid "Fortified structure"
-msgstr "Estructura fortificada"
+msgstr "Pinabitay na istruktura"
 
 #: src/objsearch_pi.cpp:1023
 msgid "Free port area"
-msgstr "Àrea de port franc"
+msgstr "Libreng lugar na daungan"
 
 #: src/objsearch_pi.cpp:1025
 msgid "Gate"
-msgstr "Porta"
+msgstr "Tarangkahan"
 
 #: src/objsearch_pi.cpp:1027
 msgid "Gridiron"
-msgstr "Graella"
+msgstr "Parilya"
 
 #: src/objsearch_pi.cpp:1029
 msgid "Harbour area (administrative)"
-msgstr "Zona del port (administrativa)"
+msgstr "Lugar na Daungan (administratibo)"
 
 #: src/objsearch_pi.cpp:1031
 msgid "Harbour facility"
-msgstr "Instal·lacions del Port"
+msgstr "Pasilidad na daungan"
 
 #: src/objsearch_pi.cpp:1033
 msgid "Hulk"
-msgstr "Derelicte"
+msgstr "Malaking bagay"
 
 #: src/objsearch_pi.cpp:1035
 msgid "Ice area"
-msgstr "Àrea de gel"
+msgstr "Lugar ng yelo"
 
 #: src/objsearch_pi.cpp:1037
 msgid "Incineration area"
-msgstr "Zona d'incineració"
+msgstr "Lugar sa insinerasyon"
 
 #: src/objsearch_pi.cpp:1039
 msgid "Lake"
-msgstr "Llac"
+msgstr "Lawa"
 
 #: src/objsearch_pi.cpp:1041
 msgid "Lake shore"
-msgstr "Riba del llac"
+msgstr "Baybayin ng lawa"
 
 #: src/objsearch_pi.cpp:1043
 msgid "Land area"
-msgstr "Zona de terra"
+msgstr "Lugar ng lupa"
 
 #: src/objsearch_pi.cpp:1045
 msgid "Land elevation"
-msgstr "Elevació de terra"
+msgstr "Timbaw ng lupa"
 
 #: src/objsearch_pi.cpp:1047
 msgid "Land region"
-msgstr "Regió de terra"
+msgstr "Rehiyon na lupain"
 
 #: src/objsearch_pi.cpp:1049
 msgid "Landmark"
-msgstr "Marca de terra"
+msgstr "Palatandaan"
 
 #: src/objsearch_pi.cpp:1051
 msgid "Light"
-msgstr "Far"
+msgstr "Ilaw"
 
 #: src/objsearch_pi.cpp:1053
 msgid "Light float"
-msgstr "Boia amb far"
+msgstr "Magaan na panlutang"
 
 #: src/objsearch_pi.cpp:1055
 msgid "Light vessel"
-msgstr "Vaixell far"
+msgstr "Magaan na bapor"
 
 #: src/objsearch_pi.cpp:1057
 msgid "Local magnetic anomaly"
-msgstr "Anomalia magnètica local"
+msgstr "Magnetik na anomalyang lokal"
 
 #: src/objsearch_pi.cpp:1059
 msgid "Lock basin"
-msgstr "Rescloses de dàrsena"
+msgstr "Kandadong palanggana"
 
 #: src/objsearch_pi.cpp:1061
 msgid "Log pond"
-msgstr "Estany amb troncs"
+msgstr "Danaw"
 
 #: src/objsearch_pi.cpp:1063
 msgid "Marine farm/culture"
-msgstr "Granja aqüícola/marina"
+msgstr "Marinong sakahan/kultura"
 
 #: src/objsearch_pi.cpp:1065
 msgid "Military practice area"
-msgstr "Zona de pràctiques militars"
+msgstr "Lugar para sa pagsasanay ng militar"
 
 #: src/objsearch_pi.cpp:1067
 msgid "Mooring/warping facility"
-msgstr "L'equip o estructura per assegurar l'amarratge del vaixell"
+msgstr "Pasilidad sa pagpupugal/pagkiwal"
 
 #: src/objsearch_pi.cpp:1069
 msgid "Obstruction"
-msgstr "Obstrucció"
+msgstr "Sagabal"
 
 #: src/objsearch_pi.cpp:1071
 msgid "Offshore platform"
-msgstr "Plataforma d'extracció"
+msgstr "Plataporma na malayo sa pampang"
 
 #: src/objsearch_pi.cpp:1073
 msgid "Offshore production area"
-msgstr "Zona de producció marina"
+msgstr "Lugar ng produksyon na malayo sa pampang"
 
 #: src/objsearch_pi.cpp:1075
 msgid "Oil barrier"
-msgstr "Barrera per contaminants flotants"
+msgstr "Harang ng langis"
 
 #: src/objsearch_pi.cpp:1077
 msgid "Pile"
-msgstr "Pila"
+msgstr "Tumpok"
 
 #: src/objsearch_pi.cpp:1079
 msgid "Pilot boarding place"
-msgstr "Lloc d'embarcament del pilot"
+msgstr "Pook na pagsasakyan ng piloto"
 
 #: src/objsearch_pi.cpp:1081
 msgid "Pipeline area"
-msgstr "Àrea de tubs/canonades"
+msgstr "Lugar na may mga tubo"
 
 #: src/objsearch_pi.cpp:1083
 msgid "Pipeline, overhead"
-msgstr "Canonada elevada"
+msgstr "Tuno, sa itaas"
 
 #: src/objsearch_pi.cpp:1085
 msgid "Pipeline, submarine/on land"
-msgstr "Canonada, submarina/a terra"
+msgstr "Tubo, submarino/panlupa"
 
 #: src/objsearch_pi.cpp:1087
 msgid "Pontoon"
-msgstr "Pantalà"
+msgstr "Mababa na barko"
 
 #: src/objsearch_pi.cpp:1089
 msgid "Production / storage area"
-msgstr "Producció / magatzems"
+msgstr "Produksyon / lugar na imbakan"
 
 #: src/objsearch_pi.cpp:1091
 msgid "Pylon/bridge support"
-msgstr "Piló/suport de pont"
+msgstr "Suporta sa paylon/plataporma"
 
 #: src/objsearch_pi.cpp:1093
 msgid "Radar line"
-msgstr "Línia de radar"
+msgstr "Linya ng radar"
 
 #: src/objsearch_pi.cpp:1095
 msgid "Radar range"
-msgstr "Cobertura de radar"
+msgstr "Saklaw ng radar"
 
 #: src/objsearch_pi.cpp:1097
 msgid "Radar station"
-msgstr "Estació de radar"
+msgstr "Istasyon ng radar"
 
 #: src/objsearch_pi.cpp:1099
 msgid "Radar transponder beacon"
-msgstr "Balisa de transponedor de radar"
+msgstr "Parola na tumutugon sa Radar"
 
 #: src/objsearch_pi.cpp:1101
 msgid "Radio calling-in point"
-msgstr "Punt de trucada de ràdio"
+msgstr "Tumatawag gamit ang radyo, nasa punto"
 
 #: src/objsearch_pi.cpp:1103
 msgid "Radio station"
-msgstr "Emissora de ràdio"
+msgstr "Istasyon ng radyo"
 
 #: src/objsearch_pi.cpp:1105
 msgid "Railway"
-msgstr "Ferrocarril"
+msgstr "Riles"
 
 #: src/objsearch_pi.cpp:1107
 msgid "Rapids"
-msgstr "Ràpids"
+msgstr "Lagaslasan"
 
 #: src/objsearch_pi.cpp:1109
 msgid "Recommended route centerline"
-msgstr "Línia central de la ruta recomanada"
+msgstr "Inirekomendang ruta ng centerline"
 
 #: src/objsearch_pi.cpp:1111
 msgid "Recommended track"
-msgstr "Ruta recomanada"
+msgstr "Inirekomenda na landas"
 
 #: src/objsearch_pi.cpp:1113
 msgid "Rescue station"
-msgstr "Estació de salvament"
+msgstr "Istasyon sa pagsagip"
 
 #: src/objsearch_pi.cpp:1115
 msgid "Restricted area"
-msgstr "Àrea restringida"
+msgstr "Ipinagbabawal na lugar"
 
 #: src/objsearch_pi.cpp:1117
 msgid "River"
-msgstr "Riu"
+msgstr "Ilog"
 
 #: src/objsearch_pi.cpp:1119 src/objsearch_pi.cpp:1213
 msgid "River bank"
-msgstr "Riba del riu"
+msgstr "Tabing-ilog"
 
 #: src/objsearch_pi.cpp:1121
 msgid "Road"
-msgstr "Carretera"
+msgstr "Kalsada"
 
 #: src/objsearch_pi.cpp:1123
 msgid "Runway"
-msgstr "Pista d'aterratge"
+msgstr "Paliparan"
 
 #: src/objsearch_pi.cpp:1125
 msgid "Sea area / named water area"
-msgstr "Àrea de mar / el nom de zona d'aigües"
+msgstr "Lugar sa dagat / pinangalanang lugar na tubig"
 
 #: src/objsearch_pi.cpp:1127
 msgid "Sea-plane landing area"
-msgstr "Àrea d'amaratge d'hidroavions"
+msgstr "Lugar na lalapagan n eruplanong pantubig"
 
 #: src/objsearch_pi.cpp:1129
 msgid "Seabed area"
-msgstr "Àrea del fons marí"
+msgstr "Lugar na seabed"
 
 #: src/objsearch_pi.cpp:1131
 msgid "Shoreline Construction"
-msgstr "Construcció de Costa"
+msgstr "Konstruksyon ng baybayin"
 
 #: src/objsearch_pi.cpp:1133
 msgid "Signal station, traffic"
-msgstr "Semàfor, trànsit"
+msgstr "Istasyon ng signal, trapik"
 
 #: src/objsearch_pi.cpp:1135
 msgid "Signal station, warning"
-msgstr "Semàfor, alerta"
+msgstr "Istasyon ng signal, babala"
 
 #: src/objsearch_pi.cpp:1137
 msgid "Silo / tank"
-msgstr "Sitja / dipòsit"
+msgstr "Sailow / tangke"
 
 #: src/objsearch_pi.cpp:1139
 msgid "Slope topline"
-msgstr "Línia del vèrtex"
+msgstr "Tuktok na linya ng talibis"
 
 #: src/objsearch_pi.cpp:1141
 msgid "Sloping ground"
-msgstr "Terreny en pendent"
+msgstr "Kiling na lugar"
 
 #: src/objsearch_pi.cpp:1143
 msgid "Small craft facility"
-msgstr "Instal·lació de petites embarcacions"
+msgstr "Pasilidad sa maliit na bapor"
 
 #: src/objsearch_pi.cpp:1145
 msgid "Sounding"
-msgstr "Sondatge"
+msgstr "Tunog"
 
 #: src/objsearch_pi.cpp:1147
 msgid "Spring"
-msgstr "Brollador"
+msgstr "Batis"
 
 #: src/objsearch_pi.cpp:1149
 msgid "Square"
-msgstr "Plaça"
+msgstr "Kuwadrado"
 
 #: src/objsearch_pi.cpp:1151
 msgid "Submarine transit lane"
-msgstr "Zona de trànsit de submarins"
+msgstr "Landas sa Paghahatid ng submarino"
 
 #: src/objsearch_pi.cpp:1153
 msgid "Tidal stream - harmonic prediction"
-msgstr "Corrent de marea - predicció harmònica"
+msgstr "Daloy na taib-tabsing - maharmonyang hula"
 
 #: src/objsearch_pi.cpp:1155
 msgid "Tidal stream - non-harmonic prediction"
-msgstr "Corrent de marea - predicció no-harmònica"
+msgstr "Daloy na taib-tabsing - hindi maharmonyang hula"
 
 #: src/objsearch_pi.cpp:1157
 msgid "Tidal stream panel data"
-msgstr "Panell de dades de corrents de marees"
+msgstr "Datos sa panel ng daloy na taib-tabsing"
 
 #: src/objsearch_pi.cpp:1159 src/objsearch_pi.cpp:1165
 msgid "Tidal stream - time series"
-msgstr "Corrents de marees - sèries temporals"
+msgstr "Daloy na taib-tabsing - mga serye ng oras"
 
 #: src/objsearch_pi.cpp:1161
 msgid "Tide - harmonic prediction"
-msgstr "Marea - predicció harmònica"
+msgstr "Taas ng Tubig - maharmonyang hula"
 
 #: src/objsearch_pi.cpp:1163
 msgid "Tide - non-harmonic prediction"
-msgstr "Marea - predicció no-harmònica"
+msgstr "Taas ng Tubig - hindi maharmonyang hula"
 
 #: src/objsearch_pi.cpp:1167
 msgid "Tideway"
-msgstr "Canal amb marees"
+msgstr "Daanan ng Taas ng Tubig"
 
 #: src/objsearch_pi.cpp:1169
 msgid "Tree"
-msgstr ""
+msgstr "Puno"
 
 #: src/objsearch_pi.cpp:1171
 msgid "Tunnel"
-msgstr "Túnel"
+msgstr "Lagusan"
 
 #: src/objsearch_pi.cpp:1173
 msgid "Underwater rock / awash rock"
-msgstr "Esculls rocosos"
+msgstr "Bato na nasa ilalim ng tubig / bato na nasa ibabaw ng tubig"
 
 #: src/objsearch_pi.cpp:1175
 msgid "Vegetation"
-msgstr "Vegetació"
+msgstr "Halamanan"
 
 #: src/objsearch_pi.cpp:1177
 msgid "Water turbulence"
-msgstr "Turbulència d'aigua"
+msgstr "Unos ng tubig"
 
 #: src/objsearch_pi.cpp:1179
 msgid "Waterfall"
-msgstr "Cascada"
+msgstr "Talon"
 
 #: src/objsearch_pi.cpp:1181
 msgid "Weed/Kelp"
-msgstr "Herbei/Algues"
+msgstr "Damo/Halamang-dagat"
 
 #: src/objsearch_pi.cpp:1183
 msgid "Wreck"
-msgstr "Naufragi"
+msgstr "Malaking Pinsala"
 
 #: src/objsearch_pi.cpp:1185
 msgid "Tidal stream - flood/ebb"
-msgstr "Corrent de marea - inundació/reflux"
+msgstr "Daloy na taib-tabsing - baha/maliit"
 
 #: src/objsearch_pi.cpp:1187
 msgid "Aggregation"
-msgstr "Agregació"
+msgstr "Pagsasama-sama"
 
 #: src/objsearch_pi.cpp:1189
 msgid "Association"
-msgstr "Associació"
+msgstr "Asosasyon"
 
 #: src/objsearch_pi.cpp:1191
 msgid "Berthing facility"
-msgstr "Facilitat d'amarratge"
+msgstr "Pasilidad sa pag-berth"
 
 #: src/objsearch_pi.cpp:1193
 msgid "Building, religious"
-msgstr "Edifici religiós"
+msgstr "Gusali, panrelihiyon"
 
 #: src/objsearch_pi.cpp:1195
 msgid "Caution area"
-msgstr "Àrea de precaució"
+msgstr "Lugar na dapat na mag-ingat"
 
 #: src/objsearch_pi.cpp:1197
 msgid "Monument"
-msgstr "Monument"
+msgstr "Monumento"
 
 #: src/objsearch_pi.cpp:1199
 msgid "Production installation"
-msgstr "Instal·lació de producció"
+msgstr "Pag-insall ng produksyon"
 
 #: src/objsearch_pi.cpp:1201
 msgid "Salt pan"
-msgstr "Salines"
+msgstr "Bandeha ng asin"
 
 #: src/objsearch_pi.cpp:1203
 msgid "Tank"
-msgstr "Tanc"
+msgstr "Tangke"
 
 #: src/objsearch_pi.cpp:1205
 msgid "Tower structure"
-msgstr "Estructura de torre"
+msgstr "Istraktura ng tore"
 
 #: src/objsearch_pi.cpp:1207
 msgid "Windmill"
-msgstr "Molí de vent"
+msgstr "Windmil"
 
 #: src/objsearch_pi.cpp:1215
 msgid "waterway axis"
-msgstr "Eix fluvial"
+msgstr "aksis sa daluyan ng tubog"
 
 #: src/objsearch_pi.cpp:1217
 msgid "Bridge area"
-msgstr "Zona del pont"
+msgstr "Lugar ng plataporma"
 
 #: src/objsearch_pi.cpp:1219
 msgid "Lock area"
-msgstr "Àrea de bloqueig"
+msgstr "Kandadong lugar"
 
 #: src/objsearch_pi.cpp:1221
 msgid "Beacon water-way"
-msgstr "Balisa de canal"
+msgstr "Parola sa daluyan ng tubig"
 
 #: src/objsearch_pi.cpp:1223
 msgid "Buoy water-way"
-msgstr "Boia de canal"
+msgstr "Boya sa daluyan ng tubig"
 
 #: src/objsearch_pi.cpp:1225
 msgid "Route planning point"
-msgstr "Punt de planificació de rutes"
+msgstr "Punto sa pagpaplano ng ruta"
 
 #: src/objsearch_pi.cpp:1227
 msgid "Communication area"
-msgstr "Àrea de comunicació"
+msgstr "Lugar ng komunikasyon"
 
 #: src/objsearch_pi.cpp:1229
 msgid "Waterway gauge"
-msgstr "Mesura del canal de navegació"
+msgstr "Panukat sa daluyan ng tubig"
 
 #: src/objsearch_pi.cpp:1231
 msgid "Terminal"
@@ -816,51 +818,51 @@ msgstr "Terminal"
 
 #: src/objsearch_pi.cpp:1233
 msgid "Notice mark"
-msgstr "Nota d'avís"
+msgstr "Pansinin ang tanda"
 
 #: src/objsearch_pi.cpp:1235
 msgid "Bunker station"
-msgstr "Estació de repostatge"
+msgstr "Istasyon na bunker"
 
 #: src/objsearch_pi.cpp:1237
 msgid "Harbour basin"
-msgstr "Dàrsena"
+msgstr "Basin sa harbor"
 
 #: src/objsearch_pi.cpp:1239
 msgid "Refuse dump"
-msgstr "Abocador d'escombraries"
+msgstr "Tanggihan ang pagbunton"
 
 #: src/objsearch_pi.cpp:1241
 msgid "Turning basin"
-msgstr "Dàrsena de rotació"
+msgstr "Palanggana sa paglalik"
 
 #: src/objsearch_pi.cpp:1245
 msgid "Text label"
-msgstr "Etiqueta de text"
+msgstr "Tatak na teksto"
 
 #: src/objsearch_pi.cpp:1247
 msgid "Extended navigational aid"
-msgstr ""
+msgstr "Pinalawak na tulong na pang-nabigasyon"
 
 #: src/objsearch_pi.cpp:1342
 msgid "CSV files (*.csv)|*.csv|All files (*.*)|*.*"
-msgstr ""
+msgstr "Taklasang CSV (*.csv)|.csv|Lahat ng mga taklasan (*.*)|*.*"
 
 #: src/objsearch_pi.cpp:1402
 msgid "Sorry, I'm stupid and can't cross the IDL, please divide your scan in two."
-msgstr ""
+msgstr "Paumanhin. Kulang ang aking kaalaman at hindi makatawid sa IDL, mangyaring hatiin sa dalawa ang iyong pagsusuri."
 
 #: src/objsearch_pi.cpp:1422
 msgid "Import progress..."
-msgstr ""
+msgstr "Progreso sa pag-angkat..."
 
 #: src/objsearch_pi.cpp:1423
 #, c-format
 msgid "Importing data from %s."
-msgstr ""
+msgstr "Nag-aangkat ng datos mula sa %s."
 
 #: src/objsearch_pi.cpp:1452
 #, c-format
 msgid "The files %s does not exist, nothing to import."
-msgstr ""
+msgstr "Ang mga taklasang %s ay hindi umiiral, walang mai-angkat."
 

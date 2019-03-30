@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-23 16:26-0300\n"
-"PO-Revision-Date: 2017-12-08 15:24-0500\n"
+"PO-Revision-Date: 2019-03-23 15:22\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -50,7 +50,7 @@ msgstr ""
 
 #: src/ObjSearchDialog.cpp:79
 msgid "Settings..."
-msgstr ""
+msgstr "Impostazioni..."
 
 #: src/ObjSearchDialog.cpp:125
 msgid "Scan charts"
@@ -59,7 +59,8 @@ msgstr ""
 #: src/ObjSearchDialog.cpp:129
 msgid "0-80S/N, 0-180E/W, W longitudes and S latitudes are expressed as negative numbers.\n"
 "The area selected can't cross the IDL (180W/E)"
-msgstr ""
+msgstr "0-80S/N, 0-180E/O, O longitudini e S latitudini sono espresse come numeri negativi.\n"
+" L'area selezionata non può attraversare l' IDL (180O/E)"
 
 #: src/ObjSearchDialog.cpp:142
 msgid "From"
@@ -100,19 +101,19 @@ msgstr ""
 
 #: src/ObjSearchDialog.cpp:221
 msgid "or"
-msgstr ""
+msgstr "o"
 
 #: src/ObjSearchDialog.cpp:226
 msgid "Import data"
-msgstr ""
+msgstr "Importare dati"
 
 #: src/ObjSearchDialog.cpp:228
 msgid "File"
-msgstr ""
+msgstr "File"
 
 #: src/ObjSearchDialog.cpp:235
 msgid "Browse..."
-msgstr ""
+msgstr "Sfoglia..."
 
 #: src/ObjSearchDialog.cpp:245
 msgid "Populate database"
@@ -128,11 +129,11 @@ msgstr "Ricerca Object Carte"
 
 #: src/ObjSearchDialog.h:118 src/objsearch_pi.h:97 src/objsearch_pi.h:99
 msgid "Object Search Settings"
-msgstr ""
+msgstr "Impostazioni ricerca oggetti"
 
 #: src/objsearch_pi.cpp:276 src/objsearch_pi.cpp:279
 msgid "Object Search"
-msgstr ""
+msgstr "Ricerca oggetti"
 
 #: src/objsearch_pi.cpp:398
 msgid "Vector Chart Object Search PlugIn for OpenCPN"
@@ -141,20 +142,21 @@ msgstr ""
 #: src/objsearch_pi.cpp:404
 msgid "Vector Chart Object Search PlugIn for OpenCPN\n"
 "Provides a search function for the named vector chart objects."
-msgstr ""
+msgstr "Grafico Vettoriale Ricerca Oggetto PlugIn per OpenCPN\n"
+"Fornisce una funzione di ricerca per gli oggetti del grafico vettoriale con nome."
 
 #: src/objsearch_pi.cpp:578
 msgid "There is a problem with your database, check the OpenCPN logfile for more information."
-msgstr ""
+msgstr "C'è un problema con il tuo database, controlla il log file OpenCPN per maggiori informazioni."
 
 #: src/objsearch_pi.cpp:598
 #, c-format
 msgid "Your search resulted in %i objects found. This is a lot, do you really want to show all of them?"
-msgstr ""
+msgstr "La tua ricerca ha generato %i oggetti trovati. Questo è molto, vuoi davvero mostrarli tutti?"
 
 #: src/objsearch_pi.cpp:598
 msgid "Too many objects found"
-msgstr ""
+msgstr "Troppi oggetti trovati"
 
 #: src/objsearch_pi.cpp:690 src/objsearch_pi.cpp:691
 msgid "All"
@@ -170,20 +172,20 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:730
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: src/objsearch_pi.cpp:736
 msgid "Lat"
-msgstr ""
+msgstr "Latitudine"
 
 #: src/objsearch_pi.cpp:742
 msgid "Lon"
-msgstr ""
+msgstr "Longitudine"
 
 #: src/objsearch_pi.cpp:748
 #, c-format
 msgid "Dist (%s)"
-msgstr ""
+msgstr "Distanza (%s)"
 
 #: src/objsearch_pi.cpp:754 src/objsearch_pi.cpp:760
 msgid "Scale"
@@ -191,7 +193,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:766
 msgid "Chart"
-msgstr ""
+msgstr "Grafico"
 
 #: src/objsearch_pi.cpp:913
 msgid "Inland - "
@@ -203,7 +205,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:919
 msgid "Airport / airfield"
-msgstr ""
+msgstr "Aeroporto / aerodromo"
 
 #: src/objsearch_pi.cpp:921
 msgid "Anchor berth"
@@ -239,7 +241,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:937
 msgid "Bridge"
-msgstr ""
+msgstr "Ponte"
 
 #: src/objsearch_pi.cpp:939
 msgid "Building, single"
@@ -287,7 +289,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:961
 msgid "Canal"
-msgstr ""
+msgstr "Canale"
 
 #: src/objsearch_pi.cpp:963 src/objsearch_pi.cpp:1211
 msgid "Canal bank"
@@ -323,7 +325,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:979
 msgid "Control point"
-msgstr ""
+msgstr "Punto di controllo"
 
 #: src/objsearch_pi.cpp:981
 msgid "Conveyor"
@@ -423,7 +425,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:1029
 msgid "Harbour area (administrative)"
-msgstr ""
+msgstr "Zona del porto (amministrativa)"
 
 #: src/objsearch_pi.cpp:1031
 msgid "Harbour facility"
@@ -443,7 +445,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:1039
 msgid "Lake"
-msgstr ""
+msgstr "Lago"
 
 #: src/objsearch_pi.cpp:1041
 msgid "Lake shore"
@@ -559,7 +561,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:1097
 msgid "Radar station"
-msgstr ""
+msgstr "Stazione radar"
 
 #: src/objsearch_pi.cpp:1099
 msgid "Radar transponder beacon"
@@ -571,11 +573,11 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:1103
 msgid "Radio station"
-msgstr ""
+msgstr "Stazione radio"
 
 #: src/objsearch_pi.cpp:1105
 msgid "Railway"
-msgstr ""
+msgstr "Ferrovia"
 
 #: src/objsearch_pi.cpp:1107
 msgid "Rapids"
@@ -599,19 +601,19 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:1117
 msgid "River"
-msgstr ""
+msgstr "Fiume"
 
 #: src/objsearch_pi.cpp:1119 src/objsearch_pi.cpp:1213
 msgid "River bank"
-msgstr ""
+msgstr "Argine fiume"
 
 #: src/objsearch_pi.cpp:1121
 msgid "Road"
-msgstr ""
+msgstr "Strada"
 
 #: src/objsearch_pi.cpp:1123
 msgid "Runway"
-msgstr ""
+msgstr "Pista"
 
 #: src/objsearch_pi.cpp:1125
 msgid "Sea area / named water area"
@@ -699,11 +701,11 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:1169
 msgid "Tree"
-msgstr ""
+msgstr "Albero"
 
 #: src/objsearch_pi.cpp:1171
 msgid "Tunnel"
-msgstr ""
+msgstr "Tunnel"
 
 #: src/objsearch_pi.cpp:1173
 msgid "Underwater rock / awash rock"
@@ -711,7 +713,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:1175
 msgid "Vegetation"
-msgstr ""
+msgstr "Vegetazione"
 
 #: src/objsearch_pi.cpp:1177
 msgid "Water turbulence"
@@ -719,7 +721,7 @@ msgstr ""
 
 #: src/objsearch_pi.cpp:1179
 msgid "Waterfall"
-msgstr ""
+msgstr "Cascata"
 
 #: src/objsearch_pi.cpp:1181
 msgid "Weed/Kelp"
