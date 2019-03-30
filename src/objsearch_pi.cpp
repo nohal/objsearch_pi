@@ -1074,8 +1074,9 @@ int SettingsDialogImpl::ProcessCsvLine(void* frm, int cnt, const char** cv) {
     double truescale = 0.0;
     if (cnt >= 7) truescale = strtod(cv[6], NULL);
     if (lat >= -90.0 && lat <= 90.0 && lon >= -180.0 && lon <= 180.0 && name != wxEmptyString && feature != wxEmptyString &&
-        source != wxEmptyString)
+        source != wxEmptyString) {
         p_frm->CreateObject(lat, lon, name, feature, source, scale, truescale);
+    }
     return 0;
 }
 
