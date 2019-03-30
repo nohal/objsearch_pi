@@ -1,3 +1,9 @@
+opencpn-plugin-objsearch (0.21-1) unstable; urgency=medium
+
+  * New icon
+
+ -- Pavel Kalian <pavel@kalian.cz>  Sat, 30 Mar 2019 17:40:17 -0300
+
 opencpn-plugin-objsearch (0.20-1) unstable; urgency=medium
 
   * Initial release for O5 using CI
