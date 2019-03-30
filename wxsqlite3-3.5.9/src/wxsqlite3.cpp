@@ -3612,7 +3612,7 @@ bool wxSQLite3Database::SetTemporaryDirectory(const wxString& tempDirectory) {
 #else
     const wxWCharBuffer zValue = tempDirectory.wc_str(wxConvLocal);
 #endif
-    int rc = sqlite3_win32_set_directory(SQLITE_WIN32_TEMP_DIRECTORY_TYPE, zValue);
+    int rc = sqlite3_win32_set_directory(SQLITE_WIN32_TEMP_DIRECTORY_TYPE, (void*)zValue);
     ok = (rc == SQLITE_OK);
 #if 0
   if (rc != SQLITE_OK)
