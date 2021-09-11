@@ -1,8 +1,8 @@
-== Object Search
+= Object Search
 
 Allows search of named objects on S-57 and CM93 vector charts.
 
-=== Links
+== Links
 
 * Source: https://github.com/nohal/objsearch_pi[Github]
 * Download: https://opencpn.org/OpenCPN/plugins/chartobject.html[Chart
@@ -16,7 +16,7 @@ This document is about Object Search plugin (Search-pi)
 
 image::object_search_00.jpeg[]
 
-=== What and Why
+== What and Why
 
 *A. What does Search-pi do*
 
@@ -40,7 +40,7 @@ land-area's etc.
 Read S-63 and oeSENC licensed and encrypted charts. The plugin cannot
 deal with the encrypted chart objects.
 
-=== Installation
+== Installation
 
 *Note*: In this section the instructions are specifically for Search-pi,
 but there is a dedicated page in the manual with information about
@@ -64,7 +64,7 @@ Double-click the downloaded file and follow the set-up instructions.
 That's it. But before you can actually *use* the plug-in, you first have
 to *enable* that plug-in in OpenCPN.
 
-=== Enabling the plug-in OpenCPN
+== Enabling the plug-in OpenCPN
 
 Open (or restart) OpenCPN.
 
@@ -91,7 +91,7 @@ appear somewhere in your OpenCPN Toolbar.
 
 image::object_search_09.jpeg[]
 
-=== Standard actions
+== Standard actions
 
 When you click the Object Search-pi icon, this menu will open.
 
@@ -160,7 +160,7 @@ image::object_search_17.jpeg[]
 
 image::object_search_18.jpeg[]
 
-=== Examples
+== Examples
 
 The first example is already given in the previous section. In that
 example you want to look-up an object that should be on your chart, you
@@ -201,6 +201,6 @@ the “bull”.
 smaller and therefore less easily seen (and avoided by sailors like
 you).
 
-=== Frequently Asked Questions
+== Frequently Asked Questions
 
 (nothing yet).
