@@ -1,5 +1,5 @@
 site:
-  title: Object Search Manual
+  title: Object Search
   url:  https://nowhere.net
   start_page: objsearch::index.adoc
 
