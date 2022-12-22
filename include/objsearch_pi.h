@@ -38,7 +38,7 @@
 #include <queue>
 //#include <wx/thread.h>
 //#include <wx/event.h>
-#include "version.h"
+#include "config.h"
 
 #define MY_API_VERSION_MAJOR 1
 #define MY_API_VERSION_MINOR 13
