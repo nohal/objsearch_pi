@@ -36,4 +36,3 @@ cmake --build . --config release
 The format of the CSV is simple:
 ```Lat, Lon, Object name, Feature name,"Source" name[[,Scale],PPM Scale]```
 Strings containing commas of course have to be quoted, the scale fields are optional
-

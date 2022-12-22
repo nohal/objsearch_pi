@@ -865,4 +865,3 @@ msgstr "Import dat z %s."
 #, c-format
 msgid "The files %s does not exist, nothing to import."
 msgstr "Soubor %s neexistuje, nic pro import."
-

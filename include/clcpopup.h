@@ -31,19 +31,24 @@
 
 #ifndef WX_PRECOMP
 #include "wx/wx.h"
-#endif  // precompiled headers
+#endif // precompiled headers
 
 #include <wx/checklst.h>
 #include <wx/combo.h>
 
 class CheckListComboPopup : public wxCheckListBox, public wxComboPopup {
-   public:
-    virtual void Init() {}
-    virtual bool Create(wxWindow* parent) { return wxCheckListBox::Create(parent, wxID_ANY, wxPoint(0, 0)); }
+public:
+    virtual void Init() { }
+    virtual bool Create(wxWindow* parent)
+    {
+        return wxCheckListBox::Create(parent, wxID_ANY, wxPoint(0, 0));
+    }
 
-    virtual void OnShow() {}
+    virtual void OnShow() { }
 
-    virtual wxSize GetAdjustedSize(int minWidth, int WXUNUSED(prefHeight), int maxHeight) {
+    virtual wxSize GetAdjustedSize(
+        int minWidth, int WXUNUSED(prefHeight), int maxHeight)
+    {
         return wxSize(wxMax(300, minWidth), wxMin(250, maxHeight));
     }
 
@@ -63,7 +68,7 @@ class CheckListComboPopup : public wxCheckListBox, public wxComboPopup {
 
     void CheckAll(bool check = true);
 
-   private:
+private:
     wxArrayString m_values;
     DECLARE_EVENT_TABLE()
 };

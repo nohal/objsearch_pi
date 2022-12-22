@@ -865,4 +865,3 @@ msgstr "Importation des données depuis %s."
 #, c-format
 msgid "The files %s does not exist, nothing to import."
 msgstr "Le fichier %s n'existe pas. Rien ne peut être importé."
-

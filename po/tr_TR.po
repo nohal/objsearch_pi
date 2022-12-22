@@ -865,4 +865,3 @@ msgstr "-den %s veri alma."
 #, c-format
 msgid "The files %s does not exist, nothing to import."
 msgstr "Dosyalar %s bulunmuyor, alınacak bir şey yok."
-

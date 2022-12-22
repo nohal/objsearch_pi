@@ -865,4 +865,3 @@ msgstr "Εισαγωγή δεδομένων από %s."
 #, c-format
 msgid "The files %s does not exist, nothing to import."
 msgstr "Το αρχείο %s δεν υπάρχει, τίποτα για την εισαγωγή."
-

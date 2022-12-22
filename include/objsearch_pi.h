@@ -31,11 +31,11 @@
 
 #ifndef WX_PRECOMP
 #include "wx/wx.h"
-#endif  // precompiled headers
+#endif // precompiled headers
 
-#include <wx/fileconf.h>
 #include <map>
 #include <queue>
+#include <wx/fileconf.h>
 //#include <wx/thread.h>
 //#include <wx/event.h>
 #include "config.h"
@@ -57,7 +57,8 @@
 //    The PlugIn Class Definition
 //----------------------------------------------------------------------------------------------------------
 
-#define OBJSEARCH_TOOL_POSITION -1  // Request default positioning of toolbar tool
+#define OBJSEARCH_TOOL_POSITION                                                \
+    -1 // Request default positioning of toolbar tool
 
 class objsearch_pi;
 
@@ -66,18 +67,26 @@ struct Chart {
     wxString name;
     double scale;
     int nativescale;
-    Chart() : id(-1), name(wxEmptyString), scale(0.0), nativescale(-1) {}
+    Chart()
+        : id(-1)
+        , name(wxEmptyString)
+        , scale(0.0)
+        , nativescale(-1)
+    {
+    }
 };
 
 class DistanceMercatorFunc : public wxSQLite3ScalarFunction {
-   public:
-    DistanceMercatorFunc(){};
+public:
+    DistanceMercatorFunc() {};
     void Execute(wxSQLite3FunctionContext& ctx);
 };
 
 class DbThread : public wxThread {
-   public:
-    DbThread(objsearch_pi* handler) : wxThread() {
+public:
+    DbThread(objsearch_pi* handler)
+        : wxThread()
+    {
         Create();
         m_pHandler = handler;
         m_bIsWriting = false;
@@ -86,33 +95,40 @@ class DbThread : public wxThread {
     void* Entry();
     bool IsWriting() { return m_bIsWriting; }
 
-   protected:
+protected:
     objsearch_pi* m_pHandler;
 
-   private:
+private:
     bool m_bIsWriting;
 };
 
 class SettingsDialogImpl : public SettingsDialog {
-   public:
+public:
 #ifdef __WXOSX__
-    SettingsDialogImpl(objsearch_pi* plugin, wxWindow* parent, wxWindowID id = wxID_ANY,
-                       const wxString& title = _("Object Search Settings"), const wxPoint& pos = wxDefaultPosition,
-                       const wxSize& size = wxSize(600, 450),
-                       long style = wxCAPTION | wxCLOSE_BOX | wxMAXIMIZE_BOX | wxRESIZE_BORDER | wxSYSTEM_MENU | wxSTAY_ON_TOP);
+    SettingsDialogImpl(objsearch_pi* plugin, wxWindow* parent,
+        wxWindowID id = wxID_ANY,
+        const wxString& title = _("Object Search Settings"),
+        const wxPoint& pos = wxDefaultPosition,
+        const wxSize& size = wxSize(600, 450),
+        long style = wxCAPTION | wxCLOSE_BOX | wxMAXIMIZE_BOX | wxRESIZE_BORDER
+            | wxSYSTEM_MENU | wxSTAY_ON_TOP);
 #else
-    SettingsDialogImpl(objsearch_pi* plugin, wxWindow* parent, wxWindowID id = wxID_ANY,
-                       const wxString& title = _("Object Search Settings"), const wxPoint& pos = wxDefaultPosition,
-                       const wxSize& size = wxSize(600, 450),
-                       long style = wxCAPTION | wxCLOSE_BOX | wxMAXIMIZE_BOX | wxRESIZE_BORDER | wxSYSTEM_MENU);
+    SettingsDialogImpl(objsearch_pi* plugin, wxWindow* parent,
+        wxWindowID id = wxID_ANY,
+        const wxString& title = _("Object Search Settings"),
+        const wxPoint& pos = wxDefaultPosition,
+        const wxSize& size = wxSize(600, 450),
+        long style = wxCAPTION | wxCLOSE_BOX | wxMAXIMIZE_BOX | wxRESIZE_BORDER
+            | wxSYSTEM_MENU);
 #endif
     ~SettingsDialogImpl();
     void OnBrowse(wxCommandEvent& event);
     void OnOk(wxCommandEvent& event);
     void OnCancel(wxCommandEvent& event);
-    void CreateObject(double lat, double lon, wxString& name, wxString& feature, wxString& source, long scale, double truescale);
+    void CreateObject(double lat, double lon, wxString& name, wxString& feature,
+        wxString& source, long scale, double truescale);
 
-   private:
+private:
     static int ProcessCsvLine(void* frm, int cnt, const char** cv);
     objsearch_pi* p_plugin;
     wxProgressDialog* m_prgdlg;
@@ -120,17 +136,23 @@ class SettingsDialogImpl : public SettingsDialog {
 };
 
 class ObjSearchDialogImpl : public ObjSearchDialog {
-   public:
+public:
 #ifdef __WXOSX__
-    ObjSearchDialogImpl(objsearch_pi* plugin, wxWindow* parent, wxWindowID id = wxID_ANY,
-                        const wxString& title = _("Chart Object Search"), const wxPoint& pos = wxDefaultPosition,
-                        const wxSize& size = wxSize(660, 450),
-                        long style = wxCAPTION | wxCLOSE_BOX | wxMAXIMIZE_BOX | wxRESIZE_BORDER | wxSYSTEM_MENU | wxSTAY_ON_TOP);
+    ObjSearchDialogImpl(objsearch_pi* plugin, wxWindow* parent,
+        wxWindowID id = wxID_ANY,
+        const wxString& title = _("Chart Object Search"),
+        const wxPoint& pos = wxDefaultPosition,
+        const wxSize& size = wxSize(660, 450),
+        long style = wxCAPTION | wxCLOSE_BOX | wxMAXIMIZE_BOX | wxRESIZE_BORDER
+            | wxSYSTEM_MENU | wxSTAY_ON_TOP);
 #else
-    ObjSearchDialogImpl(objsearch_pi* plugin, wxWindow* parent, wxWindowID id = wxID_ANY,
-                        const wxString& title = _("Chart Object Search"), const wxPoint& pos = wxDefaultPosition,
-                        const wxSize& size = wxSize(660, 450),
-                        long style = wxCAPTION | wxCLOSE_BOX | wxMAXIMIZE_BOX | wxRESIZE_BORDER | wxSYSTEM_MENU);
+    ObjSearchDialogImpl(objsearch_pi* plugin, wxWindow* parent,
+        wxWindowID id = wxID_ANY,
+        const wxString& title = _("Chart Object Search"),
+        const wxPoint& pos = wxDefaultPosition,
+        const wxSize& size = wxSize(660, 450),
+        long style = wxCAPTION | wxCLOSE_BOX | wxMAXIMIZE_BOX | wxRESIZE_BORDER
+            | wxSYSTEM_MENU);
 #endif
     ~ObjSearchDialogImpl();
 
@@ -138,12 +160,13 @@ class ObjSearchDialogImpl : public ObjSearchDialog {
     void AddFeature(const wxString& feature);
 
     void ClearObjects();
-    void AddObject(const wxString& feature, const wxString& objectname, double lat, double lon, double dist, double scale,
-                   int nativescale, const wxString& chart);
+    void AddObject(const wxString& feature, const wxString& objectname,
+        double lat, double lon, double dist, double scale, int nativescale,
+        const wxString& chart);
 
     void SortResults();
 
-   protected:
+protected:
     CheckListComboPopup* m_clcPopup;
     void OnSearch(wxCommandEvent& event);
     void OnItemSelected(wxListEvent& event);
@@ -151,14 +174,14 @@ class ObjSearchDialogImpl : public ObjSearchDialog {
     void OnShowOnChart(wxCommandEvent& event);
     void OnSettings(wxCommandEvent& event);
 
-   private:
+private:
     wxString HumanizeFeatureName(const wxString& feature_name);
     void SaveSettings();
     objsearch_pi* p_plugin;
 };
 
 class objsearch_pi : public opencpn_plugin_113 {
-   public:
+public:
     objsearch_pi(void* ppimgr);
     ~objsearch_pi();
 
@@ -180,27 +203,34 @@ class objsearch_pi : public opencpn_plugin_113 {
     int GetToolbarToolCount();
     void OnToolbarToolCallback(int id);
     void SetPositionFix(PlugIn_Position_Fix& pfix);
-    void SendVectorChartObjectInfo(wxString& chart, wxString& feature, wxString& objname, double lat, double lon, double scale,
-                                   int nativescale);
+    void SendVectorChartObjectInfo(wxString& chart, wxString& feature,
+        wxString& objname, double lat, double lon, double scale,
+        int nativescale);
     void ShowPreferencesDialog(wxWindow* parent);
 
     // Other public methods
     void SetColorScheme(PI_ColorScheme cs);
 
-    void FindObjects(const wxString& feature_filter, const wxString& search_string, double lat, double lon, double dist);
+    void FindObjects(const wxString& feature_filter,
+        const wxString& search_string, double lat, double lon, double dist);
 
     bool GetAutoClose() { return m_bCloseOnShow; }
     int GetRangeLimit() { return m_iLimitRange; }
     void SetAutoClose(bool val) { m_bCloseOnShow = val; }
-    void SetRangeLimit(int val) { m_iLimitRange = floor(fromUsrDistance_Plugin(val) + 0.5); }
+    void SetRangeLimit(int val)
+    {
+        m_iLimitRange = floor(fromUsrDistance_Plugin(val) + 0.5);
+    }
 
-    double GetLat() {
+    double GetLat()
+    {
         if (m_boatlat == NAN || m_boatlon == NAN)
             return m_vplat;
         else
             return m_boatlat;
     }
-    double GetLon() {
+    double GetLon()
+    {
         if (m_boatlat == NAN || m_boatlon == NAN)
             return m_vplon;
         else
@@ -213,12 +243,12 @@ class objsearch_pi : public opencpn_plugin_113 {
     void ScanArea(int latmin, int lonmin, int latmax, int lonmax, int scale);
     void StopScan() { finishing = true; };
 
-   protected:
+protected:
     int QueryDB(const wxString& sql) { return QueryDB(m_db, sql); }
     wxString GetQuery();
     bool HasQueries();
 
-   private:
+private:
     bool LoadConfig();
     bool SaveConfig();
     bool m_db_thread_running;
@@ -243,7 +273,8 @@ class objsearch_pi : public opencpn_plugin_113 {
 
     Chart StoreNewChart(wxString chart, double scale, int nativescale);
     wxLongLong StoreNewFeature(wxString feature);
-    void StoreNewObject(long chart_id, long feature_id, wxString objname, double lat, double lon);
+    void StoreNewObject(long chart_id, long feature_id, wxString objname,
+        double lat, double lon);
 
     wxString m_chartLoading;
     bool m_bDBUsable;
@@ -267,8 +298,8 @@ class objsearch_pi : public opencpn_plugin_113 {
     bool finishing;
 
     DbThread* m_pThread;
-    wxCriticalSection m_pThreadCS;  // protects the m_pThread pointer
-    friend class DbThread;          // allow it to access our m_pThread
+    wxCriticalSection m_pThreadCS; // protects the m_pThread pointer
+    friend class DbThread; // allow it to access our m_pThread
 
     std::queue<wxString> query_queue;
 

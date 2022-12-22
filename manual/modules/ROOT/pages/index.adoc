@@ -44,7 +44,7 @@ deal with the encrypted chart objects.
 
 *Note*: In this section the instructions are specifically for Search-pi,
 but there is a dedicated page in the manual with information about
-Downloading, Installing and Enabling Plugins in general. 
+Downloading, Installing and Enabling Plugins in general.
 
 Search-pi can be downloaded from https://www.opencpn.org/OpenCPN/plugins/chartobject.html
 
@@ -143,7 +143,7 @@ Therefore we have set a limit of 5 Nmi.
 (“*5*” means “*Search in a range of 5 Nautical Miles from the boat's
 position*”).
 That will narrow the list of results down considerably.
- 
+
 image::object_search_16.jpeg[]
 
 And that is better manageable.

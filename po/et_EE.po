@@ -865,4 +865,3 @@ msgstr "Andmete importimine %s."
 #, c-format
 msgid "The files %s does not exist, nothing to import."
 msgstr "Faile %s pole olemas, pole midagi importida."
-

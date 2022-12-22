@@ -8,8 +8,8 @@
 
 extern void initialize_images();
 
-extern wxBitmap *_img_objsearch_pi;
-extern wxBitmap *_img_objsearch;
+extern wxBitmap* _img_objsearch_pi;
+extern wxBitmap* _img_objsearch;
 
 #ifdef OBJSEARCH_USE_SVG
 extern wxString _svg_objsearch;
