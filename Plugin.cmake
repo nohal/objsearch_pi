@@ -56,9 +56,6 @@ if(NOT "${SANITIZE}" STREQUAL "OFF" AND NOT "${SANITIZE}" STREQUAL "")
 endif()
 
 add_definitions(-DOBJSEARCH_USE_SVG)
-if(NOT WIN32)
-  add_compile_options(-msse4.2 -maes)
-endif()
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/wxsqlite3-4.9.1/include)

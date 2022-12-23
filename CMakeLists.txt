@@ -33,6 +33,9 @@ include(Plugin.cmake)
 #
 project(${PKG_NAME} VERSION ${PKG_VERSION})
 include(PluginCompiler)
+if(NOT WIN32 AND NOT "${CMAKE_SYSTEM_PROCESSOR}" MATCHES "arm")
+  add_compile_options(-msse4.2 -maes)
+endif()
 
 add_library(${CMAKE_PROJECT_NAME} SHARED EXCLUDE_FROM_ALL ${SRC})
 include_directories(BEFORE ${CMAKE_BINARY_DIR}/include)
