@@ -61,14 +61,14 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/wxsqlite3-3.5.9/include)
 include_directories(${CMAKE_SOURCE_DIR}/sqlite-amalgamation-3260000)
 
-set(HDR_DASHBOARD
+set(HDR_OBJSEARCH
   ${CMAKE_SOURCE_DIR}/include/clcpopup.h
   ${CMAKE_SOURCE_DIR}/include/csv_parser.h
   ${CMAKE_SOURCE_DIR}/include/icons.h
   ${CMAKE_SOURCE_DIR}/include/ObjSearchDialog.h
   ${CMAKE_SOURCE_DIR}/include/objsearch_pi.h
   )
-set(SRC_DASHBOARD
+set(SRC_OBJSEARCH
   ${CMAKE_SOURCE_DIR}/src/clcpopup.cpp
   ${CMAKE_SOURCE_DIR}/src/csv_parser.cpp
   ${CMAKE_SOURCE_DIR}/src/icons.cpp
@@ -77,8 +77,10 @@ set(SRC_DASHBOARD
   )
 
 set(SRC
-  ${HDR_DASHBOARD}
-  ${SRC_DASHBOARD}
+  ${HDR_OBJSEARCH}
+  ${SRC_OBJSEARCH}
+  ${CMAKE_SOURCE_DIR}/sqlite-amalgamation-3260000/sqlite3.c
+  ${CMAKE_SOURCE_DIR}/wxsqlite3-3.5.9/src/wxsqlite3.cpp
 )
 
 set(PKG_API_LIB api-16)  #  A dir in opencpn-libs/ e. g., api-17 or api-16
