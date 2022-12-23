@@ -33,7 +33,7 @@ include(Plugin.cmake)
 #
 project(${PKG_NAME} VERSION ${PKG_VERSION})
 include(PluginCompiler)
-if(NOT WIN32 AND NOT "${CMAKE_SYSTEM_PROCESSOR}" MATCHES "arm")
+if(NOT WIN32 AND NOT "${CMAKE_SYSTEM_PROCESSOR}" MATCHES "arm" AND NOT "${CMAKE_SYSTEM_PROCESSOR}" MATCHES "aarch64")
   message(STATUS "CPU: ${CMAKE_SYSTEM_PROCESSOR}")
   add_compile_options(-msse4.2 -maes)
 endif()
