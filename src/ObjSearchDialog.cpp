@@ -95,6 +95,8 @@ ObjSearchDialog::ObjSearchDialog(wxWindow* parent, wxWindowID id,
     this->Centre(wxBOTH);
 
     // Connect Events
+    this->Connect(
+        wxEVT_SHOW, wxShowEventHandler(ObjSearchDialog::ObjSearchDialogOnShow));
     m_textCtrlSearchTerm->Connect(wxEVT_COMMAND_TEXT_ENTER,
         wxCommandEventHandler(ObjSearchDialog::OnSearch), NULL, this);
     m_buttonSearch->Connect(wxEVT_COMMAND_BUTTON_CLICKED,
@@ -112,6 +114,8 @@ ObjSearchDialog::ObjSearchDialog(wxWindow* parent, wxWindowID id,
 ObjSearchDialog::~ObjSearchDialog()
 {
     // Disconnect Events
+    this->Disconnect(
+        wxEVT_SHOW, wxShowEventHandler(ObjSearchDialog::ObjSearchDialogOnShow));
     m_textCtrlSearchTerm->Disconnect(wxEVT_COMMAND_TEXT_ENTER,
         wxCommandEventHandler(ObjSearchDialog::OnSearch), NULL, this);
     m_buttonSearch->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED,

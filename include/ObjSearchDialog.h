@@ -55,6 +55,7 @@ protected:
     wxButton* m_btnSettings;
 
     // Virtual event handlers, overide them in your derived class
+    virtual void ObjSearchDialogOnShow(wxShowEvent& event) { event.Skip(); }
     virtual void OnSearch(wxCommandEvent& event) { event.Skip(); }
     virtual void OnItemSelected(wxListEvent& event) { event.Skip(); }
     virtual void OnShowOnChart(wxCommandEvent& event) { event.Skip(); }

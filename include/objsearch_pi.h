@@ -170,6 +170,11 @@ protected:
     void OnShowOnChart(wxCommandEvent& event);
     void OnLeftDClick(wxMouseEvent& event);
     void OnSettings(wxCommandEvent& event);
+    void ObjSearchDialogOnShow(wxShowEvent& event)
+    {
+        m_textCtrlSearchTerm->SetFocus();
+        event.Skip();
+    }
 
 private:
     wxString HumanizeFeatureName(const wxString& feature_name);
