@@ -170,6 +170,13 @@ protected:
     void OnShowOnChart(wxCommandEvent& event);
     void OnLeftDClick(wxMouseEvent& event);
     void OnSettings(wxCommandEvent& event);
+    void ObjSearchDialogOnCharHook(wxKeyEvent& event)
+    {
+        if (event.GetKeyCode() == WXK_ESCAPE) {
+            Hide();
+        }
+        event.Skip();
+    }
     void ObjSearchDialogOnShow(wxShowEvent& event)
     {
         m_textCtrlSearchTerm->SetFocus();
