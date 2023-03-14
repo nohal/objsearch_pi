@@ -151,7 +151,8 @@ SettingsDialog::SettingsDialog(wxWindow* parent, wxWindowID id,
 
     m_stScanChartsExplain = new wxStaticText(m_panelPopulate, wxID_ANY,
         _("0-80S/N, 0-180E/W, W longitudes and S latitudes are expressed as "
-          "negative numbers.\nThe area selected can't cross the IDL (180W/E)"),
+          "negative numbers.\nThe area selected can't cross the 180th "
+          "meridian"),
         wxDefaultPosition, wxDefaultSize, 0);
     m_stScanChartsExplain->Wrap(-1);
     m_stScanChartsExplain->SetFont(wxFont(10, wxFONTFAMILY_DEFAULT,
