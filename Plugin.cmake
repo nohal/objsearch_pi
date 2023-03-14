@@ -64,14 +64,12 @@ include_directories(${CMAKE_SOURCE_DIR}/sqlite3mc-1.6.0-sqlite-3.41.0-amalgamati
 set(HDR_OBJSEARCH
   ${CMAKE_SOURCE_DIR}/include/clcpopup.h
   ${CMAKE_SOURCE_DIR}/include/csv_parser.h
-  ${CMAKE_SOURCE_DIR}/include/icons.h
   ${CMAKE_SOURCE_DIR}/include/ObjSearchDialog.h
   ${CMAKE_SOURCE_DIR}/include/objsearch_pi.h
   )
 set(SRC_OBJSEARCH
   ${CMAKE_SOURCE_DIR}/src/clcpopup.cpp
   ${CMAKE_SOURCE_DIR}/src/csv_parser.cpp
-  ${CMAKE_SOURCE_DIR}/src/icons.cpp
   ${CMAKE_SOURCE_DIR}/src/ObjSearchDialog.cpp
   ${CMAKE_SOURCE_DIR}/src/objsearch_pi.cpp
   )

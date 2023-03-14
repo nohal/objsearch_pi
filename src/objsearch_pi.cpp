@@ -25,13 +25,12 @@
  */
 
 // For compilers that support precompilation, includes "wx/wx.h".
-#include "wx/wxprec.h"
-
-#ifndef WX_PRECOMP
-#include "wx/wx.h"
-#endif
+#include <wx/wxprec.h>
 
 #include "wx/wxsqlite3.h"
+#include <wx/filedlg.h>
+#include <wx/log.h>
+#include <wx/msgdlg.h>
 #include <wx/progdlg.h>
 
 #include "csv_parser.h"
@@ -83,8 +82,6 @@ extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p) { delete p; }
 //    ObjSearch PlugIn Implementation
 //
 //---------------------------------------------------------------------------------------------------------
-
-#include "icons.h"
 
 //---------------------------------------------------------------------------------------------------------
 //
@@ -193,10 +190,9 @@ void objsearch_pi::clearDB(wxSQLite3Database* db)
 
 objsearch_pi::objsearch_pi(void* ppimgr)
     : opencpn_plugin_113(ppimgr)
+    , m_shown(false)
 {
     // Create the PlugIn icons
-    initialize_images();
-
     m_db_thread_running = false;
 
     m_bDBUsable = true;
@@ -237,14 +233,11 @@ objsearch_pi::objsearch_pi(void* ppimgr)
     }
 
     m_bWaitForDB = false;
+
+    m_logo = GetBitmapFromSVGFile(GetDataDir() + "objsearch_pi.svg", 32, 32);
 }
 
-objsearch_pi::~objsearch_pi()
-{
-    clearDB(m_db);
-    delete _img_objsearch_pi;
-    delete _img_objsearch;
-}
+objsearch_pi::~objsearch_pi() { clearDB(m_db); }
 
 int objsearch_pi::Init()
 {
@@ -258,20 +251,28 @@ int objsearch_pi::Init()
     //    And load the configuration items
     LoadConfig();
 
+    AddLocaleCatalog(_T("opencpn-objsearch_pi"));
+
     // Get a pointer to the opencpn display canvas, to use as a parent for the
     // OBJSEARCH dialog
     m_parent_window = GetOCPNCanvasWindow();
 
-#ifdef OBJSEARCH_USE_SVG
-    m_leftclick_tool_id = InsertPlugInToolSVG(_T( "Object Search" ),
-        _svg_objsearch, _svg_objsearch_rollover, _svg_objsearch_toggled,
-        wxITEM_CHECK, _("Object Search"), _T( "" ), NULL,
-        OBJSEARCH_TOOL_POSITION, 0, this);
-#else
-    m_leftclick_tool_id = InsertPlugInTool(_T ( "" ), _img_objsearch,
-        _img_objsearch, wxITEM_CHECK, _("Object Search"), _T ( "" ), NULL,
-        OBJSEARCH_TOOL_POSITION, 0, this);
-#endif
+    wxString _svg_objsearch = GetDataDir() + "objsearch_pi.svg";
+    wxString _svg_objsearch_rollover
+        = GetDataDir() + "objsearch_pi_rollover.svg";
+    wxString _svg_objsearch_toggled = GetDataDir() + "objsearch_pi_toggled.svg";
+
+    if (m_shown) {
+        m_leftclick_tool_id = InsertPlugInToolSVG(_T( "Object Search" ),
+            _svg_objsearch_toggled, _svg_objsearch_rollover, _svg_objsearch,
+            wxITEM_CHECK, _("Object Search"), _T( "" ), nullptr,
+            OBJSEARCH_TOOL_POSITION, 0, this);
+    } else {
+        m_leftclick_tool_id = InsertPlugInToolSVG(_T( "Object Search" ),
+            _svg_objsearch, _svg_objsearch_rollover, _svg_objsearch_toggled,
+            wxITEM_CHECK, _("Object Search"), _T( "" ), nullptr,
+            OBJSEARCH_TOOL_POSITION, 0, this);
+    }
 
     m_pObjSearchDialog = new ObjSearchDialogImpl(this, m_parent_window);
 
@@ -355,7 +356,7 @@ int objsearch_pi::GetPlugInVersionMajor() { return PLUGIN_VERSION_MAJOR; }
 
 int objsearch_pi::GetPlugInVersionMinor() { return PLUGIN_VERSION_MINOR; }
 
-wxBitmap* objsearch_pi::GetPlugInBitmap() { return _img_objsearch_pi; }
+wxBitmap* objsearch_pi::GetPlugInBitmap() { return &m_logo; }
 
 wxString objsearch_pi::GetCommonName() { return _T ( "ObjSearch" ); }
 
@@ -374,6 +375,8 @@ int objsearch_pi::GetToolbarToolCount() { return 1; }
 
 void objsearch_pi::OnToolbarToolCallback(int id)
 {
+    m_shown = !m_shown;
+
     SetToolbarItemState(id, false);
     m_pObjSearchDialog->ClearFeatures();
     for (std::map<wxString, int>::iterator it = m_featuresInDb.begin();

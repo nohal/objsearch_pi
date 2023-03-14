@@ -27,11 +27,7 @@
 #ifndef _OBJSEARCHPI_H_
 #define _OBJSEARCHPI_H_
 
-#include "wx/wxprec.h"
-
-#ifndef WX_PRECOMP
-#include "wx/wx.h"
-#endif // precompiled headers
+#include <wx/wxprec.h>
 
 #include <map>
 #include <queue>
@@ -209,6 +205,11 @@ public:
     void ShowPreferencesDialog(wxWindow* parent);
 
     // Other public methods
+    wxString GetDataDir()
+    {
+        return GetPluginDataDir("objsearch_pi") + wxFileName::GetPathSeparator()
+            + "data" + wxFileName::GetPathSeparator();
+    }
     void SetColorScheme(PI_ColorScheme cs);
 
     void FindObjects(const wxString& feature_filter,
@@ -306,6 +307,8 @@ private:
     DistanceMercatorFunc distMercFunc;
 
     double CalculatePPM(float scale);
+    wxBitmap m_logo;
+    bool m_shown;
 };
 
 #endif
