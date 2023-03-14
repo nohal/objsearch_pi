@@ -168,6 +168,7 @@ protected:
     void OnItemSelected(wxListEvent& event);
     void OnClose(wxCommandEvent& event);
     void OnShowOnChart(wxCommandEvent& event);
+    void OnLeftDClick(wxMouseEvent& event);
     void OnSettings(wxCommandEvent& event);
 
 private:

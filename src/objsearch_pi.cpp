@@ -917,6 +917,40 @@ void ObjSearchDialogImpl::OnShowOnChart(wxCommandEvent& event)
         Hide();
 }
 
+void ObjSearchDialogImpl::OnLeftDClick(wxMouseEvent& event)
+{
+    long itemIndex = -1;
+    itemIndex = m_listCtrlResults->GetNextItem(
+        itemIndex, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
+    if (itemIndex == -1)
+        return;
+
+    wxListItem row_info;
+    wxString cell_contents_string;
+
+    row_info.m_itemId = itemIndex;
+    row_info.m_col = 2;
+    row_info.m_mask = wxLIST_MASK_TEXT;
+    m_listCtrlResults->GetItem(row_info);
+    double lat = fromDMM(row_info.m_text);
+
+    row_info.m_col = 3;
+    m_listCtrlResults->GetItem(row_info);
+    double lon = fromDMM(row_info.m_text);
+
+    row_info.m_col = 5;
+    m_listCtrlResults->GetItem(row_info);
+    double scale;
+    row_info.m_text.ToDouble(&scale);
+    if (scale < 0.001)
+        scale = 0.001;
+
+    event.Skip();
+    JumpToPosition(lat, lon, scale);
+    if (m_cAutoClose->GetValue())
+        Hide();
+}
+
 wxString ObjSearchDialogImpl::HumanizeFeatureName(
     const wxString& feature_name_chart)
 {

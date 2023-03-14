@@ -99,6 +99,8 @@ ObjSearchDialog::ObjSearchDialog(wxWindow* parent, wxWindowID id,
         wxCommandEventHandler(ObjSearchDialog::OnSearch), NULL, this);
     m_buttonSearch->Connect(wxEVT_COMMAND_BUTTON_CLICKED,
         wxCommandEventHandler(ObjSearchDialog::OnSearch), NULL, this);
+    m_listCtrlResults->Connect(wxEVT_LEFT_DCLICK,
+        wxMouseEventHandler(ObjSearchDialog::OnLeftDClick), NULL, this);
     m_listCtrlResults->Connect(wxEVT_COMMAND_LIST_ITEM_SELECTED,
         wxListEventHandler(ObjSearchDialog::OnItemSelected), NULL, this);
     m_btnShowOnChart->Connect(wxEVT_COMMAND_BUTTON_CLICKED,
@@ -114,6 +116,8 @@ ObjSearchDialog::~ObjSearchDialog()
         wxCommandEventHandler(ObjSearchDialog::OnSearch), NULL, this);
     m_buttonSearch->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED,
         wxCommandEventHandler(ObjSearchDialog::OnSearch), NULL, this);
+    m_listCtrlResults->Disconnect(wxEVT_LEFT_DCLICK,
+        wxMouseEventHandler(ObjSearchDialog::OnLeftDClick), NULL, this);
     m_listCtrlResults->Disconnect(wxEVT_COMMAND_LIST_ITEM_SELECTED,
         wxListEventHandler(ObjSearchDialog::OnItemSelected), NULL, this);
     m_btnShowOnChart->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED,

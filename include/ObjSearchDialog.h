@@ -59,6 +59,7 @@ protected:
     virtual void OnItemSelected(wxListEvent& event) { event.Skip(); }
     virtual void OnShowOnChart(wxCommandEvent& event) { event.Skip(); }
     virtual void OnSettings(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnLeftDClick(wxMouseEvent& event) { event.Skip(); }
 
 public:
     ObjSearchDialog(wxWindow* parent, wxWindowID id = wxID_ANY,
