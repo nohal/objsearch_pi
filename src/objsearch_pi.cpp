@@ -251,8 +251,6 @@ int objsearch_pi::Init()
     //    And load the configuration items
     LoadConfig();
 
-    AddLocaleCatalog(_T("opencpn-objsearch_pi"));
-
     // Get a pointer to the opencpn display canvas, to use as a parent for the
     // OBJSEARCH dialog
     m_parent_window = GetOCPNCanvasWindow();
