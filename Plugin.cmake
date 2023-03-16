@@ -36,7 +36,7 @@ set(PKG_VERSION "0.22.0")
 set(PKG_PRERELEASE "beta")  # Empty, or a tag like 'beta'
 
 set(DISPLAY_NAME objsearch)    # Dialogs, installer artifacts, ...
-set(PLUGIN_API_NAME objsearch_pi) # As of GetCommonName() in plugin API
+set(PLUGIN_API_NAME ObjSearch) # As of GetCommonName() in plugin API
 set(PKG_SUMMARY "Chart object search plugin for OpenCPN")
 set(PKG_DESCRIPTION [=[
 Vector chart object search  plugin for OpenCPN
