@@ -33,7 +33,7 @@ set(OCPN_RELEASE_REPO
 #
 set(PKG_NAME objsearch_pi)
 set(PKG_VERSION "0.22.0")
-set(PKG_PRERELEASE "beta")  # Empty, or a tag like 'beta'
+set(PKG_PRERELEASE "")  # Empty, or a tag like 'beta'
 
 set(DISPLAY_NAME objsearch)    # Dialogs, installer artifacts, ...
 set(PLUGIN_API_NAME ObjSearch) # As of GetCommonName() in plugin API
