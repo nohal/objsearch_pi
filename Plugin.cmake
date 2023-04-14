@@ -4,41 +4,35 @@
 # License:      GPLv3+
 # ~~~
 
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 3 of the License, or
-# (at your option) any later version.
-
+# This program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free Software
+# Foundation; either version 3 of the License, or (at your option) any later
+# version.
 
 # -------- Options ----------
 
 set(OCPN_TEST_REPO
-  "nohal/opencpn-plugins"
-  CACHE STRING "Default repository for untagged builds"
-)
+    "nohal/opencpn-plugins"
+    CACHE STRING "Default repository for untagged builds")
 set(OCPN_BETA_REPO
-  "nohal/objsearch_pi-beta"
-  CACHE STRING
-  "Default repository for tagged builds matching 'beta'"
-)
+    "nohal/objsearch_pi-beta"
+    CACHE STRING "Default repository for tagged builds matching 'beta'")
 set(OCPN_RELEASE_REPO
-  "nohal/objsearch_pi-stable"
-  CACHE STRING
-  "Default repository for tagged builds not matching 'beta'"
-)
+    "nohal/objsearch_pi-stable"
+    CACHE STRING "Default repository for tagged builds not matching 'beta'")
 
-#
 #
 # -------  Plugin setup --------
 #
 set(PKG_NAME objsearch_pi)
-set(PKG_VERSION "0.24.0")
-set(PKG_PRERELEASE "")  # Empty, or a tag like 'beta'
+set(PKG_VERSION "0.25.1")
+set(PKG_PRERELEASE "") # Empty, or a tag like 'beta'
 
-set(DISPLAY_NAME objsearch)    # Dialogs, installer artifacts, ...
+set(DISPLAY_NAME objsearch) # Dialogs, installer artifacts, ...
 set(PLUGIN_API_NAME ObjSearch) # As of GetCommonName() in plugin API
 set(PKG_SUMMARY "Chart object search plugin for OpenCPN")
-set(PKG_DESCRIPTION [=[
+set(PKG_DESCRIPTION
+    [=[
 Vector chart object search  plugin for OpenCPN
 ]=])
 
@@ -59,33 +53,30 @@ add_definitions(-DOBJSEARCH_USE_SVG)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/wxsqlite3-4.9.2/include)
-include_directories(${CMAKE_SOURCE_DIR}/sqlite3mc-1.6.0-sqlite-3.41.0-amalgamation)
+include_directories(
+  ${CMAKE_SOURCE_DIR}/sqlite3mc-1.6.0-sqlite-3.41.0-amalgamation)
 
 set(HDR_OBJSEARCH
-  ${CMAKE_SOURCE_DIR}/include/clcpopup.h
-  ${CMAKE_SOURCE_DIR}/include/csv_parser.h
-  ${CMAKE_SOURCE_DIR}/include/ObjSearchDialog.h
-  ${CMAKE_SOURCE_DIR}/include/objsearch_pi.h
-  )
+    ${CMAKE_SOURCE_DIR}/include/clcpopup.h
+    ${CMAKE_SOURCE_DIR}/include/csv_parser.h
+    ${CMAKE_SOURCE_DIR}/include/ObjSearchDialog.h
+    ${CMAKE_SOURCE_DIR}/include/objsearch_pi.h)
 set(SRC_OBJSEARCH
-  ${CMAKE_SOURCE_DIR}/src/clcpopup.cpp
-  ${CMAKE_SOURCE_DIR}/src/csv_parser.cpp
-  ${CMAKE_SOURCE_DIR}/src/ObjSearchDialog.cpp
-  ${CMAKE_SOURCE_DIR}/src/objsearch_pi.cpp
-  )
+    ${CMAKE_SOURCE_DIR}/src/clcpopup.cpp ${CMAKE_SOURCE_DIR}/src/csv_parser.cpp
+    ${CMAKE_SOURCE_DIR}/src/ObjSearchDialog.cpp
+    ${CMAKE_SOURCE_DIR}/src/objsearch_pi.cpp)
 
 set(SRC
-  ${HDR_OBJSEARCH}
-  ${SRC_OBJSEARCH}
-  ${CMAKE_SOURCE_DIR}/sqlite3mc-1.6.0-sqlite-3.41.0-amalgamation/sqlite3mc_amalgamation.c
-  ${CMAKE_SOURCE_DIR}/wxsqlite3-4.9.2/src/wxsqlite3.cpp
-)
+    ${HDR_OBJSEARCH}
+    ${SRC_OBJSEARCH}
+    ${CMAKE_SOURCE_DIR}/sqlite3mc-1.6.0-sqlite-3.41.0-amalgamation/sqlite3mc_amalgamation.c
+    ${CMAKE_SOURCE_DIR}/wxsqlite3-4.9.2/src/wxsqlite3.cpp)
 
-set(PKG_API_LIB api-16)  #  A dir in opencpn-libs/ e. g., api-17 or api-16
+set(PKG_API_LIB api-16) # A dir in opencpn-libs/ e. g., api-17 or api-16
 
 macro(late_init)
-  # Perform initialization after the PACKAGE_NAME library, compilers
-  # and ocpn::api is available.
+  # Perform initialization after the PACKAGE_NAME library, compilers and
+  # ocpn::api is available.
 endmacro()
 
 macro(add_plugin_libraries)
