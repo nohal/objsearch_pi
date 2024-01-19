@@ -183,8 +183,20 @@ wxSQLite3ResultSet objsearch_pi::SelectFromDB(
 
 void objsearch_pi::clearDB(wxSQLite3Database* db)
 {
-    assert(db != NULL);
-    db->Close();
+    // assert(db != NULL);
+    if (db == nullptr) {
+        return;
+    }
+    try {
+        db->Close();
+    } catch (wxSQLite3Exception& e) {
+        wxLogMessage(_T("OBJSEARCH_PI: DB Exception: %i : %s"),
+            e.GetErrorCode(), e.GetMessage().c_str());
+        m_bDBUsable = false;
+    } catch (...) {
+        wxLogMessage(_T("OBJSEARCH_PI: Unknown exception"));
+        m_bDBUsable = false;
+    }
     delete db;
 }
 
