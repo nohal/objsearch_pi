@@ -213,6 +213,23 @@ objsearch_pi::objsearch_pi(void* ppimgr)
 
     finishing = false;
 
+    m_logo = GetBitmapFromSVGFile(GetDataDir() + "objsearch_pi.svg", 32, 32);
+}
+
+objsearch_pi::~objsearch_pi() { clearDB(m_db); }
+
+int objsearch_pi::Init()
+{
+    AddLocaleCatalog(_T ( "opencpn-objsearch_pi" ));
+
+    ::wxDisplaySize(&m_display_width, &m_display_height);
+
+    //    Get a pointer to the opencpn configuration object
+    m_pconfig = GetOCPNConfigObject();
+
+    //    And load the configuration items
+    LoadConfig();
+
     m_db = initDB();
 
     wxSQLite3ResultSet set;
@@ -245,23 +262,6 @@ objsearch_pi::objsearch_pi(void* ppimgr)
     }
 
     m_bWaitForDB = false;
-
-    m_logo = GetBitmapFromSVGFile(GetDataDir() + "objsearch_pi.svg", 32, 32);
-}
-
-objsearch_pi::~objsearch_pi() { clearDB(m_db); }
-
-int objsearch_pi::Init()
-{
-    AddLocaleCatalog(_T ( "opencpn-objsearch_pi" ));
-
-    ::wxDisplaySize(&m_display_width, &m_display_height);
-
-    //    Get a pointer to the opencpn configuration object
-    m_pconfig = GetOCPNConfigObject();
-
-    //    And load the configuration items
-    LoadConfig();
 
     // Get a pointer to the opencpn display canvas, to use as a parent for the
     // OBJSEARCH dialog
