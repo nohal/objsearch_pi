@@ -203,6 +203,7 @@ void objsearch_pi::clearDB(wxSQLite3Database* db)
 objsearch_pi::objsearch_pi(void* ppimgr)
     : opencpn_plugin_116(ppimgr)
     , m_shown(false)
+    , m_db(nullptr)
 {
     // Create the PlugIn icons
     m_db_thread_running = false;
@@ -216,7 +217,7 @@ objsearch_pi::objsearch_pi(void* ppimgr)
     m_logo = GetBitmapFromSVGFile(GetDataDir() + "objsearch_pi.svg", 32, 32);
 }
 
-objsearch_pi::~objsearch_pi() { clearDB(m_db); }
+objsearch_pi::~objsearch_pi() { }
 
 int objsearch_pi::Init()
 {
@@ -354,6 +355,8 @@ bool objsearch_pi::DeInit()
         if (!m_db_thread_running)
             break;
     }
+
+    clearDB(m_db);
 
     return true;
 }
