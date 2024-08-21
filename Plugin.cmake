@@ -25,7 +25,7 @@ set(OCPN_RELEASE_REPO
 # -------  Plugin setup --------
 #
 set(PKG_NAME objsearch_pi)
-set(PKG_VERSION "0.26.2")
+set(PKG_VERSION "0.26.4")
 set(PKG_PRERELEASE "") # Empty, or a tag like 'beta'
 
 set(DISPLAY_NAME objsearch) # Dialogs, installer artifacts, ...
