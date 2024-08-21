@@ -50,6 +50,9 @@ if(NOT "${SANITIZE}" STREQUAL "OFF" AND NOT "${SANITIZE}" STREQUAL "")
 endif()
 
 add_definitions(-DOBJSEARCH_USE_SVG)
+if(APPLE)
+  add_definitions(-DSQLITE3MC_OMIT_AES_HARDWARE_SUPPORT=1)
+endif()
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/wxsqlite3-4.9.11/include)
