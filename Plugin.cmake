@@ -52,9 +52,9 @@ endif()
 add_definitions(-DOBJSEARCH_USE_SVG)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
-include_directories(${CMAKE_SOURCE_DIR}/wxsqlite3-4.9.10/include)
+include_directories(${CMAKE_SOURCE_DIR}/wxsqlite3-4.9.11/include)
 include_directories(
-  ${CMAKE_SOURCE_DIR}/sqlite3mc-1.8.4-sqlite-3.45.2-amalgamation)
+  ${CMAKE_SOURCE_DIR}/sqlite3mc-1.8.7-sqlite-3.46.1-amalgamation)
 
 set(HDR_OBJSEARCH
     ${CMAKE_SOURCE_DIR}/include/clcpopup.h
@@ -69,8 +69,8 @@ set(SRC_OBJSEARCH
 set(SRC
     ${HDR_OBJSEARCH}
     ${SRC_OBJSEARCH}
-    ${CMAKE_SOURCE_DIR}/sqlite3mc-1.8.4-sqlite-3.45.2-amalgamation/sqlite3mc_amalgamation.c
-    ${CMAKE_SOURCE_DIR}/wxsqlite3-4.9.10/src/wxsqlite3.cpp)
+    ${CMAKE_SOURCE_DIR}/sqlite3mc-1.8.7-sqlite-3.46.1-amalgamation/sqlite3mc_amalgamation.c
+    ${CMAKE_SOURCE_DIR}/wxsqlite3-4.9.11/src/wxsqlite3.cpp)
 
 set(PKG_API_LIB api-16) # A dir in opencpn-libs/ e. g., api-17 or api-16
 
