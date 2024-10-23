@@ -222,19 +222,19 @@ objsearch_pi::objsearch_pi(void* ppimgr)
 
     m_bCloseOnShow = false;
     m_iLimitRange = 0;
-	m_display_width = 0;
-	m_display_height = 0;
-	m_leftclick_tool_id = 0;
-	m_boatlat = 0.0;
-	m_boatlon = 0.0;
-	m_vplat = 0.0;
-	m_vplon = 0.0;
-	m_vpppm = 0.0;
-	m_vpscale = 0.0;
-	vplat_min = 0.0;
-	vplat_max = 0.0;
-	vplon_min = 0.0;
-	vplon_max = 0.0;
+    m_display_width = 0;
+    m_display_height = 0;
+    m_leftclick_tool_id = 0;
+    m_boatlat = 0.0;
+    m_boatlon = 0.0;
+    m_vplat = 0.0;
+    m_vplon = 0.0;
+    m_vpppm = 0.0;
+    m_vpscale = 0.0;
+    vplat_min = 0.0;
+    vplat_max = 0.0;
+    vplon_min = 0.0;
+    vplon_max = 0.0;
 }
 
 objsearch_pi::~objsearch_pi() { }
@@ -295,14 +295,15 @@ int objsearch_pi::Init()
 
     if (m_shown) {
         m_leftclick_tool_id = InsertPlugInToolSVG(_T( "Object Search" ),
-            std::move(_svg_objsearch_toggled), std::move(_svg_objsearch_rollover), std::move(_svg_objsearch),
+            std::move(_svg_objsearch_toggled),
+            std::move(_svg_objsearch_rollover), std::move(_svg_objsearch),
             wxITEM_CHECK, _("Object Search"), _T( "" ), nullptr,
             OBJSEARCH_TOOL_POSITION, 0, this);
     } else {
         m_leftclick_tool_id = InsertPlugInToolSVG(_T( "Object Search" ),
-            std::move(_svg_objsearch), std::move(_svg_objsearch_rollover), std::move(_svg_objsearch_toggled),
-            wxITEM_CHECK, _("Object Search"), _T( "" ), nullptr,
-            OBJSEARCH_TOOL_POSITION, 0, this);
+            std::move(_svg_objsearch), std::move(_svg_objsearch_rollover),
+            std::move(_svg_objsearch_toggled), wxITEM_CHECK, _("Object Search"),
+            _T( "" ), nullptr, OBJSEARCH_TOOL_POSITION, 0, this);
     }
 
     m_pObjSearchDialog = new ObjSearchDialogImpl(this, m_parent_window);
@@ -413,7 +414,7 @@ void objsearch_pi::OnToolbarToolCallback(int id)
     SetToolbarItemState(id, false);
     m_pObjSearchDialog->ClearFeatures();
     for (std::map<wxString, int>::iterator it = m_featuresInDb.begin();
-         it != m_featuresInDb.end(); ++it)
+        it != m_featuresInDb.end(); ++it)
         m_pObjSearchDialog->AddFeature(it->first);
 
     m_pObjSearchDialog->Show();

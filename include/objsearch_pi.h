@@ -32,8 +32,8 @@
 #include <map>
 #include <queue>
 #include <wx/fileconf.h>
-//#include <wx/thread.h>
-//#include <wx/event.h>
+// #include <wx/thread.h>
+// #include <wx/event.h>
 #include "config.h"
 
 #define MY_API_VERSION_MAJOR 1
@@ -74,7 +74,7 @@ struct Chart {
 
 class DistanceMercatorFunc : public wxSQLite3ScalarFunction {
 public:
-    DistanceMercatorFunc() {};
+    DistanceMercatorFunc() { };
     void Execute(wxSQLite3FunctionContext& ctx);
 };
 
