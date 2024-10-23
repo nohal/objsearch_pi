@@ -202,8 +202,12 @@ void objsearch_pi::clearDB(wxSQLite3Database* db)
 
 objsearch_pi::objsearch_pi(void* ppimgr)
     : opencpn_plugin_116(ppimgr)
-    , m_shown(false)
+    , m_pconfig(nullptr)
+    , m_parent_window(nullptr)
+    , m_pObjSearchDialog(nullptr)
     , m_db(nullptr)
+    , m_pThread(nullptr)
+    , m_shown(false)
 {
     // Create the PlugIn icons
     m_db_thread_running = false;
@@ -215,6 +219,22 @@ objsearch_pi::objsearch_pi(void* ppimgr)
     finishing = false;
 
     m_logo = GetBitmapFromSVGFile(GetDataDir() + "objsearch_pi.svg", 32, 32);
+
+    m_bCloseOnShow = false;
+    m_iLimitRange = 0;
+	m_display_width = 0;
+	m_display_height = 0;
+	m_leftclick_tool_id = 0;
+	m_boatlat = 0.0;
+	m_boatlon = 0.0;
+	m_vplat = 0.0;
+	m_vplon = 0.0;
+	m_vpppm = 0.0;
+	m_vpscale = 0.0;
+	vplat_min = 0.0;
+	vplat_max = 0.0;
+	vplon_min = 0.0;
+	vplon_max = 0.0;
 }
 
 objsearch_pi::~objsearch_pi() { }
@@ -275,12 +295,12 @@ int objsearch_pi::Init()
 
     if (m_shown) {
         m_leftclick_tool_id = InsertPlugInToolSVG(_T( "Object Search" ),
-            _svg_objsearch_toggled, _svg_objsearch_rollover, _svg_objsearch,
+            std::move(_svg_objsearch_toggled), std::move(_svg_objsearch_rollover), std::move(_svg_objsearch),
             wxITEM_CHECK, _("Object Search"), _T( "" ), nullptr,
             OBJSEARCH_TOOL_POSITION, 0, this);
     } else {
         m_leftclick_tool_id = InsertPlugInToolSVG(_T( "Object Search" ),
-            _svg_objsearch, _svg_objsearch_rollover, _svg_objsearch_toggled,
+            std::move(_svg_objsearch), std::move(_svg_objsearch_rollover), std::move(_svg_objsearch_toggled),
             wxITEM_CHECK, _("Object Search"), _T( "" ), nullptr,
             OBJSEARCH_TOOL_POSITION, 0, this);
     }
@@ -486,7 +506,7 @@ Chart objsearch_pi::StoreNewChart(wxString chart, double scale, int nativescale)
     ch.scale = scale;
     ch.nativescale = nativescale;
 
-    m_chartLoading = chart;
+    m_chartLoading = std::move(chart);
     QueryDB(m_db,
         wxString::Format(_T("INSERT INTO chart(chartname, scale, nativescale) ")
                          _T("VALUES ('%s', %f, %i)"),
@@ -524,12 +544,12 @@ void objsearch_pi::StoreNewObject(
     while (m_bWaitForDB)
         wxMilliSleep(1);
     if (objname.Len() > 1) {
-        wxString safe_value = objname;
+        wxString safe_value = std::move(objname);
         safe_value.Replace(_T("'"), _T("''"));
         wxString sql = wxString::Format(
             _T("INSERT INTO object(chart_id, feature_id, objname, lat, lon) ")
             _T("VALUES (%ld, %ld, '%s', %f, %f)"),
-            chart_id, feature_id, safe_value, lat, lon);
+            chart_id, feature_id, std::move(safe_value), lat, lon);
         query_queue.push(sql);
     }
 }
