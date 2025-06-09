@@ -9,7 +9,7 @@ This plugin provides a search interface to the objects on the vector charts in O
 
 This assumes you have already seen the building instructions at http://opencpn.org/ocpn/compiling_source_linux or http://opencpn.org/ocpn/compiling_source_windows and can build OpenCPN from source.
 
-### Linux:
+### Linux/macOS:
 
 ```
 git clone --recurse-submodules https://github.com/nohal/objsearch_pi.git
@@ -29,6 +29,11 @@ cd build
 cmake ..
 cmake --build . --config release
 ```
+
+### Building plugin tarball
+
+Build the `tarball` target. Note that unless you know what you are doing, and use the exactly same dependencies, your locally built plugin libraries won't load to production OpenCPN build and vice versa, the production plugins from the plugin catalog won't work with your locally built OpenCPN.
+To avoid problems, use your own local built of OpenCPN with your plugin libraries and make sure they were both built using the same settings, especially do not mix release and debug build products.
 
 ## CSV Data Import
 
