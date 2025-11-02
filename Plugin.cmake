@@ -55,9 +55,9 @@ if(APPLE)
 endif()
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
-include_directories(${CMAKE_SOURCE_DIR}/wxsqlite3-4.9.12/include)
+include_directories(${CMAKE_SOURCE_DIR}/wxsqlite3-4.10.12/include)
 include_directories(
-  ${CMAKE_SOURCE_DIR}/sqlite3mc-1.9.0-sqlite-3.47.0-amalgamation)
+  ${CMAKE_SOURCE_DIR}/sqlite3mc-2.2.4-sqlite-3.50.4-amalgamation)
 
 set(HDR_OBJSEARCH
     ${CMAKE_SOURCE_DIR}/include/clcpopup.h
@@ -72,8 +72,8 @@ set(SRC_OBJSEARCH
 set(SRC
     ${HDR_OBJSEARCH}
     ${SRC_OBJSEARCH}
-    ${CMAKE_SOURCE_DIR}/sqlite3mc-1.9.0-sqlite-3.47.0-amalgamation/sqlite3mc_amalgamation.c
-    ${CMAKE_SOURCE_DIR}/wxsqlite3-4.9.12/src/wxsqlite3.cpp)
+    ${CMAKE_SOURCE_DIR}/sqlite3mc-2.2.4-sqlite-3.50.4-amalgamation/sqlite3mc_amalgamation.c
+    ${CMAKE_SOURCE_DIR}/wxsqlite3-4.10.12/src/wxsqlite3.cpp)
 
 set(PKG_API_LIB api-16) # A dir in opencpn-libs/ e. g., api-17 or api-16
 
