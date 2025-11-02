@@ -66,7 +66,7 @@ private:
 
   int GetProjectCount(const wxTreeItemId& folderId);
   bool IsTargetInSubtree(const wxTreeItemId& startFolder, const wxTreeItemId& targetFolder);
-  
+
   void OnMouseMove(wxMouseEvent& event);
 
   void OnKeyDown(wxKeyEvent& keyEvent);

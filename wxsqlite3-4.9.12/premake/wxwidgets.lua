@@ -3,7 +3,7 @@
 -- Copyright (C) 2017-2020 Ulrich Telle <ulrich@telle-online.de>
 --
 -- Based on the script for premake4 created by
--- laurent.humbertclaude@gmail.com and v.krishnakumar@gmail.com 
+-- laurent.humbertclaude@gmail.com and v.krishnakumar@gmail.com
 
 -- Optional environment variable specifying the wxWidgets version
 newoption {
@@ -95,8 +95,8 @@ premake.api.register {
 }
 
 local function wxPropertySheets(prj)
---  if premake.wxProject ~= nil and premake.wxProject then 
-  if prj.wxUseProps then 
+--  if premake.wxProject ~= nil and premake.wxProject then
+  if prj.wxUseProps then
     premake.push('<ImportGroup Label="PropertySheets">')
     if premake.wxSetupProps ~= nil and premake.wxSetupProps ~= '' then
       premake.w('<Import Project="' .. premake.wxSetupProps .. '" />')
@@ -119,7 +119,7 @@ premake.override(premake.modules.gmake2, "target", function(base, cfg, toolset)
   premake.outln('TARGETDIR = ' .. targetpath)
   premake.outln('TARGET = $(TARGETDIR)/' .. cfg.buildtarget.name)
 end)
-  
+
 premake.override(premake.modules.gmake2, "objdir", function(base, cfg, toolset)
   local objpath = string.gsub(premake.project.getrelative(cfg.project, cfg.objdir), ' ', '_')
   premake.outln('OBJDIR = ' .. objpath)
@@ -155,7 +155,7 @@ end
 --               Default to "richtext,aui,xrc,qa,html,adv,core,xml,net"; base is implicit
 --   Arch      : architecture ("Win32" or "Win64", default "Win32")
 --   WindowsCompiler : compiler used to compile windows libraries ( "vc" or "gcc" )
- 
+
 function wx_config(options)
 
   local wrongParam = false
@@ -167,7 +167,7 @@ function wx_config(options)
     end
   end
   if wrongParam then print("valid options are : '" .. table.concat(allowedWxOptions, "', '").."'") end
- 
+
   wx_config_Private( options.Root or "",
                      options.Debug or "",
                      options.Host or "",
@@ -180,13 +180,13 @@ function wx_config(options)
                      options.WindowsCompiler or "vc"
                    )
 end
- 
+
 function wx_config_Private(wxRoot, wxDebug, wxHost, wxVersion, wxStatic, wxUnicode, wxUniversal, wxLibs, wxArch, wxWindowsCompiler)
     -- some options are not allowed for newer version of wxWidgets
     if wxVersion > "2.8" then -- alphabetical comparison may fail...
         wxUnicode = "yes"
     end
- 
+
     --wx_root=PATH override wxRoot parameter
     if _OPTIONS and _OPTIONS["wx_root"] then
         print ("seen option '--wx_root=" .. _OPTIONS["wx_root"] .. "' overriding default root = '" .. wxRoot .. "'")
@@ -194,19 +194,19 @@ function wx_config_Private(wxRoot, wxDebug, wxHost, wxVersion, wxStatic, wxUnico
     end
     -- the environment variable WXWIN override both wxRoot parameter and --wx_root option
     if os.getenv(_OPTIONS["wx_env"]) then wxRoot = "$(".._OPTIONS["wx_env"]..")" end
- 
+
     if wxUnicode == "yes" then defines { "_UNICODE" } end
- 
+
     if wxDebug == "yes" then defines { "__WXDEBUG__" }
     elseif wxDebug == "no" then optimize "On" end
- 
+
     if wxStatic == "yes" then
         -- flags { "StaticRuntime" }
     else
         defines { "WXUSINGDLL" }
     end
- 
- 
+
+
     -- function to compensate lack of wx-config program on windows
     -- but wait, look at http://sites.google.com/site/wxconfig/ for one !
     function wx_config_for_windows(wxWindowsCompiler)
@@ -217,7 +217,7 @@ function wx_config_Private(wxRoot, wxDebug, wxHost, wxVersion, wxStatic, wxUnico
             wxBuildType = wxBuildType .. "d"
             wxDebugSuffix = "d"
         end
- 
+
         if wxArch == "Win64" then
           wxArchSuffix = "_x64"
         else
@@ -227,14 +227,14 @@ function wx_config_Private(wxRoot, wxDebug, wxHost, wxVersion, wxStatic, wxUnico
           local wxLibPath = '$(wxRootDir)\\lib\\$(wxCompilerPrefix)$(wxArchSuffix)_' .. iif(wxStatic == 'yes', 'lib', 'dll')
           -- common defines
           defines{ "__WXMSW__" }
- 
+
           -- common include path
           includedirs {
               path.join("$(wxRootDir)", "include\\msvc"),
               path.join(wxLibPath, "msw$(wxSuffix)"),   -- something like "%WXWIN%\lib\vc_lib\mswud" to find "wx/setup.h"
               path.join("$(wxRootDir)", "include")
             }
- 
+
           -- common library path
           libdirs { wxLibPath }
           local compLibPath = '$(ProjectDir)..\\lib\\$(wxCompilerPrefix)$(wxArchSuffix)_dll'
@@ -243,13 +243,13 @@ function wx_config_Private(wxRoot, wxDebug, wxHost, wxVersion, wxStatic, wxUnico
           local wxLibPath = '$(wxRootDir)/lib/$(wxCompilerPrefix)$(wxArchSuffix)_' .. iif(wxStatic == 'yes', 'lib', 'dll')
           -- common defines
           defines{ "__WXMSW__" }
- 
+
           -- common include path
           includedirs {
               path.join(wxLibPath, "msw$(wxSuffix)"),   -- something like "%WXWIN%\lib\vc_lib\mswud" to find "wx/setup.h"
               path.join("$(wxRootDir)", "include")
             }
- 
+
           -- common library path
           libdirs { wxLibPath }
           local compLibPath = '$(ProjectDir)../lib/$(wxCompilerPrefix)$(wxArchSuffix)_dll'
@@ -259,19 +259,19 @@ function wx_config_Private(wxRoot, wxDebug, wxHost, wxVersion, wxStatic, wxUnico
           wxLibPath = path.join(wxLibPath, wxWindowsCompiler .. wxArchSuffix .. "_" .. iif(wxStatic == 'yes', 'lib', 'dll'))
           -- common defines
           defines{ "__WXMSW__" }
- 
+
           -- common include path
           includedirs {
               path.join(wxLibPath, "msw" .. wxBuildType),   -- something like "%WXWIN%\lib\vc_lib\mswud" to find "wx/setup.h"
               path.join(wxRoot, "include")
             }
- 
+
           -- common library path
           libdirs { wxLibPath }
           local compLibPath = '$(ProjectDir)..\\lib\\' .. wxWindowsCompiler .. wxArchSuffix .. '_dll'
           debugenvs { "PATH=" .. compLibPath .. ";" .. wxLibPath }
         end
- 
+
         -- add the libs (except for MSVC)
         if (wxWindowsCompiler == "gcc") then
           libVersion = string.gsub(wxVersion, '%.', '') -- remove dot from version
@@ -318,30 +318,30 @@ function wx_config_Private(wxRoot, wxDebug, wxHost, wxVersion, wxStatic, wxUnico
           links { "kernel32", "user32", "gdi32", "comdlg32", "winspool", "winmm", "shell32", "shlwapi", "comctl32", "ole32", "oleaut32", "uuid", "rpcrt4", "advapi32", "version", "wsock32", "wininet", "oleacc", "uxtheme" }
         end
     end
- 
+
     -- use wx-config to figure out build parameters
     function wx_config_for_posix()
         local configCmd = "wx-config"  -- this is the wx-config command ligne
         if wxRoot ~= "" then configCmd = path.join(wxRoot, "bin/wx-config") end
- 
+
         local function checkYesNo(value, option)
             if value == "" then return "" end
             if value == "yes" or value == "no" then return " --"..option.."="..value end
             error("wx"..option..' can only be "yes", "no" or empty' )
         end
- 
+
         configCmd = configCmd .. checkYesNo(wxDebug, "debug")
         configCmd = configCmd .. checkYesNo(wxStatic, "static")
         configCmd = configCmd .. checkYesNo(wxUnicode, "unicode")
         configCmd = configCmd .. checkYesNo(wxUniversal, "universal")
         if wxHost ~= "" then configCmd = configCmd .. " --host=" .. wxHost end
         if wxVersion ~= "" then configCmd = configCmd .. " --version=" .. wxVersion end
- 
+
         -- set the parameters to the curent configuration
         buildoptions{"`" .. configCmd .." --cxxflags`"}
         linkoptions{"`" .. configCmd .." --libs " .. wxLibs .. "`"}
     end
- 
+
 -- BUG: here, using any configuration() function will reset the current filter
 --      and apply configuration to all project configuration...
 --      see http://industriousone.com/post/add-way-refine-configuration-filter
@@ -382,7 +382,7 @@ function init_filters()
 
   filter { "configurations:Debug*" }
     defines {
-      "DEBUG", 
+      "DEBUG",
       "_DEBUG"
     }
     symbols "On"
@@ -514,7 +514,7 @@ function make_filters(libname,libtarget,wxlibs)
     else
       targetdir("lib/gcc_x64_dll")
     end
-    
+
   filter { "configurations:Debug*" }
     targetsuffix "d"
 

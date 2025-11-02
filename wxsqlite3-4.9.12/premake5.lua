@@ -2,7 +2,7 @@
 --
 -- Copyright (C) 2017-2024 Ulrich Telle <ulrich@telle-online.de>
 --
--- This file is covered by the same licence as the entire wxsqlite3 package. 
+-- This file is covered by the same licence as the entire wxsqlite3 package.
 
 dofile "premake/wxwidgets.lua"
 
@@ -38,7 +38,7 @@ project "wxsqlite3"
   else
     buildoptions { "-msse4.2 -maes" }
   end
-  
+
   if wxMonolithic then
     local prj = project()
     prj.filename = "wxsqlite3_mono"

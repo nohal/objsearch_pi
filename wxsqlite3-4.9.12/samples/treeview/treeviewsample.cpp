@@ -83,7 +83,7 @@ BEGIN_EVENT_TABLE( TreeviewSample, wxFrame )
 
   EVT_LIST_ITEM_ACTIVATED( ID_PROJECT_LIST, TreeviewSample::OnProjectViewItemActivated )
   EVT_LIST_ITEM_RIGHT_CLICK( ID_PROJECT_LIST, TreeviewSample::OnProjectViewRightClick )
-  
+
   EVT_LIST_BEGIN_DRAG( ID_PROJECT_LIST, TreeviewSample::OnProjectViewBeginDrag )
 
 END_EVENT_TABLE()
@@ -156,7 +156,7 @@ TreeviewSample::Init()
   m_arrowUp     = GetBitmapResource(wxT("arrow_up.xpm"));
   m_arrowDown   = GetBitmapResource(wxT("arrow_down.xpm"));
   m_arrowUpDown = GetBitmapResource(wxT("arrow_up_down.xpm"));
-  
+
   m_activeFolder = 1;
 }
 
@@ -167,7 +167,7 @@ TreeviewSample::Init()
 
 void
 TreeviewSample::CreateControls()
-{    
+{
   TreeviewSample* mainFrame = this;
 
   wxMenuBar* menuBar = new wxMenuBar;
@@ -281,7 +281,7 @@ TreeviewSample::CreateControls()
 
   m_projectFolderTreeCtrl->SetDatabase(m_db);
   m_projectFolderTreeCtrl->LoadFolderTree(1);
-  
+
   RefreshProjectList();
 }
 
@@ -363,7 +363,7 @@ TreeviewSample::OpenSelectedProject(int selectedRow, bool copy)
       projectTitle += wxString::Format(_(" (Copy of %d)"), projectId);
       projectId = InsertIntoDatabase(projectTitle);
     }
-    wxMessageBox(wxString(_("The project to be opened")) + wxT(":\n") + 
+    wxMessageBox(wxString(_("The project to be opened")) + wxT(":\n") +
       wxString::Format(wxT("%d"), projectId) + wxT(" / ") + projectTitle,
                  _("Open project"), wxOK, this );
   }

@@ -27,7 +27,7 @@ Currently the following encryption schemes are supported:
 - AES 128 Bit CBC - No HMAC ([wxSQLite3](https://github.com/utelle/wxsqlite3))
 - AES 256 Bit CBC - No HMAC ([wxSQLite3](https://github.com/utelle/wxsqlite3))
 - ChaCha20 - Poly1305 HMAC ([sqleet](https://github.com/resilar/sqleet)) (**default**)
-- AES 256 Bit CBC - SHA1/SHA256/SHA512 HMAC ([SQLCipher](https://www.zetetic.net/sqlcipher/) versions 1 - 4) 
+- AES 256 Bit CBC - SHA1/SHA256/SHA512 HMAC ([SQLCipher](https://www.zetetic.net/sqlcipher/) versions 1 - 4)
 - RC4 - No HMAC ([System.Data.SQLite](https://system.data.sqlite.org/))
 - Ascon 128 - Ascon Tag ([Ascon](https://ascon.iaik.tugraz.at/)) (since version 4.9.8)
 
@@ -141,7 +141,7 @@ Thereafter you should create a build directory
   ../configure [here you should use the same flags you used to configure wxWidgets]
   make
 ```
- 
+
 Type `../configure --help` for more info.
 
 The autoconf-based system also supports a `make install` target which
