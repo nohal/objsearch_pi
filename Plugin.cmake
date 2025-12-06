@@ -25,7 +25,7 @@ set(OCPN_RELEASE_REPO
 # -------  Plugin setup --------
 #
 set(PKG_NAME objsearch_pi)
-set(PKG_VERSION "0.27.0")
+set(PKG_VERSION "0.28.0")
 set(PKG_PRERELEASE "") # Empty, or a tag like 'beta'
 
 set(DISPLAY_NAME objsearch) # Dialogs, installer artifacts, ...
@@ -55,9 +55,9 @@ if(APPLE)
 endif()
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
-include_directories(${CMAKE_SOURCE_DIR}/wxsqlite3-4.10.12/include)
+include_directories(${CMAKE_SOURCE_DIR}/wxsqlite3-4.11.1/include)
 include_directories(
-  ${CMAKE_SOURCE_DIR}/sqlite3mc-2.2.4-sqlite-3.50.4-amalgamation)
+  ${CMAKE_SOURCE_DIR}/sqlite3mc-2.2.6-sqlite-3.51.1-amalgamation)
 
 set(HDR_OBJSEARCH
     ${CMAKE_SOURCE_DIR}/include/clcpopup.h
@@ -72,8 +72,8 @@ set(SRC_OBJSEARCH
 set(SRC
     ${HDR_OBJSEARCH}
     ${SRC_OBJSEARCH}
-    ${CMAKE_SOURCE_DIR}/sqlite3mc-2.2.4-sqlite-3.50.4-amalgamation/sqlite3mc_amalgamation.c
-    ${CMAKE_SOURCE_DIR}/wxsqlite3-4.10.12/src/wxsqlite3.cpp)
+    ${CMAKE_SOURCE_DIR}/sqlite3mc-2.2.6-sqlite-3.51.1-amalgamation/sqlite3mc_amalgamation.c
+    ${CMAKE_SOURCE_DIR}/wxsqlite3-4.11.1/src/wxsqlite3.cpp)
 
 set(PKG_API_LIB api-16) # A dir in opencpn-libs/ e. g., api-17 or api-16
 
