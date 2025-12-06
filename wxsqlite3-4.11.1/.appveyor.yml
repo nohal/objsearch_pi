@@ -1,7 +1,7 @@
 # AppVeyor script for wxSQLite3
 
 image:
-  - Visual Studio 2017 
+  - Visual Studio 2017
 
 # branches to build
 branches:

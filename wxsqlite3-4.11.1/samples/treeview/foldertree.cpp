@@ -233,7 +233,7 @@ FolderTreeCtrl::EnsureVisibilityActiveFolder()
   EnsureVisible(m_activeFolderId);
 }
 
-bool 
+bool
 FolderTreeCtrl::IsSameAsActiveFolder(int folder)
 {
   return m_activeFolder == folder;
@@ -334,7 +334,7 @@ FolderTreeCtrl::AddSubfolder(const wxString& newFolderName)
           m_db->Commit();
 
           FolderTreeItem* newFolderNode = new FolderTreeItem(newFolderId, folderNode->GetFolderId(), newFolderName);
-          wxTreeItemId newFolder = AppendItem(idParent, newFolderName, 0, 1, newFolderNode); 
+          wxTreeItemId newFolder = AppendItem(idParent, newFolderName, 0, 1, newFolderNode);
           SetItemImage(newFolder, 2, wxTreeItemIcon_Expanded);
           SetItemImage(newFolder, 3, wxTreeItemIcon_SelectedExpanded);
           SortChildren(idParent);
@@ -750,7 +750,7 @@ ProjectReferencesDropTarget::GetHit(const wxPoint& point)
   wxTreeItemId hitId = m_owner->HitTest(point, flags);
   if (flags & (wxTREE_HITTEST_ABOVE | wxTREE_HITTEST_BELOW | wxTREE_HITTEST_NOWHERE | wxTREE_HITTEST_TOLEFT | wxTREE_HITTEST_TORIGHT))
   {
-    hitId = wxTreeItemId(); 
+    hitId = wxTreeItemId();
   }
   return hitId;
 }

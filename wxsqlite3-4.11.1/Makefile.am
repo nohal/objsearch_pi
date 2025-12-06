@@ -5,13 +5,13 @@
 # This file is covered by the same licence as the entire wxSQLite3 package.
 
 if HOST_X86
-X86_FLAGS = -msse4.2 -maes 
+X86_FLAGS = -msse4.2 -maes
 else
 X86_FLAGS =
 endif
- 
+
 if HOST_ARM
-#ARM_FLAGS = -march=native 
+#ARM_FLAGS = -march=native
 ARM_FLAGS =
 else
 ARM_FLAGS =
@@ -61,7 +61,7 @@ includewx_HEADERS = \
 
 noinst_HEADERS = \
     include/wx/wxsqlite3opt.h \
-    src/sqlite3mc_amalgamation.h 
+    src/sqlite3mc_amalgamation.h
 
 lib@WXSQLITE3_LIBNAME@_la_LDFLAGS = -no-undefined $(AM_LDFLAGS)
 if USE_SHARED

@@ -23,7 +23,7 @@
  */
 
 class TreeviewSampleApp: public wxApp
-{    
+{
   DECLARE_CLASS( TreeviewSampleApp )
   DECLARE_EVENT_TABLE()
 
@@ -47,7 +47,7 @@ public:
 };
 
 /*!
- * Application instance declaration 
+ * Application instance declaration
  */
 
 DECLARE_APP(TreeviewSampleApp)

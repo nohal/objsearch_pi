@@ -27,7 +27,7 @@ Currently the following encryption schemes are supported:
 - AES 128 Bit CBC - No HMAC ([wxSQLite3](https://github.com/utelle/wxsqlite3))
 - AES 256 Bit CBC - No HMAC ([wxSQLite3](https://github.com/utelle/wxsqlite3))
 - ChaCha20 - Poly1305 HMAC ([sqleet](https://github.com/resilar/sqleet)) (**default**)
-- AES 256 Bit CBC - SHA1/SHA256/SHA512 HMAC ([SQLCipher](https://www.zetetic.net/sqlcipher/) versions 1 - 4) 
+- AES 256 Bit CBC - SHA1/SHA256/SHA512 HMAC ([SQLCipher](https://www.zetetic.net/sqlcipher/) versions 1 - 4)
 - RC4 - No HMAC ([System.Data.SQLite](https://system.data.sqlite.org/))
 - Ascon 128 - Ascon Tag ([Ascon](https://ascon.iaik.tugraz.at/)) (since version 4.9.8)
 - AEGIS - AEGIS Tag ([AEGIS](https://cfrg.github.io/draft-irtf-cfrg-aegis-aead/draft-irtf-cfrg-aegis-aead.html)) (since version 4.10.0)
@@ -38,7 +38,7 @@ With the release of SQLite version 3.32.0 on May 22, 2020 critical changes to th
 
 Since August 2020 a new implementation of an encryption extension, capable of supporting SQLite version 3.32.0 and later, is available as a separate project, [SQLite3 Multiple Ciphers](https://github.com/utelle/SQLite3MultipleCiphers). Starting with the release of **wxSQLite3 4.6.0** this new implementation is used.
 
-Currently the _CMake_ support is experimental and limited to Windows platforms (and may or may not work). 
+Currently the _CMake_ support is experimental and limited to Windows platforms (and may or may not work).
 
 ## Table of Contents
 
@@ -144,7 +144,7 @@ Thereafter you should create a build directory
   ../configure [here you should use the same flags you used to configure wxWidgets]
   make
 ```
- 
+
 Type `../configure --help` for more info.
 
 The autoconf-based system also supports a `make install` target which

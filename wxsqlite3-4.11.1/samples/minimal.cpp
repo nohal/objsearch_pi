@@ -74,7 +74,7 @@ static void testTransaction()
 	}
 	// Check whether value exists in table
 	wxSQLite3ResultSet set = db->ExecuteQuery(wxS("SELECT * FROM test"));
-	
+
 	int count = 0;
 	while (set.NextRow())
 	{
@@ -83,7 +83,7 @@ static void testTransaction()
 	}
 	set.Finalize();
 	cout << "Is count == 1? " << (count == 1) << endl;
-		
+
 	// failed transaction
 	try
 	{
@@ -103,7 +103,7 @@ static void testTransaction()
 		// check whether the value 3 exists in table
     // (it shouldn't since the transaction was aborted)
 		set = db->ExecuteQuery(wxS("SELECT * FROM test"));
-	
+
 		int count = 0;
 		while (set.NextRow())
 		{
@@ -166,12 +166,12 @@ public:
 class MyAuthorizer : public wxSQLite3Authorizer
 {
 public:
-  virtual wxAuthorizationResult Authorize(wxAuthorizationCode type, 
-                                          const wxString& arg1, const wxString& arg2, 
+  virtual wxAuthorizationResult Authorize(wxAuthorizationCode type,
+                                          const wxString& arg1, const wxString& arg2,
                                           const wxString& arg3, const wxString& arg4,
                                           const wxString& arg5)
   {
-    cout << "AUTH: " 
+    cout << "AUTH: "
          << (const char*) AuthorizationCodeToString(type).mb_str(wxConvUTF8) << ","
          << (const char*) arg1.mb_str(wxConvUTF8) << ","
          << (const char*) arg2.mb_str(wxConvUTF8) << ","
@@ -396,7 +396,7 @@ int Minimal::OnRun()
     cout << "Creating table 'emp'" << endl;
     db.ExecuteUpdate(wxS("create table emp(empno int, empname char(20), salary double);"));
     cout << "Table 'emp' exists=" << (db.TableExists(wxS("emp")) ? "TRUE":"FALSE") << endl;
-    
+
     // Attach the current database under different name and
     // check table existance in any open database.
     // The table emp will be found in 'main' and in 'dbattached'
@@ -461,7 +461,7 @@ int Minimal::OnRun()
     db.SetUpdateHook(NULL);
 
     // Transaction Demo
-    
+
     int nRowsToCreate(50000);
     cout << endl << "Transaction test, creating " << nRowsToCreate;
     cout << " rows please wait..." << endl;
@@ -540,7 +540,7 @@ int Minimal::OnRun()
       bool primaryKey;
       bool autoIncrement;
       db.GetMetaData(wxEmptyString, wxS("emp"), wxS("empname"), &dataType, &collation, &notNull, &primaryKey, &autoIncrement);
-      cout << "Meta data of table 'emp', column 'empname'" << endl 
+      cout << "Meta data of table 'emp', column 'empname'" << endl
            << "Data type: " << (const char*) dataType.mb_str(wxConvUTF8)
            << ", Collation: " << (const char*) collation.mb_str(wxConvUTF8)
            << ", Not Null: " << notNull
@@ -549,7 +549,7 @@ int Minimal::OnRun()
 
       for (fld = 0; fld < q.GetColumnCount(); fld++)
       {
-        cout << (fld+1) << ". field:" << endl 
+        cout << (fld+1) << ". field:" << endl
              << "database = (" << (const char*) q.GetDatabaseName(fld).mb_str(wxConvUTF8) << ")" << endl
              << "table    = (" << (const char*) q.GetTableName(fld).mb_str(wxConvUTF8) << ")" << endl
              << "origin   = (" << (const char*) q.GetOriginName(fld).mb_str(wxConvUTF8) << ")" << endl;
@@ -819,7 +819,7 @@ int Minimal::OnRun()
     cerr << e.GetErrorCode() << ":" << (const char*)(e.GetMessage().mb_str()) << endl;
     m_rc = e.GetErrorCode();
   }
-  
+
   try
   {
     // Before shutdown of SQLite ALL database connections should be closed.

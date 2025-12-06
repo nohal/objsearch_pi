@@ -71,7 +71,7 @@ class ProjectListView;
  */
 
 class TreeviewSample: public wxFrame
-{    
+{
   DECLARE_CLASS( TreeviewSample )
   DECLARE_EVENT_TABLE()
 
@@ -122,7 +122,7 @@ public:
   /// Get the active folder
   int GetActiveFolder() { return m_activeFolder; }
 
-  /// Event handler for 
+  /// Event handler for
   void OnRefreshProjectList( wxCommandEvent& event );
 
   /// wxEVT_COMMAND_MENU_SELECTED event handler for ID_PROJECT_NEW
@@ -174,7 +174,7 @@ public:
 
   /// wxEVT_COMMAND_LIST_COL_END_DRAG event handler for ID_PROJECT_LIST
   void OnProjectViewColEndDrag( wxListEvent& event );
-  
+
     /// wxEVT_COMMAND_LIST_COL_CLICK event handler for ID_LISTCTRL
   void OnListctrlColLeftClick( wxListEvent& event );
 

@@ -89,7 +89,7 @@ enum wxSQLite3LimitType
   WXSQLITE_LIMIT_LIKE_PATTERN_LENGTH = 8,
   WXSQLITE_LIMIT_VARIABLE_NUMBER     = 9,
   WXSQLITE_LIMIT_TRIGGER_DEPTH       = 10,
-  WXSQLITE_LIMIT_WORKER_THREADS      = 11 
+  WXSQLITE_LIMIT_WORKER_THREADS      = 11
 };
 
 /// Enumeration of journal modes
@@ -151,7 +151,7 @@ enum wxSQLite3DbConfig
 #define WXSQLITE_OPEN_SHAREDCACHE      0x00020000
 #define WXSQLITE_OPEN_PRIVATECACHE     0x00040000
 #define WXSQLITE_OPEN_NOFOLLOW         0x01000000
- 
+
 #define WXSQLITE_CHECKPOINT_PASSIVE  0
 #define WXSQLITE_CHECKPOINT_FULL     1
 #define WXSQLITE_CHECKPOINT_RESTART  2
@@ -677,10 +677,10 @@ public:
     SQLITE_DENY   = 1,   // Abort the SQL statement with an error
     SQLITE_IGNORE = 2    // Don't allow access, but don't generate an error
   };
-  
+
   /// Virtual destructor
   virtual ~wxSQLite3Authorizer() {}
-  
+
   /// Execute the authorizer function
   /**
   * Please refer to the SQLite documentation for further information about the
@@ -731,7 +731,7 @@ public:
   /// Initialize the cipher instance based on current settings
   /**
   * The parameters of the cipher instance are initialize with the current settings of the associated cipher type
-  * as defined in the given database connection. 
+  * as defined in the given database connection.
   * \param db database instance representing a database connection
   * \return true if the cipher instance could be initialized successfully, false otherwise
   */
@@ -816,7 +816,7 @@ public:
 
   /// Get the default cipher type of a database connection
   /**
-  * \param db database instance 
+  * \param db database instance
   * \return the enum representation of the cipher type
   */
   static wxSQLite3CipherType GetCipherDefault(wxSQLite3Database& db);
@@ -1547,7 +1547,7 @@ public:
   wxSQLite3ResultSet(const wxSQLite3ResultSet& resultSet);
 
   /// Constructor for internal use
-  wxSQLite3ResultSet(wxSQLite3DatabaseReference* db, 
+  wxSQLite3ResultSet(wxSQLite3DatabaseReference* db,
                      wxSQLite3StatementReference* stmt,
                      bool eof, bool first = true);
 
@@ -2643,7 +2643,7 @@ public:
   */
   const wxString& GetName() const { return m_name; }
 
-  /// Gets state of the collection 
+  /// Gets state of the collection
   /**
   * \return state of the collection
   */
@@ -2936,10 +2936,10 @@ public:
   * \param[in] key Optional database encryption key for the target database.
   * \param[in] sourceDatabaseName Optional name of the source database (default: 'main').
   */
-  void Backup(const wxString& targetFileName, const wxString& key = wxEmptyString, 
+  void Backup(const wxString& targetFileName, const wxString& key = wxEmptyString,
               const wxString& sourceDatabaseName = wxS("main"));
-  void Backup(wxSQLite3BackupProgress* progressCallback, 
-              const wxString& targetFileName, const wxString& key = wxEmptyString, 
+  void Backup(wxSQLite3BackupProgress* progressCallback,
+              const wxString& targetFileName, const wxString& key = wxEmptyString,
               const wxString& sourceDatabaseName = wxS("main"));
   void Backup(const wxString& targetFileName, const wxSQLite3Cipher& cipher, const wxString& key,
               const wxString& sourceDatabaseName = wxS("main"));
@@ -2970,10 +2970,10 @@ public:
   * \param[in] key Binary database encryption key for the target database.
   * \param[in] sourceDatabaseName Optional name of the source database (default: 'main').
   */
-  void Backup(const wxString& targetFileName, const wxMemoryBuffer& key, 
+  void Backup(const wxString& targetFileName, const wxMemoryBuffer& key,
               const wxString& sourceDatabaseName = wxS("main"));
   void Backup(wxSQLite3BackupProgress* progressCallback,
-              const wxString& targetFileName, const wxMemoryBuffer& key, 
+              const wxString& targetFileName, const wxMemoryBuffer& key,
               const wxString& sourceDatabaseName = wxS("main"));
   void Backup(const wxString& targetFileName, const wxSQLite3Cipher& cipher, const wxMemoryBuffer& key,
               const wxString& sourceDatabaseName = wxS("main"));
@@ -2998,15 +2998,15 @@ public:
   * \param[in] key Optional database encryption key for the source database.
   * \param[in] targetDatabaseName Optional name of the target database (default: 'main').
   */
-  void Restore(const wxString& sourceFileName, const wxString& key = wxEmptyString, 
+  void Restore(const wxString& sourceFileName, const wxString& key = wxEmptyString,
                const wxString& targetDatabaseName = wxS("main"));
   void Restore(wxSQLite3BackupProgress* progressCallback,
-               const wxString& sourceFileName, const wxString& key = wxEmptyString, 
+               const wxString& sourceFileName, const wxString& key = wxEmptyString,
                const wxString& targetDatabaseName = wxS("main"));
-  void Restore(const wxString& sourceFileName, const wxSQLite3Cipher& cipher, 
+  void Restore(const wxString& sourceFileName, const wxSQLite3Cipher& cipher,
                const wxString& key, const wxString& targetDatabaseName = wxS("main"));
   void Restore(wxSQLite3BackupProgress* progressCallback,
-               const wxString& sourceFileName, const wxSQLite3Cipher& cipher, 
+               const wxString& sourceFileName, const wxSQLite3Cipher& cipher,
                const wxString& key, const wxString& targetDatabaseName = wxS("main"));
 
   /// Restore a SQLite3 database
@@ -3026,14 +3026,14 @@ public:
   * \param[in] key Optional binary database encryption key for the source database.
   * \param[in] targetDatabaseName Optional name of the target database (default: 'main').
   */
-  void Restore(const wxString& sourceFileName, const wxMemoryBuffer& key, 
+  void Restore(const wxString& sourceFileName, const wxMemoryBuffer& key,
                const wxString& targetDatabaseName = wxS("main"));
   void Restore(wxSQLite3BackupProgress* progressCallback,
-               const wxString& sourceFileName, const wxMemoryBuffer& key, 
+               const wxString& sourceFileName, const wxMemoryBuffer& key,
                const wxString& targetDatabaseName = wxS("main"));
   void Restore(const wxString& sourceFileName, const wxSQLite3Cipher& cipher,
                const wxMemoryBuffer& key, const wxString& targetDatabaseName = wxS("main"));
-  void Restore(wxSQLite3BackupProgress* progressCallback, const wxString& sourceFileName, 
+  void Restore(wxSQLite3BackupProgress* progressCallback, const wxString& sourceFileName,
                const wxSQLite3Cipher& cipher, const wxMemoryBuffer& key,
                const wxString& targetDatabaseName = wxS("main"));
 
@@ -3508,7 +3508,7 @@ public:
   * connection takes an exclusive lock on the database, then checkpoints and deletes the wal file.
   * While it is doing this, any new connection that tries to read from the database fails with an
   * SQLITE_BUSY error. Or, if the blockOnConnect flag is true, the new connection blocks until
-  * the exclusive lock has been released. 
+  * the exclusive lock has been released.
   * \param milliSeconds timeout in milliseconds
   * \param blockOnConnect flag whether new connections should block until exclusive lock has been released
   */
@@ -4183,4 +4183,3 @@ private:
 #endif // wxUSE_REGEX
 
 #endif
-

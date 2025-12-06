@@ -67,7 +67,7 @@ TreeviewSampleApp::Init()
 
 bool
 TreeviewSampleApp::OnInit()
-{    
+{
   bool ok = true;
 
 #if wxUSE_XPM

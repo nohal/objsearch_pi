@@ -2895,13 +2895,13 @@ BackupRestoreCallback(int total, int remaining, wxSQLite3BackupProgress* progres
   return progressCallback->Progress(total, remaining);
 }
 
-void wxSQLite3Database::Backup(const wxString& targetFileName, const wxString& key, 
+void wxSQLite3Database::Backup(const wxString& targetFileName, const wxString& key,
                                const wxString& sourceDatabaseName)
 {
   Backup(NULL, targetFileName, wxSQLite3Cipher(), key, sourceDatabaseName);
 }
 
-void wxSQLite3Database::Backup(const wxString& targetFileName, const wxSQLite3Cipher& cipher, 
+void wxSQLite3Database::Backup(const wxString& targetFileName, const wxSQLite3Cipher& cipher,
                                const wxString& key, const wxString& sourceDatabaseName)
 {
   Backup(NULL, targetFileName, cipher, key, sourceDatabaseName);
@@ -2914,8 +2914,8 @@ void wxSQLite3Database::Backup(wxSQLite3BackupProgress* progressCallback,
   Backup(progressCallback, targetFileName, wxSQLite3Cipher(), key, sourceDatabaseName);
 }
 
-void wxSQLite3Database::Backup(wxSQLite3BackupProgress* progressCallback, 
-                               const wxString& targetFileName, const wxSQLite3Cipher& cipher, 
+void wxSQLite3Database::Backup(wxSQLite3BackupProgress* progressCallback,
+                               const wxString& targetFileName, const wxSQLite3Cipher& cipher,
                                const wxString& key, const wxString& sourceDatabaseName)
 {
   wxCharBuffer strLocalKey = key.ToUTF8();
@@ -2928,13 +2928,13 @@ void wxSQLite3Database::Backup(wxSQLite3BackupProgress* progressCallback,
   Backup(progressCallback, targetFileName, cipher, binaryKey, sourceDatabaseName);
 }
 
-void wxSQLite3Database::Backup(const wxString& targetFileName, const wxMemoryBuffer& key, 
+void wxSQLite3Database::Backup(const wxString& targetFileName, const wxMemoryBuffer& key,
                                const wxString& sourceDatabaseName)
 {
   Backup(NULL, targetFileName, wxSQLite3Cipher(), key, sourceDatabaseName);
 }
 
-void wxSQLite3Database::Backup(const wxString& targetFileName, const wxSQLite3Cipher& cipher, 
+void wxSQLite3Database::Backup(const wxString& targetFileName, const wxSQLite3Cipher& cipher,
                                const wxMemoryBuffer& key, const wxString& sourceDatabaseName)
 {
   Backup(NULL, targetFileName, cipher, key, sourceDatabaseName);
@@ -2947,7 +2947,7 @@ void wxSQLite3Database::Backup(wxSQLite3BackupProgress* progressCallback, const 
 }
 
 void wxSQLite3Database::Backup(wxSQLite3BackupProgress* progressCallback,
-                               const wxString& targetFileName, const wxSQLite3Cipher& cipher, 
+                               const wxString& targetFileName, const wxSQLite3Cipher& cipher,
                                const wxMemoryBuffer& key, const wxString& sourceDatabaseName)
 {
   CheckDatabase();
@@ -3025,7 +3025,7 @@ void wxSQLite3Database::Backup(wxSQLite3BackupProgress* progressCallback,
   }
 }
 
-void wxSQLite3Database::Restore(const wxString& sourceFileName, const wxString& key, 
+void wxSQLite3Database::Restore(const wxString& sourceFileName, const wxString& key,
                                 const wxString& targetDatabaseName)
 {
   Restore(NULL, sourceFileName, wxSQLite3Cipher(), key, targetDatabaseName);
@@ -3058,7 +3058,7 @@ void wxSQLite3Database::Restore(wxSQLite3BackupProgress* progressCallback,
   Restore(progressCallback, sourceFileName, cipher, binaryKey, targetDatabaseName);
 }
 
-void wxSQLite3Database::Restore(const wxString& sourceFileName, const wxMemoryBuffer& key, 
+void wxSQLite3Database::Restore(const wxString& sourceFileName, const wxMemoryBuffer& key,
                                 const wxString& targetDatabaseName)
 {
   Restore(NULL, sourceFileName, wxSQLite3Cipher(), key, targetDatabaseName);
@@ -3952,7 +3952,7 @@ void wxSQLite3Database::SetWriteAheadLogHook(wxSQLite3Hook* walHook)
 #endif
 }
 
-void wxSQLite3Database::WriteAheadLogCheckpoint(const wxString& database, int mode, 
+void wxSQLite3Database::WriteAheadLogCheckpoint(const wxString& database, int mode,
                                                 int* logFrameCount, int* ckptFrameCount)
 {
 #if SQLITE_VERSION_NUMBER >= 3007000
@@ -4722,7 +4722,7 @@ void wxSQLite3FunctionContext::ExecWindowInverse(void* ctx, int argc, void** arg
   func->Reverse(context);
 }
 
-// 
+//
 static int wxSQLite3FunctionContextExecAuthorizer(void* func, int type,
                                            const char* arg1, const char* arg2,
                                            const char* arg3, const char* arg4
@@ -6028,7 +6028,7 @@ wxSQLite3CipherSQLCipher::wxSQLite3CipherSQLCipher()
 
 wxSQLite3CipherSQLCipher::wxSQLite3CipherSQLCipher(const wxSQLite3CipherSQLCipher&  cipher)
   : wxSQLite3Cipher(cipher), m_legacy(cipher.m_legacy), m_legacyVersion(cipher.m_legacyVersion), m_kdfIter(cipher.m_kdfIter),
-    m_fastKdfIter(cipher.m_fastKdfIter), m_hmacUse(cipher.m_hmacUse), 
+    m_fastKdfIter(cipher.m_fastKdfIter), m_hmacUse(cipher.m_hmacUse),
     m_hmacPgNo(cipher.m_hmacPgNo), m_hmacSaltMask(cipher.m_hmacSaltMask),
     m_kdfAlgorithm(cipher.m_kdfAlgorithm), m_hmacAlgorithm(cipher.m_hmacAlgorithm)
 {

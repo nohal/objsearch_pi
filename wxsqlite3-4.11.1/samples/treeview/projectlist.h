@@ -42,8 +42,8 @@ const int PLV_STATUS_COLUMN_WIDTH = 0;
 class ProjectListView : public wxListView {
 private:
   enum {
-    Menu_OpenProject, 
-    Menu_CopyProject, 
+    Menu_OpenProject,
+    Menu_CopyProject,
     Menu_DeleteProject,
     Menu_RemoveReference
   };
@@ -61,7 +61,7 @@ public:
 
   void Fill();
   void SetFilter(wxString filter) { m_filter = filter; }
-  
+
   int GetSelectedProjectRow();
 
   const ProjectDescription& GetProjectDescription(int selectedRow);
@@ -73,7 +73,7 @@ public:
 
   void OnLabelLeftClick(wxListEvent& event);
   void OnItemRightClick(wxListEvent &event);
-  
+
   void OnBeginDrag(wxListEvent& event);
 
   void OnMenuOpenProject(wxCommandEvent& event);
@@ -102,4 +102,3 @@ protected:
 };
 
 #endif
-
