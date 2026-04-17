@@ -3,18 +3,19 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-23 16:26-0300\n"
-"PO-Revision-Date: 2019-03-30 18:39\n"
-"Last-Translator: nohal <pavel@kalian.cz>\n"
+"PO-Revision-Date: 2026-04-17 22:01\n"
+"Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: opencpn\n"
+"X-Crowdin-Project-ID: 49843\n"
 "X-Crowdin-Language: fr\n"
 "X-Crowdin-File: /plugins/objsearch_pi/po/objsearch_pi.pot\n"
+"X-Crowdin-File-ID: 136\n"
 
 #: src/ObjSearchDialog.cpp:38
 msgid "Search"
@@ -22,7 +23,7 @@ msgstr "Chercher"
 
 #: src/ObjSearchDialog.cpp:50
 msgid "Show on Chart"
-msgstr "Montrer sur la carte"
+msgstr "Voir sur la carte"
 
 #: src/ObjSearchDialog.cpp:53
 msgid "Close"
@@ -138,12 +139,12 @@ msgstr "Chercher un objet"
 
 #: src/objsearch_pi.cpp:398
 msgid "Vector Chart Object Search PlugIn for OpenCPN"
-msgstr "Complément Recherche des objets des cartes vectorielles pour OpenCPN"
+msgstr "Recherche des objets des cartes vectorielles"
 
 #: src/objsearch_pi.cpp:404
 msgid "Vector Chart Object Search PlugIn for OpenCPN\n"
 "Provides a search function for the named vector chart objects."
-msgstr "Complément de recherche d'objet graphique dans les cartes vectorielles pour OpenCPN\n"
+msgstr "Complément de recherche d'objets graphiques dans les cartes vectorielles pour OpenCPN\n"
 "Il fournit une fonction de recherche pour les objets nommés dans les cartes vectorielles."
 
 #: src/objsearch_pi.cpp:578
@@ -153,7 +154,7 @@ msgstr "Il y a un problème dans votre base de données. Voyez le fichier log d'
 #: src/objsearch_pi.cpp:598
 #, c-format
 msgid "Your search resulted in %i objects found. This is a lot, do you really want to show all of them?"
-msgstr "Votre recherche a abouti %i objets trouvés. C'est beaucoup, voulez-vous vraiment montrer l'ensemble d'entre eux ?"
+msgstr "Votre recherche a abouti %i objets trouvés. C'est beaucoup, voulez-vous vraiment voir l'ensemble d'entre eux ?"
 
 #: src/objsearch_pi.cpp:598
 msgid "Too many objects found"
@@ -662,7 +663,7 @@ msgstr "Sonde"
 
 #: src/objsearch_pi.cpp:1147
 msgid "Spring"
-msgstr "Souce"
+msgstr "Source"
 
 #: src/objsearch_pi.cpp:1149
 msgid "Square"
@@ -865,3 +866,4 @@ msgstr "Importation des données depuis %s."
 #, c-format
 msgid "The files %s does not exist, nothing to import."
 msgstr "Le fichier %s n'existe pas. Rien ne peut être importé."
+
