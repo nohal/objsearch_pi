@@ -42,7 +42,7 @@
 
 // SQLite user functions
 
-void DistanceMercatorFunc::Execute(wxSQLite3FunctionContext& ctx)
+void DistanceMercatorFunc::Execute(wxSQLite3::FunctionContext& ctx)
 {
     if (ctx.GetArgCount() != 4) {
         ctx.SetResultError(_T("Function takes exactly 4 arguments."));
@@ -89,7 +89,7 @@ extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p) { delete p; }
 //
 //---------------------------------------------------------------------------------------------------------
 
-wxSQLite3Database* objsearch_pi::initDB()
+wxSQLite3::Database* objsearch_pi::initDB()
 {
     bool have_to_create = false;
     wxString sDBName = *GetpPrivateApplicationDataLocation()
@@ -100,10 +100,10 @@ wxSQLite3Database* objsearch_pi::initDB()
     if (!wxFileExists(sDBName)) {
         have_to_create = true;
     }
-    wxSQLite3Database* db = new wxSQLite3Database();
+    wxSQLite3::Database* db = new wxSQLite3::Database();
     try {
         db->Open(sDBName);
-    } catch (wxSQLite3Exception& e) {
+    } catch (wxSQLite3::Exception& e) {
         wxLogMessage(_T("OBJSEARCH_PI: DB Exception: %i : %s"),
             e.GetErrorCode(), e.GetMessage().c_str());
         m_bDBUsable = false;
@@ -125,7 +125,8 @@ wxSQLite3Database* objsearch_pi::initDB()
     }
 
     if (m_bDBUsable) {
-        db->CreateFunction(_T("distanceMercator"), 4, distMercFunc, true);
+        db->CreateFunction(_T("distanceMercator"), 4, distMercFunc,
+            wxSQLite3::FUNC_DETERMINISTIC);
         // sqlite3_create_function(db, "distanceMercator", 4, SQLITE_UTF8, NULL,
         // &distanceMercatorFunc, NULL, NULL));
         QueryDB(db, _T("PRAGMA synchronous=OFF"));
@@ -144,12 +145,12 @@ wxSQLite3Database* objsearch_pi::initDB()
     return db;
 }
 
-int objsearch_pi::QueryDB(wxSQLite3Database* db, const wxString& sql)
+int objsearch_pi::QueryDB(wxSQLite3::Database* db, const wxString& sql)
 {
     int ret = -1;
     try {
         ret = db->ExecuteUpdate(sql);
-    } catch (wxSQLite3Exception& e) {
+    } catch (wxSQLite3::Exception& e) {
         wxLogMessage(_T("OBJSEARCH_PI: DB Exception: %i : %s"),
             e.GetErrorCode(), e.GetMessage().c_str());
         m_bDBUsable = false;
@@ -162,14 +163,14 @@ int objsearch_pi::QueryDB(wxSQLite3Database* db, const wxString& sql)
     return ret;
 }
 
-wxSQLite3ResultSet objsearch_pi::SelectFromDB(
-    wxSQLite3Database* db, const wxString& sql)
+wxSQLite3::ResultSet objsearch_pi::SelectFromDB(
+    wxSQLite3::Database* db, const wxString& sql)
 {
     if (!m_bDBUsable)
-        return wxSQLite3ResultSet();
+        return wxSQLite3::ResultSet();
     try {
         return db->ExecuteQuery(sql);
-    } catch (wxSQLite3Exception& e) {
+    } catch (wxSQLite3::Exception& e) {
         wxLogMessage(_T("OBJSEARCH_PI: DB Exception: %i : %s"),
             e.GetErrorCode(), e.GetMessage().c_str());
         m_bDBUsable = false;
@@ -178,10 +179,10 @@ wxSQLite3ResultSet objsearch_pi::SelectFromDB(
             _T("OBJSEARCH_PI: Unknown exception during '%s'"), sql.c_str());
         m_bDBUsable = false;
     }
-    return wxSQLite3ResultSet();
+    return wxSQLite3::ResultSet();
 }
 
-void objsearch_pi::clearDB(wxSQLite3Database* db)
+void objsearch_pi::clearDB(wxSQLite3::Database* db)
 {
     // assert(db != NULL);
     if (db == nullptr) {
@@ -189,7 +190,7 @@ void objsearch_pi::clearDB(wxSQLite3Database* db)
     }
     try {
         db->Close();
-    } catch (wxSQLite3Exception& e) {
+    } catch (wxSQLite3::Exception& e) {
         wxLogMessage(_T("OBJSEARCH_PI: DB Exception: %i : %s"),
             e.GetErrorCode(), e.GetMessage().c_str());
         m_bDBUsable = false;
@@ -253,7 +254,7 @@ int objsearch_pi::Init()
 
     m_db = initDB();
 
-    wxSQLite3ResultSet set;
+    wxSQLite3::ResultSet set;
 
     m_vpppm = 0.1;
 
@@ -589,7 +590,7 @@ void objsearch_pi::FindObjects(const wxString& feature_filter,
     m_pObjSearchDialog->ClearObjects();
     wxString safe_value = search_string;
     safe_value.Replace(_T("'"), _T("''"));
-    wxSQLite3ResultSet set;
+    wxSQLite3::ResultSet set;
     if (dist > 0.1)
         set = SelectFromDB(m_db,
             wxString::Format(

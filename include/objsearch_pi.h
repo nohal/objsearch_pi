@@ -39,8 +39,8 @@
 #define MY_API_VERSION_MAJOR 1
 #define MY_API_VERSION_MINOR 16
 
-#include <cstdint> // ocpn_plugin.h uses uint64_t without including it
 #include "ocpn_plugin.h"
+#include <cstdint> // ocpn_plugin.h uses uint64_t without including it
 
 #include "ObjSearchDialog.h"
 
@@ -73,10 +73,10 @@ struct Chart {
     }
 };
 
-class DistanceMercatorFunc : public wxSQLite3ScalarFunction {
+class DistanceMercatorFunc : public wxSQLite3::ScalarFunction {
 public:
     DistanceMercatorFunc() { };
-    void Execute(wxSQLite3FunctionContext& ctx);
+    void Execute(wxSQLite3::FunctionContext& ctx);
 };
 
 class DbThread : public wxThread {
@@ -281,7 +281,7 @@ private:
 
     std::map<wxString, Chart> m_chartsInDb;
     std::map<wxString, int> m_featuresInDb;
-    wxSQLite3Database* m_db;
+    wxSQLite3::Database* m_db;
 
     long GetChartId(wxString chart);
     int GetFeatureId(wxString feature);
@@ -295,11 +295,12 @@ private:
     bool m_bDBUsable;
     bool m_bWaitForDB;
 
-    wxSQLite3Database* initDB();
-    void clearDB(wxSQLite3Database* db);
+    wxSQLite3::Database* initDB();
+    void clearDB(wxSQLite3::Database* db);
 
-    int QueryDB(wxSQLite3Database* db, const wxString& sql);
-    wxSQLite3ResultSet SelectFromDB(wxSQLite3Database* db, const wxString& sql);
+    int QueryDB(wxSQLite3::Database* db, const wxString& sql);
+    wxSQLite3::ResultSet SelectFromDB(
+        wxSQLite3::Database* db, const wxString& sql);
 
     double m_boatlat;
     double m_boatlon;
