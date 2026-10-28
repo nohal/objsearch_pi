@@ -53,6 +53,14 @@ add_definitions(-DOBJSEARCH_USE_SVG)
 if(APPLE)
   add_definitions(-DSQLITE3MC_OMIT_AES_HARDWARE_SUPPORT=1)
 endif()
+if(QT_ANDROID)
+  # NDK clang 14 arm_neon.h does not expose the AES intrinsics
+  add_definitions(-DSQLITE3MC_OMIT_AES_HARDWARE_SUPPORT=1
+                  -DAEGIS_OMIT_AES_HARDWARE_SUPPORT=1)
+endif()
+# GCC 15 defaults to C23, making sqlite3mc call memset_explicit, which glibc <
+# 2.43 (e.g. flatpak runtime 25.08) lacks
+set(CMAKE_C_STANDARD 17)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/wxsqlite3-5.0.2/include)
