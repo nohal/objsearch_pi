@@ -25,7 +25,7 @@ set(OCPN_RELEASE_REPO
 # -------  Plugin setup --------
 #
 set(PKG_NAME objsearch_pi)
-set(PKG_VERSION "0.28.1")
+set(PKG_VERSION "0.30.0")
 set(PKG_PRERELEASE "") # Empty, or a tag like 'beta'
 
 set(DISPLAY_NAME objsearch) # Dialogs, installer artifacts, ...
@@ -75,7 +75,7 @@ set(SRC
     ${CMAKE_SOURCE_DIR}/sqlite3mc-2.2.6-sqlite-3.51.1-amalgamation/sqlite3mc_amalgamation.c
     ${CMAKE_SOURCE_DIR}/wxsqlite3-4.11.1/src/wxsqlite3.cpp)
 
-set(PKG_API_LIB api-16) # A dir in opencpn-libs/ e. g., api-17 or api-16
+set(PKG_API_LIB api-18) # A dir in opencpn-libs/ e. g., api-17 or api-16
 
 macro(late_init)
   # Perform initialization after the PACKAGE_NAME library, compilers and
